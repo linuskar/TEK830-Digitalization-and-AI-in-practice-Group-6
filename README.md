@@ -1,0 +1,1 @@
+# TEK830-Digitalization-and-AI-in-practice-Group-6
