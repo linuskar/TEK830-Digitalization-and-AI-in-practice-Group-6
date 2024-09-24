@@ -6,10 +6,6 @@ public class NotificationController {
     @FXML
     private TextArea notificationText;
     
-    public static void main(String[] args) {
-
-    }
-
     public void SetNotificationText(String text){
         notificationText.setText(text);
     }
