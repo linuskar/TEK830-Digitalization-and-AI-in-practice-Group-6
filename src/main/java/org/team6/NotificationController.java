@@ -1,3 +1,5 @@
+package org.team6;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 
