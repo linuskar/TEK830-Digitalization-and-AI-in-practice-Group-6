@@ -1,10 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomePageController">
+<AnchorPane fx:id="mainPage" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../styles/styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomePageController">
    <children>
-      <Button layoutX="200.0" layoutY="188.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="79.0" text="Homepage" />
+      <Pane layoutX="11.0" layoutY="75.0" prefHeight="502.0" prefWidth="363.0">
+         <children>
+            <Button layoutX="7.0" layoutY="58.0" mnemonicParsing="false" prefHeight="132.0" prefWidth="170.0" text="Button" />
+            <Button layoutX="187.0" layoutY="58.0" mnemonicParsing="false" prefHeight="132.0" prefWidth="170.0" text="Button" />
+            <Button layoutX="7.0" layoutY="219.0" mnemonicParsing="false" prefHeight="132.0" prefWidth="170.0" text="Button" />
+            <Button layoutX="189.0" layoutY="219.0" mnemonicParsing="false" prefHeight="132.0" prefWidth="170.0" text="Button" />
+         </children>
+      </Pane>
+      <Pane fx:id="barPane" layoutX="7.0" layoutY="598.0" prefHeight="61.0" prefWidth="370.0" stylesheets="@../../../../../target/classes/styles/styles.css">
+         <children>
+            <Button fx:id="accountButton" layoutX="154.0" layoutY="11.0" mnemonicParsing="false" stylesheets="@../../../../../target/classes/styles/styles.css">
+               <graphic>
+                  <ImageView fx:id="settingsImage" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../img/user.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="settingsButton" layoutX="39.0" layoutY="12.0" mnemonicParsing="false" stylesheets="@../../../../../target/classes/styles/styles.css">
+               <graphic>
+                  <ImageView fx:id="accountImage" fitHeight="26.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../img/setting.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="searchButton" layoutX="269.0" layoutY="11.0" minWidth="53.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="53.0" stylesheets="@../../../../../target/classes/styles/styles.css">
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../img/search-interface-symbol.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </Pane>
+      <BorderPane layoutX="11.0" layoutY="9.0" prefHeight="50.0" prefWidth="363.0">
+         <left>
+            <Text fx:id="homePageTitle" strokeType="OUTSIDE" strokeWidth="0.0" text="Home page" wrappingWidth="199.13671875" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+         </left>
+         <right>
+            <Button fx:id="menuButton" minWidth="53.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="53.0" stylesheets="@../../../../../target/classes/styles/styles.css" BorderPane.alignment="CENTER">
+               <graphic>
+                  <ImageView fitHeight="29.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../img/dots.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </right>
+      </BorderPane>
    </children>
 </AnchorPane>

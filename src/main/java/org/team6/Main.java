@@ -10,7 +10,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        // Correct resource path for FXML file based on your structure
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/org/team6/MainPage.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
 
@@ -21,7 +20,6 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
-
         System.out.println("Hello world!");
     }
 }
