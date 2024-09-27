@@ -1,3 +1,19 @@
 .hbox {
     -fx-spacing: 16px;
 }
+
+.mobile-toggle {
+    -fx-background-color: #ccc;
+    -fx-background-radius: 16px;
+    -fx-min-width: 56px;
+    -fx-min-height: 24px;
+    -fx-max-width: 56px;
+    -fx-max-height: 24px;
+    -fx-text-fill: transparent;
+    -fx-alignment: center-left;
+}
+
+.mobile-toggle:selected {
+    -fx-background-color: #4caf50;
+    -fx-alignment: center-right;
+}

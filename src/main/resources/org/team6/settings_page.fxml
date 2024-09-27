@@ -9,7 +9,7 @@
    <children>
       <HBox alignment="CENTER" layoutX="60.0" layoutY="107.0" prefWidth="200.0" styleClass="hbox" AnchorPane.topAnchor="64.0">
          <children>
-            <ToggleButton fx:id="sendNotificationsToggleButton" mnemonicParsing="false" onAction="#handleSendNotificationsOnAction" prefWidth="64.0" />
+            <ToggleButton fx:id="sendNotificationsToggleButton" mnemonicParsing="false" onAction="#handleSendNotificationsOnAction" prefWidth="64.0" styleClass="mobile-toggle" />
             <Label prefHeight="18.0" prefWidth="168.0" text="Send notifications" />
          </children>
       </HBox>
