@@ -2,6 +2,10 @@
     -fx-spacing: 16px;
 }
 
+.vbox {
+    -fx-spacing: 16px;
+}
+
 .mobile-toggle {
     -fx-background-color: #ccc;
     -fx-background-radius: 16px;
