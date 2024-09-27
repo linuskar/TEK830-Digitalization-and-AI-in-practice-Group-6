@@ -4,6 +4,7 @@
 -fx-border-radius: 15px;
 -fx-border-width: 5px;
 -fx-border-color: #21130d;
+-fx-background-color: #ffffff;
 }
 
 #homePageTitle{
@@ -29,12 +30,8 @@
 -fx-background-color: transparent;
 }
 
-#menuButton{
+#menuButton1{
 -fx-background-color: transparent;
 }
 
-#topBar{
--fx-border-radius: 15px
--fx-border-color:  #21130d
--fx-border-width: 5px
-}
+

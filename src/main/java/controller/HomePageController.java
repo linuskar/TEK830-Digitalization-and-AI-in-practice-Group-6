@@ -2,12 +2,12 @@ package controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
-import javax.swing.text.html.ImageView;
 import java.awt.*;
 
 public class HomePageController {
@@ -24,6 +24,9 @@ public class HomePageController {
     private javafx.scene.image.ImageView accountImage;
 
     @FXML
+    private javafx.scene.image.ImageView menuImage1;
+
+    @FXML
     private Pane barPane;
 
     @FXML
@@ -36,8 +39,18 @@ public class HomePageController {
     private Button searchButton;
 
     @FXML
-    private Button menuButton;
+    private BorderPane topBar;
 
     @FXML
-    private BorderPane topBar;
+    private Button menuButton1;
+
+   public void test(){
+        if (menuImage1 == null) {
+            System.out.println("settingsImage is not injected");
+        } else {
+            System.out.println("settingsImage is injected");
+        }
+
+    }
+
 }
