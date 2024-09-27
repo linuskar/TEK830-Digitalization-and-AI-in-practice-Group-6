@@ -1,13 +1,22 @@
 package org.team6;
 
-import java.sql.SQLException;
-
 import org.team6.Database.DatabaseConnection;
 
 public class Main {
-    public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        DatabaseConnection databaseConnection = new DatabaseConnection();
+    public static void main(String[] args){
+        try{
+            DatabaseConnection c = new DatabaseConnection();
+            c.registerProduct("test");
 
-        databaseConnection.registerProduct("testing2222");
+            // To reset the database run the method once
+            //c.resetDatabase();
+
+            c.closeConnection();
+    
+        } catch (ClassNotFoundException e) {
+            System.err.println("ERROR!\nYou do not have the H2 JDBC driver (e.g. h2-2.3.232.jar) in your runtime classpath!");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

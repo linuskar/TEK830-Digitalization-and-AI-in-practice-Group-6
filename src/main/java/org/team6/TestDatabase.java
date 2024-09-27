@@ -1,8 +1,5 @@
 package org.team6;
 
-import java.io.FileInputStream;
-import java.util.Properties;
-
 import org.team6.Database.DatabaseConnection;
 
 public class TestDatabase {
@@ -12,14 +9,12 @@ public class TestDatabase {
    // This class creates a portal connection and runs a few operation
 
    public static void main(String[] args) {
-
     try{
         DatabaseConnection c = new DatabaseConnection();
         // TO RESET THE DATABASE
         // Write your tests here. Add/remove calls to pause() as desired. 
         // Use println instead of prettyPrint to get more compact output (if your raw JSON is already readable)
 
-        prettyPrint(c.setupDatabase()); 
         pause();
 
         // Close the connection
@@ -29,7 +24,6 @@ public class TestDatabase {
         System.err.println("ERROR!\nYou do not have the H2 JDBC driver (e.g. h2-2.3.232.jar) in your runtime classpath!");
     } catch (Exception e) {
         e.printStackTrace();
-    
     }
    }
    
