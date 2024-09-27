@@ -3,10 +3,15 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 
-<AnchorPane prefHeight="480.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.SettingsPageController">
+<AnchorPane prefHeight="480.0" prefWidth="320.0" stylesheets="@settings_styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.SettingsPageController">
    <children>
-      <ToggleButton fx:id="sendNotificationsToggleButton" layoutX="196.0" layoutY="64.0" mnemonicParsing="false" onAction="#handleSendNotificationsOnAction" prefWidth="64.0" AnchorPane.leftAnchor="32.0" AnchorPane.topAnchor="64.0" />
-      <Label layoutX="138.0" layoutY="68.0" prefHeight="18.0" prefWidth="168.0" text="Send notifications" AnchorPane.rightAnchor="32.0" />
+      <HBox alignment="CENTER" layoutX="60.0" layoutY="107.0" prefWidth="200.0" styleClass="hbox" AnchorPane.topAnchor="64.0">
+         <children>
+            <ToggleButton fx:id="sendNotificationsToggleButton" mnemonicParsing="false" onAction="#handleSendNotificationsOnAction" prefWidth="64.0" />
+            <Label prefHeight="18.0" prefWidth="168.0" text="Send notifications" />
+         </children>
+      </HBox>
    </children>
 </AnchorPane>
