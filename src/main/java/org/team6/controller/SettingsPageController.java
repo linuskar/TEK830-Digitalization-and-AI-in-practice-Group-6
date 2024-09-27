@@ -2,6 +2,7 @@ package org.team6.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.layout.AnchorPane;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +24,7 @@ public class SettingsPageController {
     // Meant for toggling notifications in general.
     @FXML
     private void handleSendNotificationsOnAction() {
+        // TODO: make it work with model.
         boolean isSelected = sendNotificationsToggleButton.isSelected();
         if (isSelected) {
             // NotificationModel.enableNotifications()
@@ -38,11 +40,17 @@ public class SettingsPageController {
     // Example of specifically toggling a notification.
     @FXML
     private void handleLowElectricPriceOnAction() {
+        // TODO: make it work with model.
         boolean isSelected = sendLowElectricPriceToggleButton.isSelected();
         if (isSelected) {
             // NotificationModel.enableNotification(NotificationType.LOW_ELECTRIC)
         } else {
             // NotificationModel.disableNotification(NotificationType.LOW_ELECTRIC)
         }
+    }
+
+    @FXML
+    private void handleBackOnAction() {
+        // TODO: go back to home page
     }
 }
