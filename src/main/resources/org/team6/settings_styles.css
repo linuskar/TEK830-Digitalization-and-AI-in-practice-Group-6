@@ -21,3 +21,8 @@
     -fx-background-color: #4caf50;
     -fx-alignment: center-right;
 }
+
+.title-text {
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+}
