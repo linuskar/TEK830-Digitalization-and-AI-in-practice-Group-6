@@ -13,7 +13,7 @@ public class SettingsPageController {
         if (isSelected) {
             // NotificationModel.EnableNotifications()
         } else {
-            // NotificationModel.DisabledNotifications()
+            // NotificationModel.DisableNotifications()
         }
     }
 
