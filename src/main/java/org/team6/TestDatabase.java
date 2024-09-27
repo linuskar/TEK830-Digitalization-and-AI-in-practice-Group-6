@@ -15,30 +15,18 @@ public class TestDatabase {
 
     try{
         DatabaseConnection c = new DatabaseConnection();
-
         // TO RESET THE DATABASE
-        // 
-
-
         // Write your tests here. Add/remove calls to pause() as desired. 
         // Use println instead of prettyPrint to get more compact output (if your raw JSON is already readable)
-        System.out.println("USERNAME: " + c.getUserName());
-        System.out.println("DATABASE: " + c.getDatabaseName());
 
-        Properties props = new Properties();
-        props.load(new FileInputStream("src\\main\\java\\org\\team6\\config.properties"));
-
-        String dbUser = props.getProperty("db.user"); // user
-        String dbPassword = props.getProperty("db.password"); // password
-
-        System.out.println("DB_USER: " + dbUser);
-        System.out.println("DB_PASSWORD: " + dbPassword);
-
-        prettyPrint(c.registerProduct("testing2222")); 
+        prettyPrint(c.setupDatabase()); 
         pause();
 
+        // Close the connection
+        c.closeConnection();
+
     } catch (ClassNotFoundException e) {
-        System.err.println("ERROR!\nYou do not have the Postgres JDBC driver (e.g. postgresql-42.7.4.jar) in your runtime classpath!");
+        System.err.println("ERROR!\nYou do not have the H2 JDBC driver (e.g. h2-2.3.232.jar) in your runtime classpath!");
     } catch (Exception e) {
         e.printStackTrace();
     
