@@ -1,0 +1,5 @@
+CREATE DATABASE portal;
+
+CREATE USER "user" WITH PASSWORD 'password';
+
+GRANT ALL PRIVILEGES ON DATABASE portal TO "user";

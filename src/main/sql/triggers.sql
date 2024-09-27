@@ -1,0 +1,1 @@
+-- Creating triggers for the database
