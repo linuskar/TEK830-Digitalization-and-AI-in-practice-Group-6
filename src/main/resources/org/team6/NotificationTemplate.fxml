@@ -8,17 +8,17 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.NotificationController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="393.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.NotificationController">
    <children>
-      <Rectangle arcHeight="100.0" arcWidth="100.0" fill="WHITE" height="150.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
-      <ImageView fitHeight="150.0" fitWidth="122.0" layoutX="28.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <Rectangle arcHeight="100.0" arcWidth="100.0" fill="WHITE" height="150.0" stroke="BLACK" strokeType="INSIDE" width="393.0" />
+      <ImageView fitHeight="111.0" fitWidth="110.0" layoutX="14.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/ikea_home.png" />
          </image>
       </ImageView>
-      <Text fx:id="notificationText" layoutX="218.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notification text">
+      <Text fx:id="notificationText" layoutX="144.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notification text" wrappingWidth="234.0556640625">
          <font>
-            <Font name="SansSerif Regular" size="24.0" />
+            <Font name="SansSerif Regular" size="18.0" />
          </font>
       </Text>
    </children>
