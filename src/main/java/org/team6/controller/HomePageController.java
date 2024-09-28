@@ -1,4 +1,4 @@
-package controller;
+package org.team6.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -56,13 +56,5 @@ public class HomePageController {
     @FXML
     private Text electricityText;
 
-   public void test(){
-        if (menuImage1 == null) {
-            System.out.println("settingsImage is not injected");
-        } else {
-            System.out.println("settingsImage is injected");
-        }
-
-    }
 
 }

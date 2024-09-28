@@ -8,11 +8,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="mainPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="852.0" prefWidth="382.0" stylesheets="@../../styles/styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomePageController">
+<AnchorPane fx:id="mainPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="852.0" prefWidth="382.0" stylesheets="@styles/styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.HomePageController">
    <children>
       <Pane layoutX="18.0" layoutY="89.0" prefHeight="475.0" prefWidth="353.0">
          <children>
-            <Button fx:id="electricityButton" layoutX="12.0" layoutY="245.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="328.0" stylesheets="@../../styles/styles.css">
+            <Button fx:id="electricityButton" layoutX="12.0" layoutY="245.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="328.0" stylesheets="@styles/styles.css">
                <graphic>
                   <Pane depthTest="ENABLE" prefHeight="36.0" prefWidth="284.0">
                      <children>
@@ -23,15 +23,15 @@
                         </Text>
                         <ImageView fitHeight="40.0" fitWidth="53.0" layoutX="252.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../img/flash.png" />
+                              <Image url="@img/flash.png" />
                            </image>
                         </ImageView>
                      </children>
                   </Pane>
                </graphic></Button>
-            <Button fx:id="tipsButton" layoutX="13.0" layoutY="314.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="328.0">
+            <Button fx:id="tipsButton" layoutX="13.0" layoutY="314.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="328.0" stylesheets="@styles/styles.css">
                <graphic>
-                  <Pane prefHeight="58.0" prefWidth="200.0" stylesheets="@../../styles/styles.css">
+                  <Pane prefHeight="58.0" prefWidth="200.0" stylesheets="@styles/styles.css">
                      <children>
                         <Text layoutX="42.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tips" wrappingWidth="136.91811561584473">
                            <font>
@@ -40,7 +40,7 @@
                         </Text>
                         <ImageView fitHeight="33.0" fitWidth="61.0" layoutX="256.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../img/seo-tips.png" />
+                              <Image url="@img/seo-tips.png" />
                            </image>
                         </ImageView>
                      </children>
@@ -48,18 +48,18 @@
                </graphic></Button>
             <ImageView fx:id="frontPageImage" fitHeight="190.0" fitWidth="353.0" layoutX="-1.0" layoutY="4.0" pickOnBounds="true" preserveRatio="false">
                <image>
-                  <Image url="@../../img/pexels-alexander-isreb-880417-1797405.jpg" />
+                  <Image url="@img/pexels-alexander-isreb-880417-1797405.jpg" />
                </image>
             </ImageView>
          </children>
       </Pane>
-      <Pane fx:id="barPane" layoutX="9.0" layoutY="585.0" prefHeight="61.0" prefWidth="370.0" stylesheets="@../../../../../target/classes/styles/styles.css">
+      <Pane fx:id="barPane" layoutX="9.0" layoutY="585.0" prefHeight="61.0" prefWidth="370.0" stylesheets="@styles/styles.css">
          <children>
             <Button fx:id="accountButton" layoutX="154.0" layoutY="11.0" mnemonicParsing="false" stylesheets="@../../../../../target/classes/styles/styles.css">
                <graphic>
                   <ImageView fx:id="settingsImage" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../img/user.png" />
+                        <Image url="@img/user.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -68,16 +68,16 @@
                <graphic>
                   <ImageView fx:id="accountImage" fitHeight="26.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../img/setting.png" />
+                        <Image url="@img/setting.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="searchButton" layoutX="269.0" layoutY="11.0" minWidth="53.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="53.0" stylesheets="@../../../../../target/classes/styles/styles.css">
+            <Button fx:id="searchButton" layoutX="269.0" layoutY="11.0" minWidth="53.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="53.0" stylesheets="@styles/styles.css">
                <graphic>
                   <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../img/search-interface-symbol.png" />
+                        <Image url="@img/search-interface-symbol.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -89,11 +89,11 @@
             <Font size="25.0" />
          </font>
       </Text>
-      <Button fx:id="menuButton1" layoutX="304.0" layoutY="13.0" minWidth="47.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="68.0" stylesheets="@../../styles/styles.css" visible="true">
+      <Button fx:id="menuButton1" layoutX="304.0" layoutY="13.0" minWidth="47.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="68.0" stylesheets="@styles/styles.css" visible="true">
          <graphic>
             <ImageView fx:id="menuImage1" fitHeight="35.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../img/dots.png" />
+                  <Image url="@img/dots.png" />
                </image>
             </ImageView>
          </graphic>
