@@ -34,4 +34,14 @@
 -fx-background-color: transparent;
 }
 
+#electricityButton, #tipsButton {
+    -fx-background-color: #FAF9F6;
+    -fx-background-radius: 20px;
+    -fx-padding: 10px 20px;
+    -fx-border-width: 1px;
+    -fx-border-radius: 20px;
+
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 5, 0, 0, 2);
+}
+
 

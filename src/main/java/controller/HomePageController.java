@@ -44,6 +44,18 @@ public class HomePageController {
     @FXML
     private Button menuButton1;
 
+    @FXML
+    private ImageView frontPageImage;
+
+    @FXML
+    private Button electricityButton;
+
+    @FXML
+    private Button tipsButton;
+
+    @FXML
+    private Text electricityText;
+
    public void test(){
         if (menuImage1 == null) {
             System.out.println("settingsImage is not injected");

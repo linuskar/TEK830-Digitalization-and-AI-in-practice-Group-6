@@ -8,14 +8,49 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="mainPage" prefHeight="669.0" prefWidth="397.0" stylesheets="@../../styles/styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomePageController">
+<AnchorPane fx:id="mainPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="852.0" prefWidth="382.0" stylesheets="@../../styles/styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomePageController">
    <children>
-      <Pane layoutX="11.0" layoutY="91.0" prefHeight="475.0" prefWidth="363.0">
+      <Pane layoutX="18.0" layoutY="89.0" prefHeight="475.0" prefWidth="353.0">
          <children>
-            <Button layoutX="7.0" layoutY="-20.0" mnemonicParsing="false" prefHeight="132.0" prefWidth="170.0" text="Button" />
-            <Button layoutX="187.0" layoutY="-19.0" mnemonicParsing="false" prefHeight="132.0" prefWidth="170.0" text="Button" />
-            <Button layoutX="7.0" layoutY="123.0" mnemonicParsing="false" prefHeight="332.0" prefWidth="170.0" text="Button" />
-            <Button layoutX="189.0" layoutY="124.0" mnemonicParsing="false" prefHeight="332.0" prefWidth="170.0" text="Button" />
+            <Button fx:id="electricityButton" layoutX="12.0" layoutY="245.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="328.0" stylesheets="@../../styles/styles.css">
+               <graphic>
+                  <Pane depthTest="ENABLE" prefHeight="36.0" prefWidth="284.0">
+                     <children>
+                        <Text fx:id="electricityText" layoutX="37.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Electricity" wrappingWidth="211.91811561584473">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <ImageView fitHeight="40.0" fitWidth="53.0" layoutX="252.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../img/flash.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+               </graphic></Button>
+            <Button fx:id="tipsButton" layoutX="13.0" layoutY="314.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="328.0">
+               <graphic>
+                  <Pane prefHeight="58.0" prefWidth="200.0" stylesheets="@../../styles/styles.css">
+                     <children>
+                        <Text layoutX="42.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tips" wrappingWidth="136.91811561584473">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <ImageView fitHeight="33.0" fitWidth="61.0" layoutX="256.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../img/seo-tips.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+               </graphic></Button>
+            <ImageView fx:id="frontPageImage" fitHeight="190.0" fitWidth="353.0" layoutX="-1.0" layoutY="4.0" pickOnBounds="true" preserveRatio="false">
+               <image>
+                  <Image url="@../../img/pexels-alexander-isreb-880417-1797405.jpg" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
       <Pane fx:id="barPane" layoutX="9.0" layoutY="585.0" prefHeight="61.0" prefWidth="370.0" stylesheets="@../../../../../target/classes/styles/styles.css">
@@ -56,7 +91,7 @@
       </Text>
       <Button fx:id="menuButton1" layoutX="304.0" layoutY="13.0" minWidth="47.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="68.0" stylesheets="@../../styles/styles.css" visible="true">
          <graphic>
-            <ImageView fx:id="menuImage1" fitHeight="34.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="menuImage1" fitHeight="35.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../img/dots.png" />
                </image>
