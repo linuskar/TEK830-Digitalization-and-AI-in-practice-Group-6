@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -13,14 +14,20 @@
          <children>
             <HBox alignment="CENTER" prefWidth="200.0" styleClass="hbox">
                <children>
-                  <ToggleButton fx:id="sendNotificationsToggleButton" mnemonicParsing="false" onAction="#handleSendNotificationsOnAction" prefWidth="64.0" styleClass="mobile-toggle" />
                   <Label prefWidth="168.0" text="Send notifications" wrapText="true" />
+                  <ToggleButton fx:id="sendNotificationsToggleButton" mnemonicParsing="false" onAction="#handleSendNotificationsOnAction" prefWidth="64.0" styleClass="mobile-toggle" />
                </children>
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefWidth="200.0" styleClass="hbox">
                <children>
-                  <ToggleButton fx:id="sendLowElectricPriceToggleButton" mnemonicParsing="false" onAction="#handleLowElectricPriceOnAction" prefWidth="64.0" styleClass="mobile-toggle" />
                   <Label prefWidth="168.0" text="Send low electric price notifications" wrapText="true" />
+                  <ToggleButton fx:id="sendLowElectricPriceToggleButton" mnemonicParsing="false" onAction="#handleLowElectricPriceOnAction" prefWidth="64.0" styleClass="mobile-toggle" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="50.0" prefWidth="200.0" styleClass="hbox">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="68.0" text="Volume" wrapText="true" />
+                  <Slider fx:id="volumeSlider" minorTickCount="1" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
                </children>
             </HBox>
          </children>

@@ -1,6 +1,7 @@
 package org.team6.controller;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Slider;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.AnchorPane;
 
@@ -12,6 +13,8 @@ public class SettingsPageController {
     private ToggleButton sendNotificationsToggleButton;
     @FXML
     private ToggleButton sendLowElectricPriceToggleButton;
+    @FXML
+    private Slider volumeSlider;
 
     // List of specific notification buttons. For instance used for
     // enabling and disabling all buttons if notifications are switched on or off.
@@ -19,6 +22,8 @@ public class SettingsPageController {
 
     public SettingsPageController() {
         notificationButtons.add(sendNotificationsToggleButton);
+        // Don't think you can add it directly in Scenebuilder.
+        volumeSlider.valueProperty().addListener((observable, oldValue, newValue) -> handleVolumeChanged());
     }
 
     // Meant for toggling notifications in general.
@@ -52,5 +57,11 @@ public class SettingsPageController {
     @FXML
     private void handleBackOnAction() {
         // TODO: go back to home page
+    }
+
+    private void handleVolumeChanged() {
+        // TODO: make it work with model.
+        double volume = volumeSlider.getValue();
+        // NotificationModel.setVolume(volume)
     }
 }
