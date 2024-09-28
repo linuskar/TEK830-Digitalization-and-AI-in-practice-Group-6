@@ -23,7 +23,10 @@ public class SettingsPageController {
     public SettingsPageController() {
         notificationButtons.add(sendNotificationsToggleButton);
         // Don't think you can add it directly in Scenebuilder.
-        volumeSlider.valueProperty().addListener((observable, oldValue, newValue) -> handleVolumeChanged());
+        volumeSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
+            // If double is not the supported type in the model, it can easily be changed here I think.
+            handleVolumeChanged(newValue.doubleValue());
+        });
     }
 
     // Meant for toggling notifications in general.
@@ -59,9 +62,8 @@ public class SettingsPageController {
         // TODO: go back to home page
     }
 
-    private void handleVolumeChanged() {
+    private void handleVolumeChanged(double newVolume) {
         // TODO: make it work with model.
-        double volume = volumeSlider.getValue();
-        // NotificationModel.setVolume(volume)
+        // NotificationModel.setVolume(newVolume)
     }
 }
