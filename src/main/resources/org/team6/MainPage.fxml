@@ -12,7 +12,7 @@
    <children>
       <Pane layoutX="18.0" layoutY="89.0" prefHeight="475.0" prefWidth="353.0">
          <children>
-            <Button fx:id="electricityButton" layoutX="12.0" layoutY="245.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="328.0" stylesheets="@styles/styles.css">
+            <Button fx:id="electricityButton" layoutX="12.0" layoutY="245.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="328.0">
                <graphic>
                   <Pane depthTest="ENABLE" prefHeight="36.0" prefWidth="284.0">
                      <children>
@@ -29,7 +29,7 @@
                      </children>
                   </Pane>
                </graphic></Button>
-            <Button fx:id="tipsButton" layoutX="13.0" layoutY="314.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="328.0" stylesheets="@styles/styles.css">
+            <Button fx:id="tipsButton" layoutX="13.0" layoutY="314.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="328.0">
                <graphic>
                   <Pane prefHeight="58.0" prefWidth="200.0" stylesheets="@styles/styles.css">
                      <children>
@@ -53,7 +53,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane fx:id="barPane" layoutX="9.0" layoutY="585.0" prefHeight="61.0" prefWidth="370.0" stylesheets="@styles/styles.css">
+      <Pane fx:id="barPane" layoutX="9.0" layoutY="585.0" prefHeight="61.0" prefWidth="370.0">
          <children>
             <Button fx:id="accountButton" layoutX="154.0" layoutY="11.0" mnemonicParsing="false">
                <graphic>
@@ -73,7 +73,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="searchButton" layoutX="269.0" layoutY="11.0" minWidth="53.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="53.0" stylesheets="@styles/styles.css">
+            <Button fx:id="searchButton" layoutX="269.0" layoutY="11.0" minWidth="53.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="53.0">
                <graphic>
                   <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -89,7 +89,7 @@
             <Font size="25.0" />
          </font>
       </Text>
-      <Button fx:id="menuButton1" layoutX="304.0" layoutY="13.0" minWidth="47.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="68.0" stylesheets="@styles/styles.css" visible="true">
+      <Button fx:id="menuButton1" layoutX="304.0" layoutY="13.0" minWidth="47.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="68.0" visible="true">
          <graphic>
             <ImageView fx:id="menuImage1" fitHeight="35.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                <image>
