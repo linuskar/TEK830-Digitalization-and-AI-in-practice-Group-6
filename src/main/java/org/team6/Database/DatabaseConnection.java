@@ -12,7 +12,7 @@ import java.util.Properties;
 // Some template code for database connection, from TDA357 course
 
 public class DatabaseConnection {
-    static final String DBNAME = "TEK830_Group6";
+    static final String DBNAME = "TEK830_Group6_test";
     static final String DATABASE = "jdbc:h2:~/"+DBNAME;
     // default user and password
     static final String USERNAME = "sa";

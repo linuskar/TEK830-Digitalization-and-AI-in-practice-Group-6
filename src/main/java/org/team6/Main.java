@@ -9,9 +9,12 @@ public class Main {
             c.registerProduct("test");
             c.registerProduct("test2");
             c.registerProduct("test3");
+            c.registerProduct("test4");
+            c.registerProduct("ikea lampa");
+            c.registerProduct("ikea lampa2");
 
             String products = c.getProducts();
-            System.out.println(products);
+            System.out.println("Products in database: " + products);
             
             // To reset the database run the method once
             //c.resetDatabase();

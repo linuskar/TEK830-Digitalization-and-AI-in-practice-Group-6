@@ -50,7 +50,9 @@ CREATE TABLE Users (
 CREATE TABLE Owners (
     user_id INT,
     usage_id INT,
+    product TEXT,
     PRIMARY KEY (user_id, usage_id),
     FOREIGN KEY (user_id) REFERENCES Users(id),
-    FOREIGN KEY (usage_id) REFERENCES Usages(id)
+    FOREIGN KEY (usage_id) REFERENCES Usages(id),
+    FOREIGN KEY (product) REFERENCES Products(name)
 );
