@@ -5,6 +5,10 @@ import java.nio.file.Paths;
 import java.sql.*; // JDBC stuff.
 import java.util.Properties;
 
+// Link to information about the database:
+// https://docs.google.com/document/d/1JxDC5xcKDjNiRzDip7-FgzctD0OXAkUr1Vwq7ylGTpA/edit?usp=sharing
+
+
 // Some template code for database connection, from TDA357 course
 
 public class DatabaseConnection {
