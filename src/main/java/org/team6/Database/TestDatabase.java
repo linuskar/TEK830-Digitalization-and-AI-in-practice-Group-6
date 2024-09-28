@@ -1,6 +1,4 @@
-package org.team6;
-
-import org.team6.Database.DatabaseConnection;
+package org.team6.Database;
 
 public class TestDatabase {
      // enable this to make pretty printing a bit more compact

@@ -14,27 +14,24 @@ CREATE TABLE LampProducts(
 );
 
 CREATE TABLE Usages (
+    id INT,
     product TEXT,
     current_energy_output INT CHECK (current_energy_output >= 0),
-    PRIMARY KEY (product),
+    PRIMARY KEY (id),
     FOREIGN KEY (product) REFERENCES Products(name)
 );
 
 CREATE TABLE Utilities (
-    product TEXT,
+    id INT,
     time DATE,
-    PRIMARY KEY (product, time),
-    FOREIGN KEY (product) REFERENCES Usages(product)
+    PRIMARY KEY (id, time),
+    FOREIGN KEY (id) REFERENCES Usages(id)
 );
 
 CREATE TABLE ElectricityUtilities (
-    product TEXT,
+    id INT,
     time DATE,
     power_consumption INT CHECK (power_consumption >= 0),
-    PRIMARY KEY (product, time),
-    FOREIGN KEY (product, time) REFERENCES Utilities(product, time)
+    PRIMARY KEY (id, time),
+    FOREIGN KEY (id, time) REFERENCES Utilities(product, time)
 );
-
-SELECT * FROM products;
-
-INSERT INTO products (name) VALUES ('Lamp');

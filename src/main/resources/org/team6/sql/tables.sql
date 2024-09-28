@@ -1,6 +1,7 @@
 -- Create tables for the database
 -- Drop tables if they exist
 
+
 CREATE TABLE Products (
     name TEXT,
     PRIMARY KEY (name)
@@ -15,23 +16,41 @@ CREATE TABLE LampProducts(
 );
 
 CREATE TABLE Usages (
+    id INT,
     product TEXT,
     current_energy_output INT CHECK (current_energy_output >= 0),
-    PRIMARY KEY (product),
+    PRIMARY KEY (id),
     FOREIGN KEY (product) REFERENCES Products(name)
 );
 
 CREATE TABLE Utilities (
-    product TEXT,
+    id INT,
     time DATE,
-    PRIMARY KEY (product, time),
-    FOREIGN KEY (product) REFERENCES Usages(product)
+    PRIMARY KEY (id, time),
+    FOREIGN KEY (id) REFERENCES Usages(id)
 );
 
 CREATE TABLE ElectricityUtilities (
-    product TEXT,
+    id INT,
     time DATE,
     power_consumption INT CHECK (power_consumption >= 0),
-    PRIMARY KEY (product, time),
-    FOREIGN KEY (product, time) REFERENCES Utilities(product, time)
+    PRIMARY KEY (id, time),
+    FOREIGN KEY (id, time) REFERENCES Utilities(id, time)
+);
+
+CREATE TABLE Users (
+    id INT,
+    fname TEXT NOT NULL,
+    lname TEXT NOT NULL,
+    address TEXT,
+    pcode TEXT,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE Owners (
+    user_id INT,
+    usage_id INT,
+    PRIMARY KEY (user_id, usage_id),
+    FOREIGN KEY (user_id) REFERENCES Users(id),
+    FOREIGN KEY (usage_id) REFERENCES Usages(id)
 );

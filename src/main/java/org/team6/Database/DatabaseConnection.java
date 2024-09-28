@@ -38,6 +38,12 @@ public class DatabaseConnection {
         }
     }
 
+    /**
+     * Registers a product in the database.
+     *
+     * @param productName the name of the product to register
+     * @return a JSON string indicating success or failure
+     */
     public String registerProduct(String productName){
       String query = "INSERT INTO Products VALUES(?)";
       
@@ -48,6 +54,29 @@ public class DatabaseConnection {
       } catch (SQLException e) {
           return "{\"success\":false, \"error\":\""+getError(e)+"\"}";
       }  
+    }
+
+    /**
+     * Retrieves all unique products (not products connected to the app) from the database.
+     *
+     * @return a string containing all products
+     */
+    public String getProducts() {
+        String query = "SELECT * FROM Products";
+        try (PreparedStatement ps = conn.prepareStatement(query)) {
+            ResultSet rs = ps.executeQuery();
+            StringBuilder sb = new StringBuilder();
+            sb.append("products: ");
+            while (rs.next()) {
+                sb.append("\"").append(rs.getString(1)).append("\",");
+            }
+            if (sb.charAt(sb.length()-1) == ',') {
+                sb.deleteCharAt(sb.length()-1);
+            }
+            return sb.toString();
+        } catch (SQLException e) {
+            return "{\"error\":\""+getError(e)+"\"}";
+        }
     }
 
     // This is a hack to turn an SQLException into a JSON string error message. No need to change.

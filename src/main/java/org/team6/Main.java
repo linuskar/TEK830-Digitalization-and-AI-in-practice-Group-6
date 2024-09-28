@@ -7,7 +7,12 @@ public class Main {
         try{
             DatabaseConnection c = new DatabaseConnection();
             c.registerProduct("test");
+            c.registerProduct("test2");
+            c.registerProduct("test3");
 
+            String products = c.getProducts();
+            System.out.println(products);
+            
             // To reset the database run the method once
             //c.resetDatabase();
 
