@@ -33,5 +33,22 @@ CREATE TABLE ElectricityUtilities (
     time DATE,
     power_consumption INT CHECK (power_consumption >= 0),
     PRIMARY KEY (id, time),
-    FOREIGN KEY (id, time) REFERENCES Utilities(product, time)
+    FOREIGN KEY (id, time) REFERENCES Utilities(id, time)
+);
+
+CREATE TABLE Users (
+    id INT,
+    fname TEXT NOT NULL,
+    lname TEXT NOT NULL,
+    address TEXT,
+    pcode TEXT,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE Owners (
+    user_id INT,
+    usage_id INT,
+    PRIMARY KEY (user_id, usage_id),
+    FOREIGN KEY (user_id) REFERENCES Users(id),
+    FOREIGN KEY (usage_id) REFERENCES Usages(id)
 );
