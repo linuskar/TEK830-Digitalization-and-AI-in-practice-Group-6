@@ -8,11 +8,11 @@ public class NotificationController {
     @FXML
     private TextArea notificationText;
     
-    public void SetNotificationText(String text){
+    public void setNotificationText(String text){
         notificationText.setText(text);
     }
 
-    public String GetNotificationText(){
+    public String getNotificationText(){
         return notificationText.getText();
     }
 
