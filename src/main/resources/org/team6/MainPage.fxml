@@ -55,7 +55,7 @@
       </Pane>
       <Pane fx:id="barPane" layoutX="9.0" layoutY="585.0" prefHeight="61.0" prefWidth="370.0" stylesheets="@styles/styles.css">
          <children>
-            <Button fx:id="accountButton" layoutX="154.0" layoutY="11.0" mnemonicParsing="false" stylesheets="@../../../../../target/classes/styles/styles.css">
+            <Button fx:id="accountButton" layoutX="154.0" layoutY="11.0" mnemonicParsing="false">
                <graphic>
                   <ImageView fx:id="settingsImage" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -64,7 +64,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="settingsButton" layoutX="39.0" layoutY="12.0" mnemonicParsing="false" stylesheets="@../../../../../target/classes/styles/styles.css">
+            <Button fx:id="settingsButton" layoutX="39.0" layoutY="12.0" mnemonicParsing="false">
                <graphic>
                   <ImageView fx:id="accountImage" fitHeight="26.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                      <image>
