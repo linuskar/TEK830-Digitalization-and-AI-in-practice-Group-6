@@ -68,7 +68,7 @@ public class User {
         return notificationsOn;
     }
 
-    public void toggleNotifications() {
+    void toggleNotifications() {
         notificationsOn = !notificationsOn;
     }
 
@@ -76,7 +76,7 @@ public class User {
         return notifications.get(notification);
     }
 
-    public void toggleSpecificNotification(Notification notification) {
+    void toggleSpecificNotification(Notification notification) {
         Boolean currentState = notifications.get(notification);
         Boolean toggledState = !currentState;
         notifications.put(notification, toggledState);
