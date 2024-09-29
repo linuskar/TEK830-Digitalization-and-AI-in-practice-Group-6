@@ -1,6 +1,6 @@
 package org.team6;
 
-public enum Sound {
+public enum SoundLevel {
     VIBRATIONS,
     LOW,
     MEDIUM,

@@ -1,6 +1,6 @@
 package org.team6;
 
-public enum Notifications {
+public enum Notification {
     ONE,
     TWO,
     THREE,

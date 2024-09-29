@@ -8,13 +8,13 @@ public class NotificationBackend {
         u.toggleNotifications();
     }
 
-    public static void turnOnTurnOffASpecificNotification(User u, Notifications type) {
+    public static void turnOnTurnOffASpecificNotification(User u, Notification type) {
         if (u.areNotificationsOn()) {
             u.toggleSpecificNotification(type);
         }
     }
 
-    public static void changeSoundLevel(User u, Sound type) {
+    public static void changeSoundLevel(User u, SoundLevel type) {
         u.setSoundLevel(type);
     }
 }

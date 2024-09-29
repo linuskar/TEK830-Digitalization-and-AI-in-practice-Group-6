@@ -8,9 +8,9 @@ public class User {
     private String lastName;
     private String email;
     private String password;
-    private Sound soundLevel = Sound.VIBRATIONS;
+    private SoundLevel soundLevel = SoundLevel.VIBRATIONS;
     private boolean notificationsOn = true;
-    private final Map<Notifications, Boolean> notifications = new HashMap<>();
+    private final Map<Notification, Boolean> notifications = new HashMap<>();
 
     public User(String firstName, String lastName, String email, String password) {
         this.firstName = firstName;
@@ -18,10 +18,10 @@ public class User {
         this.email = email;
         this.password = password;
 
-        notifications.put(Notifications.ONE, true);
-        notifications.put(Notifications.TWO, true);
-        notifications.put(Notifications.THREE, true);
-        notifications.put(Notifications.FOUR, true);
+        notifications.put(Notification.ONE, true);
+        notifications.put(Notification.TWO, true);
+        notifications.put(Notification.THREE, true);
+        notifications.put(Notification.FOUR, true);
     }
 
     public String getFirstName() {
@@ -56,11 +56,11 @@ public class User {
         this.password = password;
     }
 
-    public Sound getSoundLevel() {
+    public SoundLevel getSoundLevel() {
         return soundLevel;
     }
 
-    public void setSoundLevel(Sound soundLevel) {
+    public void setSoundLevel(SoundLevel soundLevel) {
         this.soundLevel = soundLevel;
     }
 
@@ -72,11 +72,11 @@ public class User {
         notificationsOn = !notificationsOn;
     }
 
-    public boolean isNotificationOn(Notifications notification) {
+    public boolean isNotificationOn(Notification notification) {
         return notifications.get(notification);
     }
 
-    public void toggleSpecificNotification(Notifications notification) {
+    public void toggleSpecificNotification(Notification notification) {
         notifications.compute(notification, (k, oldValue) -> Boolean.FALSE.equals(oldValue));
     }
 }
