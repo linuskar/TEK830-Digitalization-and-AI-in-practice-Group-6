@@ -1,22 +1,27 @@
 package org.team6;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class User {
     private String firstName;
     private String lastName;
     private String email;
     private String password;
     private Sound soundLevel = Sound.VIBRATIONS;
-    Boolean notificationsOn = true;
-    Boolean notificationOne = true;
-    Boolean notificationTwo = true;
-    Boolean notificationThree = true;
-    Boolean notificationFour = true;
+    private boolean notificationsOn = true;
+    private final Map<Notifications, Boolean> notifications = new HashMap<>();
 
     public User(String firstName, String lastName, String email, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
+
+        notifications.put(Notifications.ONE, true);
+        notifications.put(Notifications.TWO, true);
+        notifications.put(Notifications.THREE, true);
+        notifications.put(Notifications.FOUR, true);
     }
 
     public String getFirstName() {
@@ -59,44 +64,19 @@ public class User {
         this.soundLevel = soundLevel;
     }
 
-    public Boolean getNotificationsOn() {
+    public boolean areNotificationsOn() {
         return notificationsOn;
     }
 
-    public void setNotificationsOn(Boolean notificationsOn) {
-        this.notificationsOn = notificationsOn;
+    public void toggleNotifications() {
+        notificationsOn = !notificationsOn;
     }
 
-    public Boolean getNotificationOne() {
-        return notificationOne;
+    public boolean isNotificationOn(Notifications notification) {
+        return notifications.get(notification);
     }
 
-    public void setNotificationOne(Boolean notificationOne) {
-        this.notificationOne = notificationOne;
+    public void toggleSpecificNotification(Notifications notification) {
+        notifications.compute(notification, (k, oldValue) -> Boolean.FALSE.equals(oldValue));
     }
-
-    public Boolean getNotificationTwo() {
-        return notificationTwo;
-    }
-
-    public void setNotificationTwo(Boolean notificationTwo) {
-        this.notificationTwo = notificationTwo;
-    }
-
-    public Boolean getNotificationThree() {
-        return notificationThree;
-    }
-
-    public void setNotificationThree(Boolean notificationThree) {
-        this.notificationThree = notificationThree;
-    }
-
-    public Boolean getNotificationFour() {
-        return notificationFour;
-    }
-
-    public void setNotificationFour(Boolean notificationFour) {
-        this.notificationFour = notificationFour;
-    }
-
 }
