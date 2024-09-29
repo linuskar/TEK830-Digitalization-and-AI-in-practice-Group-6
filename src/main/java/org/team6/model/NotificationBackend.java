@@ -4,11 +4,11 @@ public class NotificationBackend {
     // Static classes shouldn't expose constructor.
     private NotificationBackend() {}
 
-    public static void turnOnTurnOffAllNotifications(User user) {
+    public static void toggleAllNotifications(User user) {
         user.toggleNotifications();
     }
 
-    public static void turnOnTurnOffASpecificNotification(User user, Notification type) {
+    public static void toggleASpecificNotification(User user, Notification type) {
         if (user.areNotificationsOn()) {
             user.toggleSpecificNotification(type);
         }
