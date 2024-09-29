@@ -12,40 +12,22 @@ public class NotificationBackend {
     public static void turnOnTurnOffASpecificNotification(User u, Notifications type) {
         if (u.notificationsOn) {
             switch (type) {
-                case ONE:
-                    u.notificationOne = !u.notificationOne;
-                    break;
-                case TWO:
-                    u.notificationTwo = !u.notificationTwo;
-                    break;
-                case THREE:
-                    u.notificationThree = !u.notificationThree;
-                    break;
-                case FOUR:
-                    u.notificationFour = !u.notificationFour;
-                    break;
-                default:
-                    break;
+                case ONE -> u.notificationOne = !u.notificationOne;
+                case TWO -> u.notificationTwo = !u.notificationTwo;
+                case THREE -> u.notificationThree = !u.notificationThree;
+                case FOUR -> u.notificationFour = !u.notificationFour;
+                default -> throw new IllegalArgumentException("Notification" + type + "type not supported");
             }
         }
     }
 
     public static void changeSoundLevel(User u, Sound type) {
         switch (type) {
-            case VIBRATIONS:
-                u.soundLevel = "VIBRATIONS";
-                break;
-            case LOW:
-                u.soundLevel = "LOW";
-                break;
-            case MEDIUM:
-                u.soundLevel = "MEDIUM";
-                break;
-            case HIGH:
-                u.soundLevel = "HIGH";
-                break;
-            default:
-                break;
+            case VIBRATIONS -> u.soundLevel = "VIBRATIONS";
+            case LOW -> u.soundLevel = "LOW";
+            case MEDIUM -> u.soundLevel = "MEDIUM";
+            case HIGH -> u.soundLevel = "HIGH";
+            default -> throw new IllegalArgumentException("Sound level" + type + "not supported!");
         }
     }
 }
