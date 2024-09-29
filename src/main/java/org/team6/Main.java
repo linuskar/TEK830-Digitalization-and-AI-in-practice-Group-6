@@ -10,7 +10,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/org/team6/MainPage.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/org/team6/fxmls/MainPage.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
 
         primaryStage.setTitle("Homepage");
