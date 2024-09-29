@@ -1,10 +1,10 @@
 package org.team6;
 
 public class User {
-    String firstName;
-    String lastName;
-    String email;
-    String password;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String password;
     String soundLevel = "VIBRATIONS";
     Boolean notificationsOn = true;
     Boolean notificationOne = true;
@@ -12,9 +12,9 @@ public class User {
     Boolean notificationThree = true;
     Boolean notificationFour = true;
 
-    public User(String fn, String ln, String email, String password) {
-        this.firstName = fn;
-        this.lastName = ln;
+    public User(String firstName, String lastName, String email, String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
         this.password = password;
     }
