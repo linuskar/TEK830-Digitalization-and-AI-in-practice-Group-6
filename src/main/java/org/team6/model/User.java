@@ -77,6 +77,8 @@ public class User {
     }
 
     public void toggleSpecificNotification(Notification notification) {
-        notifications.compute(notification, (k, oldValue) -> Boolean.FALSE.equals(oldValue));
+        Boolean currentState = notifications.get(notification);
+        Boolean toggledState = !currentState;
+        notifications.put(notification, toggledState);
     }
 }
