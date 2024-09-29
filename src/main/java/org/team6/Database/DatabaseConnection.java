@@ -41,7 +41,7 @@ public class DatabaseConnection {
 
         if (!isSetupAlreadyRun(conn)) {
             System.out.println("Setting up database...");
-            runSetupSQL(conn, SETUPSQLFILEPATH);
+            runSetupSQL(conn);
         }
     }
 
@@ -107,29 +107,31 @@ public class DatabaseConnection {
     }
 
     // Run setup SQL commands
-    private static void runSetupSQL(Connection conn, String sqlFilePath) {
+    private static void runSetupSQL(Connection conn) {
         try {
             // Read the SQL file as a string
-            String sql = new String(Files.readAllBytes(Paths.get(sqlFilePath)));
-            // göra det för varje individ sql fil i ordning
+            String tablesSql = new String(Files.readAllBytes(Paths.get(TABLESSQLFILEPATH)));
+            String insertsSQL = new String(Files.readAllBytes(Paths.get(INSERTSSQLFILEPATH)));
+            String viewsSQL = new String(Files.readAllBytes(Paths.get(VIEWSSQLFILEPATH)));
 
             // Execute the SQL statements
             try (Statement stmt = conn.createStatement()) {
-                stmt.execute(sql);
-                System.out.println("SQL setup from file executed successfully.");
+                stmt.execute(tablesSql);
+                stmt.execute(insertsSQL);
+                stmt.execute(viewsSQL);
+                System.out.println("SQL from tables, inserst and views executed successfully.");
             }
         } catch (Exception e) {
             System.out.println("Error running SQL from file: " + e.getMessage());
         }
     }
 
-    // get all lamp products
+    // TODO: Future methods to interact with database
+    // Get all lamp products
 
-    // get information about a lamp product
+    // Get information about a lamp product
 
     // Get the hourly total power consumption for a specific household
-
-    
 
     // Get the daily total power consumption for a specific household
 
@@ -145,7 +147,20 @@ public class DatabaseConnection {
 
     // Method to reset the database
     public void resetDatabase() {
-        runSetupSQL(conn, RESETSQLFILEPATH);
+        try {
+            // Read the SQL file as a string
+            String resetSQL = new String(Files.readAllBytes(Paths.get(RESETSQLFILEPATH)));
+            String insertsSQL = new String(Files.readAllBytes(Paths.get(INSERTSSQLFILEPATH)));
+            String viewsSQL = new String(Files.readAllBytes(Paths.get(VIEWSSQLFILEPATH)));
+
+            // Execute the SQL statements
+            try (Statement stmt = conn.createStatement()) {
+                stmt.execute(resetSQL);
+                System.out.println("SQL reset from file executed successfully.");
+            }
+        } catch (Exception e) {
+            System.out.println("Error running SQL from file: " + e.getMessage());
+        }
     }
 
     public void closeConnection() {

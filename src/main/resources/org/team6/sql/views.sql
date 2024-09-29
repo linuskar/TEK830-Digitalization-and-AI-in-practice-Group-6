@@ -52,14 +52,14 @@ CREATE OR REPLACE VIEW ProductUtilities AS (
 
 -- Create a view that allows the user to change the power consumption of a product
 CREATE OR REPLACE VIEW ProductStatus AS (
-    SELECT user_id, id, product, current_energy_output 
+    SELECT user_id, id, Usages.product, current_energy_output 
     FROM Usages 
     LEFT JOIN Owners ON Usages.id = Owners.usage_id
 );
 
 -- Create a view that shows owned products
 CREATE OR REPLACE VIEW OwnedProducts AS (
-    SELECT user_id, product 
+    SELECT user_id, U.product 
     FROM Owners O 
     JOIN Usages U ON O.usage_id = U.id
 );
