@@ -22,12 +22,6 @@ public class NotificationBackend {
     }
 
     public static void changeSoundLevel(User u, Sound type) {
-        switch (type) {
-            case VIBRATIONS -> u.soundLevel = "VIBRATIONS";
-            case LOW -> u.soundLevel = "LOW";
-            case MEDIUM -> u.soundLevel = "MEDIUM";
-            case HIGH -> u.soundLevel = "HIGH";
-            default -> throw new IllegalArgumentException("Sound level" + type + "not supported!");
-        }
+        u.soundLevel = type;
     }
 }

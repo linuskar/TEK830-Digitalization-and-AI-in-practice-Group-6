@@ -5,7 +5,7 @@ public class User {
     private String lastName;
     private String email;
     private String password;
-    String soundLevel = "VIBRATIONS";
+    Sound soundLevel = Sound.VIBRATIONS;
     Boolean notificationsOn = true;
     Boolean notificationOne = true;
     Boolean notificationTwo = true;
