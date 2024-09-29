@@ -12,12 +12,15 @@ import java.util.Properties;
 // Some template code for database connection, from TDA357 course
 
 public class DatabaseConnection {
-    static final String DBNAME = "TEK830_Group6_test";
-    static final String DATABASE = "jdbc:h2:~/"+DBNAME;
+    private static final String DBNAME = "TEK830_Group6";
+    private static final String DATABASE = "jdbc:h2:~/"+DBNAME;
     // default user and password
-    static final String USERNAME = "sa";
-    static final String PASSWORD = "";
+    private static final String USERNAME = "sa";
+    private static final String PASSWORD = "";
     private static final String SETUPSQLFILEPATH = "src\\main\\resources\\org\\team6\\sql\\setup.sql";
+    private static final String INSERTSSQLFILEPATH = "src\\main\\resources\\org\\team6\\sql\\inserts.sql";
+    private static final String VIEWSSQLFILEPATH = "src\\main\\resources\\org\\team6\\sql\\views.sql";
+    private static final String TABLESSQLFILEPATH = "src\\main\\resources\\org\\team6\\sql\\tables.sql";
     private static final String RESETSQLFILEPATH = "src\\main\\resources\\org\\team6\\sql\\reset.sql";
 
     // This is the JDBC connection object you will be using in your methods.
@@ -108,6 +111,7 @@ public class DatabaseConnection {
         try {
             // Read the SQL file as a string
             String sql = new String(Files.readAllBytes(Paths.get(sqlFilePath)));
+            // göra det för varje individ sql fil i ordning
 
             // Execute the SQL statements
             try (Statement stmt = conn.createStatement()) {
@@ -118,6 +122,26 @@ public class DatabaseConnection {
             System.out.println("Error running SQL from file: " + e.getMessage());
         }
     }
+
+    // get all lamp products
+
+    // get information about a lamp product
+
+    // Get the hourly total power consumption for a specific household
+
+    
+
+    // Get the daily total power consumption for a specific household
+
+    // Get the Yearly total power consumption for a specific household
+
+    // Get the monthly total power consumption for a specific household
+
+    // Get the owned products for a specific household
+
+    // Get the status of current products for a specific household
+
+    // Get the utility usage for a specific household
 
     // Method to reset the database
     public void resetDatabase() {

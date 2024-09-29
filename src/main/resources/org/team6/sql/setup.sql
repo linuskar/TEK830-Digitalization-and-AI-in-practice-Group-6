@@ -1,6 +1,10 @@
 -- Setup for the database
 -- Creating tables
 
+-- Create tables for the database
+-- Drop tables if they exist
+
+
 CREATE TABLE Products (
     name TEXT,
     PRIMARY KEY (name)
@@ -49,9 +53,11 @@ CREATE TABLE Users (
 CREATE TABLE Owners (
     user_id INT,
     usage_id INT,
+    product TEXT,
     PRIMARY KEY (user_id, usage_id),
     FOREIGN KEY (user_id) REFERENCES Users(id),
-    FOREIGN KEY (usage_id) REFERENCES Usages(id)
+    FOREIGN KEY (usage_id) REFERENCES Usages(id),
+    FOREIGN KEY (product) REFERENCES Products(name)
 );
 
 -- Inserting values
@@ -139,12 +145,13 @@ CREATE OR REPLACE VIEW TotalPowerConsumption AS (
         user_id,
         DATE_TRUNC('YEAR', time)
 );
--- Create a view that shows the utlitities of all products
+
+-- Create a view that shows the utilities of all products
 -- Update to include when other utilities are added
 CREATE OR REPLACE VIEW ProductUtilities AS (
     SELECT ut.id, ut.time, power_consumption 
     FROM Utilities ut 
-    LEFT JOIN ElectricityUtilities eu ON ut.id = eu.id
+    LEFT JOIN ElectricityUtilities eu ON ut.id = eu.id AND ut.time = eu.time
 );
 
 -- Create a view that allows the user to change the power consumption of a product
