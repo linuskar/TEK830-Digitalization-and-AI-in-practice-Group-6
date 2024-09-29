@@ -1,4 +1,4 @@
-package org.team6;
+package org.team6.model;
 
 public class NotificationBackend {
     // Static classes shouldn't expose constructor.

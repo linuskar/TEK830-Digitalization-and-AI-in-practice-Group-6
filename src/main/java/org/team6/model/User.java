@@ -1,4 +1,4 @@
-package org.team6;
+package org.team6.model;
 
 import java.util.HashMap;
 import java.util.Map;

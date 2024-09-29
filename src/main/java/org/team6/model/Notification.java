@@ -1,4 +1,4 @@
-package org.team6;
+package org.team6.model;
 
 public enum Notification {
     ONE,
