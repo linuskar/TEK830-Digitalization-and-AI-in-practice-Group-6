@@ -1,6 +1,6 @@
 package org.team6.model;
 
-import java.util.HashMap;
+import java.util.EnumMap;
 import java.util.Map;
 
 public class User {
@@ -10,7 +10,7 @@ public class User {
     private String password;
     private SoundLevel soundLevel = SoundLevel.VIBRATIONS;
     private boolean notificationsOn = true;
-    private final Map<Notification, Boolean> notifications = new HashMap<>();
+    private final Map<Notification, Boolean> notifications = new EnumMap<>(Notification.class);
 
     public User(String firstName, String lastName, String email, String password) {
         this.firstName = firstName;
