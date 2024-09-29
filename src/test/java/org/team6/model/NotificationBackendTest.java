@@ -57,4 +57,25 @@ class NotificationBackendTest {
 
         assertEquals(initialNotificationValue, finalNotificationValue);
     }
+
+    @ParameterizedTest
+    @EnumSource(Notification.class)
+    void testToggleASpecificNotification_GivenToggledOnceAndNotificationsAreOff_ShouldHaveSameValue(Notification notification) {
+        assumeTrue(userUnderTest.areNotificationsOn());
+        NotificationBackend.toggleAllNotifications(userUnderTest);
+        boolean initialNotificationValue = userUnderTest.isNotificationOn(notification);
+        NotificationBackend.toggleASpecificNotification(userUnderTest, notification);
+        boolean finalNotificationValue = userUnderTest.isNotificationOn(notification);
+
+        assertEquals(initialNotificationValue, finalNotificationValue);
+    }
+
+    @ParameterizedTest
+    @EnumSource(SoundLevel.class)
+    void testChangeSoundLevel_GivenASoundLevel_ShouldChangeToIt(SoundLevel soundLevel) {
+        NotificationBackend.changeSoundLevel(userUnderTest, soundLevel);
+        SoundLevel changedSoundLevel = userUnderTest.getSoundLevel();
+
+        assertEquals(soundLevel, changedSoundLevel);
+    }
 }
