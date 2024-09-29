@@ -1,9 +1,8 @@
 package org.team6;
 
 public class NotificationBackend {
-    public static void main(String[] args) {
-        System.out.println("Hello world!");
-    }
+    // Static classes shouldn't expose constructor.
+    private NotificationBackend() {}
 
     public static boolean turnOnTurnOffAllNotifications(User u) {
         return !u.notificationsOn;
@@ -22,6 +21,6 @@ public class NotificationBackend {
     }
 
     public static void changeSoundLevel(User u, Sound type) {
-        u.soundLevel = type;
+        u.setSoundLevel(type);
     }
 }
