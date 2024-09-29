@@ -13,7 +13,7 @@
       <Rectangle arcHeight="100.0" arcWidth="100.0" fill="WHITE" height="150.0" stroke="BLACK" strokeType="INSIDE" width="393.0" />
       <ImageView fitHeight="111.0" fitWidth="110.0" layoutX="14.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/ikea_home.png" />
+            <Image url="@../img/ikea_home.png" />
          </image>
       </ImageView>
       <Text fx:id="notificationText" layoutX="144.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notification text" wrappingWidth="234.0556640625">
