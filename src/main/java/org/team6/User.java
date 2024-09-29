@@ -5,23 +5,17 @@ public class User {
     String lastName;
     String email;
     String password;
-    String soundLevel;
-    Boolean notificationsOn;
-    Boolean notificationOne;
-    Boolean notificationTwo;
-    Boolean notificationThree;
-    Boolean notificationFour;
+    String soundLevel = "VIBRATIONS";
+    Boolean notificationsOn = true;
+    Boolean notificationOne = true;
+    Boolean notificationTwo = true;
+    Boolean notificationThree = true;
+    Boolean notificationFour = true;
 
     public User(String fn, String ln, String email, String password) {
         this.firstName = fn;
         this.lastName = ln;
         this.email = email;
         this.password = password;
-        this.notificationsOn = true;
-        this.notificationOne = true;
-        this.notificationTwo = true;
-        this.notificationThree = true;
-        this.notificationFour = true;
-        this.soundLevel = "VIBRATIONS";
     }
 }
