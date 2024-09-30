@@ -1,4 +1,4 @@
-package org.team6.Database;
+package org.team6.database;
 
 public class TestDatabase {
      // enable this to make pretty printing a bit more compact
