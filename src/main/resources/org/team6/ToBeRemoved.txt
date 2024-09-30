@@ -1,5 +1,0 @@
-File that exists to create correct folder structure.
-
-For the FXML files, they need to be here.
-
-The path specified is relative to how the class is.

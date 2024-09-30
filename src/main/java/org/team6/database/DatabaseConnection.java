@@ -1,4 +1,4 @@
-package org.team6.Database;
+package org.team6.database;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;

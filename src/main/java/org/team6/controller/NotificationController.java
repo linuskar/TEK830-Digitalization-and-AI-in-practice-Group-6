@@ -1,4 +1,4 @@
-package org.team6;
+package org.team6.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
