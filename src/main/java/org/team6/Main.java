@@ -1,7 +1,9 @@
 package org.team6;
+import org.team6.view.App;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        App app = new App();
+        app.startView(args);
     }
 }

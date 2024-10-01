@@ -1,0 +1,47 @@
+#mainPage{
+-fx-pref-width: 375 ;
+-fx-pref-height:  667;
+-fx-border-radius: 15px;
+-fx-border-width: 5px;
+-fx-border-color: #21130d;
+-fx-background-color: #ffffff;
+}
+
+#homePageTitle{
+-fx-pref-width: 30;
+-fx-pref-height: 100;
+}
+
+#barPane{
+-fx-background-radius: 100px;
+-fx-border-width: 2px;
+-fx-background-color: #D3D3D3;
+-fx-border-insets: 0px;
+}
+#searchButton{
+-fx-background-color: transparent;
+}
+
+#accountButton{
+-fx-background-color: transparent;
+}
+
+#settingsButton{
+-fx-background-color: transparent;
+}
+
+#menuButton1{
+-fx-background-color: transparent;
+}
+
+#electricityButton, #tipsButton {
+    -fx-background-color: #FAF9F6;
+    -fx-background-radius: 20px;
+    -fx-padding: 10px 20px;
+    -fx-border-width: 1px;
+    -fx-border-radius: 20px;
+
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 5, 0, 0, 2);
+}
+
+
