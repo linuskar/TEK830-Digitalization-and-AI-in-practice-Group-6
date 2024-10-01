@@ -8,7 +8,11 @@ import java.io.IOException;
 public class MainPageController {
 
     @FXML
-    private AnchorPane root;
+    private AnchorPane mainPage;
+    @FXML
+    private AnchorPane notificationPane;
+    @FXML
+    private AnchorPane homePage;
 
     private HomePageController homePageController;
     private NotificationController notificationController;
@@ -18,20 +22,15 @@ public class MainPageController {
         try {
             // Load HomePage
             FXMLLoader homePageLoader = new FXMLLoader(getClass().getResource("/org/team6/view/HomePage.fxml"));
-            AnchorPane homePage = homePageLoader.load();
+            homePage = homePageLoader.load();
             homePageController = homePageLoader.getController();
 
             // Load NotificationPane
             FXMLLoader notificationLoader = new FXMLLoader(getClass().getResource("/org/team6/view/NotificationTemplate.fxml"));
-            AnchorPane notificationPane = notificationLoader.load();
+            notificationPane = notificationLoader.load();
             notificationController = notificationLoader.getController();
 
-            root.getChildren().addAll(homePage);
-            homePage.getChildren().add(notificationPane);
-
-            AnchorPane.setTopAnchor(notificationPane, 0.0);
-            AnchorPane.setLeftAnchor(notificationPane, (homePage.getWidth() - notificationPane.getWidth()) / 2);
-            AnchorPane.setRightAnchor(notificationPane, (homePage.getWidth() - notificationPane.getWidth()) / 2);
+            mainPage.getChildren().addAll(homePage,notificationPane);
         } catch (IOException e) {
             e.printStackTrace();
         }

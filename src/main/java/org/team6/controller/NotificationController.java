@@ -15,6 +15,7 @@ public class NotificationController {
     private Text notificationText;
     @FXML
     private AnchorPane notificationPane;
+    
     private boolean isNotificationVisible = false;
     
     @FXML
@@ -44,12 +45,10 @@ public class NotificationController {
 
         isNotificationVisible = true;
 
-        // Set initial position above the visible area
         notificationPane.setTranslateY(-notificationPane.getHeight());
         notificationPane.setVisible(true);
         notificationPane.setDisable(false);
 
-        // Create TranslateTransition to slide down
         TranslateTransition slideDown = new TranslateTransition(Duration.seconds(0.5), notificationPane);
         slideDown.setToY(0);
         slideDown.setOnFinished(event -> {
@@ -59,21 +58,18 @@ public class NotificationController {
             pause.play();
         });
 
-        // Play the slide down animation
         slideDown.play();
     }
 
     public void hideNotificationPane() {
-        // Create TranslateTransition to slide up
         TranslateTransition slideUp = new TranslateTransition(Duration.seconds(0.5), notificationPane);
         slideUp.setToY(-notificationPane.getHeight());
         slideUp.setOnFinished(event -> {
             notificationPane.setVisible(false);
             notificationPane.setDisable(true);
-            isNotificationVisible = false; // Reset the flag
+            isNotificationVisible = false; 
         });
 
-        // Play the slide up animation
         slideUp.play();
     }
 
