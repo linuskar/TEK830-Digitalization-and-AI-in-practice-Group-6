@@ -5,7 +5,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.team6.Main;
-import org.team6.controller.MainPageController;
+
+import javafx.scene.layout.AnchorPane;
+import org.team6.controller.*;
 
 import java.io.IOException;
 
@@ -13,10 +15,21 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/org/team6/view/MainPage.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        MainPageController mainViewController = fxmlLoader.getController();
-        mainViewController.setupKeyHandling(scene);
+        AnchorPane mainPage = fxmlLoader.load();
+        Scene scene = new Scene(mainPage);
+
+        FXMLLoader homePageLoader = new FXMLLoader(getClass().getResource("/org/team6/view/HomePage.fxml"));
+        AnchorPane homePage = homePageLoader.load();
+
+        FXMLLoader notificationLoader = new FXMLLoader(getClass().getResource("/org/team6/view/NotificationTemplate.fxml"));
+        AnchorPane notificationPane = notificationLoader.load();
+
+        NotificationController notificationController = notificationLoader.getController();
+
+        mainPage.getChildren().addAll(homePage,notificationPane);
         
+        notificationController.setupKeyHandling(scene);
+
         primaryStage.setTitle("Homepage");
         primaryStage.setScene(scene);
         primaryStage.show();

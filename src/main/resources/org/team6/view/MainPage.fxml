@@ -2,9 +2,4 @@
 
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="mainPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="667.0" prefWidth="389.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.MainPageController">
-   <children>
-      <fx:include fx:id="homePage" source="HomePage.fxml" />
-      <fx:include fx:id="notificationPane" source="NotificationTemplate.fxml" />
-   </children>
-</AnchorPane>
+<AnchorPane fx:id="mainPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="667.0" prefWidth="389.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.MainPageController" />
