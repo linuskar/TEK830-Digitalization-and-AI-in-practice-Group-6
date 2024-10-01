@@ -1,12 +1,10 @@
 package org.team6.controller;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
-import java.io.IOException;
+
+import javafx.scene.layout.StackPane;
 
 public class MainPageController {
 
     @FXML
-    private AnchorPane mainPage;
+    private StackPane mainPage;
 }

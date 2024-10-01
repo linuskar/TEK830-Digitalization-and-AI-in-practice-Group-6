@@ -33,9 +33,7 @@ public class NotificationController {
     }
 
     public void setupKeyHandling(Scene scene) {
-        scene.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
-            this.handleKeyPress(event);
-        });
+        scene.addEventHandler(KeyEvent.KEY_PRESSED, this::handleKeyPress);
     }
 
     public void showNotificationPane() {
@@ -75,12 +73,8 @@ public class NotificationController {
 
     private void handleKeyPress(KeyEvent event) {
         switch (event.getCode()) {
-            case P -> {
-                showNotificationPane();
-            }
-            default -> {
-                
-            }
+            case P -> showNotificationPane();
+            default -> {}
         }
     }
 }
