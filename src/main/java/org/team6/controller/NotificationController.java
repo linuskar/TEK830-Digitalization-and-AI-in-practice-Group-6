@@ -15,7 +15,7 @@ public class NotificationController {
     private Text notificationText;
     @FXML
     private AnchorPane notificationPane;
-    //notificationPane
+    private boolean isNotificationVisible = false;
     
     @FXML
     public void initialize() {
@@ -38,6 +38,12 @@ public class NotificationController {
     }
 
     public void showNotificationPane() {
+        if (isNotificationVisible) {
+            return; // Prevent spamming
+        }
+
+        isNotificationVisible = true;
+
         // Set initial position above the visible area
         notificationPane.setTranslateY(-notificationPane.getHeight());
         notificationPane.setVisible(true);
@@ -47,8 +53,8 @@ public class NotificationController {
         TranslateTransition slideDown = new TranslateTransition(Duration.seconds(0.5), notificationPane);
         slideDown.setToY(0);
         slideDown.setOnFinished(event -> {
-            // Pause for 1.5 seconds before hiding
-            PauseTransition pause = new PauseTransition(Duration.seconds(1.5));
+            // Pause for 2 seconds before hiding
+            PauseTransition pause = new PauseTransition(Duration.seconds(2));
             pause.setOnFinished(e -> hideNotificationPane());
             pause.play();
         });
@@ -64,6 +70,7 @@ public class NotificationController {
         slideUp.setOnFinished(event -> {
             notificationPane.setVisible(false);
             notificationPane.setDisable(true);
+            isNotificationVisible = false; // Reset the flag
         });
 
         // Play the slide up animation
@@ -73,7 +80,6 @@ public class NotificationController {
     private void handleKeyPress(KeyEvent event) {
         switch (event.getCode()) {
             case P -> {
-                System.out.println("P key pressed");
                 showNotificationPane();
             }
             default -> {

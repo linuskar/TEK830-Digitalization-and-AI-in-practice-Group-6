@@ -5,7 +5,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
 
-public class MainViewController {
+public class MainPageController {
 
     @FXML
     private AnchorPane root;
@@ -17,7 +17,7 @@ public class MainViewController {
     public void initialize() {
         try {
             // Load HomePage
-            FXMLLoader homePageLoader = new FXMLLoader(getClass().getResource("/org/team6/view/MainPage.fxml"));
+            FXMLLoader homePageLoader = new FXMLLoader(getClass().getResource("/org/team6/view/HomePage.fxml"));
             AnchorPane homePage = homePageLoader.load();
             homePageController = homePageLoader.getController();
 

@@ -6,15 +6,15 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-import org.team6.controller.MainViewController;
+import org.team6.controller.MainPageController;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/org/team6/view/MainView.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/org/team6/view/MainPage.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        MainViewController mainViewController = fxmlLoader.getController();
+        MainPageController mainViewController = fxmlLoader.getController();
         mainViewController.setupKeyHandling(scene);
 
         primaryStage.setTitle("Homepage");
