@@ -6,9 +6,13 @@ public enum NotificationText {
     THREE("Sunny weather, feel guilty free to run that load of laundry"),
     FOUR("Cold weather, make sure to close all doors and windows");
 
-    public final String text;
+    private final String text;
 
-    private NotificationText(String label) {
+    NotificationText(String label) {
         this.text = label;
+    }
+
+    public static String getText(NotificationText notificationText) {
+        return notificationText.text;
     }
 }

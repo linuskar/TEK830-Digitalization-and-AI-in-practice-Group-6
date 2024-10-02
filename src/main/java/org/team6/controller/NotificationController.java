@@ -45,7 +45,7 @@ public class NotificationController {
         isNotificationVisible = true;
 
         notificationPane.setTranslateY(-notificationPane.getHeight());
-        setNotificationText(NotificationText.TWO.text);
+        setNotificationText(NotificationText.getText(NotificationText.TWO));
         notificationPane.setVisible(true);
         notificationPane.setDisable(false);
 
