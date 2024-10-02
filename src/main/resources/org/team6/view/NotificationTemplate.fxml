@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Point3D?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="393.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.NotificationController">
    <children>
       <Rectangle arcHeight="100.0" arcWidth="100.0" fill="WHITE" height="150.0" stroke="BLACK" strokeType="INSIDE" width="393.0" />
@@ -16,11 +15,11 @@
             <Image url="@../images/ikea_home.png" />
          </image>
       </ImageView>
-      <Text fx:id="notificationText" layoutX="144.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notification text" wrappingWidth="234.0556640625">
+      <TextArea fx:id="notificationText" layoutX="144.0" layoutY="81.0" wrapText="true" prefWidth="300.0" prefHeight="100.0">
          <font>
-            <Font name="SansSerif Regular" size="18.0" />
+            <Font name="SansSerif Regular" size="12.0" />
          </font>
-      </Text>
+      </TextArea>
    </children>
    <rotationAxis>
       <Point3D y="1.0" z="1.0" />

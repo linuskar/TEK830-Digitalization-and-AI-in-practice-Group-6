@@ -1,8 +1,16 @@
+
+
+
+
+
 package org.team6.model;
 
 public class NotificationBackend {
     // Static classes shouldn't expose constructor.
-    private NotificationBackend() {}
+
+    private NotificationBackend() {
+
+    }
 
     public static void toggleAllNotifications(User user) {
         user.toggleNotifications();
@@ -17,4 +25,12 @@ public class NotificationBackend {
     public static void changeSoundLevel(User user, SoundLevel type) {
         user.setSoundLevel(type);
     }
+
+    public static String notificationString(User user, Notification type) {
+        if (user.areNotificationsOn() && user.isNotificationOn(type)) {
+            return user.notificationTextMap.get(type);
+        }
+        return null;
+    }
+
 }
