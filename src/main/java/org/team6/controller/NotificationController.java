@@ -4,14 +4,11 @@ import javafx.animation.PauseTransition;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
-import javafx.scene.text.Text;
-import javafx.util.Duration;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-import org.team6.model.Notification;
-
-import java.util.EnumMap;
-import java.util.Map;
+import javafx.scene.text.Text;
+import javafx.util.Duration;
+import org.team6.model.NotificationText;
 
 public class NotificationController {
 
@@ -21,16 +18,11 @@ public class NotificationController {
     private AnchorPane notificationPane;
     
     private boolean isNotificationVisible = false;
-    private final Map<Notification, String> notificationStringEnumMap = new EnumMap<>(Notification.class);
     
     @FXML
     public void initialize() {
         notificationPane.setVisible(false);
         notificationPane.setDisable(true);
-        notificationStringEnumMap.put(Notification.ONE, "Electricity price under predefined value");
-        notificationStringEnumMap.put(Notification.TWO, "Electricity price over predefined value");
-        notificationStringEnumMap.put(Notification.THREE, "Sunny weather, feel guilty free to run that load of laundry");
-        notificationStringEnumMap.put(Notification.FOUR, "Cold weather, make sure to close all doors and windows");
     }
 
     public void setNotificationText(String text){
@@ -53,7 +45,7 @@ public class NotificationController {
         isNotificationVisible = true;
 
         notificationPane.setTranslateY(-notificationPane.getHeight());
-        setNotificationText(notificationStringEnumMap.get(Notification.ONE));
+        setNotificationText(NotificationText.TWO.text);
         notificationPane.setVisible(true);
         notificationPane.setDisable(false);
 
