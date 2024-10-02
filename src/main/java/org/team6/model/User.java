@@ -11,6 +11,7 @@ public class User {
     private SoundLevel soundLevel = SoundLevel.VIBRATIONS;
     private boolean notificationsOn = true;
     private final Map<Notification, Boolean> notifications = new EnumMap<>(Notification.class);
+    private final Map<Notification, String> notificationText = new EnumMap<>(Notification.class);
 
     public User(String firstName, String lastName, String email, String password) {
         this.firstName = firstName;
@@ -22,6 +23,10 @@ public class User {
         notifications.put(Notification.TWO, true);
         notifications.put(Notification.THREE, true);
         notifications.put(Notification.FOUR, true);
+        notificationText.put(Notification.ONE, "Electricity price under predefined value");
+        notificationText.put(Notification.TWO, "Electricity price over predefined value");
+        notificationText.put(Notification.THREE, "Sunny weather, feel guilty free to run that load of laundry");
+        notificationText.put(Notification.FOUR, "Cold weather, make sure to close all doors and windows");
     }
 
     public String getFirstName() {
