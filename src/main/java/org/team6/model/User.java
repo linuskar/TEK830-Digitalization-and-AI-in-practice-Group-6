@@ -23,7 +23,6 @@ public class User {
         notifications.put(Notification.TWO, true);
         notifications.put(Notification.THREE, true);
         notifications.put(Notification.FOUR, true);
-
     }
 
     public String getFirstName() {

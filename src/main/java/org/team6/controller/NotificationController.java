@@ -8,7 +8,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
-import org.team6.model.NotificationText;
+import org.team6.model.Notification;
 
 public class NotificationController {
 
@@ -45,7 +45,7 @@ public class NotificationController {
         isNotificationVisible = true;
 
         notificationPane.setTranslateY(-notificationPane.getHeight());
-        setNotificationText(NotificationText.getText(NotificationText.TWO));
+        setNotificationText(Notification.getText(Notification.TWO));
         notificationPane.setVisible(true);
         notificationPane.setDisable(false);
 
