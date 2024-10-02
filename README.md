@@ -5,4 +5,4 @@
 This is a Java project that uses JavaFX and the H2 database engine.
 
 ### Running the project
-As of right when you launch the project through main then a window will pop up for the app. Then by pressing "P" through your keyboard a notification will popup for a few seconds and then go away.
+As of right now when you launch the project through main then a window will pop up for the app. Then by pressing "P" through your keyboard a notification will popup for a few seconds and then go away.
