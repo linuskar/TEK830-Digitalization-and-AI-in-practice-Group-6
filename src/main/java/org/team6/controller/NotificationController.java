@@ -45,7 +45,7 @@ public class NotificationController {
         isNotificationVisible = true;
 
         notificationPane.setTranslateY(-notificationPane.getHeight());
-        setNotificationText(Notification.getText(Notification.TWO));
+        setNotificationText(Notification.getText(Notification.HIGH_ELECTRICITY_PRICE));
         notificationPane.setVisible(true);
         notificationPane.setDisable(false);
 

@@ -12,17 +12,16 @@ public class User {
     private boolean notificationsOn = true;
     private final Map<Notification, Boolean> notifications = new EnumMap<>(Notification.class);
 
-
     public User(String firstName, String lastName, String email, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
 
-        notifications.put(Notification.ONE, true);
-        notifications.put(Notification.TWO, true);
-        notifications.put(Notification.THREE, true);
-        notifications.put(Notification.FOUR, true);
+        notifications.put(Notification.LOW_ELECTRICITY_PRICE, true);
+        notifications.put(Notification.HIGH_ELECTRICITY_PRICE, true);
+        notifications.put(Notification.SUNNY_WEATHER, true);
+        notifications.put(Notification.COLD_WEATHER, true);
     }
 
     public String getFirstName() {

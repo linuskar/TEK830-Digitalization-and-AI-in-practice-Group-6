@@ -1,10 +1,10 @@
 package org.team6.model;
 
 public enum Notification {
-    ONE("Electricity price under predefined value"),
-    TWO("Electricity price over predefined value"),
-    THREE("Sunny weather, feel guilty free to run that load of laundry"),
-    FOUR("Cold weather, make sure to close all doors and windows");
+    LOW_ELECTRICITY_PRICE("Electricity price under predefined value"),
+    HIGH_ELECTRICITY_PRICE("Electricity price over predefined value"),
+    SUNNY_WEATHER("Sunny weather, feel guilty free to run that load of laundry"),
+    COLD_WEATHER("Cold weather, make sure to close all doors and windows");
 
     private final String text;
 
