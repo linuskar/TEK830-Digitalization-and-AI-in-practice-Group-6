@@ -4,10 +4,11 @@ import javafx.animation.PauseTransition;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
-import javafx.scene.text.Text;
-import javafx.util.Duration;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
+import javafx.util.Duration;
+import org.team6.model.Notification;
 
 public class NotificationController {
 
@@ -44,6 +45,7 @@ public class NotificationController {
         isNotificationVisible = true;
 
         notificationPane.setTranslateY(-notificationPane.getHeight());
+        setNotificationText(Notification.getText(Notification.HIGH_ELECTRICITY_PRICE));
         notificationPane.setVisible(true);
         notificationPane.setDisable(false);
 
@@ -72,8 +74,9 @@ public class NotificationController {
     }
 
     private void handleKeyPress(KeyEvent event) {
-        switch (event.getCode()) {
-            case P -> showNotificationPane();
+        String key = event.getText();
+        switch (key) {
+            case "p" -> showNotificationPane();
             default -> {}
         }
     }

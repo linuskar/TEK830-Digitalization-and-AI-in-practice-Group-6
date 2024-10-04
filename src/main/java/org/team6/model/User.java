@@ -18,10 +18,10 @@ public class User {
         this.email = email;
         this.password = password;
 
-        notifications.put(Notification.ONE, true);
-        notifications.put(Notification.TWO, true);
-        notifications.put(Notification.THREE, true);
-        notifications.put(Notification.FOUR, true);
+        notifications.put(Notification.LOW_ELECTRICITY_PRICE, true);
+        notifications.put(Notification.HIGH_ELECTRICITY_PRICE, true);
+        notifications.put(Notification.SUNNY_WEATHER, true);
+        notifications.put(Notification.COLD_WEATHER, true);
     }
 
     public String getFirstName() {
