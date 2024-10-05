@@ -1,14 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="org.team6.view.NotificationPage"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane fx:id="notificationPageAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../styles/notification_page_style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button fx:id="notification1" layoutX="49.0" layoutY="97.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="299.0">
+         <graphic>
+            <Pane prefHeight="29.0" prefWidth="268.0">
+               <children>
+                  <Text fill="#f3f3f3" layoutX="15.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notification 1" wrappingWidth="84.13671875" />
+               </children>
+            </Pane>
+         </graphic>
+      </Button>
+      <Button fx:id="notification2" layoutX="49.0" layoutY="147.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="299.0">
+         <graphic>
+            <Pane prefHeight="37.0" prefWidth="200.0">
+               <children>
+                  <Text fill="#f3f3f3" layoutX="12.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notification 2" wrappingWidth="77.13671875" />
+               </children>
+            </Pane>
+         </graphic>
+      </Button>
+      <Button fx:id="notification3" layoutX="49.0" layoutY="198.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="299.0">
+         <graphic>
+            <Pane prefHeight="25.0" prefWidth="200.0">
+               <children>
+                  <Text fill="#f3f3f3" layoutX="13.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notification 3" wrappingWidth="77.13671875" />
+               </children>
+            </Pane>
+         </graphic>
+      </Button>
+      <Pane fx:id="volumePane" layoutX="49.0" layoutY="254.0" prefHeight="42.0" prefWidth="299.0" stylesheets="@../styles/notification_page_style.css">
+         <children>
+            <Slider fx:id="notificationVolumeSlider" layoutX="150.0" layoutY="13.0" />
+            <Text fill="#f3f3f3" layoutX="14.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Volume" wrappingWidth="77.13671875">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Button fx:id="backButton" layoutX="10.0" layoutY="7.0" mnemonicParsing="false" stylesheets="@../styles/notification_page_style.css">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/left-arrow(1).png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Text fill="#f3f3f3" layoutX="46.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notifications" wrappingWidth="122.13671875">
+         <font>
+            <Font size="18.0" />
+         </font></Text>
+      <Text fill="#f3f3f3" layoutX="32.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notification history">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <VBox fx:id="notificationHistoryVBox" layoutX="11.0" layoutY="361.0" prefHeight="298.0" prefWidth="345.0" />
+   </children>
 </AnchorPane>

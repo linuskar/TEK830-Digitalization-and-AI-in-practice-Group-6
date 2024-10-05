@@ -21,3 +21,11 @@
 #backButton{
 -fx-background-color: transparent;
 }
+
+#volumePane{
+ -fx-background-color: #040404;
+    -fx-background-radius: 15px;
+    -fx-padding: 10px 20px;
+    -fx-border-width: 3px;
+    -fx-border-radius: 13px;
+    -fx-border-color: #7c7c7c;}

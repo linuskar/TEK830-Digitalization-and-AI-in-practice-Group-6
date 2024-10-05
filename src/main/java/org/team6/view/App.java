@@ -1,6 +1,7 @@
 package org.team6.view;
 
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -29,10 +30,18 @@ public class App extends Application {
         AnchorPane notificationPane = notificationLoader.load();
 
         NotificationController notificationController = notificationLoader.getController();
-
-        mainPage.getChildren().addAll(homePage,notificationPane);
         
         notificationController.setupKeyHandling(scene);
+
+        //FXMLLoader settingPageLoader = new FXMLLoader(getClass().getResource("/org/team6/view/settings_page.fxml"));
+        //AnchorPane settingsPane = settingPageLoader.load();
+
+
+        //FXMLLoader notificationPageLoader = new FXMLLoader(getClass().getResource("/org/team6/view/NotificationPage.fxml"));
+        //AnchorPane notificationPageAnchor = notificationPageLoader.load();
+
+        mainPage.getChildren().addAll(homePage,notificationPane);
+
 
         primaryStage.setTitle("Homepage");
         primaryStage.setScene(scene);

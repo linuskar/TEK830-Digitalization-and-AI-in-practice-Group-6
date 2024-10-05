@@ -5,6 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 
 public class NotificationPageController {
 
@@ -28,4 +29,13 @@ public class NotificationPageController {
 
     @FXML
     private Button backButton;
+
+    @FXML
+    private VBox notificationHistoryVBox;
+
+    public AnchorPane getNotificationPageAnchor(){
+        return notificationPageAnchor;
+    }
+
+
 }

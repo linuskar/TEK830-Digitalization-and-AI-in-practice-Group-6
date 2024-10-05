@@ -9,26 +9,27 @@ import javafx.util.Duration;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 
+
 public class NotificationController {
 
     @FXML
     private Text notificationText;
     @FXML
     private AnchorPane notificationPane;
-    
+
     private boolean isNotificationVisible = false;
-    
+
     @FXML
     public void initialize() {
         notificationPane.setVisible(false);
         notificationPane.setDisable(true);
     }
 
-    public void setNotificationText(String text){
+    public void setNotificationText(String text) {
         notificationText.setText(text);
     }
 
-    public String getNotificationText(){
+    public String getNotificationText() {
         return notificationText.getText();
     }
 
@@ -65,7 +66,7 @@ public class NotificationController {
         slideUp.setOnFinished(event -> {
             notificationPane.setVisible(false);
             notificationPane.setDisable(true);
-            isNotificationVisible = false; 
+            isNotificationVisible = false;
         });
 
         slideUp.play();
@@ -74,7 +75,14 @@ public class NotificationController {
     private void handleKeyPress(KeyEvent event) {
         switch (event.getCode()) {
             case P -> showNotificationPane();
-            default -> {}
+            default -> {
+            }
         }
+
     }
+
+    public boolean getNotificationStatus(){
+        return isNotificationVisible;
+    }
+
 }
