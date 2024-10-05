@@ -60,7 +60,7 @@ public class User {
         return volume;
     }
 
-    public void setVolume(double volume) {
+    void setVolume(double volume) {
         this.volume = volume;
     }
 
