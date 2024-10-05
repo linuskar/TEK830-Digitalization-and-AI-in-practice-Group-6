@@ -9,6 +9,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 import org.team6.model.Notification;
+import org.team6.soundsystem.SoundPlayer;
 
 public class NotificationController {
 
@@ -37,15 +38,11 @@ public class NotificationController {
         scene.addEventHandler(KeyEvent.KEY_PRESSED, this::handleKeyPress);
     }
 
-    public void showNotificationPane() {
-        if (isNotificationVisible) {
-            return; // Prevent spamming
-        }
-
+    public void showNotificationPane(String notificationText) {
         isNotificationVisible = true;
 
         notificationPane.setTranslateY(-notificationPane.getHeight());
-        setNotificationText(Notification.getText(Notification.HIGH_ELECTRICITY_PRICE));
+        setNotificationText(notificationText);
         notificationPane.setVisible(true);
         notificationPane.setDisable(false);
 
@@ -76,7 +73,16 @@ public class NotificationController {
     private void handleKeyPress(KeyEvent event) {
         String key = event.getText();
         switch (key) {
-            case "p" -> showNotificationPane();
+            case "p" -> {
+                // Prevent spamming
+                if (!isNotificationVisible) {
+                    // TODO: probably make these two observers of notification events or similar
+                    // instead of notifications showing up through key presses.
+                    showNotificationPane(Notification.getText(Notification.HIGH_ELECTRICITY_PRICE));
+                    SoundPlayer.playSound(Notification.HIGH_ELECTRICITY_PRICE);
+                }
+
+            }
             default -> {}
         }
     }
