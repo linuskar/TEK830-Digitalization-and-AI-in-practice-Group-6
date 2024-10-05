@@ -8,7 +8,7 @@ public class User {
     private String lastName;
     private String email;
     private String password;
-    private SoundLevel soundLevel = SoundLevel.VIBRATIONS;
+    private double volume = 0.5;
     private boolean notificationsOn = true;
     private final Map<Notification, Boolean> notifications = new EnumMap<>(Notification.class);
 
@@ -56,12 +56,12 @@ public class User {
         this.password = password;
     }
 
-    public SoundLevel getSoundLevel() {
-        return soundLevel;
+    public double getVolume() {
+        return volume;
     }
 
-    public void setSoundLevel(SoundLevel soundLevel) {
-        this.soundLevel = soundLevel;
+    public void setVolume(double volume) {
+        this.volume = volume;
     }
 
     public boolean areNotificationsOn() {

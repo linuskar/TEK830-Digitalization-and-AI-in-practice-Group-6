@@ -5,6 +5,7 @@ import org.team6.model.Notification;
 
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import org.team6.model.NotificationBackend;
 
 import java.net.URL;
 import java.util.EnumMap;
@@ -32,6 +33,7 @@ class SoundHandler {
         Media sound = notificationSoundMap.get(notification);
         if (sound != null) {
             MediaPlayer mediaPlayer = new MediaPlayer(sound);
+            mediaPlayer.setVolume(NotificationBackend.getVolume());
             mediaPlayer.play();
         }
     }
