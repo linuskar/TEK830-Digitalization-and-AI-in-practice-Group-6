@@ -88,7 +88,7 @@ class NotificationBackendTest {
 
         assertEquals(0, changedVolume);
     }
-    
+
     @Test
     void testSetVolume_GivenTooHighVolume_ShouldChangeToOne() {
         NotificationBackend.setVolume(2);
