@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Slider;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.AnchorPane;
+import org.team6.model.NotificationBackend;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,7 +64,6 @@ public class SettingsPageController {
     }
 
     private void handleVolumeChanged(double newVolume) {
-        // TODO: make it work with model.
-        // NotificationModel.setVolume(newVolume)
+        NotificationBackend.changeVolume(newVolume);
     }
 }
