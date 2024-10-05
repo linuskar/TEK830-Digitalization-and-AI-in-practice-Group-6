@@ -74,10 +74,26 @@ class NotificationBackendTest {
 
     @ParameterizedTest
     @ValueSource(doubles = {0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0})
-    void testChangeSoundLevel_GivenAValidVolume_ShouldChangeToIt(double volume) {
-        NotificationBackend.changeVolume(volume);
-        double changedSoundLevel = userUnderTest.getVolume();
+    void testSetVolume_GivenAValidVolume_ShouldChangeToIt(double volume) {
+        NotificationBackend.setVolume(volume);
+        double changedVolume = userUnderTest.getVolume();
 
-        assertEquals(volume, changedSoundLevel);
+        assertEquals(volume, changedVolume);
+    }
+
+    @Test
+    void testSetVolume_GivenTooLowVolume_ShouldChangeToZero() {
+        NotificationBackend.setVolume(-1);
+        double changedVolume = userUnderTest.getVolume();
+
+        assertEquals(0, changedVolume);
+    }
+    
+    @Test
+    void testSetVolume_GivenTooHighVolume_ShouldChangeToOne() {
+        NotificationBackend.setVolume(2);
+        double changedVolume = userUnderTest.getVolume();
+
+        assertEquals(1, changedVolume);
     }
 }
