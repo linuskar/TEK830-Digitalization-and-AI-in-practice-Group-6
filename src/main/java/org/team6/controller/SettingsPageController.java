@@ -3,6 +3,7 @@ package org.team6.controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Slider;
 import javafx.scene.control.ToggleButton;
+import org.team6.model.Notification;
 import org.team6.model.NotificationBackend;
 
 import java.util.ArrayList;
@@ -15,6 +16,8 @@ public class SettingsPageController {
     private ToggleButton sendLowElectricPriceToggleButton;
     @FXML
     private Slider volumeSlider;
+    // Nicer to show the user a scale from 0 to 100 rather than 0 to 1.
+    private static final int VOLUME_SCALE_FACTOR = 100;
 
     // List of specific notification buttons. For instance used for
     // enabling and disabling all buttons if notifications are switched on or off.
@@ -22,23 +25,24 @@ public class SettingsPageController {
 
     public SettingsPageController() {
         notificationButtons.add(sendNotificationsToggleButton);
+
+        volumeSlider.setValue(NotificationBackend.getVolume()*VOLUME_SCALE_FACTOR);
         // Don't think you can add it directly in Scenebuilder.
         volumeSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
             // If double is not the supported type in the model, it can easily be changed here I think.
             handleVolumeChanged(newValue.doubleValue());
         });
+
+        sendNotificationsToggleButton.setSelected(NotificationBackend.areNotificationsOn());
+        sendLowElectricPriceToggleButton.setSelected((NotificationBackend.isNotificationOn(Notification.LOW_ELECTRICITY_PRICE)));
     }
 
     // Meant for toggling notifications in general.
     @FXML
     private void handleSendNotificationsOnAction() {
-        // TODO: make it work with model.
+        NotificationBackend.toggleAllNotifications();
+
         boolean isSelected = sendNotificationsToggleButton.isSelected();
-        if (isSelected) {
-            // NotificationModel.enableNotifications()
-        } else {
-            // NotificationModel.disableNotifications()
-        }
 
         for (ToggleButton button : notificationButtons) {
             button.setDisable(!isSelected);
@@ -48,13 +52,7 @@ public class SettingsPageController {
     // Example of specifically toggling a notification.
     @FXML
     private void handleLowElectricPriceOnAction() {
-        // TODO: make it work with model.
-        boolean isSelected = sendLowElectricPriceToggleButton.isSelected();
-        if (isSelected) {
-            // NotificationModel.enableNotification(NotificationType.LOW_ELECTRIC)
-        } else {
-            // NotificationModel.disableNotification(NotificationType.LOW_ELECTRIC)
-        }
+        NotificationBackend.toggleASpecificNotification(Notification.LOW_ELECTRICITY_PRICE);
     }
 
     @FXML
@@ -63,6 +61,6 @@ public class SettingsPageController {
     }
 
     private void handleVolumeChanged(double newVolume) {
-        NotificationBackend.setVolume(newVolume);
+        NotificationBackend.setVolume(newVolume/VOLUME_SCALE_FACTOR);
     }
 }
