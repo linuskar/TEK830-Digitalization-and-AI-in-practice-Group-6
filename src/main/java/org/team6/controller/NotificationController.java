@@ -19,8 +19,6 @@ public class NotificationController {
     @FXML
     private AnchorPane notificationPane;
     
-    private boolean isNotificationVisible = false;
-    
     @FXML
     public void initialize() {
         notificationPane.setVisible(false);
@@ -40,8 +38,6 @@ public class NotificationController {
     }
 
     public void showNotificationPane(String notificationText) {
-        isNotificationVisible = true;
-
         notificationPane.setTranslateY(-notificationPane.getHeight());
         setNotificationText(notificationText);
         notificationPane.setVisible(true);
@@ -65,7 +61,6 @@ public class NotificationController {
         slideUp.setOnFinished(event -> {
             notificationPane.setVisible(false);
             notificationPane.setDisable(true);
-            isNotificationVisible = false; 
         });
 
         slideUp.play();
@@ -78,13 +73,12 @@ public class NotificationController {
         switch (key) {
             case "p" -> {
                 // Prevent spamming and check that notification is actually on.
-                if (!isNotificationVisible && NotificationBackend.isNotificationOn(exampleNotification)) {
+                if (!notificationPane.isVisible() && NotificationBackend.isNotificationOn(exampleNotification)) {
                     // TODO: probably make these two observers of notification events or similar
                     // instead of notifications showing up through key presses.
                     showNotificationPane(Notification.getText(exampleNotification));
                     SoundPlayer.playSound(exampleNotification);
                 }
-
             }
             default -> {}
         }
