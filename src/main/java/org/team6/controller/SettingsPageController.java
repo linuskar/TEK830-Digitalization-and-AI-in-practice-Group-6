@@ -9,6 +9,7 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import org.team6.controller.NotificationPageController;
+import org.team6.model.NotificationHistory;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,16 +30,26 @@ public class SettingsPageController {
     @FXML
     private Button NotificationButton;
 
+    private NotificationHistory sharedNotificationHistory;
+    private NotificationPageController notificationPageController;
+
     // List of specific notification buttons. For instance used for
     // enabling and disabling all buttons if notifications are switched on or off.
 
-    private NotificationPageController notificationPage = new NotificationPageController();
     private final List<ToggleButton> notificationButtons = new ArrayList<>();
 
     @FXML
     public void initialize(){
-        settingsPane.setVisible(true);
-        settingsPane.setDisable(false);
+        //settingsPane.setVisible(true);
+        //settingsPane.setDisable(false);
+    }
+
+    public void setNotificationHistory(NotificationHistory notificationHistory) {
+        this.sharedNotificationHistory = notificationHistory;
+    }
+
+    public void setNotificationPageController(NotificationPageController notificationPageController) {
+        this.notificationPageController = notificationPageController;
     }
 
 
@@ -82,7 +93,7 @@ public class SettingsPageController {
 
     @FXML
     private void handleBackOnAction() {
-        // TODO: go back to home page
+        settingsPane.setVisible(false);
     }
 
     private void handleVolumeChanged(double newVolume) {
@@ -90,12 +101,32 @@ public class SettingsPageController {
         // NotificationModel.setVolume(newVolume)
     }
     //Pops up the notification page.
+
+    private NotificationHistory sharedHistory = new NotificationHistory();  // Shared instance
+
     @FXML
     private void handleNotificationPageOnAction() throws IOException {
+        // Load NotificationPage FXML
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/team6/view/NotificationPage.fxml"));
         Parent notificationPage = loader.load();
+
+        // Get the controller for NotificationPage
+        NotificationPageController notificationPageController = loader.getController();
+
+        // Inject the shared NotificationHistory instance
+        notificationPageController.setNotificationHistory(sharedNotificationHistory);
+
+        // Now, inject the same shared NotificationHistory to NotificationController
+        NotificationController notificationController = new NotificationController();
+        notificationController.setNotificationHistory(sharedNotificationHistory);
+
+        // Inject the NotificationPageController into NotificationController
+        notificationController.setNotificationPageController(notificationPageController);
+
+        // Add NotificationPage to your scene
         settingsPane.getChildren().add(notificationPage);
-
     }
-
 }
+
+
+

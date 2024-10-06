@@ -21,8 +21,8 @@ public class HomePageController {
     @FXML
     private AnchorPane mainPage;
 
-    @FXML
-    private StackPane settingsStack;
+    //@FXML
+    //private StackPane settingsStack;
 
     @FXML
     private Text homePageTitle;
@@ -70,7 +70,6 @@ public class HomePageController {
     //pop up settings after pressing on the settings button.
     @FXML
     private void handleSettingsPageOnAction() throws IOException {
-        // Load the FXML file for the second scene
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/team6/view/settings_page.fxml"));
         Parent settingsPage = loader.load();
         mainPage.getChildren().add(settingsPage);

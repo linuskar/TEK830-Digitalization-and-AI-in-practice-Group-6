@@ -8,6 +8,9 @@ import javafx.scene.text.Text;
 import javafx.util.Duration;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import org.team6.model.NotificationHistory;
+
+import java.io.IOException;
 
 
 public class NotificationController {
@@ -19,11 +22,29 @@ public class NotificationController {
 
     private boolean isNotificationVisible = false;
 
+    private NotificationHistory notificationHistory;
+
+    private NotificationPageController notificationPageController;
+
+    // Setter to inject the shared NotificationHistory
+    public void setNotificationHistory(NotificationHistory history) {
+        this.notificationHistory = history;
+    }
+
+    public void setNotificationPageController(NotificationPageController controller) {
+        this.notificationPageController = controller;
+    }
+
+
+
     @FXML
     public void initialize() {
         notificationPane.setVisible(false);
         notificationPane.setDisable(true);
+
+
     }
+
 
     public void setNotificationText(String text) {
         notificationText.setText(text);
@@ -74,12 +95,15 @@ public class NotificationController {
 
     private void handleKeyPress(KeyEvent event) {
         switch (event.getCode()) {
-            case P -> showNotificationPane();
-            default -> {
+            case P -> {
+                showNotificationPane();
+                //notificationHistory.addNotification();
+                //notificationPageController.addNotificationToVbox();
+
+                }
             }
         }
 
-    }
 
     public boolean getNotificationStatus(){
         return isNotificationVisible;

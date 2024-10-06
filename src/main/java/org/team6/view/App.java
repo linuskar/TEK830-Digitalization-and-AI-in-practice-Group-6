@@ -33,12 +33,7 @@ public class App extends Application {
         
         notificationController.setupKeyHandling(scene);
 
-        //FXMLLoader settingPageLoader = new FXMLLoader(getClass().getResource("/org/team6/view/settings_page.fxml"));
-        //AnchorPane settingsPane = settingPageLoader.load();
 
-
-        //FXMLLoader notificationPageLoader = new FXMLLoader(getClass().getResource("/org/team6/view/NotificationPage.fxml"));
-        //AnchorPane notificationPageAnchor = notificationPageLoader.load();
 
         mainPage.getChildren().addAll(homePage,notificationPane);
 
