@@ -25,15 +25,23 @@ public class SettingsPageController {
 
     public SettingsPageController() {
         notificationButtons.add(sendNotificationsToggleButton);
+        initVolumeSlider();
+        initToggleButtons();
+    }
 
+    private void initVolumeSlider() {
         volumeSlider.setValue(NotificationBackend.getVolume()*VOLUME_SCALE_FACTOR);
         // Don't think you can add it directly in Scenebuilder.
         volumeSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
             // If double is not the supported type in the model, it can easily be changed here I think.
             handleVolumeChanged(newValue.doubleValue());
         });
+    }
 
+    private void initToggleButtons() {
         sendNotificationsToggleButton.setSelected(NotificationBackend.areNotificationsOn());
+        // Maybe if notificationButtons is an enum map and buttons exist for all Notifications
+        // Then this could be done in a nicer way through a for-loop.
         sendLowElectricPriceToggleButton.setSelected((NotificationBackend.isNotificationOn(Notification.LOW_ELECTRICITY_PRICE)));
     }
 
