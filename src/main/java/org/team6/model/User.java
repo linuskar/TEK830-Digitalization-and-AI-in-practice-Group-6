@@ -56,7 +56,7 @@ public class User {
         this.password = password;
     }
 
-    public double getVolume() {
+    double getVolume() {
         return volume;
     }
 
@@ -64,7 +64,7 @@ public class User {
         this.volume = volume;
     }
 
-    public boolean areNotificationsOn() {
+    boolean areNotificationsOn() {
         return notificationsOn;
     }
 
@@ -72,7 +72,7 @@ public class User {
         notificationsOn = !notificationsOn;
     }
 
-    public boolean isNotificationOn(Notification notification) {
+    boolean isNotificationOn(Notification notification) {
         return notifications.get(notification);
     }
 
