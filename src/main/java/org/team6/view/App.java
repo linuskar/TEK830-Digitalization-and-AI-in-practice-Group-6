@@ -5,7 +5,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+
 import org.team6.Main;
+import org.team6.controller.SettingsPopUpController;
 
 import javafx.scene.layout.AnchorPane;
 
@@ -30,10 +32,13 @@ public class App extends Application {
 
         NotificationController notificationController = notificationLoader.getController();
 
-        mainPage.getChildren().addAll(homePage,notificationPane);
+        FXMLLoader settingsPopUp = new FXMLLoader(getClass().getResource("/org/team6/view/settings_popup.fxml"));
+        AnchorPane settingsPopUpPane = settingsPopUp.load();
+
+        mainPage.getChildren().addAll(homePage,notificationPane,settingsPopUpPane);
         
         notificationController.setupKeyHandling(scene);
-
+      
         primaryStage.setTitle("Homepage");
         primaryStage.setScene(scene);
         primaryStage.show();
