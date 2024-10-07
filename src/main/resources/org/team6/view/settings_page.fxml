@@ -33,6 +33,6 @@
          </children>
       </VBox>
       <Label layoutX="93.0" layoutY="20.0" styleClass="title-text" text="Setttings" AnchorPane.topAnchor="24.0" />
-      <Button layoutX="14.0" layoutY="441.0" mnemonicParsing="false" onAction="#handleBackOnAction" text="Back" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="16.0" />
+      <Button fx:id="backButton" layoutX="14.0" layoutY="441.0" mnemonicParsing="false" onAction="#handleBackOnAction" text="Back" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="16.0" />
    </children>
 </AnchorPane>

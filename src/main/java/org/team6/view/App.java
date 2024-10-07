@@ -18,24 +18,7 @@ import javafx.scene.layout.StackPane;
 public class App extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/org/team6/view/MainPage.fxml"));
-        StackPane mainPage = fxmlLoader.load();
-        Scene scene = new Scene(mainPage);
-
-        FXMLLoader homePageLoader = new FXMLLoader(getClass().getResource("/org/team6/view/HomePage.fxml"));
-        AnchorPane homePage = homePageLoader.load();
-
-        FXMLLoader notificationLoader = new FXMLLoader(getClass().getResource("/org/team6/view/NotificationTemplate.fxml"));
-        AnchorPane notificationPane = notificationLoader.load();
-
-        NotificationController notificationController = notificationLoader.getController();
-
-        mainPage.getChildren().addAll(homePage,notificationPane);
-        
-        notificationController.setupKeyHandling(scene);
-
-        primaryStage.setTitle("Homepage");
-        primaryStage.setScene(scene);
+        PageStarter.switchToHomePage(primaryStage);
         primaryStage.show();
     }
 
