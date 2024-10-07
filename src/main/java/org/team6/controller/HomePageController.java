@@ -1,5 +1,7 @@
 package org.team6.controller;
 
+import org.team6.view.PageStarter;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -13,6 +15,7 @@ import javafx.stage.Stage;
 import org.team6.view.PageStarter;
 
 import java.io.IOException;
+import javafx.scene.Cursor;
 
 public class HomePageController {
     @FXML
@@ -64,5 +67,14 @@ public class HomePageController {
     private void handleSettingsButtonAction() {
         Stage currentStage = (Stage) settingsButton.getScene().getWindow();
         PageStarter.switchToSettingsPage(currentStage);
+    }
+    
+    private void handleSettingsButtonMouseEntered() {
+        settingsButton.setCursor(Cursor.HAND);
+    }
+
+    @FXML
+    private void handleSettingsButtonMouseExited() {
+        settingsButton.setCursor(Cursor.DEFAULT);
     }
 }
