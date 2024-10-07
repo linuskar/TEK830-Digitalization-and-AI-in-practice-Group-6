@@ -38,8 +38,7 @@ public class PageStarter {
 
     public static void switchToSettingsPage(Stage primaryStage) {
         try {
-            FXMLLoader loader = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/settings_page.fxml"));
-            AnchorPane settingsPage = loader.load();
+            AnchorPane settingsPage = getSettingsPage();
             Scene newScene = new Scene(settingsPage);
 
             primaryStage.setScene(newScene);
@@ -47,14 +46,19 @@ public class PageStarter {
             e.printStackTrace();
         }
     }
+    
+    private static StackPane getMainPage() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/org/team6/view/MainPage.fxml"));
+        return fxmlLoader.load();
+    }
 
     private static AnchorPane getHomePage() throws IOException {
         FXMLLoader homePageLoader = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/HomePage.fxml"));
         return homePageLoader.load();
     }
 
-    private static StackPane getMainPage() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/org/team6/view/MainPage.fxml"));
-        return fxmlLoader.load();
+    private static AnchorPane getSettingsPage() throws IOException {
+        FXMLLoader loader = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/settings_page.fxml"));
+        return loader.load();
     }
 }
