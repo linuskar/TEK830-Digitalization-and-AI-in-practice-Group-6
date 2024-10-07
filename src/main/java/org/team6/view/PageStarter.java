@@ -13,31 +13,39 @@ import java.io.IOException;
 public class PageStarter {
     private PageStarter() {}
 
-    public static void switchToHomePage(Stage primaryStage) throws IOException {
-        StackPane mainPage = getMainPage();
-        Scene scene = new Scene(mainPage);
+    public static void switchToHomePage(Stage primaryStage) {
+        try {
+            StackPane mainPage = getMainPage();
+            Scene scene = new Scene(mainPage);
 
-        AnchorPane homePage = getHomePage();
+            AnchorPane homePage = getHomePage();
 
-        FXMLLoader notificationLoader = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/NotificationTemplate.fxml"));
-        AnchorPane notificationPane = notificationLoader.load();
+            FXMLLoader notificationLoader = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/NotificationTemplate.fxml"));
+            AnchorPane notificationPane = notificationLoader.load();
 
-        NotificationController notificationController = notificationLoader.getController();
+            NotificationController notificationController = notificationLoader.getController();
 
-        mainPage.getChildren().addAll(homePage, notificationPane);
+            mainPage.getChildren().addAll(homePage, notificationPane);
 
-        notificationController.setupKeyHandling(scene);
+            notificationController.setupKeyHandling(scene);
 
-        primaryStage.setTitle("Homepage");
-        primaryStage.setScene(scene);
+            primaryStage.setTitle("Homepage");
+            primaryStage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public static void switchToSettingsPage(Stage primaryStage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/settings_page.fxml"));
-        AnchorPane settingsPage = loader.load();
-        Scene newScene = new Scene(settingsPage);
+    public static void switchToSettingsPage(Stage primaryStage) {
+        try {
+            FXMLLoader loader = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/settings_page.fxml"));
+            AnchorPane settingsPage = loader.load();
+            Scene newScene = new Scene(settingsPage);
 
-        primaryStage.setScene(newScene);
+            primaryStage.setScene(newScene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private static AnchorPane getHomePage() throws IOException {

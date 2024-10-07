@@ -63,10 +63,6 @@ public class HomePageController {
     @FXML
     private void handleSettingsButtonAction() {
         Stage currentStage = (Stage) settingsButton.getScene().getWindow();
-        try {
-            PageStarter.switchToSettingsPage(currentStage);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        PageStarter.switchToSettingsPage(currentStage);
     }
 }

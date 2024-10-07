@@ -17,7 +17,7 @@ import javafx.scene.layout.StackPane;
 
 public class App extends Application {
     @Override
-    public void start(Stage primaryStage) throws IOException {
+    public void start(Stage primaryStage) {
         PageStarter.switchToHomePage(primaryStage);
         primaryStage.show();
     }
