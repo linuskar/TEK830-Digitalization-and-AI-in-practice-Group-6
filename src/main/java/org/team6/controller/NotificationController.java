@@ -27,13 +27,19 @@ public class NotificationController {
     private NotificationPageController notificationPageController;
 
     // Setter to inject the shared NotificationHistory
+
+    /*public void setNotificationPageController(NotificationPageController controller) {
+        this.notificationPageController = controller;
+    }*/
+
     public void setNotificationHistory(NotificationHistory history) {
-        this.notificationHistory = history;
+        this.notificationHistory  = history;
     }
 
-    public void setNotificationPageController(NotificationPageController controller) {
-        this.notificationPageController = controller;
+    public AnchorPane returNotificationPage(){
+        return notificationPane;
     }
+
 
 
 
@@ -96,10 +102,8 @@ public class NotificationController {
     private void handleKeyPress(KeyEvent event) {
         switch (event.getCode()) {
             case P -> {
+                notificationHistory.addNotification(notificationPane);
                 showNotificationPane();
-                //notificationHistory.addNotification();
-                //notificationPageController.addNotificationToVbox();
-
                 }
             }
         }

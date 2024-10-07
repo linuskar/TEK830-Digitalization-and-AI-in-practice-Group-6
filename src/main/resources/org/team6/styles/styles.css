@@ -6,6 +6,9 @@
 -fx-border-color: #21130d;
 -fx-background-color: #ffffff;
 }
+#settingsPane1{
+-fx-background-color: #ffffff;
+}
 
 #homePageTitle{
 -fx-pref-width: 30;

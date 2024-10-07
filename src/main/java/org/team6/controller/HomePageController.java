@@ -18,6 +18,8 @@ import org.team6.view.App;
 import java.io.IOException;
 
 public class HomePageController {
+
+    private NotificationController notificationController = new NotificationController();
     @FXML
     private AnchorPane mainPage;
 
@@ -66,15 +68,51 @@ public class HomePageController {
     @FXML
     private Text electricityText;
 
+    @FXML
+    private Pane settingsPane1;
+
+    @FXML
+    private Parent settingsPane;
+
+    @FXML
+    private void initialize(){
+        settingsPane1.setVisible(false);
+
+    }
+
+    @FXML
+    public void setSettingsPane(Parent settingsPane){
+        this.settingsPane = settingsPane;
+    }
+
+    @FXML
+    public void handleSettingsPageOnAction() throws IOException {
+        if (!mainPage.getChildren().contains(settingsPane)) {
+            mainPage.getChildren().add(settingsPane);
+        }
+
+        settingsPane.setVisible(true);
+        settingsPane.toFront();
+
+    }
+
+    @FXML
+    private void hideSettingsPane() {
+        settingsPane.setVisible(false);
+    }
+
 
     //pop up settings after pressing on the settings button.
-    @FXML
-    private void handleSettingsPageOnAction() throws IOException {
+    /*@FXML
+    private void displaySettingsPage() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/team6/view/settings_page.fxml"));
         Parent settingsPage = loader.load();
-        mainPage.getChildren().add(settingsPage);
-        settingsPage.toFront();
-    }
+        settingsPane1.getChildren().add(settingsPage);
+        SettingsPageController settingsPageController = loader.getController();
+        settingsPageController.setNotificationController(notificationController);
+        settingsPage.setVisible(true);
+        settingsPane1.toFront();
+    }*/
 
 
 

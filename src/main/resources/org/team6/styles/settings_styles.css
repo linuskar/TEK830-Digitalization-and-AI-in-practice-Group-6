@@ -1,6 +1,9 @@
 #settingsPane{
 -fx-background-color: #ffffff;
 }
+#notificationPane{
+-fx-background-color: #ffffff;
+}
 
 .hbox {
     -fx-spacing: 16px;

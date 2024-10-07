@@ -3,7 +3,9 @@ package org.team6.view;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import org.team6.Main;
@@ -15,6 +17,7 @@ import org.team6.controller.*;
 import java.io.IOException;
 
 import javafx.scene.layout.StackPane;
+import org.team6.model.NotificationHistory;
 
 public class App extends Application {
     @Override
@@ -29,10 +32,29 @@ public class App extends Application {
         FXMLLoader notificationLoader = new FXMLLoader(getClass().getResource("/org/team6/view/NotificationTemplate.fxml"));
         AnchorPane notificationPane = notificationLoader.load();
 
-        NotificationController notificationController = notificationLoader.getController();
-        
-        notificationController.setupKeyHandling(scene);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/team6/view/settings_page.fxml"));
+        Parent settingsPage = loader.load();
 
+        HomePageController homePageController = homePageLoader.getController();
+        homePageController.setSettingsPane(settingsPage);
+
+        FXMLLoader notificationPageLoader = new FXMLLoader(getClass().getResource("/org/team6/view/NotificationPage.fxml"));
+        Parent notificationPage = notificationPageLoader.load();
+
+        //new
+        NotificationPageController notificationPageController = notificationPageLoader.getController();
+
+
+
+        SettingsPageController settingsPageController = loader.getController();
+        settingsPageController.setParentPage(notificationPage);
+
+        NotificationController notificationController = notificationLoader.getController();
+
+        NotificationHistory history = new NotificationHistory();
+        notificationController.setNotificationHistory(history);
+        notificationPageController.setNotificationHistory(history);
+        notificationController.setupKeyHandling(scene);
 
 
         mainPage.getChildren().addAll(homePage,notificationPane);
@@ -42,6 +64,10 @@ public class App extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
+
+
+
+
 
     public void startView(String[] args) {
         launch(args);

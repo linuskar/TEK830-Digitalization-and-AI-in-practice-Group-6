@@ -10,6 +10,7 @@
 
 <AnchorPane fx:id="mainPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="852.0" prefWidth="382.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.HomePageController">
    <children>
+      <Pane fx:id="settingsPane1" prefHeight="426.0" prefWidth="285.0" />
       <Pane layoutX="18.0" layoutY="89.0" prefHeight="475.0" prefWidth="353.0">
          <children>
             <Button fx:id="electricityButton" layoutX="12.0" layoutY="245.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="328.0">
