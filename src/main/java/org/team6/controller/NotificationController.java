@@ -68,12 +68,13 @@ public class NotificationController {
 
     private void handleKeyPress(KeyEvent event) {
         Notification exampleNotification = Notification.LOW_ELECTRICITY_PRICE;
+        boolean isNotificationOn = NotificationBackend.isNotificationOn(exampleNotification) && NotificationBackend.areNotificationsOn();
 
         String key = event.getText();
         switch (key) {
             case "p" -> {
                 // Prevent spamming and check that notification is actually on.
-                if (!notificationPane.isVisible() && NotificationBackend.isNotificationOn(exampleNotification)) {
+                if (!notificationPane.isVisible() && isNotificationOn) {
                     // TODO: probably make these two observers of notification events or similar
                     // instead of notifications showing up through key presses.
                     showNotificationPane(Notification.getText(exampleNotification));
