@@ -73,18 +73,10 @@ public class PageStarter {
         primaryStage.setScene(scene);
     }
 
-    public static void switchToHomePage() {
-        setPageVisible(homePane);
-    }
-
     public static void switchToSettingsPage(Stage primaryStage) {
         setPageVisible(settingsPane);
-        primaryStage.setTitle("Settings Page>");
+        primaryStage.setTitle("Settings Page");
         primaryStage.setScene(scene);
-    }
-
-    public static void switchToSettingsPage() {
-        setPageVisible(settingsPane);
     }
 
     private static StackPane getMainPage() throws IOException {
