@@ -14,12 +14,10 @@ public class PageStarter {
     private PageStarter() {}
 
     public static void switchToHomePage(Stage primaryStage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/org/team6/view/MainPage.fxml"));
-        StackPane mainPage = fxmlLoader.load();
+        StackPane mainPage = getMainPage();
         Scene scene = new Scene(mainPage);
 
-        FXMLLoader homePageLoader = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/HomePage.fxml"));
-        AnchorPane homePage = homePageLoader.load();
+        AnchorPane homePage = getHomePage();
 
         FXMLLoader notificationLoader = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/NotificationTemplate.fxml"));
         AnchorPane notificationPane = notificationLoader.load();
@@ -32,6 +30,16 @@ public class PageStarter {
 
         primaryStage.setTitle("Homepage");
         primaryStage.setScene(scene);
+    }
+
+    private static AnchorPane getHomePage() throws IOException {
+        FXMLLoader homePageLoader = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/HomePage.fxml"));
+        return homePageLoader.load();
+    }
+
+    private static StackPane getMainPage() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/org/team6/view/MainPage.fxml"));
+        return fxmlLoader.load();
     }
 
 }
