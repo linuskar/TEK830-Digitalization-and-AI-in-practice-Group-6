@@ -32,6 +32,14 @@ public class PageStarter {
         primaryStage.setScene(scene);
     }
 
+    public static void switchToSettingsPage(Stage primaryStage) throws IOException {
+        FXMLLoader loader = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/settings_page.fxml"));
+        AnchorPane settingsPage = loader.load();
+        Scene newScene = new Scene(settingsPage);
+
+        primaryStage.setScene(newScene);
+    }
+
     private static AnchorPane getHomePage() throws IOException {
         FXMLLoader homePageLoader = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/HomePage.fxml"));
         return homePageLoader.load();

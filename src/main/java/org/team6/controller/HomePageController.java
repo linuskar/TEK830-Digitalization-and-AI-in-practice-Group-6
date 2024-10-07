@@ -10,6 +10,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.team6.view.PageStarter;
 
 import java.io.IOException;
 
@@ -61,14 +62,9 @@ public class HomePageController {
 
     @FXML
     private void handleSettingsButtonAction() {
+        Stage currentStage = (Stage) settingsButton.getScene().getWindow();
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/team6/view/settings_page.fxml"));
-            AnchorPane settingsPage = loader.load();
-            Scene newScene = new Scene(settingsPage);
-
-            // Get the current stage
-            Stage currentStage = (Stage) settingsButton.getScene().getWindow();
-            currentStage.setScene(newScene);
+            PageStarter.switchToSettingsPage(currentStage);
         } catch (IOException e) {
             e.printStackTrace();
         }
