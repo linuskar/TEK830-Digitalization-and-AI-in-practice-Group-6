@@ -3,11 +3,14 @@ package org.team6.controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Slider;
 import javafx.scene.control.ToggleButton;
+
 import org.team6.model.Notification;
 import org.team6.model.NotificationBackend;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.team6.view.PageStarter;
 
 public class SettingsPageController {
     @FXML
@@ -23,7 +26,8 @@ public class SettingsPageController {
     // enabling and disabling all buttons if notifications are switched on or off.
     private final List<ToggleButton> notificationButtons = new ArrayList<>();
 
-    public SettingsPageController() {
+    @FXML
+    private void initialize() {
         notificationButtons.add(sendNotificationsToggleButton);
         initVolumeSlider();
         initToggleButtons();
@@ -66,6 +70,7 @@ public class SettingsPageController {
     @FXML
     private void handleBackOnAction() {
         // TODO: go back to home page
+        PageStarter.switchToHomePage();
     }
 
     private void handleVolumeChanged(double newVolume) {

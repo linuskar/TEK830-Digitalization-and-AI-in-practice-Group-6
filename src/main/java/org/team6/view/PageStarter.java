@@ -1,49 +1,84 @@
 package org.team6.view;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+
 import org.team6.controller.NotificationController;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
+import javax.print.attribute.standard.PagesPerMinute;
+
+import org.h2.engine.Setting;
+import org.h2.mvstore.Page;
 
 public class PageStarter {
-    private PageStarter() {}
+    //private PageStarter() {}
 
-    public static void switchToHomePage(Stage primaryStage) {
+    @FXML
+    private static AnchorPane homePane;
+    @FXML
+    private static AnchorPane settingsPane;
+    private static ArrayList<AnchorPane> pages = new ArrayList<>();
+
+    @FXML
+    private static Scene scene;
+
+    private PageStarter() {
+        // Private constructor to prevent instantiation
+    }
+
+    public static void initialize() {
         try {
             StackPane mainPage = getMainPage();
-            Scene scene = new Scene(mainPage);
+            scene = new Scene(mainPage);
 
-            AnchorPane homePage = getHomePage();
+            homePane = getHomePage();
+            pages.add(homePane);
 
             FXMLLoader notificationLoader = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/NotificationTemplate.fxml"));
             AnchorPane notificationPane = notificationLoader.load();
 
             NotificationController notificationController = notificationLoader.getController();
 
-            mainPage.getChildren().addAll(homePage, notificationPane);
+            settingsPane = getSettingsPage();
+            pages.add(settingsPane);
+
+            mainPage.getChildren().addAll(homePane, settingsPane, notificationPane);
 
             notificationController.setupKeyHandling(scene);
-
-            primaryStage.setTitle("Homepage");
-            primaryStage.setScene(scene);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public static void switchToSettingsPage(Stage primaryStage) {
-        try {
-            AnchorPane settingsPage = getSettingsPage();
-            Scene newScene = new Scene(settingsPage);
+    public static void switchToHomePage(Stage primaryStage) {
+        setPageVisible(homePane);
 
-            primaryStage.setScene(newScene);
-        } catch (IOException e) {
-            e.printStackTrace();
+        primaryStage.setTitle("Homepage");
+        primaryStage.setScene(scene);
+    }
+
+    public static void switchToHomePage() {
+        setPageVisible(homePane);
+    }
+
+    private static void setPageVisible(AnchorPane thePage) {
+        for (AnchorPane page : pages) {
+            page.setVisible(false);
         }
+
+        thePage.setVisible(true);
+    }
+
+    public static void switchToSettingsPage() {
+        setPageVisible(settingsPane);
     }
 
     private static StackPane getMainPage() throws IOException {
