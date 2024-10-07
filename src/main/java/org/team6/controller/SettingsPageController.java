@@ -11,6 +11,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.team6.model.Notification;
 import org.team6.model.NotificationBackend;
+import org.team6.view.PageStarter;
 
 import java.io.IOException;
 import java.net.URL;
@@ -79,14 +80,9 @@ public class SettingsPageController implements Initializable {
 
     @FXML
     private void handleBackOnAction() {
+        Stage currentStage = (Stage) backButton.getScene().getWindow();
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/team6/view/HomePage.fxml"));
-            AnchorPane homePage = loader.load();
-            Scene newScene = new Scene(homePage);
-
-            // Get the current stage
-            Stage currentStage = (Stage) backButton.getScene().getWindow();
-            currentStage.setScene(newScene);
+            PageStarter.switchToHomePage(currentStage);
         } catch (IOException e) {
             e.printStackTrace();
         }
