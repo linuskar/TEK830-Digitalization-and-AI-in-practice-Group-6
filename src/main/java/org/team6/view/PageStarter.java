@@ -24,7 +24,7 @@ public class PageStarter {
 
         NotificationController notificationController = notificationLoader.getController();
 
-        mainPage.getChildren().addAll(homePage,notificationPane);
+        mainPage.getChildren().addAll(homePage, notificationPane);
 
         notificationController.setupKeyHandling(scene);
 
@@ -41,5 +41,4 @@ public class PageStarter {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/org/team6/view/MainPage.fxml"));
         return fxmlLoader.load();
     }
-
 }
