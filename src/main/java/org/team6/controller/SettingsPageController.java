@@ -1,15 +1,18 @@
 package org.team6.controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Slider;
 import javafx.scene.control.ToggleButton;
 import org.team6.model.Notification;
 import org.team6.model.NotificationBackend;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class SettingsPageController {
+public class SettingsPageController implements Initializable {
     @FXML
     private ToggleButton sendNotificationsToggleButton;
     @FXML
@@ -23,7 +26,8 @@ public class SettingsPageController {
     // enabling and disabling all buttons if notifications are switched on or off.
     private final List<ToggleButton> notificationButtons = new ArrayList<>();
 
-    public SettingsPageController() {
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         notificationButtons.add(sendNotificationsToggleButton);
         initVolumeSlider();
         initToggleButtons();
