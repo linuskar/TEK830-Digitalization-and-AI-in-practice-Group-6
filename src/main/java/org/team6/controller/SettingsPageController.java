@@ -28,7 +28,7 @@ public class SettingsPageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        notificationButtons.add(sendNotificationsToggleButton);
+        notificationButtons.add(sendLowElectricPriceToggleButton);
         initVolumeSlider();
         initToggleButtons();
     }
@@ -56,8 +56,8 @@ public class SettingsPageController implements Initializable {
 
         boolean isSelected = sendNotificationsToggleButton.isSelected();
 
-        for (ToggleButton button : notificationButtons) {
-            button.setDisable(!isSelected);
+        for (ToggleButton notificationButton : notificationButtons) {
+            notificationButton.setDisable(!isSelected);
         }
     }
 
