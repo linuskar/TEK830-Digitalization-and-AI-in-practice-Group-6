@@ -1,19 +1,15 @@
 package org.team6.controller;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
 import javafx.scene.control.ToggleButton;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.team6.model.Notification;
 import org.team6.model.NotificationBackend;
 import org.team6.view.PageStarter;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -58,13 +54,17 @@ public class SettingsPageController implements Initializable {
         // Maybe if notificationButtons is an enum map and buttons exist for all Notifications
         // Then this could be done in a nicer way through a for-loop.
         sendLowElectricPriceToggleButton.setSelected((NotificationBackend.isNotificationOn(Notification.LOW_ELECTRICITY_PRICE)));
+        toggleNotificationButtonsAvailability();
     }
 
     // Meant for toggling notifications in general.
     @FXML
     private void handleSendNotificationsOnAction() {
         NotificationBackend.toggleAllNotifications();
+        toggleNotificationButtonsAvailability();
+    }
 
+    private void toggleNotificationButtonsAvailability() {
         boolean isSelected = sendNotificationsToggleButton.isSelected();
 
         for (ToggleButton notificationButton : notificationButtons) {
