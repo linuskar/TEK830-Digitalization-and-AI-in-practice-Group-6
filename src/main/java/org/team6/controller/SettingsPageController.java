@@ -83,7 +83,17 @@ public class SettingsPageController implements Initializable {
 
     private void initSpinners() {
         initSpinnerValueFactories();
+        initDefaultSpinnerValues();
+    }
 
+    private void initSpinnerValueFactories() {
+        dailyReportTimeSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 23));
+        electricityPriceLimitSpinner.setValueFactory(new SpinnerValueFactory.DoubleSpinnerValueFactory(-999.0, 999.0));
+        startNotificationTimeSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 23));
+        endNotificationTimeSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 23));
+    }
+
+    private void initDefaultSpinnerValues() {
         int dailyReportTime = NotificationBackend.getDailyReportTime();
         dailyReportTimeSpinner.getValueFactory().setValue(dailyReportTime);
 
@@ -95,13 +105,6 @@ public class SettingsPageController implements Initializable {
 
         int endNotificationTime = NotificationBackend.getEndNotificationTime();
         endNotificationTimeSpinner.getValueFactory().setValue(endNotificationTime);
-    }
-
-    private void initSpinnerValueFactories() {
-        dailyReportTimeSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 23));
-        electricityPriceLimitSpinner.setValueFactory(new SpinnerValueFactory.DoubleSpinnerValueFactory(-999.0, 999.0));
-        startNotificationTimeSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 23));
-        endNotificationTimeSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 23));
     }
 
     private void initToggleButtonsState() {
