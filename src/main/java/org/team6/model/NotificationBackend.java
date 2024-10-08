@@ -11,8 +11,12 @@ public class NotificationBackend {
     private NotificationBackend() {}
 
     public static void sendNotification(Notification notification) {
-        for (NotificationListener notificationListener : notificationListeners) {
-            notificationListener.onNotificationSent(notification);
+        boolean canSendNotification = areNotificationsOn() && isNotificationOn(notification);
+        
+        if (canSendNotification) {
+            for (NotificationListener notificationListener : notificationListeners) {
+                notificationListener.onNotificationSent(notification);
+            }
         }
     }
 

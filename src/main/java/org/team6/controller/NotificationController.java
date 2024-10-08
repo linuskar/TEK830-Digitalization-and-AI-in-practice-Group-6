@@ -68,8 +68,8 @@ public class NotificationController implements NotificationListener {
 
     private void handleKeyPress(KeyEvent event) {
         // Prevent spamming and check that notification is actually on.
-        boolean canSendNotification = !notificationPane.isVisible() && NotificationBackend.areNotificationsOn();
-        
+        boolean canSendNotification = !notificationPane.isVisible();
+
         if (canSendNotification) {
             String key = event.getText();
             switch (key) {
@@ -84,9 +84,7 @@ public class NotificationController implements NotificationListener {
     }
 
     private static void sendNotification(Notification notification) {
-        if (NotificationBackend.isNotificationOn(notification)) {
-            NotificationBackend.sendNotification(notification);
-        }
+        NotificationBackend.sendNotification(notification);
     }
 
     @Override
