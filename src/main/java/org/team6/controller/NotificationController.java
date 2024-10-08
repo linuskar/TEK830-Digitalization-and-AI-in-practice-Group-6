@@ -67,18 +67,25 @@ public class NotificationController implements NotificationListener {
     }
 
     private void handleKeyPress(KeyEvent event) {
-        Notification exampleNotification = Notification.LOW_ELECTRICITY_PRICE;
-        boolean isNotificationOn = NotificationBackend.isNotificationOn(exampleNotification) && NotificationBackend.areNotificationsOn();
-
-        String key = event.getText();
-        switch (key) {
-            case "p" -> {
-                // Prevent spamming and check that notification is actually on.
-                if (!notificationPane.isVisible() && isNotificationOn) {
-                    NotificationBackend.sendNotification(exampleNotification);
-                }
+        // Prevent spamming and check that notification is actually on.
+        boolean canSendNotification = !notificationPane.isVisible() && NotificationBackend.areNotificationsOn();
+        
+        if (canSendNotification) {
+            String key = event.getText();
+            switch (key) {
+                case "p" -> sendNotification(Notification.LOW_ELECTRICITY_PRICE);
+                case "o" -> sendNotification(Notification.HIGH_ELECTRICITY_PRICE);
+                case "i" -> sendNotification(Notification.SUNNY_WEATHER);
+                case "u" -> sendNotification(Notification.COLD_WEATHER);
+                default -> {}
             }
-            default -> {}
+        }
+
+    }
+
+    private static void sendNotification(Notification notification) {
+        if (NotificationBackend.isNotificationOn(notification)) {
+            NotificationBackend.sendNotification(notification);
         }
     }
 
