@@ -84,6 +84,7 @@ public class SettingsPageController implements Initializable {
     private void initSpinners() {
         initSpinnerValueFactories();
         initDefaultSpinnerValues();
+        initSpinnerHandlers();
     }
 
     private void initSpinnerValueFactories() {
@@ -105,6 +106,21 @@ public class SettingsPageController implements Initializable {
 
         int endNotificationTime = NotificationBackend.getEndNotificationTime();
         endNotificationTimeSpinner.getValueFactory().setValue(endNotificationTime);
+    }
+
+    private void initSpinnerHandlers() {
+        dailyReportTimeSpinner.valueProperty().addListener((observable, oldValue, newValue) -> {
+            handleDailyReportTimeChanged(newValue);
+        });
+        electricityPriceLimitSpinner.valueProperty().addListener((observable, oldValue, newValue) -> {
+            handleElectricityPriceLimitChanged(newValue);
+        });
+        startNotificationTimeSpinner.valueProperty().addListener((observable, oldValue, newValue) -> {
+            handleStartNotificationTimeChanged(newValue);
+        });
+        endNotificationTimeSpinner.valueProperty().addListener((observable, oldValue, newValue) -> {
+            handleEndNotificationTimeChanged(newValue);
+        });
     }
 
     private void initToggleButtonsState() {
@@ -150,5 +166,21 @@ public class SettingsPageController implements Initializable {
 
     private void handleVolumeChanged(double newVolume) {
         NotificationBackend.setVolume(newVolume/VOLUME_SCALE_FACTOR);
+    }
+
+    private void handleDailyReportTimeChanged(int newTime) {
+        NotificationBackend.setDailyReportTime(newTime);
+    }
+
+    private void handleElectricityPriceLimitChanged(double newLimit) {
+        NotificationBackend.setElectricityPriceLimit(newLimit);
+    }
+
+    private void handleStartNotificationTimeChanged(int newTime) {
+        NotificationBackend.setStartNotificationTime(newTime);
+    }
+
+    private void handleEndNotificationTimeChanged(int newTime) {
+        NotificationBackend.setEndNotificationTime(newTime);
     }
 }
