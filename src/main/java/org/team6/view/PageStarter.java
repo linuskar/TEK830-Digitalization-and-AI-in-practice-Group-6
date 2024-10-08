@@ -10,22 +10,15 @@ import javafx.stage.Stage;
 import org.team6.controller.NotificationController;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-
-import javax.print.attribute.standard.PagesPerMinute;
-
-import org.h2.engine.Setting;
-import org.h2.mvstore.Page;
+import java.util.List;
 
 public class PageStarter {
-    //private PageStarter() {}
-
     @FXML
     private static AnchorPane homePane;
     @FXML
     private static AnchorPane settingsPane;
-    private static ArrayList<AnchorPane> pages = new ArrayList<>();
+    private static final List<AnchorPane> pages = new ArrayList<>();
 
     @FXML
     private static Scene scene;
