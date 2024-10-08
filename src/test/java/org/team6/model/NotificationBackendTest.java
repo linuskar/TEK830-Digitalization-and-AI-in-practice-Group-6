@@ -7,6 +7,8 @@ import org.junit.jupiter.params.provider.EnumSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 class NotificationBackendTest {
@@ -95,5 +97,57 @@ class NotificationBackendTest {
         double changedVolume = userUnderTest.getVolume();
 
         assertEquals(1, changedVolume);
+    }
+
+    @ParameterizedTest
+    @EnumSource(Notification.class)
+    void testSendNotification_GivenNotificationsAreOnAndNotificationToTestIsOn_ShouldNotifyListener(Notification notification) {
+        assumeTrue(userUnderTest.areNotificationsOn());
+        assumeTrue(userUnderTest.isNotificationOn(notification));
+
+        NotificationListener listener = sentNotification -> assertTrue(true);
+        NotificationBackend.addNotificationListener(listener);
+        NotificationBackend.sendNotification(notification);
+        NotificationBackend.removeNotificationListener(listener);
+    }
+
+    @ParameterizedTest
+    @EnumSource(Notification.class)
+    void testSendNotification_GivenNotificationsAreOnAndNotificationToTestIsOff_ShouldNotNotifyListener(Notification notification) {
+        assumeTrue(userUnderTest.areNotificationsOn());
+        assumeTrue(userUnderTest.isNotificationOn(notification));
+        NotificationBackend.toggleASpecificNotification(notification);
+
+        NotificationListener listener = sentNotification -> fail();
+        NotificationBackend.addNotificationListener(listener);
+        NotificationBackend.sendNotification(notification);
+        NotificationBackend.removeNotificationListener(listener);
+    }
+
+    @ParameterizedTest
+    @EnumSource(Notification.class)
+    void testSendNotification_GivenNotificationsAreOffAndNotificationToTestIsOn_ShouldNotNotifyListener(Notification notification) {
+        assumeTrue(userUnderTest.areNotificationsOn());
+        assumeTrue(userUnderTest.isNotificationOn(notification));
+        NotificationBackend.toggleAllNotifications();
+
+        NotificationListener listener = sentNotification -> fail();
+        NotificationBackend.addNotificationListener(listener);
+        NotificationBackend.sendNotification(notification);
+        NotificationBackend.removeNotificationListener(listener);
+    }
+
+    @ParameterizedTest
+    @EnumSource(Notification.class)
+    void testSendNotification_GivenNotificationsAreOffAndNotificationToTestIsOff_ShouldNotNotifyListener(Notification notification) {
+        assumeTrue(userUnderTest.areNotificationsOn());
+        assumeTrue(userUnderTest.isNotificationOn(notification));
+        NotificationBackend.toggleAllNotifications();
+        NotificationBackend.toggleASpecificNotification(notification);
+
+        NotificationListener listener = sentNotification -> fail();
+        NotificationBackend.addNotificationListener(listener);
+        NotificationBackend.sendNotification(notification);
+        NotificationBackend.removeNotificationListener(listener);
     }
 }

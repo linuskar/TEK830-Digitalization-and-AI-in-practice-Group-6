@@ -24,6 +24,11 @@ public class NotificationBackend {
         notificationListeners.add(listenerToAdd);
     }
 
+    // So far only exists for testing purposes.
+    public static void removeNotificationListener(NotificationListener listenerToRemove) {
+        notificationListeners.remove(listenerToRemove);
+    }
+
     public static boolean areNotificationsOn() {
         return user.areNotificationsOn();
     }
