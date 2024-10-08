@@ -28,6 +28,8 @@ public class SettingsPageController implements Initializable {
     @FXML
     private ToggleButton sendColdWeatherToggleButton;
     @FXML
+    private ToggleButton sendDailyReportToggleButton;
+    @FXML
     private Slider volumeSlider;
 
     @FXML
@@ -46,6 +48,7 @@ public class SettingsPageController implements Initializable {
         notificationButtons.put(sendHighElectricPriceToggleButton, Notification.HIGH_ELECTRICITY_PRICE);
         notificationButtons.put(sendSunnyWeatherToggleButton, Notification.SUNNY_WEATHER);
         notificationButtons.put(sendColdWeatherToggleButton, Notification.COLD_WEATHER);
+        notificationButtons.put(sendDailyReportToggleButton, Notification.DAILY_REPORT);
 
         initVolumeSlider();
         initToggleButtons();
