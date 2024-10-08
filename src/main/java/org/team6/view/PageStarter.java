@@ -8,6 +8,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import org.team6.controller.NotificationController;
+import org.team6.model.NotificationBackend;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -39,6 +40,7 @@ public class PageStarter {
             AnchorPane notificationPane = notificationLoader.load();
 
             NotificationController notificationController = notificationLoader.getController();
+            NotificationBackend.addNotificationListener(notificationController);
 
             settingsPane = getSettingsPage();
             pages.add(settingsPane);

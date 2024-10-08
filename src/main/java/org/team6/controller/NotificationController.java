@@ -10,8 +10,9 @@ import javafx.scene.text.Text;
 import javafx.util.Duration;
 import org.team6.model.Notification;
 import org.team6.model.NotificationBackend;
+import org.team6.model.NotificationListener;
 
-public class NotificationController {
+public class NotificationController implements NotificationListener {
 
     @FXML
     private Text notificationText;
@@ -74,13 +75,15 @@ public class NotificationController {
             case "p" -> {
                 // Prevent spamming and check that notification is actually on.
                 if (!notificationPane.isVisible() && isNotificationOn) {
-                    // TODO: probably make these two observers of notification events or similar
-                    // instead of notifications showing up through key presses.
-                    showNotificationPane(Notification.getText(exampleNotification));
                     NotificationBackend.sendNotification(exampleNotification);
                 }
             }
             default -> {}
         }
+    }
+
+    @Override
+    public void onNotificationSent(Notification notification) {
+        showNotificationPane(Notification.getText(notification));
     }
 }
