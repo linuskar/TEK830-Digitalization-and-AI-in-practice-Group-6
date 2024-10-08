@@ -62,17 +62,16 @@ public class SettingsPageController implements Initializable {
 
     private void initToggleButtons() {
         sendNotificationsToggleButton.setSelected(NotificationBackend.areNotificationsOn());
-        // Maybe if notificationButtons is an enum map and buttons exist for all Notifications
-        // Then this could be done in a nicer way through a for-loop.
-        sendLowElectricPriceToggleButton.setSelected((NotificationBackend.isNotificationOn(Notification.LOW_ELECTRICITY_PRICE)));
+        initToggleButtonsState();
         toggleNotificationButtonsAvailability();
     }
 
-    // Meant for toggling notifications in general.
-    @FXML
-    private void handleSendNotificationsOnAction() {
-        NotificationBackend.toggleAllNotifications();
-        toggleNotificationButtonsAvailability();
+    private void initToggleButtonsState() {
+        for (Map.Entry<ToggleButton, Notification> notificationEntry : notificationButtons.entrySet()) {
+            ToggleButton toggleButton = notificationEntry.getKey();
+            Notification notification = notificationEntry.getValue();
+            toggleButton.setSelected(NotificationBackend.isNotificationOn(notification));
+        }
     }
 
     private void toggleNotificationButtonsAvailability() {
@@ -81,6 +80,13 @@ public class SettingsPageController implements Initializable {
         for (ToggleButton notificationButton : notificationButtons.keySet()) {
             notificationButton.setDisable(!isSelected);
         }
+    }
+
+    // Meant for toggling notifications in general.
+    @FXML
+    private void handleSendNotificationsOnAction() {
+        NotificationBackend.toggleAllNotifications();
+        toggleNotificationButtonsAvailability();
     }
 
     @FXML
