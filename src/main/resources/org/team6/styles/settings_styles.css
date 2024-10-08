@@ -38,3 +38,7 @@ ToggleButton:hover {
 Slider:hover {
     -fx-cursor: hand;
 }
+
+Spinner:hover {
+    -fx-cursor: hand;
+}
