@@ -68,13 +68,4 @@ public class HomePageController {
         Stage currentStage = (Stage) settingsButton.getScene().getWindow();
         PageStarter.switchToSettingsPage(currentStage);
     }
-    @FXML
-    private void handleSettingsButtonMouseEntered() {
-        settingsButton.setCursor(Cursor.HAND);
-    }
-
-    @FXML
-    private void handleSettingsButtonMouseExited() {
-        settingsButton.setCursor(Cursor.DEFAULT);
-    }
 }
