@@ -1,6 +1,7 @@
 package org.team6.model;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class NotificationBackend {
@@ -11,7 +12,18 @@ public class NotificationBackend {
     private NotificationBackend() {}
 
     public static void sendNotification(Notification notification) {
-        boolean canSendNotification = areNotificationsOn() && isNotificationOn(notification);
+        boolean canSendNotification;
+        if (notification == Notification.DAILY_REPORT) {
+            Calendar calendar = Calendar.getInstance();
+            int currentHour = calendar.get(Calendar.HOUR_OF_DAY);
+
+            canSendNotification = areNotificationsOn()
+                    && isNotificationOn(notification)
+                    && user.getDailyReportTime() == currentHour;
+        } else {
+            canSendNotification = areNotificationsOn()
+                    && isNotificationOn(notification);
+        }
 
         if (canSendNotification) {
             for (NotificationListener notificationListener : notificationListeners) {
@@ -62,6 +74,14 @@ public class NotificationBackend {
             volume = 1;
         }
         user.setVolume(volume);
+    }
+
+    public int getDailyReportTime() {
+        return user.getDailyReportTime();
+    }
+
+    public void setDailyReportTime(int dailyReportTime) {
+        user.setDailyReportTime(dailyReportTime);
     }
 
     public static void setUser(User user) {

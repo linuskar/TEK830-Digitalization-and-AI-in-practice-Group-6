@@ -6,6 +6,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import java.util.Calendar;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -104,9 +106,20 @@ class NotificationBackendTest {
     void testSendNotification_GivenNotificationsAreOnAndNotificationToTestIsOn_ShouldNotifyListener(Notification notification) {
         assumeTrue(userUnderTest.areNotificationsOn());
         assumeTrue(userUnderTest.isNotificationOn(notification));
+        extraConditionForDailyReport(notification);
 
         NotificationListener listener = sentNotification -> assertTrue(true);
         sendNotificationSequence(notification, listener);
+    }
+
+    private void extraConditionForDailyReport(Notification notification) {
+        if (notification == Notification.DAILY_REPORT) {
+            Calendar calendar = Calendar.getInstance();
+            int currentHour = calendar.get(Calendar.HOUR_OF_DAY);
+            if (userUnderTest.getDailyReportTime() != currentHour) {
+                userUnderTest.setDailyReportTime(currentHour);
+            }
+        }
     }
 
     private static void sendNotificationSequence(Notification notification, NotificationListener listener) {

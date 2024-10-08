@@ -8,9 +8,11 @@ public class User {
     private String lastName;
     private String email;
     private String password;
+
     private double volume = 0.5;
     private boolean notificationsOn = true;
     private final Map<Notification, Boolean> notifications = new EnumMap<>(Notification.class);
+    private int dailyReportTime = 10;
 
     public User(String firstName, String lastName, String email, String password) {
         this.firstName = firstName;
@@ -81,5 +83,13 @@ public class User {
         Boolean currentState = notifications.get(notification);
         Boolean toggledState = !currentState;
         notifications.put(notification, toggledState);
+    }
+
+    int getDailyReportTime() {
+        return dailyReportTime;
+    }
+
+    void setDailyReportTime(int dailyReportTime) {
+        this.dailyReportTime = dailyReportTime;
     }
 }
