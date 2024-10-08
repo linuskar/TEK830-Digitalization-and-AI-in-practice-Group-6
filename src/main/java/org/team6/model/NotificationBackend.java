@@ -76,12 +76,36 @@ public class NotificationBackend {
         user.setVolume(volume);
     }
 
-    public int getDailyReportTime() {
+    public static int getDailyReportTime() {
         return user.getDailyReportTime();
     }
 
-    public void setDailyReportTime(int dailyReportTime) {
+    public static void setDailyReportTime(int dailyReportTime) {
         user.setDailyReportTime(dailyReportTime);
+    }
+
+    public static double getElectricityPriceLimit() {
+        return user.getElectricityPriceLimit();
+    }
+
+    public static void setElectricityPriceLimit(double electricityPriceLimit) {
+        user.setElectricityPriceLimit(electricityPriceLimit);
+    }
+
+    public static int getStartNotificationTime() {
+        return user.getStartNotificationTime();
+    }
+
+    public static void setStartNotificationTime(int startNotificationTime) {
+        user.setStartNotificationTime(startNotificationTime);
+    }
+
+    public static int getEndNotificationTime() {
+        return user.getEndNotificationTime();
+    }
+
+    public static void setEndNotificationTime(int endNotificationTime) {
+        user.setEndNotificationTime(endNotificationTime);
     }
 
     public static void setUser(User user) {
