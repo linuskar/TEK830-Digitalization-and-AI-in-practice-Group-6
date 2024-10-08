@@ -106,6 +106,10 @@ class NotificationBackendTest {
         assumeTrue(userUnderTest.isNotificationOn(notification));
 
         NotificationListener listener = sentNotification -> assertTrue(true);
+        sendNotificationSequence(notification, listener);
+    }
+
+    private static void sendNotificationSequence(Notification notification, NotificationListener listener) {
         NotificationBackend.addNotificationListener(listener);
         NotificationBackend.sendNotification(notification);
         NotificationBackend.removeNotificationListener(listener);
@@ -119,9 +123,7 @@ class NotificationBackendTest {
         NotificationBackend.toggleASpecificNotification(notification);
 
         NotificationListener listener = sentNotification -> fail();
-        NotificationBackend.addNotificationListener(listener);
-        NotificationBackend.sendNotification(notification);
-        NotificationBackend.removeNotificationListener(listener);
+        sendNotificationSequence(notification, listener);
     }
 
     @ParameterizedTest
@@ -132,9 +134,7 @@ class NotificationBackendTest {
         NotificationBackend.toggleAllNotifications();
 
         NotificationListener listener = sentNotification -> fail();
-        NotificationBackend.addNotificationListener(listener);
-        NotificationBackend.sendNotification(notification);
-        NotificationBackend.removeNotificationListener(listener);
+        sendNotificationSequence(notification, listener);
     }
 
     @ParameterizedTest
@@ -146,8 +146,6 @@ class NotificationBackendTest {
         NotificationBackend.toggleASpecificNotification(notification);
 
         NotificationListener listener = sentNotification -> fail();
-        NotificationBackend.addNotificationListener(listener);
-        NotificationBackend.sendNotification(notification);
-        NotificationBackend.removeNotificationListener(listener);
+        sendNotificationSequence(notification, listener);
     }
 }
