@@ -22,6 +22,7 @@ public class User {
         notifications.put(Notification.HIGH_ELECTRICITY_PRICE, true);
         notifications.put(Notification.SUNNY_WEATHER, true);
         notifications.put(Notification.COLD_WEATHER, true);
+        notifications.put(Notification.DAILY_REPORT, true);
     }
 
     public String getFirstName() {

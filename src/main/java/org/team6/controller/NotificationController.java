@@ -77,6 +77,7 @@ public class NotificationController implements NotificationListener {
                 case "o" -> sendNotification(Notification.HIGH_ELECTRICITY_PRICE);
                 case "i" -> sendNotification(Notification.SUNNY_WEATHER);
                 case "u" -> sendNotification(Notification.COLD_WEATHER);
+                case "y" -> sendNotification(Notification.DAILY_REPORT);
                 default -> {}
             }
         }
