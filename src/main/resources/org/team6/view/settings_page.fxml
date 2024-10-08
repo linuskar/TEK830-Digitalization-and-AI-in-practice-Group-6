@@ -21,25 +21,25 @@
             <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefWidth="200.0" styleClass="hbox">
                <children>
                   <Label prefWidth="168.0" text="Send low electric price notifications" wrapText="true" />
-                  <ToggleButton fx:id="sendLowElectricPriceToggleButton" mnemonicParsing="false" onAction="#handleLowElectricPriceOnAction" prefWidth="64.0" styleClass="mobile-toggle" />
+                  <ToggleButton fx:id="sendLowElectricPriceToggleButton" mnemonicParsing="false" onAction="#handleSpecificNotificationOnAction" prefWidth="64.0" styleClass="mobile-toggle" />
                </children>
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="50.0" prefWidth="200.0" styleClass="hbox">
                <children>
                   <Label prefWidth="168.0" text="Send high electric price notifications" wrapText="true" />
-                  <ToggleButton fx:id="sendHighElectricPriceToggleButton" mnemonicParsing="false" onAction="#handleHighElectricPriceOnAction" prefWidth="64.0" styleClass="mobile-toggle" />
+                  <ToggleButton fx:id="sendHighElectricPriceToggleButton" mnemonicParsing="false" onAction="#handleSpecificNotificationOnAction" prefWidth="64.0" styleClass="mobile-toggle" />
                </children>
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="154.0" prefWidth="200.0" styleClass="hbox">
                <children>
                   <Label prefWidth="168.0" text="Send sunny weather notifications" wrapText="true" />
-                  <ToggleButton fx:id="sendSunnyWeatherToggleButton" mnemonicParsing="false" onAction="#handleSunnyWeatherOnAction" prefWidth="64.0" styleClass="mobile-toggle" />
+                  <ToggleButton fx:id="sendSunnyWeatherToggleButton" mnemonicParsing="false" onAction="#handleSpecificNotificationOnAction" prefWidth="64.0" styleClass="mobile-toggle" />
                </children>
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="204.0" prefWidth="200.0" styleClass="hbox">
                <children>
                   <Label prefWidth="168.0" text="Send cold weather notifications" wrapText="true" />
-                  <ToggleButton fx:id="sendColdWeatherToggleButton" mnemonicParsing="false" onAction="#handleColdWeatherPriceOnAction" prefWidth="64.0" styleClass="mobile-toggle" />
+                  <ToggleButton fx:id="sendColdWeatherToggleButton" mnemonicParsing="false" onAction="#handleSpecificNotificationOnAction" prefWidth="64.0" styleClass="mobile-toggle" />
                </children>
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="50.0" prefWidth="200.0" styleClass="hbox">
