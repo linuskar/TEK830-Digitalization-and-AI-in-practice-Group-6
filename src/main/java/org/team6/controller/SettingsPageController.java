@@ -21,6 +21,12 @@ public class SettingsPageController implements Initializable {
     @FXML
     private ToggleButton sendLowElectricPriceToggleButton;
     @FXML
+    private ToggleButton sendHighElectricPriceToggleButton;
+    @FXML
+    private ToggleButton sendSunnyWeatherToggleButton;
+    @FXML
+    private ToggleButton sendColdWeatherToggleButton;
+    @FXML
     private Slider volumeSlider;
 
     @FXML
@@ -36,6 +42,9 @@ public class SettingsPageController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         notificationButtons.add(sendLowElectricPriceToggleButton);
+        notificationButtons.add(sendHighElectricPriceToggleButton);
+        notificationButtons.add(sendSunnyWeatherToggleButton);
+        notificationButtons.add(sendColdWeatherToggleButton);
         initVolumeSlider();
         initToggleButtons();
     }
@@ -76,6 +85,21 @@ public class SettingsPageController implements Initializable {
     @FXML
     private void handleLowElectricPriceOnAction() {
         NotificationBackend.toggleASpecificNotification(Notification.LOW_ELECTRICITY_PRICE);
+    }
+
+    @FXML
+    private void handleHighElectricPriceOnAction() {
+        NotificationBackend.toggleASpecificNotification(Notification.HIGH_ELECTRICITY_PRICE);
+    }
+
+    @FXML
+    private void handleSunnyWeatherOnAction() {
+        NotificationBackend.toggleASpecificNotification(Notification.SUNNY_WEATHER);
+    }
+
+    @FXML
+    private void handleColdWeatherPriceOnAction() {
+        NotificationBackend.toggleASpecificNotification(Notification.COLD_WEATHER);
     }
 
     @FXML

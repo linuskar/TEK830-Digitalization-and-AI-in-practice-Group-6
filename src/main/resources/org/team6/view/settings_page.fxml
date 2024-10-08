@@ -26,6 +26,24 @@
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="50.0" prefWidth="200.0" styleClass="hbox">
                <children>
+                  <Label prefWidth="168.0" text="Send high electric price notifications" wrapText="true" />
+                  <ToggleButton fx:id="sendHighElectricPriceToggleButton" mnemonicParsing="false" onAction="#handleHighElectricPriceOnAction" prefWidth="64.0" styleClass="mobile-toggle" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="154.0" prefWidth="200.0" styleClass="hbox">
+               <children>
+                  <Label prefWidth="168.0" text="Send sunny weather notifications" wrapText="true" />
+                  <ToggleButton fx:id="sendSunnyWeatherToggleButton" mnemonicParsing="false" onAction="#handleSunnyWeatherOnAction" prefWidth="64.0" styleClass="mobile-toggle" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="204.0" prefWidth="200.0" styleClass="hbox">
+               <children>
+                  <Label prefWidth="168.0" text="Send cold weather notifications" wrapText="true" />
+                  <ToggleButton fx:id="sendColdWeatherToggleButton" mnemonicParsing="false" onAction="#handleColdWeatherPriceOnAction" prefWidth="64.0" styleClass="mobile-toggle" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="50.0" prefWidth="200.0" styleClass="hbox">
+               <children>
                   <Label prefHeight="17.0" prefWidth="68.0" text="Volume" wrapText="true" />
                   <Slider fx:id="volumeSlider" minorTickCount="1" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
                </children>
