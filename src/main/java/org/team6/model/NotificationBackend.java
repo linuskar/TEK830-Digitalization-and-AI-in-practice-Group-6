@@ -1,10 +1,24 @@
 package org.team6.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class NotificationBackend {
     private static User user;
+    private static final List<NotificationListener> notificationListeners = new ArrayList<>();
 
     // Static classes shouldn't expose constructor.
     private NotificationBackend() {}
+
+    public static void sendNotification(Notification notification) {
+        for (NotificationListener notificationListener : notificationListeners) {
+            notificationListener.onNotificationSent(notification);
+        }
+    }
+
+    public static void addNotificationListener(NotificationListener listenerToAdd) {
+        notificationListeners.add(listenerToAdd);
+    }
 
     public static boolean areNotificationsOn() {
         return user.areNotificationsOn();

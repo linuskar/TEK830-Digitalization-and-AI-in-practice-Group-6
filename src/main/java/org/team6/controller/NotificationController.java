@@ -10,7 +10,6 @@ import javafx.scene.text.Text;
 import javafx.util.Duration;
 import org.team6.model.Notification;
 import org.team6.model.NotificationBackend;
-import org.team6.soundsystem.SoundPlayer;
 
 public class NotificationController {
 
@@ -78,7 +77,7 @@ public class NotificationController {
                     // TODO: probably make these two observers of notification events or similar
                     // instead of notifications showing up through key presses.
                     showNotificationPane(Notification.getText(exampleNotification));
-                    SoundPlayer.playSound(exampleNotification);
+                    NotificationBackend.sendNotification(exampleNotification);
                 }
             }
             default -> {}

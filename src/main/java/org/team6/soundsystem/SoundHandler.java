@@ -6,13 +6,14 @@ import org.team6.model.Notification;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import org.team6.model.NotificationBackend;
+import org.team6.model.NotificationListener;
 
 import java.net.URL;
 import java.util.EnumMap;
 import java.util.Map;
 import java.util.Objects;
 
-class SoundHandler {
+public class SoundHandler implements NotificationListener {
     private final Map<Notification, Media> notificationSoundMap = new EnumMap<>(Notification.class);
     private static final String SOUND_PATH = "/org/team6/sounds/test.mp3";
 
@@ -29,12 +30,17 @@ class SoundHandler {
         return new Media(soundToPlay);
     }
 
-    public void playSound(Notification notification) {
+    private void playSound(Notification notification) {
         Media sound = notificationSoundMap.get(notification);
         if (sound != null) {
             MediaPlayer mediaPlayer = new MediaPlayer(sound);
             mediaPlayer.setVolume(NotificationBackend.getVolume());
             mediaPlayer.play();
         }
+    }
+
+    @Override
+    public void onNotificationSent(Notification notification) {
+        playSound(notification);
     }
 }
