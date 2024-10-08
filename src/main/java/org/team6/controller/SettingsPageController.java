@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
+import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.ToggleButton;
 import javafx.stage.Stage;
 import org.team6.model.Notification;
@@ -33,6 +35,15 @@ public class SettingsPageController implements Initializable {
     private Slider volumeSlider;
 
     @FXML
+    private Spinner<Integer> dailyReportTimeSpinner;
+    @FXML
+    private Spinner<Double> electricityPriceLimitSpinner;
+    @FXML
+    private Spinner<Integer> startNotificationTimeSpinner;
+    @FXML
+    private Spinner<Integer> endNotificationTimeSpinner;
+
+    @FXML
     private Button backButton;
 
     // Nicer to show the user a scale from 0 to 100 rather than 0 to 1.
@@ -52,6 +63,7 @@ public class SettingsPageController implements Initializable {
 
         initVolumeSlider();
         initToggleButtons();
+        initSpinners();
     }
 
     private void initVolumeSlider() {
@@ -67,6 +79,29 @@ public class SettingsPageController implements Initializable {
         sendNotificationsToggleButton.setSelected(NotificationBackend.areNotificationsOn());
         initToggleButtonsState();
         toggleNotificationButtonsAvailability();
+    }
+
+    private void initSpinners() {
+        initSpinnerValueFactories();
+
+        int dailyReportTime = NotificationBackend.getDailyReportTime();
+        dailyReportTimeSpinner.getValueFactory().setValue(dailyReportTime);
+
+        double electricityPriceLimit = NotificationBackend.getElectricityPriceLimit();
+        electricityPriceLimitSpinner.getValueFactory().setValue(electricityPriceLimit);
+
+        int startNotificationTime = NotificationBackend.getStartNotificationTime();
+        startNotificationTimeSpinner.getValueFactory().setValue(startNotificationTime);
+
+        int endNotificationTime = NotificationBackend.getEndNotificationTime();
+        endNotificationTimeSpinner.getValueFactory().setValue(endNotificationTime);
+    }
+
+    private void initSpinnerValueFactories() {
+        dailyReportTimeSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 23));
+        electricityPriceLimitSpinner.setValueFactory(new SpinnerValueFactory.DoubleSpinnerValueFactory(-999.0, 999.0));
+        startNotificationTimeSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 23));
+        endNotificationTimeSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 23));
     }
 
     private void initToggleButtonsState() {

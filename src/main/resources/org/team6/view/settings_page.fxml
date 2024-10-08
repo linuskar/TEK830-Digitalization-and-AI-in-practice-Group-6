@@ -57,22 +57,22 @@
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="280.0" prefWidth="200.0" styleClass="hbox">
                <children>
-                  <Label prefWidth="168.0" text="Daily report time" wrapText="true" />
-                  <Spinner prefWidth="48.0" />
+                  <Label prefWidth="160.0" text="Daily report time" wrapText="true" />
+                  <Spinner fx:id="dailyReportTimeSpinner" editable="true" prefWidth="56.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="334.0" prefWidth="200.0" styleClass="hbox">
                <children>
                   <Label prefWidth="138.0" text="Electricity Price Limit" wrapText="true" />
-                  <Spinner prefWidth="78.0" />
+                  <Spinner fx:id="electricityPriceLimitSpinner" editable="true" prefWidth="78.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="375.0" prefWidth="200.0" styleClass="hbox">
                <children>
-                  <Label prefHeight="17.0" text="Send Notifications from" wrapText="true" />
-                  <Spinner prefWidth="48.0" />
-                  <Label layoutX="45.0" layoutY="14.0" prefHeight="17.0" text="To" wrapText="true" />
-                  <Spinner layoutX="172.0" layoutY="10.0" prefWidth="48.0" />
+                  <Label text="Send Notifications from" wrapText="true" />
+                  <Spinner fx:id="startNotificationTimeSpinner" editable="true" prefWidth="56.0" />
+                  <Label layoutX="45.0" layoutY="14.0" text="To" wrapText="true" />
+                  <Spinner fx:id="endNotificationTimeSpinner" editable="true" layoutX="172.0" layoutY="10.0" prefWidth="56.0" />
                </children>
             </HBox>
          </children>
