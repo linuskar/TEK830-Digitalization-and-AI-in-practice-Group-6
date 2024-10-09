@@ -6,13 +6,12 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane fx:id="popUpPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="852.0" prefWidth="382.0" stylesheets="@../styles/settings_popup_style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.SettingsPopUpController">
+<AnchorPane fx:id="popUpPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="852.0" prefWidth="390.0" stylesheets="@../styles/settings_popup_style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.SettingsPopUpController">
    <children>
-      <Rectangle arcHeight="100.0" arcWidth="100.0" fill="#191919" height="360.0" layoutY="126.0" stroke="BLACK" strokeType="INSIDE" width="382.0" />
-      <Text fill="WHITE" layoutX="41.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-text" text="Data Preference" />
-      <Label layoutX="16.0" layoutY="193.0" prefHeight="197.0" prefWidth="351.0" styleClass="main-text" text="Do you consent to IKEA Home Smart using your user data to give personalised product recomendations" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
-      <Button fx:id="allowButton" layoutX="41.0" layoutY="405.0" mnemonicParsing="false" onAction="#handelAllowProductRecommendation" prefHeight="60.0" prefWidth="128.0" styleClass="allow-button" text="Allow" />
-      <Button fx:id="rejectButton" layoutX="214.0" layoutY="405.0" mnemonicParsing="false" onAction="#handelRejectProductRecommendation" prefHeight="60.0" prefWidth="128.0" styleClass="reject-button" text="Reject" />
+      <Rectangle arcHeight="100.0" arcWidth="100.0" fill="#191919" height="360.0" layoutY="125.0" stroke="BLACK" strokeType="INSIDE" width="390.0" />
+      <Text fill="WHITE" layoutX="41.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-text" text="Data Preference" />
+      <Label layoutX="16.0" layoutY="192.0" prefHeight="197.0" prefWidth="351.0" styleClass="main-text" text="Do you consent to IKEA Home Smart using your user data to give personalised product recomendations" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+      <Button fx:id="allowButton" layoutX="41.0" layoutY="404.0" mnemonicParsing="false" onAction="#handelAllowProductRecommendation" prefHeight="60.0" prefWidth="128.0" styleClass="allow-button" text="Allow" />
+      <Button fx:id="rejectButton" layoutX="214.0" layoutY="404.0" mnemonicParsing="false" onAction="#handelRejectProductRecommendation" prefHeight="60.0" prefWidth="128.0" styleClass="reject-button" text="Reject" />
    </children>
 </AnchorPane>
