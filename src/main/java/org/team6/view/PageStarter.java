@@ -27,6 +27,8 @@ public class PageStarter {
     private static AnchorPane energyInsightsPane;
     @FXML
     private static AnchorPane settingsPane;
+    @FXML
+    private static AnchorPane recommendationsPane;
     private static ArrayList<AnchorPane> pages = new ArrayList<>();
 
     @FXML
@@ -52,10 +54,13 @@ public class PageStarter {
             energyInsightsPane = getEnergyInsightsPage();
             pages.add(energyInsightsPane);
 
+            recommendationsPane = getRecommendationsPage();
+            pages.add(recommendationsPane);
+
             settingsPane = getSettingsPage();
             pages.add(settingsPane);
 
-            mainPage.getChildren().addAll(homePane, energyInsightsPane, settingsPane, notificationPane);
+            mainPage.getChildren().addAll(homePane, energyInsightsPane, recommendationsPane, settingsPane, notificationPane);
 
             notificationController.setupKeyHandling(scene);
         } catch (IOException e) {
@@ -71,23 +76,30 @@ public class PageStarter {
         thePage.setVisible(true);
     }
 
+    public static void switchToRecommendationsPage(Stage primaryStage) {
+        setPageVisible(recommendationsPane);
+
+        primaryStage.setTitle("Recommendations");
+        primaryStage.setScene(scene);
+    }
+
     public static void switchToEnergyInsightsPage(Stage primaryStage) {
         setPageVisible(energyInsightsPane);
 
-        primaryStage.setTitle("Energy insights Page");
+        primaryStage.setTitle("Energy Insights");
         primaryStage.setScene(scene);
     }
 
     public static void switchToHomePage(Stage primaryStage) {
         setPageVisible(homePane);
 
-        primaryStage.setTitle("Home Page");
+        primaryStage.setTitle("Home");
         primaryStage.setScene(scene);
     }
 
     public static void switchToSettingsPage(Stage primaryStage) {
         setPageVisible(settingsPane);
-        primaryStage.setTitle("Settings Page");
+        primaryStage.setTitle("Settings");
         primaryStage.setScene(scene);
     }
 
@@ -103,6 +115,11 @@ public class PageStarter {
 
     private static AnchorPane getEnergyInsightsPage() throws IOException {
         FXMLLoader loader = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/EnergyInsightsPage.fxml"));
+        return loader.load();
+    }
+
+    private static AnchorPane getRecommendationsPage() throws IOException {
+        FXMLLoader loader = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/RecommendationsPage.fxml"));
         return loader.load();
     }
 

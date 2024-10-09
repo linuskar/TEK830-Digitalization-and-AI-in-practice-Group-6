@@ -32,7 +32,7 @@
                   </HBox>
                   <HBox prefHeight="500.0" prefWidth="389.0">
                      <children>
-                        <Button fx:id="recommendationsButton" mnemonicParsing="false" text="Recommendations" />
+                        <Button fx:id="recommendationsButton" mnemonicParsing="false" onAction="#handleRecommendationsButtonAction" text="Recommendations" />
                      </children>
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0">

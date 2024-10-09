@@ -29,4 +29,11 @@ public class EnergyInsightsPageController {
     private void handleHomeButtonMouseExited() {
         homeButton.setCursor(Cursor.DEFAULT);
     }
+
+    @FXML
+    private void handleRecommendationsButtonAction() {
+        Stage currentStage = (Stage) recommendationsButton.getScene().getWindow();
+        PageStarter.switchToRecommendationsPage(currentStage);
+    }
+    
 }
