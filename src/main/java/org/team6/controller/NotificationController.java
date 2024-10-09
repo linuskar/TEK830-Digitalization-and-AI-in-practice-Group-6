@@ -12,6 +12,11 @@ import org.team6.model.NotificationHistory;
 
 import java.io.IOException;
 
+import javafx.scene.text.Text;
+import javafx.util.Duration;
+import org.team6.model.Notification;
+import org.team6.model.NotificationBackend;
+import org.team6.soundsystem.SoundPlayer;
 
 public class NotificationController {
 
@@ -35,10 +40,7 @@ public class NotificationController {
     public void initialize() {
         notificationPane.setVisible(false);
         notificationPane.setDisable(true);
-
-
     }
-
 
     public void setNotificationText(String text) {
         notificationText.setText(text);
@@ -52,14 +54,9 @@ public class NotificationController {
         scene.addEventHandler(KeyEvent.KEY_PRESSED, this::handleKeyPress);
     }
 
-    public void showNotificationPane() {
-        if (isNotificationVisible) {
-            return; // Prevent spamming
-        }
-
-        isNotificationVisible = true;
-
+    public void showNotificationPane(String notificationText) {
         notificationPane.setTranslateY(-notificationPane.getHeight());
+        setNotificationText(notificationText);
         notificationPane.setVisible(true);
         notificationPane.setDisable(false);
 
@@ -75,6 +72,7 @@ public class NotificationController {
         slideDown.play();
     }
 
+
     public void hideNotificationPane() {
         TranslateTransition slideUp = new TranslateTransition(Duration.seconds(0.5), notificationPane);
         slideUp.setToY(-notificationPane.getHeight());
@@ -88,17 +86,21 @@ public class NotificationController {
     }
 
     private void handleKeyPress(KeyEvent event) {
-        switch (event.getCode()) {
-            case P -> {
-                notificationHistory.addNotification(notificationPane);
-                showNotificationPane();
+        Notification exampleNotification = Notification.LOW_ELECTRICITY_PRICE;
+
+        String key = event.getText();
+        switch (key) {
+            case "p" -> {
+                // Prevent spamming and check that notification is actually on.
+                if (!notificationPane.isVisible() && NotificationBackend.isNotificationOn(exampleNotification)) {
+                    // TODO: probably make these two observers of notification events or similar
+                    // instead of notifications showing up through key presses.
+                    showNotificationPane(Notification.getText(exampleNotification));
+                    SoundPlayer.playSound(exampleNotification);
+                    notificationHistory.addNotification(notificationPane);
                 }
             }
+            default -> {}
         }
-
-
-    public boolean getNotificationStatus(){
-        return isNotificationVisible;
     }
-
 }

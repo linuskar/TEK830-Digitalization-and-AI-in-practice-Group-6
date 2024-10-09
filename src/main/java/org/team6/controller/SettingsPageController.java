@@ -5,6 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.input.KeyEvent;
@@ -13,6 +15,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import org.team6.controller.NotificationPageController;
 import org.team6.model.NotificationHistory;
+import org.team6.model.Notification;
+import org.team6.model.NotificationBackend;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,6 +33,8 @@ public class SettingsPageController {
     private ToggleButton sendLowElectricPriceToggleButton;
     @FXML
     private Slider volumeSlider;
+    // Nicer to show the user a scale from 0 to 100 rather than 0 to 1.
+    private static final int VOLUME_SCALE_FACTOR = 100;
 
     @FXML
     private Button NotificationButton;
@@ -41,32 +47,39 @@ public class SettingsPageController {
 
     // List of specific notification buttons. For instance used for
     // enabling and disabling all buttons if notifications are switched on or off.
-
     private final List<ToggleButton> notificationButtons = new ArrayList<>();
 
-    @FXML
-    public void initialize(){
+    public SettingsPageController() {
+        notificationButtons.add(sendNotificationsToggleButton);
+        initVolumeSlider();
+        initToggleButtons();
+    }
 
+    private void initVolumeSlider() {
+        volumeSlider.setValue(NotificationBackend.getVolume()*VOLUME_SCALE_FACTOR);
+        // Don't think you can add it directly in Scenebuilder.
+        volumeSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
+            // If double is not the supported type in the model, it can easily be changed here I think.
+            handleVolumeChanged(newValue.doubleValue());
+        });
     }
 
     public void setParentPage(Parent notificationPage) {
         this.NotificationPage = notificationPage;
     }
 
-
-   /* public SettingsPageController() {
-        notificationButtons.add(sendNotificationsToggleButton);
-        // Don't think you can add it directly in Scenebuilder.
-        volumeSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
-            // If double is not the supported type in the model, it can easily be changed here I think.
-            handleVolumeChanged(newValue.doubleValue());
-        });
-    }*/
+    private void initToggleButtons() {
+        sendNotificationsToggleButton.setSelected(NotificationBackend.areNotificationsOn());
+        // Maybe if notificationButtons is an enum map and buttons exist for all Notifications
+        // Then this could be done in a nicer way through a for-loop.
+        sendLowElectricPriceToggleButton.setSelected((NotificationBackend.isNotificationOn(Notification.LOW_ELECTRICITY_PRICE)));
+    }
 
     // Meant for toggling notifications in general.
     @FXML
     private void handleSendNotificationsOnAction() {
-        // TODO: make it work with model.
+        NotificationBackend.toggleAllNotifications();
+
         boolean isSelected = sendNotificationsToggleButton.isSelected();
         if (isSelected) {
             // NotificationModel.enableNotifications()
@@ -82,13 +95,7 @@ public class SettingsPageController {
     // Example of specifically toggling a notification.
     @FXML
     private void handleLowElectricPriceOnAction() {
-        // TODO: make it work with model.
-        boolean isSelected = sendLowElectricPriceToggleButton.isSelected();
-        if (isSelected) {
-            // NotificationModel.enableNotification(NotificationType.LOW_ELECTRIC)
-        } else {
-            // NotificationModel.disableNotification(NotificationType.LOW_ELECTRIC)
-        }
+        NotificationBackend.toggleASpecificNotification(Notification.LOW_ELECTRICITY_PRICE);
     }
 
     @FXML
@@ -110,12 +117,6 @@ public class SettingsPageController {
     }
 
     private void handleVolumeChanged(double newVolume) {
-        // TODO: make it work with model.
-        // NotificationModel.setVolume(newVolume)
+        NotificationBackend.setVolume(newVolume/VOLUME_SCALE_FACTOR);
     }
-
 }
-
-
-
-
