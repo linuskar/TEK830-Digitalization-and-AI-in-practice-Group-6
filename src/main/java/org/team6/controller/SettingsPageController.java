@@ -1,32 +1,69 @@
 package org.team6.controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
+import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.ToggleButton;
+import javafx.stage.Stage;
 import org.team6.model.Notification;
 import org.team6.model.NotificationBackend;
+import org.team6.view.PageStarter;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.ResourceBundle;
 
-public class SettingsPageController {
+public class SettingsPageController implements Initializable {
     @FXML
     private ToggleButton sendNotificationsToggleButton;
     @FXML
     private ToggleButton sendLowElectricPriceToggleButton;
     @FXML
+    private ToggleButton sendHighElectricPriceToggleButton;
+    @FXML
+    private ToggleButton sendSunnyWeatherToggleButton;
+    @FXML
+    private ToggleButton sendColdWeatherToggleButton;
+    @FXML
+    private ToggleButton sendDailyReportToggleButton;
+    @FXML
     private Slider volumeSlider;
+
+    @FXML
+    private Spinner<Integer> dailyReportTimeSpinner;
+    @FXML
+    private Spinner<Double> electricityPriceLimitSpinner;
+    @FXML
+    private Spinner<Integer> startNotificationTimeSpinner;
+    @FXML
+    private Spinner<Integer> endNotificationTimeSpinner;
+
+    @FXML
+    private Button backButton;
+
     // Nicer to show the user a scale from 0 to 100 rather than 0 to 1.
     private static final int VOLUME_SCALE_FACTOR = 100;
 
-    // List of specific notification buttons. For instance used for
+    // Map of specific notification buttons. For instance used for
     // enabling and disabling all buttons if notifications are switched on or off.
-    private final List<ToggleButton> notificationButtons = new ArrayList<>();
+    private final Map<ToggleButton, Notification> notificationButtons = new HashMap<>();
 
-    public SettingsPageController() {
-        notificationButtons.add(sendNotificationsToggleButton);
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        notificationButtons.put(sendLowElectricPriceToggleButton, Notification.LOW_ELECTRICITY_PRICE);
+        notificationButtons.put(sendHighElectricPriceToggleButton, Notification.HIGH_ELECTRICITY_PRICE);
+        notificationButtons.put(sendSunnyWeatherToggleButton, Notification.SUNNY_WEATHER);
+        notificationButtons.put(sendColdWeatherToggleButton, Notification.COLD_WEATHER);
+        notificationButtons.put(sendDailyReportToggleButton, Notification.DAILY_REPORT);
+
         initVolumeSlider();
         initToggleButtons();
+        initSpinners();
     }
 
     private void initVolumeSlider() {
@@ -40,35 +77,109 @@ public class SettingsPageController {
 
     private void initToggleButtons() {
         sendNotificationsToggleButton.setSelected(NotificationBackend.areNotificationsOn());
-        // Maybe if notificationButtons is an enum map and buttons exist for all Notifications
-        // Then this could be done in a nicer way through a for-loop.
-        sendLowElectricPriceToggleButton.setSelected((NotificationBackend.isNotificationOn(Notification.LOW_ELECTRICITY_PRICE)));
+        initToggleButtonsState();
+        toggleNotificationButtonsAvailability();
+    }
+
+    private void initSpinners() {
+        initSpinnerValueFactories();
+        initDefaultSpinnerValues();
+        initSpinnerHandlers();
+    }
+
+    private void initSpinnerValueFactories() {
+        dailyReportTimeSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 23));
+        electricityPriceLimitSpinner.setValueFactory(new SpinnerValueFactory.DoubleSpinnerValueFactory(-999.0, 999.0));
+        startNotificationTimeSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 23));
+        endNotificationTimeSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 23));
+    }
+
+    private void initDefaultSpinnerValues() {
+        int dailyReportTime = NotificationBackend.getDailyReportTime();
+        dailyReportTimeSpinner.getValueFactory().setValue(dailyReportTime);
+
+        double electricityPriceLimit = NotificationBackend.getElectricityPriceLimit();
+        electricityPriceLimitSpinner.getValueFactory().setValue(electricityPriceLimit);
+
+        int startNotificationTime = NotificationBackend.getStartNotificationTime();
+        startNotificationTimeSpinner.getValueFactory().setValue(startNotificationTime);
+
+        int endNotificationTime = NotificationBackend.getEndNotificationTime();
+        endNotificationTimeSpinner.getValueFactory().setValue(endNotificationTime);
+    }
+
+    private void initSpinnerHandlers() {
+        dailyReportTimeSpinner.valueProperty().addListener((observable, oldValue, newValue) -> {
+            handleDailyReportTimeChanged(newValue);
+        });
+        electricityPriceLimitSpinner.valueProperty().addListener((observable, oldValue, newValue) -> {
+            handleElectricityPriceLimitChanged(newValue);
+        });
+        startNotificationTimeSpinner.valueProperty().addListener((observable, oldValue, newValue) -> {
+            handleStartNotificationTimeChanged(newValue);
+        });
+        endNotificationTimeSpinner.valueProperty().addListener((observable, oldValue, newValue) -> {
+            handleEndNotificationTimeChanged(newValue);
+        });
+    }
+
+    private void initToggleButtonsState() {
+        for (Map.Entry<ToggleButton, Notification> notificationEntry : notificationButtons.entrySet()) {
+            ToggleButton toggleButton = notificationEntry.getKey();
+            Notification notification = notificationEntry.getValue();
+            toggleButton.setSelected(NotificationBackend.isNotificationOn(notification));
+        }
+    }
+
+    private void toggleNotificationButtonsAvailability() {
+        boolean isSelected = sendNotificationsToggleButton.isSelected();
+
+        for (ToggleButton notificationButton : notificationButtons.keySet()) {
+            notificationButton.setDisable(!isSelected);
+        }
     }
 
     // Meant for toggling notifications in general.
     @FXML
     private void handleSendNotificationsOnAction() {
         NotificationBackend.toggleAllNotifications();
-
-        boolean isSelected = sendNotificationsToggleButton.isSelected();
-
-        for (ToggleButton button : notificationButtons) {
-            button.setDisable(!isSelected);
-        }
+        toggleNotificationButtonsAvailability();
     }
 
-    // Example of specifically toggling a notification.
     @FXML
-    private void handleLowElectricPriceOnAction() {
-        NotificationBackend.toggleASpecificNotification(Notification.LOW_ELECTRICITY_PRICE);
+    private void handleSpecificNotificationOnAction(ActionEvent event) {
+        ToggleButton sourceButton = (ToggleButton) event.getSource();
+
+        if (notificationButtons.containsKey(sourceButton)) {
+            Notification notificationToBeToggled = notificationButtons.get(sourceButton);
+            NotificationBackend.toggleASpecificNotification(notificationToBeToggled);
+        } else {
+            System.err.println("Event button" + sourceButton + "does not exist in Map!");
+        }
     }
 
     @FXML
     private void handleBackOnAction() {
-        // TODO: go back to home page
+        PageStarter.switchToHomePage();
     }
 
     private void handleVolumeChanged(double newVolume) {
         NotificationBackend.setVolume(newVolume/VOLUME_SCALE_FACTOR);
+    }
+
+    private void handleDailyReportTimeChanged(int newTime) {
+        NotificationBackend.setDailyReportTime(newTime);
+    }
+
+    private void handleElectricityPriceLimitChanged(double newLimit) {
+        NotificationBackend.setElectricityPriceLimit(newLimit);
+    }
+
+    private void handleStartNotificationTimeChanged(int newTime) {
+        NotificationBackend.setStartNotificationTime(newTime);
+    }
+
+    private void handleEndNotificationTimeChanged(int newTime) {
+        NotificationBackend.setEndNotificationTime(newTime);
     }
 }

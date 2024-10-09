@@ -10,9 +10,9 @@ import javafx.scene.text.Text;
 import javafx.util.Duration;
 import org.team6.model.Notification;
 import org.team6.model.NotificationBackend;
-import org.team6.soundsystem.SoundPlayer;
+import org.team6.model.NotificationListener;
 
-public class NotificationController {
+public class NotificationController implements NotificationListener {
 
     @FXML
     private Text notificationText;
@@ -67,20 +67,29 @@ public class NotificationController {
     }
 
     private void handleKeyPress(KeyEvent event) {
-        Notification exampleNotification = Notification.LOW_ELECTRICITY_PRICE;
+        // Prevent spamming and check that notification is actually on.
+        boolean canSendNotification = !notificationPane.isVisible();
 
-        String key = event.getText();
-        switch (key) {
-            case "p" -> {
-                // Prevent spamming and check that notification is actually on.
-                if (!notificationPane.isVisible() && NotificationBackend.isNotificationOn(exampleNotification)) {
-                    // TODO: probably make these two observers of notification events or similar
-                    // instead of notifications showing up through key presses.
-                    showNotificationPane(Notification.getText(exampleNotification));
-                    SoundPlayer.playSound(exampleNotification);
-                }
+        if (canSendNotification) {
+            String key = event.getText();
+            switch (key) {
+                case "p" -> sendNotification(Notification.LOW_ELECTRICITY_PRICE);
+                case "o" -> sendNotification(Notification.HIGH_ELECTRICITY_PRICE);
+                case "i" -> sendNotification(Notification.SUNNY_WEATHER);
+                case "u" -> sendNotification(Notification.COLD_WEATHER);
+                case "y" -> sendNotification(Notification.DAILY_REPORT);
+                default -> {}
             }
-            default -> {}
         }
+
+    }
+
+    private static void sendNotification(Notification notification) {
+        NotificationBackend.sendNotification(notification);
+    }
+
+    @Override
+    public void onNotificationSent(Notification notification) {
+        showNotificationPane(Notification.getText(notification));
     }
 }
