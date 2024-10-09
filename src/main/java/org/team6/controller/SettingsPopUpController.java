@@ -14,7 +14,7 @@ public class SettingsPopUpController implements Initializable {
     private AnchorPane popUpPane;
     
     @Override
-    public void initialize(URL arg0, ResourceBundle arg1) {
+    public void initialize(URL url, ResourceBundle rescourceBundel) {
         popUpPane.setVisible(true);
     }
 
