@@ -8,11 +8,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="mainPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="852.0" prefWidth="382.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.HomePageController">
+<AnchorPane fx:id="mainPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="852.0" prefWidth="382.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.HomePageController">
    <children>
       <Pane layoutX="18.0" layoutY="89.0" prefHeight="475.0" prefWidth="353.0">
          <children>
-            <Button fx:id="electricityButton" layoutX="12.0" layoutY="245.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="328.0">
+            <Button fx:id="electricityButton" layoutX="12.0" layoutY="245.0" mnemonicParsing="false" onAction="#handleElectricityButtonAction" onMouseEntered="#handleElectricityButtonMouseEntered" onMouseExited="#handleElectricityButtonMouseExited" prefHeight="50.0" prefWidth="328.0">
                <graphic>
                   <Pane depthTest="ENABLE" prefHeight="36.0" prefWidth="284.0">
                      <children>
