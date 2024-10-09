@@ -37,7 +37,7 @@
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="homeButton" mnemonicParsing="false" onAction="#handleHomeButtonAction" onMouseEntered="#handleHomeButtonMouseEntered" onMouseExited="#handleHomeButtonMouseExited" text="Home" />
+                        <Button fx:id="homeButton" mnemonicParsing="false" onAction="#handleHomeButtonAction" text="Home" />
                      </children>
                   </HBox>
                </children>

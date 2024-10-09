@@ -12,7 +12,7 @@
    <children>
       <Pane layoutX="18.0" layoutY="89.0" prefHeight="475.0" prefWidth="353.0">
          <children>
-            <Button fx:id="electricityButton" layoutX="12.0" layoutY="245.0" mnemonicParsing="false" onAction="#handleElectricityButtonAction" onMouseEntered="#handleElectricityButtonMouseEntered" onMouseExited="#handleElectricityButtonMouseExited" prefHeight="50.0" prefWidth="328.0">
+            <Button fx:id="electricityButton" layoutX="12.0" layoutY="245.0" mnemonicParsing="false" onAction="#handleElectricityButtonAction" prefHeight="50.0" prefWidth="328.0">
                <graphic>
                   <Pane depthTest="ENABLE" prefHeight="36.0" prefWidth="284.0">
                      <children>

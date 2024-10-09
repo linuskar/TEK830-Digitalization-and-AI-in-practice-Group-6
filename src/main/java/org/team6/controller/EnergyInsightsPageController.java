@@ -5,7 +5,6 @@ import org.team6.view.PageStarter;
 import javafx.fxml.FXML;
 import javafx.scene.Cursor;
 import javafx.scene.control.Button;
-import javafx.stage.Stage;
 
 public class EnergyInsightsPageController {
     @FXML
@@ -16,24 +15,12 @@ public class EnergyInsightsPageController {
 
     @FXML
     private void handleHomeButtonAction() {
-        Stage currentStage = (Stage) homeButton.getScene().getWindow();
-        PageStarter.switchToHomePage(currentStage);
-    }
-
-    @FXML
-    private void handleHomeButtonMouseEntered() {
-        homeButton.setCursor(Cursor.HAND);
-    }
-
-    @FXML
-    private void handleHomeButtonMouseExited() {
-        homeButton.setCursor(Cursor.DEFAULT);
+        PageStarter.switchToHomePage();
     }
 
     @FXML
     private void handleRecommendationsButtonAction() {
-        Stage currentStage = (Stage) recommendationsButton.getScene().getWindow();
-        PageStarter.switchToRecommendationsPage(currentStage);
+        PageStarter.switchToRecommendationsPage();
     }
     
 }
