@@ -6,16 +6,17 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 public class UrlOpener {
-    
-	public static void openUrl(String url){
-		Desktop desktop = java.awt.Desktop.getDesktop();
-		try {
-			//specify the protocol along with the URL
-			URI oURL = new URI(url);
-			desktop.browse(oURL);
-		} catch (URISyntaxException | IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+    private UrlOpener() {}
+
+    // Taken from https://gist.github.com/GiriB/b79f47e4d970dec887a7
+    public static void openUrl(String url){
+        Desktop desktop = Desktop.getDesktop();
+        try {
+            //specify the protocol along with the URL
+            URI oURL = new URI(url);
+            desktop.browse(oURL);
+        } catch (URISyntaxException | IOException e) {
+            e.printStackTrace();
         }
-	}
+    }
 }
