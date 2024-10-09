@@ -49,20 +49,20 @@ public class SettingsPageController {
     // enabling and disabling all buttons if notifications are switched on or off.
     private final List<ToggleButton> notificationButtons = new ArrayList<>();
 
-    public SettingsPageController() {
+    /*public SettingsPageController() {
         notificationButtons.add(sendNotificationsToggleButton);
         initVolumeSlider();
         initToggleButtons();
-    }
+    }*/
 
-    private void initVolumeSlider() {
+    /*private void initVolumeSlider() {
         volumeSlider.setValue(NotificationBackend.getVolume()*VOLUME_SCALE_FACTOR);
         // Don't think you can add it directly in Scenebuilder.
         volumeSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
             // If double is not the supported type in the model, it can easily be changed here I think.
             handleVolumeChanged(newValue.doubleValue());
         });
-    }
+    }*/
 
     public void setParentPage(Parent notificationPage) {
         this.NotificationPage = notificationPage;
