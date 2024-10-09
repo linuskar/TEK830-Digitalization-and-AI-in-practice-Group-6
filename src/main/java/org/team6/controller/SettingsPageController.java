@@ -96,9 +96,10 @@ public class SettingsPageController {
         settingsPane.setVisible(false);
         settingsPane.toBack();
     }
-
+//Displays notification page in settingsPane.
     @FXML
     private void handleNotificationPageOnAction()  {
+        //Prevents duplication error
         if (!settingsPane.getChildren().contains(NotificationPage)) {
             settingsPane.getChildren().add(NotificationPage);
         }
@@ -112,7 +113,6 @@ public class SettingsPageController {
         // TODO: make it work with model.
         // NotificationModel.setVolume(newVolume)
     }
-    //Pops up the notification page.
 
 }
 

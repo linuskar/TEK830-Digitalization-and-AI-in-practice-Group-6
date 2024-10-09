@@ -45,22 +45,10 @@ public class NotificationPageController {
     @FXML
     private Button testButton;
 
-    //@FXML
-    //private AnchorPane notificationParent;
-
-    //private NotificationHistory notificationHistory;  // Model
-
-    // Setter for injecting the NotificationHistory (model)
-
     private NotificationHistory notificationHistory;
-    private  NotificationController notificationController;
 
     public void setNotificationHistory(NotificationHistory history) {
         this.notificationHistory = history;
-    }
-
-    public void setNotificationController(NotificationController controller) {
-        this.notificationController = controller;
     }
 
 
@@ -74,7 +62,7 @@ public class NotificationPageController {
         notificationPageAnchor.setVisible(false);
         notificationPageAnchor.toBack();
     }
-
+// Method adds a notification to a VBox. When a button is pressed the notification is added to the vbox.
     @FXML
     public void addNotificationToVbox() throws IOException {
         if (notificationHistoryVBox == null) {
@@ -92,7 +80,7 @@ public class NotificationPageController {
                 AnchorPane notificationCopy = loader.load();  // This gives a fresh copy
 
                  //Transfer the data from the original notification.
-                String originalText = notification.getChildren().stream().filter(node -> node instanceof Text).map(node -> ((Text) node).getText()).findFirst().orElse("Notification");
+                String originalText = notification.getChildren().stream().filter(node -> node instanceof Text).map(node -> ((Text) node).getText()).findFirst().orElse("No information");
                 NotificationController notificationController = loader.getController();
                 notificationController.setNotificationText(originalText);
 
@@ -106,24 +94,6 @@ public class NotificationPageController {
     }
 
 
-    /*@FXML
-    public void addNotificationToVbox() {
-            if (notificationHistoryVBox == null) {
-                System.out.println("notificationHistoryVBox is null!");
-                return;
-            }
-
-            notificationHistoryVBox.getChildren().clear();
-            ArrayList<AnchorPane> notificationList = notificationHistory.getNotificationList();
-            System.out.println("I am added");
-
-            for (Parent notification : notificationList) {
-                notificationHistoryVBox.getChildren().add(notification);
-                System.out.println("Hello!");
-                notification.setVisible(true);
-                notification.toFront();
-            }
-        }*/
 
 
 

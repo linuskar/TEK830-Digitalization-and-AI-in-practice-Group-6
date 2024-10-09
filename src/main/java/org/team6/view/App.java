@@ -41,10 +41,7 @@ public class App extends Application {
         FXMLLoader notificationPageLoader = new FXMLLoader(getClass().getResource("/org/team6/view/NotificationPage.fxml"));
         Parent notificationPage = notificationPageLoader.load();
 
-        //new
         NotificationPageController notificationPageController = notificationPageLoader.getController();
-
-
 
         SettingsPageController settingsPageController = loader.getController();
         settingsPageController.setParentPage(notificationPage);

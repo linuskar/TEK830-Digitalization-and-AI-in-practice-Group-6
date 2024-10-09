@@ -85,8 +85,10 @@ public class HomePageController {
         this.settingsPane = settingsPane;
     }
 
+    //Displays settingsPane in mainePage.
     @FXML
-    public void handleSettingsPageOnAction() throws IOException {
+    public void handleSettingsPageOnAction() {
+        //Prevents duplication error, multiple of the same pane being added.
         if (!mainPage.getChildren().contains(settingsPane)) {
             mainPage.getChildren().add(settingsPane);
         }
@@ -96,23 +98,9 @@ public class HomePageController {
 
     }
 
-    @FXML
-    private void hideSettingsPane() {
-        settingsPane.setVisible(false);
-    }
 
 
-    //pop up settings after pressing on the settings button.
-    /*@FXML
-    private void displaySettingsPage() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/team6/view/settings_page.fxml"));
-        Parent settingsPage = loader.load();
-        settingsPane1.getChildren().add(settingsPage);
-        SettingsPageController settingsPageController = loader.getController();
-        settingsPageController.setNotificationController(notificationController);
-        settingsPage.setVisible(true);
-        settingsPane1.toFront();
-    }*/
+
 
 
 

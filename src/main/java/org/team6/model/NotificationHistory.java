@@ -15,15 +15,12 @@ public class NotificationHistory {
 
     private ArrayList<AnchorPane> notificationArray = new ArrayList<>();
 
-    //private NotificationPageController notification = new NotificationPageController();
-
-
 
 
 //Adds notification to an arraylist.
     @FXML
     public void addNotification(AnchorPane notificationPane) {
-
+        // TODO : Change max array size.
         if (notificationArray.size() == 2) {
             notificationArray.remove(0);  // Remove the oldest notification
             System.out.println("I am removed");

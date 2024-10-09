@@ -24,22 +24,10 @@ public class NotificationController {
 
     private NotificationHistory notificationHistory;
 
-    private NotificationPageController notificationPageController;
-
-    // Setter to inject the shared NotificationHistory
-
-    /*public void setNotificationPageController(NotificationPageController controller) {
-        this.notificationPageController = controller;
-    }*/
 
     public void setNotificationHistory(NotificationHistory history) {
         this.notificationHistory  = history;
     }
-
-    public AnchorPane returNotificationPage(){
-        return notificationPane;
-    }
-
 
 
 
