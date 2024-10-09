@@ -8,20 +8,13 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import org.team6.controller.NotificationController;
+import org.team6.model.NotificationBackend;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-
-import javax.print.attribute.standard.PagesPerMinute;
-
-import org.h2.engine.Setting;
-import org.h2.mvstore.Page;
+import java.util.List;
 
 public class PageStarter {
-    //private PageStarter() {}
-
-    @FXML
     private static AnchorPane homePane;
     @FXML
     private static AnchorPane energyInsightsPane;
@@ -31,15 +24,17 @@ public class PageStarter {
     private static AnchorPane recommendationsPane;
     private static ArrayList<AnchorPane> pages = new ArrayList<>();
 
-    @FXML
     private static Scene scene;
+    private static Stage primaryStage;
 
     private PageStarter() {
         // Private constructor to prevent instantiation
     }
 
-    public static void initialize() {
+    public static void initialize(Stage primaryStage) {
         try {
+            PageStarter.primaryStage = primaryStage;
+
             StackPane mainPage = getMainPage();
             scene = new Scene(mainPage);
 
@@ -50,6 +45,7 @@ public class PageStarter {
             AnchorPane notificationPane = notificationLoader.load();
 
             NotificationController notificationController = notificationLoader.getController();
+            NotificationBackend.addNotificationListener(notificationController);
 
             energyInsightsPane = getEnergyInsightsPage();
             pages.add(energyInsightsPane);
@@ -76,29 +72,30 @@ public class PageStarter {
         thePage.setVisible(true);
     }
 
-    public static void switchToRecommendationsPage(Stage primaryStage) {
+    public static void switchToRecommendationsPage() {
         setPageVisible(recommendationsPane);
 
         primaryStage.setTitle("Recommendations");
         primaryStage.setScene(scene);
     }
 
-    public static void switchToEnergyInsightsPage(Stage primaryStage) {
+    public static void switchToEnergyInsightsPage() {
         setPageVisible(energyInsightsPane);
 
         primaryStage.setTitle("Energy Insights");
         primaryStage.setScene(scene);
     }
 
-    public static void switchToHomePage(Stage primaryStage) {
+    public static void switchToHomePage() {
         setPageVisible(homePane);
 
         primaryStage.setTitle("Home");
         primaryStage.setScene(scene);
     }
 
-    public static void switchToSettingsPage(Stage primaryStage) {
+    public static void switchToSettingsPage() {
         setPageVisible(settingsPane);
+
         primaryStage.setTitle("Settings");
         primaryStage.setScene(scene);
     }

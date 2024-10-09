@@ -26,3 +26,19 @@
     -fx-font-size: 32px;
     -fx-font-weight: bold;
 }
+
+Button:hover {
+    -fx-cursor: hand;
+}
+
+ToggleButton:hover {
+    -fx-cursor: hand;
+}
+
+Slider:hover {
+    -fx-cursor: hand;
+}
+
+Spinner:hover {
+    -fx-cursor: hand;
+}

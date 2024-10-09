@@ -65,33 +65,11 @@ public class HomePageController {
 
     @FXML
     private void handleElectricityButtonAction() {
-        Stage currentStage = (Stage) electricityButton.getScene().getWindow();
-        PageStarter.switchToEnergyInsightsPage(currentStage);
-    }
-
-    @FXML
-    private void handleElectricityButtonMouseEntered() {
-        electricityButton.setCursor(Cursor.HAND);
-    }
-
-    @FXML
-    private void handleElectricityButtonMouseExited() {
-        electricityButton.setCursor(Cursor.DEFAULT);
+        PageStarter.switchToEnergyInsightsPage();
     }
 
     @FXML
     private void handleSettingsButtonAction() {
-        Stage currentStage = (Stage) settingsButton.getScene().getWindow();
-        PageStarter.switchToSettingsPage(currentStage);
-    }
-
-    @FXML
-    private void handleSettingsButtonMouseEntered() {
-        settingsButton.setCursor(Cursor.HAND);
-    }
-
-    @FXML
-    private void handleSettingsButtonMouseExited() {
-        settingsButton.setCursor(Cursor.DEFAULT);
+        PageStarter.switchToSettingsPage();
     }
 }
