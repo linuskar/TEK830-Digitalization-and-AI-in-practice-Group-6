@@ -65,7 +65,6 @@ public class HomePageController {
 
     @FXML
     private void handleSettingsButtonAction() {
-        Stage currentStage = (Stage) settingsButton.getScene().getWindow();
-        PageStarter.switchToSettingsPage(currentStage);
+        PageStarter.switchToSettingsPage();
     }
 }

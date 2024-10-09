@@ -160,8 +160,7 @@ public class SettingsPageController implements Initializable {
 
     @FXML
     private void handleBackOnAction() {
-        Stage currentStage = (Stage) backButton.getScene().getWindow();
-        PageStarter.switchToHomePage(currentStage);
+        PageStarter.switchToHomePage();
     }
 
     private void handleVolumeChanged(double newVolume) {

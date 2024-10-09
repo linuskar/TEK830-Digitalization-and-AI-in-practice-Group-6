@@ -1,6 +1,5 @@
 package org.team6.view;
 
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -18,15 +17,18 @@ public class PageStarter {
     private static AnchorPane homePane;
     private static AnchorPane settingsPane;
     private static final List<AnchorPane> pages = new ArrayList<>();
-    
+
     private static Scene scene;
+    private static Stage primaryStage;
 
     private PageStarter() {
         // Private constructor to prevent instantiation
     }
 
-    public static void initialize() {
+    public static void initialize(Stage primaryStage) {
         try {
+            PageStarter.primaryStage = primaryStage;
+
             StackPane mainPage = getMainPage();
             scene = new Scene(mainPage);
 
@@ -58,14 +60,14 @@ public class PageStarter {
         thePage.setVisible(true);
     }
 
-    public static void switchToHomePage(Stage primaryStage) {
+    public static void switchToHomePage() {
         setPageVisible(homePane);
 
         primaryStage.setTitle("Home Page");
         primaryStage.setScene(scene);
     }
 
-    public static void switchToSettingsPage(Stage primaryStage) {
+    public static void switchToSettingsPage() {
         setPageVisible(settingsPane);
         primaryStage.setTitle("Settings Page");
         primaryStage.setScene(scene);
