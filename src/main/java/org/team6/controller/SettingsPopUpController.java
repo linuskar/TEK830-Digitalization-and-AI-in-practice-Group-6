@@ -31,7 +31,7 @@ public class SettingsPopUpController implements Initializable {
 
     @FXML
     private void handelRejectProductRecommendation (){
-        //NotificationBackend.allowProductRecommendation(true);
+        //NotificationBackend.allowProductRecommendation(false);
         hidePopUp();
         
     }
