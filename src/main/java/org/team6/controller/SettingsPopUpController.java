@@ -6,8 +6,7 @@ import javafx.scene.layout.AnchorPane;
 public class SettingsPopUpController {
     @FXML
     private AnchorPane popUpPane;
-
-    @FXML
+    
     private void hidePopUp() {
         popUpPane.setVisible(false);
     }
