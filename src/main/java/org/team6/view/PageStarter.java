@@ -15,13 +15,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PageStarter {
-    @FXML
     private static AnchorPane homePane;
-    @FXML
     private static AnchorPane settingsPane;
     private static final List<AnchorPane> pages = new ArrayList<>();
-
-    @FXML
+    
     private static Scene scene;
 
     private PageStarter() {
