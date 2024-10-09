@@ -64,7 +64,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="settingsButton" layoutX="39.0" layoutY="12.0" mnemonicParsing="false">
+            <Button fx:id="settingsButton" layoutX="39.0" layoutY="12.0" mnemonicParsing="false" onAction="#handleSettingsButtonAction">
                <graphic>
                   <ImageView fx:id="accountImage" fitHeight="26.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                      <image>

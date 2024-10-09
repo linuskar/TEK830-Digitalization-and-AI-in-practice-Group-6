@@ -8,9 +8,16 @@ public class User {
     private String lastName;
     private String email;
     private String password;
+
     private double volume = 0.5;
     private boolean notificationsOn = true;
     private final Map<Notification, Boolean> notifications = new EnumMap<>(Notification.class);
+
+    // TODO: make notifications send based on these values?
+    private int dailyReportTime = 10;
+    private double electricityPriceLimit = 60;
+    private int startNotificationTime = 8;
+    private int endNotificationTime = 20;
 
     public User(String firstName, String lastName, String email, String password) {
         this.firstName = firstName;
@@ -22,6 +29,7 @@ public class User {
         notifications.put(Notification.HIGH_ELECTRICITY_PRICE, true);
         notifications.put(Notification.SUNNY_WEATHER, true);
         notifications.put(Notification.COLD_WEATHER, true);
+        notifications.put(Notification.DAILY_REPORT, true);
     }
 
     public String getFirstName() {
@@ -80,5 +88,37 @@ public class User {
         Boolean currentState = notifications.get(notification);
         Boolean toggledState = !currentState;
         notifications.put(notification, toggledState);
+    }
+
+    int getDailyReportTime() {
+        return dailyReportTime;
+    }
+
+    void setDailyReportTime(int dailyReportTime) {
+        this.dailyReportTime = dailyReportTime;
+    }
+
+    double getElectricityPriceLimit() {
+        return electricityPriceLimit;
+    }
+
+    void setElectricityPriceLimit(double electricityPriceLimit) {
+        this.electricityPriceLimit = electricityPriceLimit;
+    }
+
+    int getStartNotificationTime() {
+        return startNotificationTime;
+    }
+
+    void setStartNotificationTime(int startNotificationTime) {
+        this.startNotificationTime = startNotificationTime;
+    }
+
+    int getEndNotificationTime() {
+        return endNotificationTime;
+    }
+
+    void setEndNotificationTime(int endNotificationTime) {
+        this.endNotificationTime = endNotificationTime;
     }
 }
