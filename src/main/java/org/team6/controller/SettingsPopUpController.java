@@ -14,27 +14,24 @@ public class SettingsPopUpController implements Initializable {
     private AnchorPane popUpPane;
     
     @Override
-    public void initialize(URL url, ResourceBundle rescourceBundel) {
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         popUpPane.setVisible(true);
     }
 
     @FXML
-    private void hidePopUp (){
+    private void hidePopUp() {
         popUpPane.setVisible(false);
     }
 
     @FXML
-    private void handelAllowProductRecommendation (){
-        //NotificationBackend.allowProductRecommendation(true);
+    private void handelAllowProductRecommendation() {
+        // NotificationBackend.allowProductRecommendation(true);
         hidePopUp();
     }
 
     @FXML
-    private void handelRejectProductRecommendation (){
-        //NotificationBackend.allowProductRecommendation(false);
+    private void handelRejectProductRecommendation() {
+        // NotificationBackend.allowProductRecommendation(false);
         hidePopUp();
-        
     }
-
-
 }
