@@ -1,1 +1,1 @@
-Welcome to the IKEA Home Smart app. This will be a brief tour of what you can do in the app. The tour can be closed at any time by pressing the close button below. To progress through the tour you can press the right button. To go back to a previous step you can press the left button.
+In the second page you can input information about your home and then see electricity prices as well as an approximation of your electrical usage. In addition, if you have an electricity meter you can see your actual usage.

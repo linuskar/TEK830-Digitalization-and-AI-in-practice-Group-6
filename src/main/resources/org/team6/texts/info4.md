@@ -1,1 +1,1 @@
-Welcome to the IKEA Home Smart app. This will be a brief tour of what you can do in the app. The tour can be closed at any time by pressing the close button below. To progress through the tour you can press the right button. To go back to a previous step you can press the left button.
+That is it for this tour. If you want to see it again you can find it in this page. You can now close this window to experience a smarter home.
