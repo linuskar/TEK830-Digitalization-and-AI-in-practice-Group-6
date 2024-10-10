@@ -1,0 +1,14 @@
+Button {
+    -fx-background-color: #f0f0f0;
+    -fx-text-fill: #000;
+}
+
+Button:selected {
+    -fx-background-color: #0078d7;
+    -fx-text-fill: #fff;
+}
+
+Button:hover {
+    -fx-background-color: #0078d7;
+    -fx-text-fill: #fff;
+}

@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="668.0" prefWidth="389.0" style="-fx-background-color: red;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.RecommendationsPageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="668.0" prefWidth="389.0" style="-fx-background-color: red;" stylesheets="@../styles/recommendations.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.RecommendationsPageController">
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: green;" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
          <children>
@@ -35,81 +33,39 @@
                         </VBox>
                      </children>
                   </HBox>
-                  <HBox prefHeight="500.0" prefWidth="349.0" style="-fx-background-color: purple;">
+                  <VBox>
                      <children>
-                        <VBox prefHeight="200.0" prefWidth="100.0">
+                        <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="349.0" style="-fx-background-color: gray;" stylesheets="@../styles/recommendations.css">
                            <children>
-                              <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="349.0" style="-fx-background-color: gray;">
-                                 <children>
-                                    <Button fx:id="generalButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleHGeneralButtonAction" prefWidth="174.5" text="General" />
-                                    <Button fx:id="personalButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleHPersonalButtonAction" prefWidth="174.5" text="Personal" />
-                                 </children>
-                              </HBox>
-                            <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="439.0" prefWidth="349.0">
-                                 <children>
-                                    <FlowPane fx:id="generalRecommendationsFlowPane" orientation="VERTICAL" prefHeight="439.0" prefWidth="349.0" style="-fx-background-color: orange;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                       <children>
-                                          <Accordion prefHeight="439.0" prefWidth="349.0">
-                                            <panes>
-                                                <TitledPane animated="false" style="-fx-background-color: yellow;" text="Products">
-                                                   <content>
-                                                      <AnchorPane minHeight="0.0" minWidth="0.0" style="-fx-padding: 0;">
-                                                         <children>
-                                                            <ScrollPane hbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                                               <content>
-                                                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="347.0">
-                                                                     <children>
-                                                                        <FlowPane orientation="VERTICAL" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                                                           <children>
-                                                                              <VBox fx:id="generalProductRecommendationsVBox" spacing="20.0" />
-                                                                           </children>
-                                                                        </FlowPane>
-                                                                     </children>
-                                                                  </AnchorPane>
-                                                               </content>
-                                                            </ScrollPane>
-                                                         </children>
-                                                      </AnchorPane>
-                                                   </content>
-                                                </TitledPane>
-                                                <TitledPane animated="false" style="-fx-background-color: yellow;" text="Tips">
-                                                   <content>
-                                                      <AnchorPane minHeight="0.0" minWidth="0.0" style="-fx-padding: 0;">
-                                                         <children>
-                                                            <ScrollPane hbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                                               <content>
-                                                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="347.0">
-                                                                     <children>
-                                                                        <FlowPane orientation="VERTICAL" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                                                           <children>
-                                                                              <VBox spacing="20.0">
-                                                                                 <children>
-                                                                                    <AnchorPane prefHeight="200.0" prefWidth="347.0" style="-fx-background-color: pink;" />
-                                                                                    <AnchorPane prefHeight="200.0" prefWidth="347.0" style="-fx-background-color: pink;" />
-                                                                                    <AnchorPane prefHeight="200.0" prefWidth="347.0" style="-fx-background-color: pink;" />
-                                                                                 </children>
-                                                                              </VBox>
-                                                                           </children>
-                                                                        </FlowPane>
-                                                                     </children>
-                                                                  </AnchorPane>
-                                                               </content>
-                                                            </ScrollPane>
-                                                         </children>
-                                                      </AnchorPane>
-                                                   </content>
-                                                </TitledPane>
-                                            </panes>
-                                          </Accordion>
-                                       </children>
-                                    </FlowPane>
-                                    <FlowPane fx:id="personalRecommendationsFlowPane" orientation="VERTICAL" prefHeight="439.0" prefWidth="349.0" style="-fx-background-color: blue;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                 </children>
-                              </AnchorPane>
+                              <ToggleButton fx:id="generalToggleButton" mnemonicParsing="false" onAction="#handleGeneralToggleButtonAction" selected="true" text="General">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="recommendationPrivacyTypeToggleButtonGroup" />
+                                 </toggleGroup>
+                              </ToggleButton>
+                              <ToggleButton fx:id="personalToggleButton" mnemonicParsing="false" onAction="#handlePersonalToggleButtonAction" text="Personal" toggleGroup="$recommendationPrivacyTypeToggleButtonGroup" />
                            </children>
-                        </VBox>
+                        </HBox>
+                      <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="439.0" prefWidth="349.0">
+                           <children>
+                              <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <HBox>
+                                       <children>
+                                          <ToggleButton fx:id="productsToggleButton" mnemonicParsing="false" onAction="#handleProductsToggleButtonAction" selected="true" text="Products">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="recommendationTypeToggleButtonGroup" />
+                                             </toggleGroup>
+                                          </ToggleButton>
+                                          <ToggleButton fx:id="tipsToggleButton" mnemonicParsing="false" onAction="#handleTipsToggleButtonAction" text="Tips" toggleGroup="$recommendationTypeToggleButtonGroup" />
+                                       </children>
+                                    </HBox>
+                                    <AnchorPane fx:id="recommendationsContentPane" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
                      </children>
-                  </HBox>
+                  </VBox>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
                         <Button fx:id="homeButton" mnemonicParsing="false" onAction="#handleHomeButtonAction" text="Home" />

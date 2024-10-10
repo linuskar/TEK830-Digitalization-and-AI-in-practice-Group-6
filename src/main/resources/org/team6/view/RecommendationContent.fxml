@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.VBox?>
+
+<FlowPane fx:id="recommendationsFlowPane" orientation="VERTICAL" prefHeight="414.0" prefWidth="349.0" style="-fx-background-color: orange;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.RecommendationsContentController">
+   <children>
+      <ScrollPane hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="414.0" prefWidth="349.0">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="347.0">
+               <children>
+                  <FlowPane fx:id="productRecommendationsFlowPane" orientation="VERTICAL" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <VBox fx:id="productRecommendationsVBox" spacing="20.0" />
+                     </children>
+                  </FlowPane>
+                  <FlowPane fx:id="tipsRecommendationsFlowPane" layoutX="10.0" layoutY="10.0" orientation="VERTICAL" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <VBox fx:id="tipsRecommendationsVBox" spacing="20.0" />
+                     </children>
+                  </FlowPane>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+   </children>
+</FlowPane>
