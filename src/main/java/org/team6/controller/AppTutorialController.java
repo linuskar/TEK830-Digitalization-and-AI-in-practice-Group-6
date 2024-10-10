@@ -66,12 +66,14 @@ public class AppTutorialController implements Initializable {
     private void handleForwardOnAction() {
         currentPageNumber++;
         updateButtonState(currentPageNumber);
+        updatePageContent(currentPageNumber);
     }
 
     @FXML
     private void handleBackOnAction() {
         currentPageNumber--;
         updateButtonState(currentPageNumber);
+        updatePageContent(currentPageNumber);
     }
 
     private void updateButtonState(int currentPageNumber) {
@@ -81,6 +83,8 @@ public class AppTutorialController implements Initializable {
 
     @FXML
     private void handleCloseOnAction() {
+        currentPageNumber = 0;
+        updatePageContent(currentPageNumber);
         windowPane.setVisible(false);
         windowPane.setDisable(true);
     }
