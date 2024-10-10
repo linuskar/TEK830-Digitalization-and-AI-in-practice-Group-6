@@ -29,13 +29,13 @@
                      </children>
                   </Pane>
                </graphic></Button>
-            <Button fx:id="tipsButton" layoutX="13.0" layoutY="314.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="328.0">
+            <Button fx:id="productTutorialButton" layoutX="13.0" layoutY="314.0" mnemonicParsing="false" onAction="#handleProductTutorialButtonAction" prefHeight="61.0" prefWidth="328.0">
                <graphic>
                   <Pane prefHeight="58.0" prefWidth="200.0" stylesheets="@../styles/styles.css">
                      <children>
-                        <Text layoutX="42.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tips" wrappingWidth="136.91811561584473">
+                        <Text layoutX="14.0" layoutY="16.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New IKEA home Smart product, what now?" wrappingWidth="231.91811561584473">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="18.0" />
                            </font>
                         </Text>
                         <ImageView fitHeight="33.0" fitWidth="61.0" layoutX="256.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
