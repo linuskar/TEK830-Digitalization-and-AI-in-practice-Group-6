@@ -39,6 +39,7 @@ public class AppTutorialController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        backButton.setDisable(true);
         updatePageContent(currentPageNumber);
     }
 
@@ -59,7 +60,8 @@ public class AppTutorialController implements Initializable {
 
     private void setCounterLabelText(int currentPageNumber) {
         int totalPageNumber = tutorialPageItemHandler.getTutorialPageItemCount();
-        counterLabel.setText(currentPageNumber + "/" + totalPageNumber);
+        int displayPageNumber = currentPageNumber + 1;
+        counterLabel.setText(displayPageNumber + "/" + totalPageNumber);
     }
 
     @FXML
@@ -77,8 +79,8 @@ public class AppTutorialController implements Initializable {
     }
 
     private void updateButtonState(int currentPageNumber) {
-        backButton.setDisable(currentPageNumber < 0);
-        forwardButton.setDisable(currentPageNumber >= tutorialPageItemHandler.getTutorialPageItemCount());
+        backButton.setDisable(currentPageNumber < 1);
+        forwardButton.setDisable(currentPageNumber >= tutorialPageItemHandler.getTutorialPageItemCount() - 1);
     }
 
     @FXML
