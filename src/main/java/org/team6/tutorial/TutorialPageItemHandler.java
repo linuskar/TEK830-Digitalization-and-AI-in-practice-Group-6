@@ -25,7 +25,11 @@ public class TutorialPageItemHandler {
         }
     }
 
-    public List<TutorialPageItem> getTutorialPageItems() {
-        return tutorialPageItems;
+    public TutorialPageItem getTutorialPageItemAt(int index) {
+        return tutorialPageItems.get(index);
+    }
+
+    public int getTutorialPageItemCount() {
+        return tutorialPageItems.size();
     }
 }
