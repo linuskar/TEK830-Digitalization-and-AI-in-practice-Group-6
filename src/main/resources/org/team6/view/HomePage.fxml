@@ -16,7 +16,7 @@
                <graphic>
                   <Pane depthTest="ENABLE" prefHeight="36.0" prefWidth="284.0">
                      <children>
-                        <Text fx:id="electricityText" fill="WHITE" layoutX="8.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lägg till en hubb nu" wrappingWidth="211.91811561584473">
+                        <Text fx:id="electricityText" fill="WHITE" layoutX="8.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add a hub now" wrappingWidth="211.91811561584473">
                            <font>
                               <Font size="13.0" />
                            </font>
@@ -46,19 +46,19 @@
                      </children>
                   </Pane>
                </graphic></Button>
-            <ImageView fx:id="frontPageImage" fitHeight="227.0" fitWidth="345.0" layoutX="-2.0" layoutY="-38.0" pickOnBounds="true" preserveRatio="false">
+            <ImageView fx:id="frontPageImage" fitHeight="227.0" fitWidth="345.0" layoutX="2.0" layoutY="-38.0" pickOnBounds="true" preserveRatio="false">
                <image>
                   <Image url="@../images/ikea%20hembild%201.png" />
                </image>
             </ImageView>
-            <Pane fx:id="informationPane" layoutX="-2.0" layoutY="188.0" prefHeight="109.0" prefWidth="345.0">
+            <Pane fx:id="informationPane" layoutX="2.0" layoutY="188.0" prefHeight="109.0" prefWidth="345.0">
                <children>
-                  <Text fill="WHITE" layoutX="12.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Det finns så mycket du kan göra med smarta produkter, från bättre sömnvanor till att känna dig trygg och uppkopplad till ditt hem var som helst i världen." wrappingWidth="332.13671875">
+                  <Text fill="WHITE" layoutX="12.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="There is so much you can do with smart products, from better sleep habits to feeling safe and connected to your home no matter where you are in the world." wrappingWidth="332.13671875">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </Text>
-                  <Button fx:id="readMoreButton" layoutX="12.0" layoutY="75.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="77.0">
+                  <Button fx:id="readMoreButton" layoutX="12.0" layoutY="75.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="89.0">
                      <graphic>
                         <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Read more" wrappingWidth="79.13671875">
                            <font>
@@ -72,7 +72,7 @@
                         <Image url="@../images/→.png" />
                      </image>
                   </ImageView>
-                  <Text fill="WHITE" layoutX="12.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vad kan ett smart hem göra?">
+                  <Text fill="WHITE" layoutX="12.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="What can a smart home do?">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -83,7 +83,7 @@
       </Pane>
       <Pane fx:id="barPane" layoutX="9.0" layoutY="585.0" prefHeight="61.0" prefWidth="370.0">
          <children>
-            <Button fx:id="accountButton" layoutX="164.0" layoutY="14.0" mnemonicParsing="false">
+            <Button fx:id="accountButton" layoutX="164.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleEnergyButtonAction">
                <graphic>
                   <ImageView fx:id="settingsImage" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -112,7 +112,7 @@
             </Button>
          </children>
       </Pane>
-      <Text fx:id="homePageTitle" fill="WHITE" layoutX="14.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Välkommen hem" wrappingWidth="210.13671875">
+      <Text fx:id="homePageTitle" fill="WHITE" layoutX="14.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome home" wrappingWidth="210.13671875">
          <font>
             <Font size="25.0" />
          </font>

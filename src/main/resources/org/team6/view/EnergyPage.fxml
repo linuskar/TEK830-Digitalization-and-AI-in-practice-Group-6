@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane fx:id="energyPageAnchor" prefHeight="400.0" prefWidth="374.0" stylesheets="@../styles/energyPageStyles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.EnergyPageController">
+   <children>
+      <Button fx:id="energyOverviewButton" layoutX="12.0" layoutY="448.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="328.0">
+         <graphic>
+            <Pane depthTest="ENABLE" prefHeight="36.0" prefWidth="284.0">
+               <children>
+                  <Text fx:id="electricityText" fill="WHITE" layoutX="8.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Get an energy overview" wrappingWidth="211.91811561584473">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Text>
+                  <ImageView fitHeight="34.0" fitWidth="39.0" layoutX="260.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Group%2034.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </graphic>
+      </Button>
+      <ImageView fitHeight="263.0" fitWidth="357.0" layoutX="19.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/ikea%20en%201.png" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" layoutX="25.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Energy overview" wrappingWidth="171.13671875">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Pane fx:id="readMorePane" layoutX="19.0" layoutY="320.0" prefHeight="109.0" prefWidth="350.0">
+         <children>
+            <Text fill="WHITE" layoutX="12.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Keep track of your electricity consumption, compare it with similar homes, and find new ways to save!" wrappingWidth="332.13671875">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Text>
+            <Button fx:id="readMoreEnergyButton" layoutX="12.0" layoutY="75.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="89.0">
+               <graphic>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Read more" wrappingWidth="79.13671875">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+               </graphic>
+            </Button>
+            <ImageView fitHeight="13.0" fitWidth="24.0" layoutX="101.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/→.png" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" layoutX="12.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Is your energy cost high?">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Pane fx:id="barPane" layoutX="9.0" layoutY="585.0" prefHeight="61.0" prefWidth="370.0" stylesheets="@../styles/styles.css">
+         <children>
+            <Button fx:id="accountButton" layoutX="164.0" layoutY="14.0" mnemonicParsing="false" stylesheets="@../styles/styles.css">
+               <graphic>
+                  <ImageView fx:id="settingsImage" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Group%202.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="settingsButton" layoutX="279.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleSettingsButtonAction" stylesheets="@../styles/styles.css">
+               <graphic>
+                  <ImageView fx:id="accountImage" fitHeight="26.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Group%203.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="searchButton" layoutX="35.0" layoutY="11.0" minWidth="53.0" mnemonicParsing="false" onAction="#handleHomeButton" prefHeight="40.0" prefWidth="53.0">
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Group%201.0.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

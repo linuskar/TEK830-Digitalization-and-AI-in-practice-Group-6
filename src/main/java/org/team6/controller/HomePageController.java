@@ -1,6 +1,7 @@
 package org.team6.controller;
 
 import javafx.scene.control.Label;
+import org.h2.mvstore.Page;
 import org.team6.view.PageStarter;
 
 import javafx.fxml.FXML;
@@ -73,5 +74,10 @@ public class HomePageController {
     @FXML
     private void handleSettingsButtonAction() {
         PageStarter.switchToSettingsPage();
+    }
+
+    @FXML
+    private void handleEnergyButtonAction(){
+        PageStarter.switchToEnergyPage();
     }
 }

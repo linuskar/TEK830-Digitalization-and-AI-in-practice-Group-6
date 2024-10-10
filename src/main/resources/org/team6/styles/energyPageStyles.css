@@ -1,0 +1,28 @@
+#energyPageAnchor{
+-fx-pref-width: 375 ;
+-fx-pref-height:  667;
+-fx-border-radius: 15px;
+-fx-border-width: 5px;
+-fx-border-color: #21130d;
+-fx-background-color: #1e1e1e;
+}
+
+#energyOverviewButton{
+    -fx-background-color: #49342A;
+        -fx-background-radius: 20px;
+        -fx-padding: 10px 20px;
+        -fx-border-width: 1px;
+        -fx-border-radius: 20px;
+        -fx-pref-width: 357;
+        -fx-pref-height: 55;
+}
+
+#readMorePane{
+-fx-background-color: #49342A;
+-fx-background-radius: 0 0 15px 15px;
+
+}
+
+#readMoreEnergyButton{
+-fx-background-color: transparent;
+}
