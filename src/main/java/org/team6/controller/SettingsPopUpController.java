@@ -9,6 +9,7 @@ public class SettingsPopUpController {
     
     private void hidePopUp() {
         popUpPane.setVisible(false);
+        popUpPane.setDisable(true);
     }
 
     @FXML
