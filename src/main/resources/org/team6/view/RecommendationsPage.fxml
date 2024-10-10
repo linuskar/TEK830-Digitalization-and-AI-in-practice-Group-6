@@ -37,12 +37,12 @@
                      <children>
                         <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="349.0" style="-fx-background-color: gray;" stylesheets="@../styles/recommendations.css">
                            <children>
-                              <ToggleButton fx:id="generalToggleButton" mnemonicParsing="false" onAction="#handleGeneralToggleButtonAction" selected="true" text="General">
+                              <ToggleButton fx:id="generalToggleButton" mnemonicParsing="false" onAction="#handleGeneralToggleButtonAction" prefWidth="174.5" selected="true" text="General">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="recommendationPrivacyTypeToggleButtonGroup" />
                                  </toggleGroup>
                               </ToggleButton>
-                              <ToggleButton fx:id="personalToggleButton" mnemonicParsing="false" onAction="#handlePersonalToggleButtonAction" text="Personal" toggleGroup="$recommendationPrivacyTypeToggleButtonGroup" />
+                              <ToggleButton fx:id="personalToggleButton" mnemonicParsing="false" onAction="#handlePersonalToggleButtonAction" prefWidth="174.5" text="Personal" toggleGroup="$recommendationPrivacyTypeToggleButtonGroup" />
                            </children>
                         </HBox>
                       <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="439.0" prefWidth="349.0">
@@ -51,12 +51,12 @@
                                  <children>
                                     <HBox>
                                        <children>
-                                          <ToggleButton fx:id="productsToggleButton" mnemonicParsing="false" onAction="#handleProductsToggleButtonAction" selected="true" text="Products">
+                                          <ToggleButton fx:id="productsToggleButton" mnemonicParsing="false" onAction="#handleProductsToggleButtonAction" prefWidth="174.5" selected="true" text="Products">
                                              <toggleGroup>
                                                 <ToggleGroup fx:id="recommendationTypeToggleButtonGroup" />
                                              </toggleGroup>
                                           </ToggleButton>
-                                          <ToggleButton fx:id="tipsToggleButton" mnemonicParsing="false" onAction="#handleTipsToggleButtonAction" text="Tips" toggleGroup="$recommendationTypeToggleButtonGroup" />
+                                          <ToggleButton fx:id="tipsToggleButton" mnemonicParsing="false" onAction="#handleTipsToggleButtonAction" prefWidth="174.5" text="Tips" toggleGroup="$recommendationTypeToggleButtonGroup" />
                                        </children>
                                     </HBox>
                                     <AnchorPane fx:id="recommendationsContentPane" />

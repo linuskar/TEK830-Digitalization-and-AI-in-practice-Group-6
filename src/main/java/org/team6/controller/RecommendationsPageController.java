@@ -63,6 +63,7 @@ public class RecommendationsPageController {
     @FXML
     private void initialize() {
         initializeRecommendations();
+        initializeToggleGroups();
 
         personalRecommendationsFlowPane.setVisible(false);
         personalRecommendationsFlowPane.setDisable(true);
@@ -76,6 +77,21 @@ public class RecommendationsPageController {
         // For now, we'll just create some dummy cards
         initializeGeneralRecommendations(2,1);
         initializePersonalRecommendations(3,2);
+    }
+
+    private void initializeToggleGroups() {
+        // Prevents already selected toggle button to not be unselected when pressing it again in the toggle group
+        recommendationTypeToggleButtonGroup.selectedToggleProperty().addListener((observable, oldToggle, newToggle) -> {
+            if (newToggle == null) {
+                recommendationTypeToggleButtonGroup.selectToggle(oldToggle);
+            }
+        });
+
+        recommendationPrivacyTypeToggleButtonGroup.selectedToggleProperty().addListener((observable, oldToggle, newToggle) -> {
+            if (newToggle == null) {
+                recommendationPrivacyTypeToggleButtonGroup.selectToggle(oldToggle);
+            }
+        });
     }
 
     private void initializeGeneralRecommendations(int products, int tips) {
@@ -203,10 +219,6 @@ public class RecommendationsPageController {
             AnchorPane card = loader.load();
 
             recommendationVBox.getChildren().add(card);
-
-            if(recommendationVBox == personalTipsRecommendationsVBox){
-                System.out.println("Personal tips cards added");
-            }
         } catch (IOException e) {
             e.printStackTrace();
         }
