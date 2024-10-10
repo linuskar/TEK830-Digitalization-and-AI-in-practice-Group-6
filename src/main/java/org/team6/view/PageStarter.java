@@ -44,9 +44,9 @@ public class PageStarter {
             settingsPane = getSettingsPage();
             pages.add(settingsPane);
 
-            loadAppTutorialPage();
+            AnchorPane appTutorialPage = getAppTutorialPage();
 
-            mainPage.getChildren().addAll(homePane, settingsPane, notificationPane);
+            mainPage.getChildren().addAll(homePane, settingsPane, notificationPane, appTutorialPage);
 
             notificationController.setupKeyHandling(scene);
         } catch (IOException e) {
@@ -90,13 +90,8 @@ public class PageStarter {
         return loader.load();
     }
 
-    private static void loadAppTutorialPage() throws IOException {
+    private static AnchorPane getAppTutorialPage() throws IOException {
         FXMLLoader loader = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/AppTutorialPage.fxml"));
-        AnchorPane anchorPane = loader.load();
-
-        Stage popupStage = new Stage();
-        popupStage.setTitle("App Tutorial Page");
-        popupStage.setScene(new Scene(anchorPane));
-        popupStage.show();
+        return loader.load();
     }
 }
