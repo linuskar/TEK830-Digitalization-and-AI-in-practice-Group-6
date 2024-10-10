@@ -1,9 +1,8 @@
 package org.team6.utility;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -12,12 +11,15 @@ public class TextFileReader {
 
     private TextFileReader() {}
 
-    public static String readFileAsString(String filePathName) {
-        Path filePath = Paths.get(filePathName);
-        try {
-            return Files.readString(filePath);
+    public static String readFileAsString(String resourcePath) {
+        try (InputStream inputStream = TextFileReader.class.getResourceAsStream(resourcePath)) {
+            if (inputStream == null) {
+                logger.log(Level.SEVERE, () -> "Resource not found: " + resourcePath);
+                return "";
+            }
+            return new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
         } catch (IOException e) {
-            logger.log(Level.SEVERE, e, () -> "An error occurred while reading file at: " + filePath);
+            logger.log(Level.SEVERE, e, () -> "An error occurred while reading resource: " + resourcePath);
             return "";
         }
     }

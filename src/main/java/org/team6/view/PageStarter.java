@@ -44,7 +44,9 @@ public class PageStarter {
             settingsPane = getSettingsPage();
             pages.add(settingsPane);
 
-            mainPage.getChildren().addAll(homePane, settingsPane, notificationPane);
+            AnchorPane appTutorialPage = getAppTutorialPage();
+
+            mainPage.getChildren().addAll(homePane, settingsPane, notificationPane, appTutorialPage);
 
             notificationController.setupKeyHandling(scene);
         } catch (IOException e) {
@@ -85,6 +87,11 @@ public class PageStarter {
 
     private static AnchorPane getSettingsPage() throws IOException {
         FXMLLoader loader = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/settings_page.fxml"));
+        return loader.load();
+    }
+
+    private static AnchorPane getAppTutorialPage() throws IOException {
+        FXMLLoader loader = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/AppTutorialPage.fxml"));
         return loader.load();
     }
 }
