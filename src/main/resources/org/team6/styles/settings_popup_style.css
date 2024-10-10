@@ -32,3 +32,7 @@
     -fx-background-color: white;
     -fx-text-fill: black;
 }
+
+Button:hover {
+    -fx-cursor: hand;
+}
