@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -20,7 +21,11 @@
             <Button fx:id="closeButton" mnemonicParsing="false" onAction="#handleCloseOnAction" text="Close" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="148.0" AnchorPane.rightAnchor="147.0" />
             <HBox alignment="CENTER" prefHeight="240.0" prefWidth="340.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="64.0">
                <children>
-                  <ImageView fx:id="tutorialImage" fitHeight="240.0" fitWidth="308.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="tutorialImage" fitHeight="240.0" fitWidth="308.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/pexels-czapp-arpad-3647289-11498771.jpg" />
+                     </image>
+                  </ImageView>
                </children>
             </HBox>
          </children>

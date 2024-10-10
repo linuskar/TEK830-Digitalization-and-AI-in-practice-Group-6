@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.shape.Rectangle;
 import org.team6.tutorial.TutorialPageItem;
 import org.team6.tutorial.TutorialPageItemHandler;
 
@@ -56,6 +57,14 @@ public class AppTutorialController implements Initializable {
 
     private void setInfoImage(Image image) {
         tutorialImage.setImage(image);
+        makeCornersRounded();
+    }
+
+    private void makeCornersRounded() {
+        Rectangle clip = new Rectangle(tutorialImage.getFitWidth(), tutorialImage.getFitHeight());
+        clip.setArcWidth(20);
+        clip.setArcHeight(20);
+        tutorialImage.setClip(clip);
     }
 
     private void setCounterLabelText(int currentPageNumber) {
