@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="660.0" prefWidth="380.0" stylesheets="@../styles/settings_styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.SettingsPageController">
+<AnchorPane prefHeight="660.0" prefWidth="380.0" stylesheets="@../styles/settings_styles.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.SettingsPageController">
    <children>
       <VBox layoutX="60.0" layoutY="65.0" styleClass="vbox" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="96.0">
          <children>
@@ -73,6 +73,12 @@
                   <Spinner fx:id="startNotificationTimeSpinner" editable="true" prefWidth="56.0" />
                   <Label layoutX="45.0" layoutY="14.0" text="To" wrapText="true" />
                   <Spinner fx:id="endNotificationTimeSpinner" editable="true" layoutX="172.0" layoutY="10.0" prefWidth="56.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefWidth="200.0" styleClass="hbox">
+               <children>
+                  <Label prefHeight="34.0" prefWidth="192.0" text="Toggle Personal Recommendations" wrapText="true" />
+                  <ToggleButton fx:id="recommendationsToggleButton" mnemonicParsing="false" onAction="#handleRecommendationsToggleButtonAction" prefWidth="64.0" styleClass="mobile-toggle" />
                </children>
             </HBox>
          </children>

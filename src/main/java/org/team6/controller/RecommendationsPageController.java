@@ -2,6 +2,8 @@ package org.team6.controller;
 
 import java.io.IOException;
 
+import org.team6.model.Observer;
+import org.team6.model.RecommendationsBackend;
 import org.team6.view.PageStarter;
 
 import javafx.fxml.FXML;
@@ -13,11 +15,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 
-public class RecommendationsPageController {
+public class RecommendationsPageController implements Observer {
     @FXML
     private Button homeButton;
     @FXML
     private Button energyInsightsButton;
+    @FXML
+    private ToggleButton recommendationsToggleButton;
 
     @FXML
     private ToggleGroup recommendationPrivacyTypeToggleButtonGroup;
@@ -32,7 +36,6 @@ public class RecommendationsPageController {
     private ToggleButton productsToggleButton;
     @FXML
     private ToggleButton tipsToggleButton;
-
     @FXML
     private AnchorPane recommendationsContentPane;
 
@@ -62,11 +65,25 @@ public class RecommendationsPageController {
 
     @FXML
     private void initialize() {
+        RecommendationsBackend.addObserver(this);
         initializeRecommendations();
         initializeToggleGroups();
+        initializeToggleButtons();
 
         personalRecommendationsFlowPane.setVisible(false);
         personalRecommendationsFlowPane.setDisable(true);
+    }
+
+    @Override
+    public void update() {
+        recommendationsToggleButton.setSelected(RecommendationsBackend.isPersonalRecommendationsOn());
+        personalToggleButton.setDisable(!RecommendationsBackend.isPersonalRecommendationsOn());
+
+        if (RecommendationsBackend.isPersonalRecommendationsOn()) {
+            System.out.println("Personal recommendations are on");
+        } else {
+            System.out.println("Personal recommendations are off");
+        }
     }
 
     private void initializeRecommendations() {
@@ -92,6 +109,11 @@ public class RecommendationsPageController {
                 recommendationPrivacyTypeToggleButtonGroup.selectToggle(oldToggle);
             }
         });
+    }
+
+    private void initializeToggleButtons() {
+        recommendationsToggleButton.setSelected(RecommendationsBackend.isPersonalRecommendationsOn());
+        personalToggleButton.setDisable(!RecommendationsBackend.isPersonalRecommendationsOn());
     }
 
     private void initializeGeneralRecommendations(int products, int tips) {
@@ -157,6 +179,11 @@ public class RecommendationsPageController {
     @FXML
     private void handlePersonalToggleButtonAction() {    
         handleRecommendationPrivacyTypeToggle(personalToggleButton);
+    }
+
+    @FXML
+    private void handleRecommendationsToggleButtonAction() {
+        RecommendationsBackend.setPersonalRecommendationsOn(!RecommendationsBackend.isPersonalRecommendationsOn());
     }
 
     private void handleRecommendationPrivacyTypeToggle(ToggleButton selectedToggle) {

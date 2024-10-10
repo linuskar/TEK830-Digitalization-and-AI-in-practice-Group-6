@@ -29,6 +29,7 @@
                                     <Insets />
                                  </VBox.margin>
                               </Text>
+                              <ToggleButton fx:id="recommendationsToggleButton" mnemonicParsing="false" onAction="#handleRecommendationsToggleButtonAction" text="Toggle Personal Recommendations" />
                            </children>
                         </VBox>
                      </children>
