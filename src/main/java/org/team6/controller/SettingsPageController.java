@@ -62,6 +62,8 @@ public class SettingsPageController implements Initializable, Observer {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        RecommendationsBackend.addObserver(this);
+
         notificationButtons.put(sendLowElectricPriceToggleButton, Notification.LOW_ELECTRICITY_PRICE);
         notificationButtons.put(sendHighElectricPriceToggleButton, Notification.HIGH_ELECTRICITY_PRICE);
         notificationButtons.put(sendSunnyWeatherToggleButton, Notification.SUNNY_WEATHER);
