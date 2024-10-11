@@ -7,7 +7,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.shape.Rectangle;
 import org.team6.tutorial.TutorialPageItem;
 import org.team6.tutorial.TutorialPageItemHandler;
 import org.team6.view.ImageUtils;
