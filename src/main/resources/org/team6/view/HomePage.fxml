@@ -8,95 +8,117 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="mainPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="852.0" prefWidth="382.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.HomePageController">
+<AnchorPane fx:id="mainPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="852.0" prefWidth="382.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.HomePageController">
    <children>
       <Pane layoutX="18.0" layoutY="89.0" prefHeight="475.0" prefWidth="353.0">
          <children>
-            <Button fx:id="electricityButton" layoutX="12.0" layoutY="245.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="328.0">
+            <Button fx:id="electricityButton" layoutX="-2.0" layoutY="310.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="328.0">
                <graphic>
                   <Pane depthTest="ENABLE" prefHeight="36.0" prefWidth="284.0">
                      <children>
-                        <Text fx:id="electricityText" layoutX="37.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Electricity" wrappingWidth="211.91811561584473">
+                        <Text fx:id="electricityText" fill="WHITE" layoutX="8.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add a hub now" wrappingWidth="211.91811561584473">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="13.0" />
                            </font>
                         </Text>
-                        <ImageView fitHeight="40.0" fitWidth="53.0" layoutX="252.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="34.0" fitWidth="39.0" layoutX="260.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../images/flash.png" />
+                              <Image url="@../images/Group%2034.png" />
                            </image>
                         </ImageView>
                      </children>
                   </Pane>
                </graphic></Button>
-            <Button fx:id="productTutorialButton" layoutX="13.0" layoutY="314.0" mnemonicParsing="false" onAction="#handleProductTutorialButtonAction" prefHeight="61.0" prefWidth="328.0">
+
+            <Button fx:id="productTutorialButton" layoutX="-2.0" layoutY="379.0" mnemonicParsing="false" onAction="#handleProductTutorialButtonAction" prefHeight="61.0" prefWidth="328.0">
                <graphic>
-                  <Pane prefHeight="58.0" prefWidth="200.0" stylesheets="@../styles/styles.css">
+                  <Pane prefHeight="42.0" prefWidth="294.0" stylesheets="@../styles/styles.css">
                      <children>
-                        <Text layoutX="14.0" layoutY="16.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New IKEA home Smart product, what now?" wrappingWidth="231.91811561584473">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
                         <ImageView fitHeight="33.0" fitWidth="61.0" layoutX="256.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+
                            <image>
-                              <Image url="@../images/seo-tips.png" />
+                              <Image url="@../images/Group%2034.png" />
                            </image>
                         </ImageView>
+                        <Text fx:id="electricityText1" fill="WHITE" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New IKEA home smart product, what now?" wrappingWidth="224.91811561584473">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Text>
                      </children>
                   </Pane>
                </graphic></Button>
-            <ImageView fx:id="frontPageImage" fitHeight="190.0" fitWidth="353.0" layoutX="-1.0" layoutY="4.0" pickOnBounds="true" preserveRatio="false">
+            <ImageView fx:id="frontPageImage" fitHeight="227.0" fitWidth="345.0" layoutX="2.0" layoutY="-38.0" pickOnBounds="true" preserveRatio="false">
                <image>
-                  <Image url="@../images/pexels-alexander-isreb-880417-1797405.jpg" />
+                  <Image url="@../images/ikea%20hembild%201.png" />
                </image>
             </ImageView>
+            <Pane fx:id="informationPane" layoutX="2.0" layoutY="188.0" prefHeight="109.0" prefWidth="345.0">
+               <children>
+                  <Text fill="WHITE" layoutX="12.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="There is so much you can do with smart products, from better sleep habits to feeling safe and connected to your home no matter where you are in the world." wrappingWidth="332.13671875">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="readMoreButton" layoutX="12.0" layoutY="75.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="89.0">
+                     <graphic>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Read more" wrappingWidth="79.13671875">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Text>
+                     </graphic>
+                  </Button>
+                  <ImageView fitHeight="13.0" fitWidth="24.0" layoutX="101.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/→.png" />
+                     </image>
+                  </ImageView>
+                  <Text fill="WHITE" layoutX="12.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="What can a smart home do?">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
          </children>
       </Pane>
       <Pane fx:id="barPane" layoutX="9.0" layoutY="585.0" prefHeight="61.0" prefWidth="370.0">
          <children>
-            <Button fx:id="accountButton" layoutX="154.0" layoutY="11.0" mnemonicParsing="false">
+            <Button fx:id="accountButton" layoutX="164.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleEnergyButtonAction">
                <graphic>
                   <ImageView fx:id="settingsImage" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/user.png" />
+                        <Image url="@../images/Group%202.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="settingsButton" layoutX="39.0" layoutY="12.0" mnemonicParsing="false" onAction="#handleSettingsButtonAction">
+            <Button fx:id="settingsButton" layoutX="279.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleSettingsButtonAction">
                <graphic>
                   <ImageView fx:id="accountImage" fitHeight="26.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/setting.png" />
+                        <Image url="@../images/Group%203.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="searchButton" layoutX="269.0" layoutY="11.0" minWidth="53.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="53.0">
+            <Button fx:id="searchButton" layoutX="35.0" layoutY="11.0" minWidth="53.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="53.0">
                <graphic>
                   <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/search-interface-symbol.png" />
+                        <Image url="@../images/Group%201.0.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
          </children>
       </Pane>
-      <Text fx:id="homePageTitle" layoutX="20.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home page" wrappingWidth="148.13671875">
+      <Text fx:id="homePageTitle" fill="WHITE" layoutX="14.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome home" wrappingWidth="210.13671875">
          <font>
             <Font size="25.0" />
          </font>
       </Text>
-      <Button fx:id="menuButton1" layoutX="304.0" layoutY="13.0" minWidth="47.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="68.0">
-         <graphic>
-            <ImageView fx:id="menuImage1" fitHeight="35.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/dots.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
+      <Button fx:id="menuButton1" layoutX="304.0" layoutY="13.0" minWidth="47.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="68.0" />
    </children>
 </AnchorPane>

@@ -1,10 +1,12 @@
+
+
 #mainPage{
 -fx-pref-width: 375 ;
 -fx-pref-height:  667;
 -fx-border-radius: 15px;
 -fx-border-width: 5px;
 -fx-border-color: #21130d;
--fx-background-color: #ffffff;
+-fx-background-color: #1e1e1e;
 }
 
 #homePageTitle{
@@ -13,10 +15,7 @@
 }
 
 #barPane{
--fx-background-radius: 100px;
--fx-border-width: 2px;
--fx-background-color: #D3D3D3;
--fx-border-insets: 0px;
+-fx-background-color: #1e1e1e;
 }
 #searchButton{
 -fx-background-color: transparent;
@@ -34,16 +33,28 @@
 -fx-background-color: transparent;
 }
 
-#electricityButton, #productTutorialButton {
-    -fx-background-color: #FAF9F6;
+
+#electricityButton, #productTutorialButton , #tipsButton {
+    -fx-background-color: #2A3338;
+
     -fx-background-radius: 20px;
     -fx-padding: 10px 20px;
     -fx-border-width: 1px;
     -fx-border-radius: 20px;
+    -fx-pref-width: 357;
+    -fx-pref-height: 55;
 
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 5, 0, 0, 2);
 }
 
+#informationPane{
+-fx-background-color: #2A3338;
+-fx-background-radius: 0 0 15px 15px;
+}
+
+#readMoreButton{
+-fx-background-color: transparent;
+}
 /* Apply hand hover effect for all buttons */
 Button:hover {
     -fx-cursor: hand;

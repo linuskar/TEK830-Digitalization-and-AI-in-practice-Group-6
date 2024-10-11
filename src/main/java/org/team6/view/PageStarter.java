@@ -19,6 +19,7 @@ public class PageStarter {
     private static AnchorPane settingsPopUpPane;
     private static final List<AnchorPane> pages = new ArrayList<>();
 
+    private static AnchorPane energyPane;
     private static Scene scene;
     private static Stage primaryStage;
 
@@ -45,9 +46,13 @@ public class PageStarter {
             settingsPane = getSettingsPage();
             pages.add(settingsPane);
 
+
+            energyPane = getEnergyPane();
+            pages.add(energyPane);
+
             settingsPopUpPane = getSettingsPopUpPage();
 
-            mainPage.getChildren().addAll(homePane, settingsPane, notificationPane, settingsPopUpPane);
+            mainPage.getChildren().addAll(homePane, settingsPane, notificationPane, settingsPopUpPane,energyPane);
 
             notificationController.setupKeyHandling(scene);
         } catch (IOException e) {
@@ -76,6 +81,12 @@ public class PageStarter {
         primaryStage.setScene(scene);
     }
 
+    public static void switchToEnergyPage(){
+        setPageVisible(energyPane);
+        primaryStage.setTitle("Energy overview");
+        primaryStage.setScene(scene);
+    }
+
     private static StackPane getMainPage() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/MainPage.fxml"));
         return fxmlLoader.load();
@@ -91,9 +102,13 @@ public class PageStarter {
         return loader.load();
     }
 
+    private static AnchorPane getEnergyPane() throws IOException {
+        FXMLLoader energyLoader = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/EnergyPage.fxml"));
+        return energyLoader.load();
+    }
+
     private static AnchorPane getSettingsPopUpPage() throws IOException {
         FXMLLoader settingsPopUp = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/settings_popup.fxml"));
         return settingsPopUp.load();
     }
-
 }
