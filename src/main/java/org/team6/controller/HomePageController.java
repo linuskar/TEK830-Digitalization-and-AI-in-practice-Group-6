@@ -1,5 +1,6 @@
 package org.team6.controller;
 
+import org.team6.model.UrlOpener;
 import org.team6.view.PageStarter;
 
 import javafx.fxml.FXML;
@@ -58,7 +59,7 @@ public class HomePageController {
     private Button electricityButton;
 
     @FXML
-    private Button tipsButton;
+    private Button productTutorialButton;
 
     @FXML
     private Text electricityText;
@@ -67,4 +68,10 @@ public class HomePageController {
     private void handleSettingsButtonAction() {
         PageStarter.switchToSettingsPage();
     }
+
+    @FXML
+    private void handleProductTutorialButtonAction(){
+        UrlOpener.openUrl("https://www.ikea.com/us/en/product-guides/ikea-home-smart-system/");
+    }
+
 }
