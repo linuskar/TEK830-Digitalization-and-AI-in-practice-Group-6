@@ -4,8 +4,10 @@ import javafx.animation.PauseTransition;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 import org.team6.model.Notification;
@@ -18,11 +20,17 @@ public class NotificationController implements NotificationListener {
     private Text notificationText;
     @FXML
     private AnchorPane notificationPane;
+    @FXML
+    private ImageView imageView;
     
     @FXML
     public void initialize() {
         notificationPane.setVisible(false);
         notificationPane.setDisable(true);
+        Rectangle clip = new Rectangle(imageView.getFitWidth(), imageView.getFitHeight());
+        clip.setArcWidth(20);
+        clip.setArcHeight(20);
+        imageView.setClip(clip);
     }
 
     public void setNotificationText(String text){

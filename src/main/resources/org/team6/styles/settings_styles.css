@@ -1,7 +1,12 @@
 .hbox {
     -fx-spacing: 16px;
+    -fx-border-color: #BEBEBE;
+    -fx-background-color: #2A3338;
+    -fx-border-radius: 5px;
+    -fx-pref-width: 300;
+    -fx-pref-height: 40;
 }
-
+/*#BEBEBE*/
 .vbox {
     -fx-spacing: 16px;
 }
@@ -17,14 +22,19 @@
     -fx-alignment: center-left;
 }
 
+#settingsPagePane{
+-fx-background-color: #1e1e1e;
+}
+
 .mobile-toggle:selected {
     -fx-background-color: #4caf50;
     -fx-alignment: center-right;
 }
 
 .title-text {
-    -fx-font-size: 32px;
+    -fx-font-size: 22px;
     -fx-font-weight: bold;
+    -fx-text-fill: #fff;
 }
 
 Button:hover {
@@ -41,4 +51,8 @@ Slider:hover {
 
 Spinner:hover {
     -fx-cursor: hand;
+}
+
+.normal-text {
+    -fx-text-fill: #fff;
 }
