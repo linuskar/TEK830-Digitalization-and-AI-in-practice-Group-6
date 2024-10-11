@@ -63,28 +63,32 @@ public class AppTutorialController implements Initializable {
 
     private void setInfoImage(Image image) {
         // Reset the ImageView to its original dimensions before setting the new image
-        tutorialImage.setFitWidth(startWidth);
-        tutorialImage.setFitHeight(startHeight);
-
-        double imageAspectRatio = image.getWidth() / image.getHeight();
-        double viewAspectRatio = startWidth / startHeight;
-
-        // Adjust the ImageView dimensions based on the image's aspect ratio
-        if (imageAspectRatio > viewAspectRatio) {
-            // If the image is wider relative to the ImageView, scale by width
-            tutorialImage.setFitWidth(startWidth);
-            tutorialImage.setFitHeight(startWidth / imageAspectRatio);
-        } else {
-            // If the image is taller relative to the ImageView, scale by height
-            tutorialImage.setFitHeight(startHeight);
-            tutorialImage.setFitWidth(startHeight * imageAspectRatio);
-        }
+        setImageViewSize(startWidth, startHeight);
+        scaleImageViewAccordingToImage(image);
 
         // Set the image and apply rounded corners
         tutorialImage.setImage(image);
         ImageUtils.makeCornersRounded(tutorialImage, 20);
     }
 
+    private void setImageViewSize(double width, double height) {
+        tutorialImage.setFitWidth(width);
+        tutorialImage.setFitHeight(height);
+    }
+
+    private void scaleImageViewAccordingToImage(Image image) {
+        double imageAspectRatio = image.getWidth() / image.getHeight();
+        double viewAspectRatio = startWidth / startHeight;
+
+        // Adjust the ImageView dimensions based on the image's aspect ratio
+        if (imageAspectRatio > viewAspectRatio) {
+            // If the image is wider relative to the ImageView, scale by width
+            setImageViewSize(startWidth, startWidth / imageAspectRatio);
+        } else {
+            // If the image is taller relative to the ImageView, scale by height
+            setImageViewSize(startHeight * imageAspectRatio, startHeight);
+        }
+    }
 
     private void setCounterLabelText(int currentPageNumber) {
         int totalPageNumber = tutorialPageItemHandler.getTutorialPageItemCount();
