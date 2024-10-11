@@ -8,6 +8,7 @@ import javafx.scene.control.Slider;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.team6.model.Notification;
 import org.team6.model.NotificationBackend;
@@ -44,7 +45,7 @@ public class SettingsPageController implements Initializable {
     private Spinner<Integer> endNotificationTimeSpinner;
 
     @FXML
-    private Button backButton;
+    private AnchorPane settingsPagePane;
 
     // Nicer to show the user a scale from 0 to 100 rather than 0 to 1.
     private static final int VOLUME_SCALE_FACTOR = 100;
@@ -161,6 +162,11 @@ public class SettingsPageController implements Initializable {
     @FXML
     private void handleBackOnAction() {
         PageStarter.switchToHomePage();
+    }
+
+    @FXML
+    private void handleEnergyButtonAction(){
+        PageStarter.switchToEnergyPage();
     }
 
     private void handleVolumeChanged(double newVolume) {

@@ -17,6 +17,7 @@
         -fx-pref-height: 55;
 }
 
+
 #readMorePane{
 -fx-background-color: #49342A;
 -fx-background-radius: 0 0 15px 15px;
@@ -26,3 +27,9 @@
 #readMoreEnergyButton{
 -fx-background-color: transparent;
 }
+
+
+Button:hover {
+    -fx-cursor: hand;
+}
+
