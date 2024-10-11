@@ -17,6 +17,8 @@ import org.team6.model.NotificationListener;
 public class NotificationController implements NotificationListener {
 
     @FXML
+    private Text appNameText;
+    @FXML
     private Text notificationText;
     @FXML
     private AnchorPane notificationPane;
@@ -31,6 +33,7 @@ public class NotificationController implements NotificationListener {
         clip.setArcWidth(20);
         clip.setArcHeight(20);
         imageView.setClip(clip);
+        appNameText.setText("IKEA Home App");
     }
 
     public void setNotificationText(String text){
@@ -46,6 +49,7 @@ public class NotificationController implements NotificationListener {
     }
 
     public void showNotificationPane(String notificationText) {
+
         notificationPane.setTranslateY(-notificationPane.getHeight());
         setNotificationText(notificationText);
         notificationPane.setVisible(true);
