@@ -45,7 +45,6 @@ public class AppTutorialController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         startWidth = tutorialImage.getFitWidth();
         startHeight = tutorialImage.getFitHeight();
-        System.out.println("Start: " + startWidth + " " + startHeight);
 
         backButton.setDisable(true);
         updatePageContent(currentPageNumber);
