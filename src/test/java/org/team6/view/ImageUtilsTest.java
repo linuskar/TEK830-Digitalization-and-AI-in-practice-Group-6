@@ -3,32 +3,33 @@ package org.team6.view;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.EnumSource;
+import org.testfx.framework.junit5.ApplicationExtension;
+
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@ExtendWith(ApplicationExtension.class)
 class ImageUtilsTest {
-    private Image testImage;
     private ImageView testImageView;
-    private static final String TEST_FILE_PATH = "/org/team6/images/tutorial/info0.png";
+    private static final int START_WIDTH = 8;
+    private static final int START_HEIGHT = 8;
 
     @BeforeEach
     void setUp() {
-        String fileResourceString = ImageUtils.getFileResourceString(TEST_FILE_PATH);
-        testImage = new Image(fileResourceString);
         testImageView = new ImageView();
+        testImageView.setFitWidth(START_WIDTH);
+        testImageView.setFitHeight(START_HEIGHT);
     }
 
-    @Test
-    void testScaleImageViewAccordingToImage_GivenImageIsWider_ShouldScaleByWidth() {
-        ImageUtils.scaleImageViewAccordingToImage(testImageView, testImage, 100, 100);
-        double expectedWidth = 100;
-        double expectedHeight = 100 / (testImage.getWidth() / testImage.getHeight());
-
-        double actualWidth = testImageView.getFitWidth();
-        double actualHeight = testImageView.getFitHeight();
-
-        assertEquals(expectedWidth, actualWidth);
-        assertEquals(expectedHeight, actualHeight);
+    @ParameterizedTest
+    @EnumSource(ImagePath.class)
+    void testScaleImageViewAccordingToImage_GivenDifferentImageSizes_ShouldScaleCorrectly(ImagePath imagePath) {
+        Image image = imagePath.getImage();
+        ImageUtils.scaleImageViewAccordingToImage(testImageView, image, START_WIDTH, START_HEIGHT);
+        assertEquals(image.getWidth(), testImageView.getFitWidth());
+        assertEquals(image.getHeight(), testImageView.getFitHeight());
     }
 }
