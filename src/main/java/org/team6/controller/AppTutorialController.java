@@ -63,39 +63,29 @@ public class AppTutorialController implements Initializable {
     }
 
     private void setInfoImage(Image image) {
-        boolean imageIsWiderThanImageView = image.getWidth() > startWidth;
-        if (imageIsWiderThanImageView) {
-            double sizeFactor = image.getHeight() / startHeight;
-            double newWidth = image.getWidth() / sizeFactor;
-            tutorialImage.setFitWidth(newWidth);
+        // Reset the ImageView to its original dimensions before setting the new image
+        tutorialImage.setFitWidth(startWidth);
+        tutorialImage.setFitHeight(startHeight);
 
-            System.out.println("ImageWide: " + image.getWidth() + " " + image.getHeight());
-            System.out.println("ImageView: " + tutorialImage.getFitWidth() + " " + tutorialImage.getFitHeight() + "\n");
+        double imageAspectRatio = image.getWidth() / image.getHeight();
+        double viewAspectRatio = startWidth / startHeight;
+
+        // Adjust the ImageView dimensions based on the image's aspect ratio
+        if (imageAspectRatio > viewAspectRatio) {
+            // If the image is wider relative to the ImageView, scale by width
+            tutorialImage.setFitWidth(startWidth);
+            tutorialImage.setFitHeight(startWidth / imageAspectRatio);
         } else {
-            tutorialImage.setFitWidth(image.getWidth());
-
-            System.out.println("ImageNotWide: " + image.getWidth() + " " + image.getHeight());
-            System.out.println("ImageView: " + tutorialImage.getFitWidth() + " " + tutorialImage.getFitHeight() + "\n");
+            // If the image is taller relative to the ImageView, scale by height
+            tutorialImage.setFitHeight(startHeight);
+            tutorialImage.setFitWidth(startHeight * imageAspectRatio);
         }
 
-        boolean imageIsTallerThanImageView = image.getHeight() > startHeight;
-        if (imageIsTallerThanImageView) {
-            double sizeFactor = image.getWidth() / startWidth;
-            double newHeight = image.getHeight() / sizeFactor;
-            tutorialImage.setFitHeight(Math.min(newHeight, startHeight));
-
-            System.out.println("ImageTall: " + image.getWidth() + " " + image.getHeight());
-            System.out.println("ImageView: " + tutorialImage.getFitWidth() + " " + tutorialImage.getFitHeight() + "\n");
-        } else {
-            tutorialImage.setFitHeight(image.getHeight());
-
-            System.out.println("ImageNotTall: " + image.getWidth() + " " + image.getHeight());
-            System.out.println("ImageView: " + tutorialImage.getFitWidth() + " " + tutorialImage.getFitHeight() + "\n");
-        }
-
+        // Set the image and apply rounded corners
         tutorialImage.setImage(image);
         ImageUtils.makeCornersRounded(tutorialImage, 20);
     }
+
 
     private void setCounterLabelText(int currentPageNumber) {
         int totalPageNumber = tutorialPageItemHandler.getTutorialPageItemCount();
