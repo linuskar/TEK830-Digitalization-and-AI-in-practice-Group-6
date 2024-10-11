@@ -63,31 +63,12 @@ public class AppTutorialController implements Initializable {
 
     private void setInfoImage(Image image) {
         // Reset the ImageView to its original dimensions before setting the new image
-        setImageViewSize(tutorialImage, startWidth, startHeight);
-        scaleImageViewAccordingToImage(tutorialImage, image, startWidth, startHeight);
+        ImageUtils.setImageViewSize(tutorialImage, startWidth, startHeight);
+        ImageUtils.scaleImageViewAccordingToImage(tutorialImage, image, startWidth, startHeight);
 
         // Set the image and apply rounded corners
         tutorialImage.setImage(image);
         ImageUtils.makeCornersRounded(tutorialImage, 20);
-    }
-
-    private static void setImageViewSize(ImageView imageView, double width, double height) {
-        imageView.setFitWidth(width);
-        imageView.setFitHeight(height);
-    }
-
-    private static void scaleImageViewAccordingToImage(ImageView imageView, Image image, double startWidth, double startHeight) {
-        double imageAspectRatio = image.getWidth() / image.getHeight();
-        double viewAspectRatio = startWidth / startHeight;
-
-        // Adjust the ImageView dimensions based on the image's aspect ratio
-        if (imageAspectRatio > viewAspectRatio) {
-            // If the image is wider relative to the ImageView, scale by width
-            setImageViewSize(imageView, startWidth, startWidth / imageAspectRatio);
-        } else {
-            // If the image is taller relative to the ImageView, scale by height
-            setImageViewSize(imageView, startHeight * imageAspectRatio, startHeight);
-        }
     }
 
     private void setCounterLabelText(int currentPageNumber) {
