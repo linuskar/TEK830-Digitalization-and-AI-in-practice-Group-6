@@ -32,9 +32,11 @@
 #menuButton1{
 -fx-background-color: transparent;
 }
-/*2A3338*/
-#electricityButton, #tipsButton {
+
+
+#electricityButton, #productTutorialButton , #tipsButton {
     -fx-background-color: #2A3338;
+
     -fx-background-radius: 20px;
     -fx-padding: 10px 20px;
     -fx-border-width: 1px;
