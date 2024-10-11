@@ -16,6 +16,11 @@
             <Image url="@../images/ikea_home.png" />
          </image>
       </ImageView>
+      <Text fx:id="appNameText" layoutX="80.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="App Name" style="-fx-font-weight: bold; -fx-fill: #333;">
+         <font>
+            <Font name="Arial" size="16.0" />
+         </font>
+      </Text>
       <Text fx:id="notificationText" layoutX="80.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notification text" wrappingWidth="250" style="-fx-fill: #333;">
          <font>
             <Font name="Arial" size="16.0" />
