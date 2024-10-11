@@ -23,6 +23,9 @@ public class TutorialPageItemHandler {
         File[] imageFiles = getFiles(IMAGE_FILE_PATH, "info\\d+\\.png");
         if (textFiles == null || imageFiles == null) {
             return;
+        } else if (textFiles.length != imageFiles.length) {
+            logger.log(Level.SEVERE, () -> "Number of text files and image files do not match." + "\nText files: " + textFiles.length + "\nImage files: " + imageFiles.length);
+            return;
         }
 
         for (int i = 0; i < textFiles.length; i++) {
