@@ -19,10 +19,6 @@ public enum ImagePath {
         this.path = path;
     }
 
-    public String getPath() {
-        return path;
-    }
-
     public Image getImage() {
         return new Image(ImageUtils.getFileResourceString(path));
     }
