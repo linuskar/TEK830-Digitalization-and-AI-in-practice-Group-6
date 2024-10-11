@@ -102,13 +102,13 @@ public class PageStarter {
         return loader.load();
     }
 
-    private static AnchorPane getEnergyPane() throws IOException{
+    private static AnchorPane getEnergyPane() throws IOException {
         FXMLLoader energyLoader = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/EnergyPage.fxml"));
         return energyLoader.load();
+    }
 
     private static AnchorPane getSettingsPopUpPage() throws IOException {
         FXMLLoader settingsPopUp = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/settings_popup.fxml"));
         return settingsPopUp.load();
     }
-
 }

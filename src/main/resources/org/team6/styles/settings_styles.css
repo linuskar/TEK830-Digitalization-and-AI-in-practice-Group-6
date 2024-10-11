@@ -34,6 +34,7 @@
 .title-text {
     -fx-font-size: 22px;
     -fx-font-weight: bold;
+    -fx-text-fill: #fff;
 }
 
 Button:hover {
@@ -52,3 +53,6 @@ Spinner:hover {
     -fx-cursor: hand;
 }
 
+.normal-text {
+    -fx-text-fill: #fff;
+}

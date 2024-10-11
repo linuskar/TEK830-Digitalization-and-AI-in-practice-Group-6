@@ -83,6 +83,8 @@ public class HomePageController {
     private void handleEnergyButtonAction(){
         PageStarter.switchToEnergyPage();
     }
+
+    @FXML
     private void handleProductTutorialButtonAction(){
         UrlOpener.openUrl("https://www.ikea.com/us/en/product-guides/ikea-home-smart-system/");
     }

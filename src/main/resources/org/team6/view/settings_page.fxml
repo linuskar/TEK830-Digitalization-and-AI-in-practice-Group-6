@@ -9,69 +9,69 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="660.0" prefWidth="380.0" stylesheets="@../styles/settings_styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.SettingsPageController">
+<AnchorPane fx:id="settingsPagePane" prefHeight="660.0" prefWidth="380.0" stylesheets="@../styles/settings_styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.SettingsPageController">
    <children>
-      <VBox layoutX="60.0" layoutY="65.0" styleClass="vbox" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="96.0">
+      <VBox layoutX="60.0" layoutY="65.0" styleClass="vbox" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="64.0">
          <children>
             <HBox alignment="CENTER" prefWidth="200.0" styleClass="hbox">
                <children>
-                  <Label prefWidth="168.0" text="Send notifications" wrapText="true" />
+                  <Label prefWidth="168.0" styleClass="normal-text" text="Send notifications" wrapText="true" />
                   <ToggleButton fx:id="sendNotificationsToggleButton" mnemonicParsing="false" onAction="#handleSendNotificationsOnAction" prefWidth="64.0" styleClass="mobile-toggle" />
                </children>
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefWidth="200.0" styleClass="hbox">
                <children>
-                  <Label prefWidth="168.0" text="Send low electric price notifications" wrapText="true" />
+                  <Label prefWidth="168.0" styleClass="normal-text" text="Send low electric price notifications" wrapText="true" />
                   <ToggleButton fx:id="sendLowElectricPriceToggleButton" mnemonicParsing="false" onAction="#handleSpecificNotificationOnAction" prefWidth="64.0" styleClass="mobile-toggle" />
                </children>
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="50.0" prefWidth="200.0" styleClass="hbox">
                <children>
-                  <Label prefWidth="168.0" text="Send high electric price notifications" wrapText="true" />
+                  <Label prefWidth="168.0" styleClass="normal-text" text="Send high electric price notifications" wrapText="true" />
                   <ToggleButton fx:id="sendHighElectricPriceToggleButton" mnemonicParsing="false" onAction="#handleSpecificNotificationOnAction" prefWidth="64.0" styleClass="mobile-toggle" />
                </children>
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="154.0" prefWidth="200.0" styleClass="hbox">
                <children>
-                  <Label prefWidth="168.0" text="Send sunny weather notifications" wrapText="true" />
+                  <Label prefWidth="168.0" styleClass="normal-text" text="Send sunny weather notifications" wrapText="true" />
                   <ToggleButton fx:id="sendSunnyWeatherToggleButton" mnemonicParsing="false" onAction="#handleSpecificNotificationOnAction" prefWidth="64.0" styleClass="mobile-toggle" />
                </children>
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="204.0" prefWidth="200.0" styleClass="hbox">
                <children>
-                  <Label prefWidth="168.0" text="Send cold weather notifications" wrapText="true" />
+                  <Label prefWidth="168.0" styleClass="normal-text" text="Send cold weather notifications" wrapText="true" />
                   <ToggleButton fx:id="sendColdWeatherToggleButton" mnemonicParsing="false" onAction="#handleSpecificNotificationOnAction" prefWidth="64.0" styleClass="mobile-toggle" />
                </children>
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="200.0" prefWidth="200.0" styleClass="hbox">
                <children>
-                  <Label prefWidth="168.0" text="Send daily report notifications" wrapText="true" />
+                  <Label prefWidth="168.0" styleClass="normal-text" text="Send daily report notifications" wrapText="true" />
                   <ToggleButton fx:id="sendDailyReportToggleButton" mnemonicParsing="false" onAction="#handleSpecificNotificationOnAction" prefWidth="64.0" styleClass="mobile-toggle" />
                </children>
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="50.0" prefWidth="200.0" styleClass="hbox">
                <children>
-                  <Label prefHeight="17.0" prefWidth="68.0" text="Volume" wrapText="true" />
+                  <Label prefHeight="17.0" prefWidth="68.0" styleClass="normal-text" text="Volume" wrapText="true" />
                   <Slider fx:id="volumeSlider" minorTickCount="1" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
                </children>
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="280.0" prefWidth="200.0" styleClass="hbox">
                <children>
-                  <Label prefWidth="160.0" text="Daily report time" wrapText="true" />
+                  <Label prefWidth="160.0" styleClass="normal-text" text="Daily report time" wrapText="true" />
                   <Spinner fx:id="dailyReportTimeSpinner" editable="true" prefWidth="56.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="334.0" prefWidth="200.0" styleClass="hbox">
                <children>
-                  <Label prefWidth="138.0" text="Electricity Price Limit" wrapText="true" />
+                  <Label prefWidth="138.0" styleClass="normal-text" text="Electricity Price Limit" wrapText="true" />
                   <Spinner fx:id="electricityPriceLimitSpinner" editable="true" prefWidth="78.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="375.0" prefWidth="200.0" styleClass="hbox">
                <children>
-                  <Label text="Send Notifications from" wrapText="true" />
+                  <Label styleClass="normal-text" text="Send Notifications from" wrapText="true" />
                   <Spinner fx:id="startNotificationTimeSpinner" editable="true" prefWidth="56.0" />
-                  <Label layoutX="45.0" layoutY="14.0" text="To" wrapText="true" />
+                  <Label layoutX="45.0" layoutY="14.0" styleClass="normal-text" text="To" wrapText="true" />
                   <Spinner fx:id="endNotificationTimeSpinner" editable="true" layoutX="172.0" layoutY="10.0" prefWidth="56.0" />
                </children>
             </HBox>
