@@ -31,6 +31,24 @@
     -fx-alignment: center-right;
 }
 
+.background-color {
+    -fx-background-color: #1e1e1e;
+}
+
+.scroll{
+        /* Hide the horizontal scrollbar */
+        .scroll-bar:horizontal {
+            -fx-opacity: 0;
+            -fx-pref-width: 0px; /* Set a preferred width for the vertical scrollbar */
+    
+        }
+    
+        /* Hide the vertical scrollbar */
+        .scroll-bar:vertical {
+            -fx-opacity: 0;
+        }
+}
+
 .title-text {
     -fx-font-size: 22px;
     -fx-font-weight: bold;

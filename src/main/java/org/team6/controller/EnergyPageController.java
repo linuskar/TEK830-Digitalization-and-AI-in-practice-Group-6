@@ -29,4 +29,9 @@ public class EnergyPageController {
     private void handleHomeButton(){
         PageStarter.switchToHomePage();
     }
+
+    @FXML
+    private void handleEnergyOverviewButtonAction() {
+        PageStarter.switchToEnergyInsightsPage();
+    } 
 }

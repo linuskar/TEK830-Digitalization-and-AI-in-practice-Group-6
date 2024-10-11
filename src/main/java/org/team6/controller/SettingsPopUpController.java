@@ -1,5 +1,7 @@
 package org.team6.controller;
 
+import org.team6.model.RecommendationsBackend;
+
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
 
@@ -14,13 +16,14 @@ public class SettingsPopUpController {
 
     @FXML
     private void handelAllowProductRecommendation() {
+        RecommendationsBackend.setPersonalRecommendationsOn(true);
         // NotificationBackend.allowProductRecommendation(true);
         hidePopUp();
     }
 
     @FXML
     private void handelRejectProductRecommendation() {
-        // NotificationBackend.allowProductRecommendation(false);
+        RecommendationsBackend.setPersonalRecommendationsOn(false);
         hidePopUp();
     }
 }

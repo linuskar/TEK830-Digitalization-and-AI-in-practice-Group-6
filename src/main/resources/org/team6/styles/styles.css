@@ -21,6 +21,10 @@
 -fx-background-color: transparent;
 }
 
+#energyButton{
+-fx-background-color: transparent;
+}
+
 #accountButton{
 -fx-background-color: transparent;
 }
