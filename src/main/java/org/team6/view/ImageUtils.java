@@ -5,7 +5,7 @@ import javafx.scene.shape.Rectangle;
 
 public class ImageUtils {
     private ImageUtils() {}
-    
+
     public static void makeCornersRounded(ImageView imageView, double arcSize) {
         makeCornersRounded(imageView, arcSize, arcSize);
     }
