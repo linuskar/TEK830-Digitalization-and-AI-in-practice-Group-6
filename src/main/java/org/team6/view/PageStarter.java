@@ -16,6 +16,7 @@ import java.util.List;
 public class PageStarter {
     private static AnchorPane homePane;
     private static AnchorPane settingsPane;
+    private static AnchorPane settingsPopUpPane;
     private static final List<AnchorPane> pages = new ArrayList<>();
 
     private static Scene scene;
@@ -44,7 +45,9 @@ public class PageStarter {
             settingsPane = getSettingsPage();
             pages.add(settingsPane);
 
-            mainPage.getChildren().addAll(homePane, settingsPane, notificationPane);
+            settingsPopUpPane = getSettingsPopUpPage();
+
+            mainPage.getChildren().addAll(homePane, settingsPane, notificationPane, settingsPopUpPane);
 
             notificationController.setupKeyHandling(scene);
         } catch (IOException e) {
@@ -87,4 +90,10 @@ public class PageStarter {
         FXMLLoader loader = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/settings_page.fxml"));
         return loader.load();
     }
+
+    private static AnchorPane getSettingsPopUpPage() throws IOException {
+        FXMLLoader settingsPopUp = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/settings_popup.fxml"));
+        return settingsPopUp.load();
+    }
+
 }
