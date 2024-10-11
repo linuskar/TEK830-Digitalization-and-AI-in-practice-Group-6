@@ -82,6 +82,8 @@ public class RecommendationsPageController implements Observer {
         if (RecommendationsBackend.isPersonalRecommendationsOn()) {
             System.out.println("Personal recommendations are on");
         } else {
+            //handleRecommendationPrivacyTypeToggle(generalToggleButton);
+            //handleContentToggle();
             System.out.println("Personal recommendations are off");
         }
     }

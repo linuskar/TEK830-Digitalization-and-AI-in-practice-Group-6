@@ -1,0 +1,37 @@
+#recommendationsScrollPane {
+    /* Hide the horizontal scrollbar */
+    .scroll-bar:horizontal {
+        -fx-opacity: 0;
+        -fx-pref-width: 0px; /* Set a preferred width for the vertical scrollbar */
+
+    }
+
+    /* Hide the vertical scrollbar */
+    .scroll-bar:vertical {
+        -fx-opacity: 0;
+    }
+}
+
+#recommendationsAnchorPane{
+
+}
+
+#recommendationsFlowPane{
+
+}
+
+#productRecommendationsFlowPane{
+
+}
+
+#tipsRecommendationsFlowPane{
+
+}
+
+#productRecommendationsVBox{
+
+}
+
+#tipsRecommendationsVBox{
+
+}

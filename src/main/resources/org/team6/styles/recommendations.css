@@ -1,14 +1,32 @@
 Button {
     -fx-background-color: #f0f0f0;
     -fx-text-fill: #000;
-}
-
-Button:selected {
-    -fx-background-color: #0078d7;
-    -fx-text-fill: #fff;
+    -fx-border-style: solid;
+    -fx-border-color: #000;
 }
 
 Button:hover {
-    -fx-background-color: #0078d7;
+    -fx-background-color: #8e8f8f;
+    -fx-text-fill: #000000;
+}
+
+ToggleButton {
+    -fx-background-color: #f0f0f0;
+    -fx-text-fill: #000;
+    -fx-border-style: solid;
+    -fx-border-color: #000;
+}
+
+ToggleButton:selected {
+    -fx-background-color: #018107;
     -fx-text-fill: #fff;
+}
+
+ToggleButton:hover {
+    -fx-background-color: #02a810;
+    -fx-text-fill: #fff;
+}
+
+Button:hover, ToggleButton:hover {
+    -fx-cursor: hand;
 }

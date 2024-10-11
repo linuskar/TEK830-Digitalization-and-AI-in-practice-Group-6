@@ -1,0 +1,25 @@
+#cardBackground{
+    -fx-border-style: solid;
+    -fx-border-color: black;
+    -fx-border-radius: 10px; /* Adjust the radius as needed */
+    -fx-background-radius: 10px; /* Ensure the background is also rounded */
+
+}
+
+#cardImage{
+
+}
+
+#cardImageContainer{
+
+}
+
+#cardText{
+
+}
+
+#cardTextContainer{
+    -fx-background-color: rgb(219, 218, 218);
+    -fx-background-radius: 0 0 10px 10px; /* Only bottom corners rounded */
+    -fx-background-insets: 0; /* Ensure the background is clipped to the border radius */
+}
