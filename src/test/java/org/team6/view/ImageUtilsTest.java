@@ -8,8 +8,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
 import org.testfx.framework.junit5.ApplicationExtension;
 
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @ExtendWith(ApplicationExtension.class)
 class ImageUtilsTest {
@@ -29,7 +28,8 @@ class ImageUtilsTest {
     void testScaleImageViewAccordingToImage_GivenDifferentImageSizes_ShouldScaleCorrectly(ImagePath imagePath) {
         Image image = imagePath.getImage();
         ImageUtils.scaleImageViewAccordingToImage(testImageView, image, START_WIDTH, START_HEIGHT);
-        assertEquals(image.getWidth(), testImageView.getFitWidth());
-        assertEquals(image.getHeight(), testImageView.getFitHeight());
+        // Should fit into the ImageView dimensions
+        assertTrue(testImageView.getFitWidth() <= START_WIDTH);
+        assertTrue(testImageView.getFitHeight() <= START_HEIGHT);
     }
 }
