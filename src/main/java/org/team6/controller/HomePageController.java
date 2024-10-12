@@ -41,6 +41,9 @@ public class HomePageController {
     private Button energyButton;
 
     @FXML
+    private Button homeButton;
+
+    @FXML
     private Button searchButton;
 
     @FXML

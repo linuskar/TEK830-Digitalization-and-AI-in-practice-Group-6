@@ -238,6 +238,16 @@ public class RecommendationsPageController implements Observer {
     }
 
     @FXML
+    private void handleSettingsButtonAction() {
+        PageStarter.switchToSettingsPage();
+    }
+
+    @FXML
+    private void handleEnergyButtonAction(){
+        PageStarter.switchToEnergyPage();
+    }
+
+    @FXML
     private void handleEnergyInsightsButtonAction() {
         PageStarter.switchToEnergyInsightsPage();
     }

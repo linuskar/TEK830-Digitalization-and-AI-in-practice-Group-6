@@ -1,3 +1,16 @@
+#recommendationPage{
+    -fx-pref-width: 375 ;
+    -fx-pref-height:  667;
+    -fx-border-radius: 15px;
+    -fx-border-width: 5px;
+    -fx-border-color: #21130d;
+    -fx-background-color: #1e1e1e;
+}
+
+.background-color {
+    -fx-background-color: #1e1e1e;
+}
+
 Button {
     -fx-background-color: #f0f0f0;
     -fx-text-fill: #000;
@@ -29,4 +42,9 @@ ToggleButton:hover {
 
 Button:hover, ToggleButton:hover {
     -fx-cursor: hand;
+}
+
+.menuButtons{
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
 }
