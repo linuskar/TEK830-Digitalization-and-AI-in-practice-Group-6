@@ -132,11 +132,11 @@ public class RecommendationsPageController implements Observer {
 
             // Create and add recommendation cards
             for (int i = 0; i < products; i++) {
-                createRecommendationCard(generalProductRecommendationsVBox);
+                createProductRecommendationCard(generalProductRecommendationsVBox);
             }
 
             for (int i = 0; i < tips; i++) {
-                createRecommendationCard(generalTipsRecommendationsVBox);
+                createTipRecommendationCard(generalTipsRecommendationsVBox);
             }
 
             recommendationsContentPane.getChildren().add(generalRecommendationsFlowPane);
@@ -160,11 +160,11 @@ public class RecommendationsPageController implements Observer {
 
             // Create and add recommendation cards
             for (int i = 0; i < products; i++) {
-                createRecommendationCard(personalProductRecommendationsVBox);
+                createProductRecommendationCard(personalProductRecommendationsVBox);
             }
 
             for (int i = 0; i < tips; i++) {
-                createRecommendationCard(personalTipsRecommendationsVBox);
+                createTipRecommendationCard(personalTipsRecommendationsVBox);
             }
 
             recommendationsContentPane.getChildren().add(personalRecommendationsFlowPane);
@@ -252,10 +252,37 @@ public class RecommendationsPageController implements Observer {
         PageStarter.switchToEnergyInsightsPage();
     }
 
-     private void createRecommendationCard(VBox recommendationVBox) {
+    private void createProductRecommendationCard(VBox recommendationVBox) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/team6/view/RecommendationCard.fxml"));
             AnchorPane card = loader.load();
+
+        RecommendationCardController controller = loader.getController();
+        
+        // TODO: Set card title, text, and image from backend
+        //controller.setCardTitle("Card Title");
+        //controller.setCardText("Card Text");
+        //controller.setCardImage(null);
+
+            recommendationVBox.getChildren().add(card);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void createTipRecommendationCard(VBox recommendationVBox) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/team6/view/RecommendationCard.fxml"));
+            AnchorPane card = loader.load();
+
+        RecommendationCardController controller = loader.getController();
+
+        controller.disableReadMoreButton();
+        
+        // TODO: Set card title, text, and image from backend
+        //controller.setCardTitle("Card Title");
+        //controller.setCardText("Card Text");
+        //controller.setCardImage(null);
 
             recommendationVBox.getChildren().add(card);
         } catch (IOException e) {

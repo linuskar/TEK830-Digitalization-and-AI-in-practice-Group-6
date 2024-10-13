@@ -3,7 +3,7 @@
     -fx-border-color: black;
     -fx-border-radius: 10px; /* Adjust the radius as needed */
     -fx-background-radius: 10px; /* Ensure the background is also rounded */
-
+    -fx-background-color: white;
 }
 
 #cardImage{
@@ -14,6 +14,11 @@
 
 }
 
+#cardTitle{
+    -fx-font-weight: bold;
+    -fx-font-size: 16px; /* Set a fixed font size */
+}
+
 #cardText{
 
 }
@@ -22,4 +27,17 @@
     -fx-background-color: rgb(219, 218, 218);
     -fx-background-radius: 0 0 10px 10px; /* Only bottom corners rounded */
     -fx-background-insets: 0; /* Ensure the background is clipped to the border radius */
+}
+
+Button {
+    -fx-background-color: #f0f0f0;
+    -fx-text-fill: #000;
+    -fx-border-style: solid;
+    -fx-border-color: #000;
+}
+
+Button:hover {
+    -fx-background-color: #8e8f8f;
+    -fx-text-fill: #000000;
+    -fx-cursor: hand;
 }
