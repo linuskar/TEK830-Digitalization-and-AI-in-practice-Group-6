@@ -63,6 +63,8 @@ public class RecommendationsPageController implements Observer {
     @FXML
     private FlowPane personalTipsRecommendationsFlowPane;
 
+    // TODO: if we do not have time for tip recommendations than just disable the tab.
+
     @FXML
     private void initialize() {
         RecommendationsBackend.addObserver(this);
@@ -259,6 +261,10 @@ public class RecommendationsPageController implements Observer {
 
         RecommendationCardController controller = loader.getController();
         
+        // TODO:
+        // maybe add url to backend for recommedation card
+        // if url does not exist then disable read more button
+        
         // TODO: Set card title, text, and image from backend
         //controller.setCardTitle("Card Title");
         //controller.setCardText("Card Text");
@@ -279,7 +285,7 @@ public class RecommendationsPageController implements Observer {
 
         controller.disableReadMoreButton();
         
-        // TODO: Set card title, text, and image from backend
+        // TODO: Set card title, text, and image from backend, 
         //controller.setCardTitle("Card Title");
         //controller.setCardText("Card Text");
         //controller.setCardImage(null);
