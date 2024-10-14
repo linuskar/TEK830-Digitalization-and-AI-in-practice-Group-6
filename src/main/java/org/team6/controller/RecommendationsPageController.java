@@ -82,11 +82,11 @@ public class RecommendationsPageController implements Observer {
         personalToggleButton.setDisable(!RecommendationsBackend.isPersonalRecommendationsOn());
 
         if (RecommendationsBackend.isPersonalRecommendationsOn()) {
-            System.out.println("Personal recommendations are on");
+            //System.out.println("Personal recommendations are on");
         } else {
             //handleRecommendationPrivacyTypeToggle(generalToggleButton);
             //handleContentToggle();
-            System.out.println("Personal recommendations are off");
+            //System.out.println("Personal recommendations are off");
         }
     }
 
