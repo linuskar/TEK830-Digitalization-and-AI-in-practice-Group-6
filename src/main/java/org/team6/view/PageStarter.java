@@ -58,12 +58,14 @@ public class PageStarter {
             settingsPane = getSettingsPage();
             pages.add(settingsPane);
 
+            AnchorPane appTutorialPage = getAppTutorialPage();
+
             energyPane = getEnergyPane();
             pages.add(energyPane);
 
-            settingsPopUpPane = getSettingsPopUpPage();
+            AnchorPane settingsPopUpPane = getSettingsPopUpPage();
 
-            mainPage.getChildren().addAll(homePane, settingsPane, energyInsightsPane, recommendationsPane, notificationPane, settingsPopUpPane, energyPane);
+            mainPage.getChildren().addAll(homePane, settingsPane, energyInsightsPane, recommendationsPane, notificationPane, settingsPopUpPane, energyPane, appTutorialPage);
 
             notificationController.setupKeyHandling(scene);
         } catch (IOException e) {
@@ -138,6 +140,11 @@ public class PageStarter {
         return loader.load();
     }
 
+    private static AnchorPane getAppTutorialPage() throws IOException {
+        FXMLLoader loader = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/AppTutorialPage.fxml"));
+        return loader.load();
+    }
+    
     private static AnchorPane getEnergyPane() throws IOException {
         FXMLLoader energyLoader = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/EnergyPage.fxml"));
         return energyLoader.load();

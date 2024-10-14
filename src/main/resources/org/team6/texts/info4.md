@@ -1,0 +1,1 @@
+That is it for this tour. If you want to see it again you can find it in this page. You can now close this window to experience a smarter home.

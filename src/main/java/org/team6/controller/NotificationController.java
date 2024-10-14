@@ -13,6 +13,7 @@ import javafx.util.Duration;
 import org.team6.model.Notification;
 import org.team6.model.NotificationBackend;
 import org.team6.model.NotificationListener;
+import org.team6.view.ImageUtils;
 
 public class NotificationController implements NotificationListener {
 
@@ -29,10 +30,7 @@ public class NotificationController implements NotificationListener {
     public void initialize() {
         notificationPane.setVisible(false);
         notificationPane.setDisable(true);
-        Rectangle clip = new Rectangle(imageView.getFitWidth(), imageView.getFitHeight());
-        clip.setArcWidth(20);
-        clip.setArcHeight(20);
-        imageView.setClip(clip);
+        ImageUtils.makeCornersRounded(imageView, 20);
         appNameText.setText("IKEA Home App");
     }
 
