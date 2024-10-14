@@ -1,5 +1,6 @@
 package org.team6.view;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -15,7 +16,13 @@ import java.util.List;
 
 public class PageStarter {
     private static AnchorPane homePane;
+    @FXML
+    private static AnchorPane energyInsightsPane;
+    @FXML
     private static AnchorPane settingsPane;
+    @FXML
+    private static AnchorPane recommendationsPane;
+    private static AnchorPane settingsPopUpPane;
     private static final List<AnchorPane> pages = new ArrayList<>();
 
     private static AnchorPane energyPane;
@@ -42,6 +49,12 @@ public class PageStarter {
             NotificationController notificationController = notificationLoader.getController();
             NotificationBackend.addNotificationListener(notificationController);
 
+            energyInsightsPane = getEnergyInsightsPage();
+            pages.add(energyInsightsPane);
+
+            recommendationsPane = getRecommendationsPage();
+            pages.add(recommendationsPane);
+
             settingsPane = getSettingsPage();
             pages.add(settingsPane);
 
@@ -52,7 +65,7 @@ public class PageStarter {
 
             AnchorPane settingsPopUpPane = getSettingsPopUpPage();
 
-            mainPage.getChildren().addAll(homePane, settingsPane, notificationPane, appTutorialPage, settingsPopUpPane, energyPane);
+            mainPage.getChildren().addAll(homePane, settingsPane, energyInsightsPane, recommendationsPane, notificationPane,appTutorialPage, settingsPopUpPane, energyPane);
 
             notificationController.setupKeyHandling(scene);
         } catch (IOException e) {
@@ -68,16 +81,31 @@ public class PageStarter {
         thePage.setVisible(true);
     }
 
+    public static void switchToRecommendationsPage() {
+        setPageVisible(recommendationsPane);
+
+        primaryStage.setTitle("Recommendations");
+        primaryStage.setScene(scene);
+    }
+
+    public static void switchToEnergyInsightsPage() {
+        setPageVisible(energyInsightsPane);
+
+        primaryStage.setTitle("Energy Insights");
+        primaryStage.setScene(scene);
+    }
+
     public static void switchToHomePage() {
         setPageVisible(homePane);
 
-        primaryStage.setTitle("Home Page");
+        primaryStage.setTitle("Home");
         primaryStage.setScene(scene);
     }
 
     public static void switchToSettingsPage() {
         setPageVisible(settingsPane);
-        primaryStage.setTitle("Settings Page");
+
+        primaryStage.setTitle("Settings");
         primaryStage.setScene(scene);
     }
 
@@ -95,6 +123,16 @@ public class PageStarter {
     private static AnchorPane getHomePage() throws IOException {
         FXMLLoader homePageLoader = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/HomePage.fxml"));
         return homePageLoader.load();
+    }
+
+    private static AnchorPane getEnergyInsightsPage() throws IOException {
+        FXMLLoader loader = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/EnergyInsightsPage.fxml"));
+        return loader.load();
+    }
+
+    private static AnchorPane getRecommendationsPage() throws IOException {
+        FXMLLoader loader = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/RecommendationsPage.fxml"));
+        return loader.load();
     }
 
     private static AnchorPane getSettingsPage() throws IOException {

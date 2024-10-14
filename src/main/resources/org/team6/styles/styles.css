@@ -1,8 +1,6 @@
-
-
 #mainPage{
--fx-pref-width: 375 ;
--fx-pref-height:  667;
+-fx-pref-width: 375px ;
+-fx-pref-height:  667px;
 -fx-border-radius: 15px;
 -fx-border-width: 5px;
 -fx-border-color: #21130d;
@@ -17,7 +15,12 @@
 #barPane{
 -fx-background-color: #1e1e1e;
 }
+
 #searchButton{
+-fx-background-color: transparent;
+}
+
+#energyButton, #homeButton{
 -fx-background-color: transparent;
 }
 

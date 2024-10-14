@@ -1,0 +1,50 @@
+#recommendationPage{
+    -fx-pref-width: 375 ;
+    -fx-pref-height:  667;
+    -fx-border-radius: 15px;
+    -fx-border-width: 5px;
+    -fx-border-color: #21130d;
+    -fx-background-color: #1e1e1e;
+}
+
+.background-color {
+    -fx-background-color: #1e1e1e;
+}
+
+Button {
+    -fx-background-color: #f0f0f0;
+    -fx-text-fill: #000;
+    -fx-border-style: solid;
+    -fx-border-color: #000;
+}
+
+Button:hover {
+    -fx-background-color: #8e8f8f;
+    -fx-text-fill: #000000;
+}
+
+ToggleButton {
+    -fx-background-color: #f0f0f0;
+    -fx-text-fill: #000;
+    -fx-border-style: solid;
+    -fx-border-color: #000;
+}
+
+ToggleButton:selected {
+    -fx-background-color: #018107;
+    -fx-text-fill: #fff;
+}
+
+ToggleButton:hover {
+    -fx-background-color: #02a810;
+    -fx-text-fill: #fff;
+}
+
+Button:hover, ToggleButton:hover {
+    -fx-cursor: hand;
+}
+
+.menuButtons{
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+}

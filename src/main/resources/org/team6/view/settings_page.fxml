@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.ToggleButton?>
@@ -9,75 +11,120 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="settingsPagePane" prefHeight="660.0" prefWidth="380.0" stylesheets="@../styles/settings_styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.SettingsPageController">
+<AnchorPane fx:id="settingsPagePane" prefHeight="660.0" prefWidth="375.0" stylesheets="@../styles/settings_styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.SettingsPageController">
    <children>
-      <VBox layoutX="60.0" layoutY="65.0" styleClass="vbox" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="64.0">
+      <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <HBox alignment="CENTER" prefWidth="200.0" styleClass="hbox">
+            <HBox alignment="CENTER">
                <children>
-                  <Label prefWidth="168.0" styleClass="normal-text" text="Send notifications" wrapText="true" />
-                  <ToggleButton fx:id="sendNotificationsToggleButton" mnemonicParsing="false" onAction="#handleSendNotificationsOnAction" prefWidth="64.0" styleClass="mobile-toggle" />
+                  <Label alignment="CENTER" styleClass="title-text" text="Settings">
+                     <HBox.margin>
+                        <Insets top="24.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="16.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="TOP_CENTER">
+               <children>
+                  <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="520.0" prefWidth="315.0" styleClass="background-color">
+                     <children>
+                        <ScrollPane hbarPolicy="NEVER" styleClass="background-color" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" styleClass="background-color">
+                                 <children>
+                                    <VBox alignment="TOP_CENTER" styleClass="vbox" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <HBox alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="314.0" styleClass="hbox">
+                                             <children>
+                                                <Label prefWidth="168.0" styleClass="normal-text" text="Send notifications" wrapText="true" />
+                                                <ToggleButton fx:id="sendNotificationsToggleButton" mnemonicParsing="false" onAction="#handleSendNotificationsOnAction" prefWidth="64.0" styleClass="mobile-toggle" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="314.0" styleClass="hbox">
+                                             <children>
+                                                <Label prefWidth="168.0" styleClass="normal-text" text="Send low electric price notifications" wrapText="true" />
+                                                <ToggleButton fx:id="sendLowElectricPriceToggleButton" mnemonicParsing="false" onAction="#handleSpecificNotificationOnAction" prefWidth="64.0" styleClass="mobile-toggle" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" layoutX="10.0" layoutY="50.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="314.0" styleClass="hbox">
+                                             <children>
+                                                <Label prefWidth="168.0" styleClass="normal-text" text="Send high electric price notifications" wrapText="true" />
+                                                <ToggleButton fx:id="sendHighElectricPriceToggleButton" mnemonicParsing="false" onAction="#handleSpecificNotificationOnAction" prefWidth="64.0" styleClass="mobile-toggle" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" layoutX="10.0" layoutY="154.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="314.0" styleClass="hbox">
+                                             <children>
+                                                <Label prefWidth="168.0" styleClass="normal-text" text="Send sunny weather notifications" wrapText="true" />
+                                                <ToggleButton fx:id="sendSunnyWeatherToggleButton" mnemonicParsing="false" onAction="#handleSpecificNotificationOnAction" prefWidth="64.0" styleClass="mobile-toggle" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" layoutX="10.0" layoutY="204.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="314.0" styleClass="hbox">
+                                             <children>
+                                                <Label prefWidth="168.0" styleClass="normal-text" text="Send cold weather notifications" wrapText="true" />
+                                                <ToggleButton fx:id="sendColdWeatherToggleButton" mnemonicParsing="false" onAction="#handleSpecificNotificationOnAction" prefWidth="64.0" styleClass="mobile-toggle" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" layoutX="10.0" layoutY="200.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="314.0" styleClass="hbox">
+                                             <children>
+                                                <Label prefWidth="168.0" styleClass="normal-text" text="Send daily report notifications" wrapText="true" />
+                                                <ToggleButton fx:id="sendDailyReportToggleButton" mnemonicParsing="false" onAction="#handleSpecificNotificationOnAction" prefWidth="64.0" styleClass="mobile-toggle" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" layoutX="10.0" layoutY="50.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="314.0" styleClass="hbox">
+                                             <children>
+                                                <Label prefHeight="17.0" prefWidth="68.0" styleClass="normal-text" text="Volume" wrapText="true" />
+                                                <Slider fx:id="volumeSlider" minorTickCount="1" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" layoutX="10.0" layoutY="280.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="314.0" styleClass="hbox">
+                                             <children>
+                                                <Label prefWidth="160.0" styleClass="normal-text" text="Daily report time" wrapText="true" />
+                                                <Spinner fx:id="dailyReportTimeSpinner" editable="true" prefWidth="56.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" layoutX="10.0" layoutY="334.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="314.0" styleClass="hbox">
+                                             <children>
+                                                <Label prefWidth="138.0" styleClass="normal-text" text="Electricity Price Limit" wrapText="true" />
+                                                <Spinner fx:id="electricityPriceLimitSpinner" editable="true" prefWidth="78.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" layoutX="10.0" layoutY="375.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="314.0" styleClass="hbox">
+                                             <children>
+                                                <Label alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="141.0" styleClass="normal-text" text="Send Notifications from" wrapText="true" />
+                                                <Spinner fx:id="startNotificationTimeSpinner" editable="true" prefWidth="56.0" />
+                                                <Label layoutX="45.0" layoutY="14.0" styleClass="normal-text" text="To" wrapText="true" />
+                                                <Spinner fx:id="endNotificationTimeSpinner" editable="true" layoutX="172.0" layoutY="10.0" prefWidth="56.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="314.0" styleClass="hbox">
+                                             <children>
+                                                <Label prefHeight="34.0" prefWidth="165.0" styleClass="normal-text" text="Toggle Personal Recommendations" wrapText="true" />
+                                                <ToggleButton fx:id="recommendationsToggleButton" mnemonicParsing="false" onAction="#handleRecommendationsToggleButtonAction" prefWidth="64.0" styleClass="mobile-toggle" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
                </children>
             </HBox>
-            <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefWidth="200.0" styleClass="hbox">
+            <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label prefWidth="168.0" styleClass="normal-text" text="Send low electric price notifications" wrapText="true" />
-                  <ToggleButton fx:id="sendLowElectricPriceToggleButton" mnemonicParsing="false" onAction="#handleSpecificNotificationOnAction" prefWidth="64.0" styleClass="mobile-toggle" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" layoutX="10.0" layoutY="50.0" prefWidth="200.0" styleClass="hbox">
-               <children>
-                  <Label prefWidth="168.0" styleClass="normal-text" text="Send high electric price notifications" wrapText="true" />
-                  <ToggleButton fx:id="sendHighElectricPriceToggleButton" mnemonicParsing="false" onAction="#handleSpecificNotificationOnAction" prefWidth="64.0" styleClass="mobile-toggle" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" layoutX="10.0" layoutY="154.0" prefWidth="200.0" styleClass="hbox">
-               <children>
-                  <Label prefWidth="168.0" styleClass="normal-text" text="Send sunny weather notifications" wrapText="true" />
-                  <ToggleButton fx:id="sendSunnyWeatherToggleButton" mnemonicParsing="false" onAction="#handleSpecificNotificationOnAction" prefWidth="64.0" styleClass="mobile-toggle" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" layoutX="10.0" layoutY="204.0" prefWidth="200.0" styleClass="hbox">
-               <children>
-                  <Label prefWidth="168.0" styleClass="normal-text" text="Send cold weather notifications" wrapText="true" />
-                  <ToggleButton fx:id="sendColdWeatherToggleButton" mnemonicParsing="false" onAction="#handleSpecificNotificationOnAction" prefWidth="64.0" styleClass="mobile-toggle" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" layoutX="10.0" layoutY="200.0" prefWidth="200.0" styleClass="hbox">
-               <children>
-                  <Label prefWidth="168.0" styleClass="normal-text" text="Send daily report notifications" wrapText="true" />
-                  <ToggleButton fx:id="sendDailyReportToggleButton" mnemonicParsing="false" onAction="#handleSpecificNotificationOnAction" prefWidth="64.0" styleClass="mobile-toggle" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" layoutX="10.0" layoutY="50.0" prefWidth="200.0" styleClass="hbox">
-               <children>
-                  <Label prefHeight="17.0" prefWidth="68.0" styleClass="normal-text" text="Volume" wrapText="true" />
-                  <Slider fx:id="volumeSlider" minorTickCount="1" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" layoutX="10.0" layoutY="280.0" prefWidth="200.0" styleClass="hbox">
-               <children>
-                  <Label prefWidth="160.0" styleClass="normal-text" text="Daily report time" wrapText="true" />
-                  <Spinner fx:id="dailyReportTimeSpinner" editable="true" prefWidth="56.0" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" layoutX="10.0" layoutY="334.0" prefWidth="200.0" styleClass="hbox">
-               <children>
-                  <Label prefWidth="138.0" styleClass="normal-text" text="Electricity Price Limit" wrapText="true" />
-                  <Spinner fx:id="electricityPriceLimitSpinner" editable="true" prefWidth="78.0" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" layoutX="10.0" layoutY="375.0" prefWidth="200.0" styleClass="hbox">
-               <children>
-                  <Label styleClass="normal-text" text="Send Notifications from" wrapText="true" />
-                  <Spinner fx:id="startNotificationTimeSpinner" editable="true" prefWidth="56.0" />
-                  <Label layoutX="45.0" layoutY="14.0" styleClass="normal-text" text="To" wrapText="true" />
-                  <Spinner fx:id="endNotificationTimeSpinner" editable="true" layoutX="172.0" layoutY="10.0" prefWidth="56.0" />
+                  <Button fx:id="backButton" mnemonicParsing="false" onAction="#handleBackOnAction" text="Back">
+                     <HBox.margin>
+                        <Insets left="34.0" top="24.0" />
+                     </HBox.margin>
+                  </Button>
                </children>
             </HBox>
          </children>
       </VBox>
-      <Label layoutX="123.0" layoutY="27.0" styleClass="title-text" text="Setttings" AnchorPane.leftAnchor="122.0" AnchorPane.rightAnchor="122.0" AnchorPane.topAnchor="24.0" />
-      <Button fx:id="backButton" layoutX="14.0" layoutY="441.0" mnemonicParsing="false" onAction="#handleBackOnAction" text="Back" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="16.0" />
    </children>
 </AnchorPane>

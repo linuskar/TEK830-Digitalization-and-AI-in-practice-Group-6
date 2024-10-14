@@ -8,19 +8,12 @@ import org.team6.model.UrlOpener;
 import org.team6.view.PageStarter;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
-import org.team6.view.PageStarter;
-
-import java.io.IOException;
-import javafx.scene.Cursor;
 
 public class HomePageController {
     @FXML
@@ -45,7 +38,10 @@ public class HomePageController {
     private Button settingsButton;
 
     @FXML
-    private Button accountButton;
+    private Button energyButton;
+
+    @FXML
+    private Button homeButton;
 
     @FXML
     private Button searchButton;
@@ -64,7 +60,7 @@ public class HomePageController {
 
     @FXML
     private Text electricityText;
-
+    
     @FXML
     private Label tipsLabel;
 

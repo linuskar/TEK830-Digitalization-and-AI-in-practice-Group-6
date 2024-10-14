@@ -10,6 +10,7 @@ import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+
 import org.team6.model.Notification;
 import org.team6.model.NotificationBackend;
 import org.team6.view.PageStarter;
@@ -19,7 +20,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
 
-public class SettingsPageController implements Initializable {
+import org.team6.model.Observer;
+import org.team6.model.RecommendationsBackend;
+
+public class SettingsPageController implements Initializable, Observer {
     @FXML
     private ToggleButton sendNotificationsToggleButton;
     @FXML
@@ -45,6 +49,10 @@ public class SettingsPageController implements Initializable {
     private Spinner<Integer> endNotificationTimeSpinner;
 
     @FXML
+    private ToggleButton recommendationsToggleButton;
+
+    @FXML
+    private Button backButton;
     private AnchorPane settingsPagePane;
 
     // Nicer to show the user a scale from 0 to 100 rather than 0 to 1.
@@ -56,6 +64,8 @@ public class SettingsPageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        RecommendationsBackend.addObserver(this);
+
         notificationButtons.put(sendLowElectricPriceToggleButton, Notification.LOW_ELECTRICITY_PRICE);
         notificationButtons.put(sendHighElectricPriceToggleButton, Notification.HIGH_ELECTRICITY_PRICE);
         notificationButtons.put(sendSunnyWeatherToggleButton, Notification.SUNNY_WEATHER);
@@ -65,6 +75,16 @@ public class SettingsPageController implements Initializable {
         initVolumeSlider();
         initToggleButtons();
         initSpinners();
+    }
+
+    @Override
+    public void update() {
+        recommendationsToggleButton.setSelected(RecommendationsBackend.isPersonalRecommendationsOn());
+    }
+
+    @FXML
+    private void handleRecommendationsToggleButtonAction() {
+        RecommendationsBackend.setPersonalRecommendationsOn(!RecommendationsBackend.isPersonalRecommendationsOn());
     }
 
     private void initVolumeSlider() {
@@ -78,6 +98,7 @@ public class SettingsPageController implements Initializable {
 
     private void initToggleButtons() {
         sendNotificationsToggleButton.setSelected(NotificationBackend.areNotificationsOn());
+        recommendationsToggleButton.setSelected(RecommendationsBackend.isPersonalRecommendationsOn());
         initToggleButtonsState();
         toggleNotificationButtonsAvailability();
     }

@@ -8,14 +8,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane fx:id="energyPageAnchor" prefHeight="400.0" prefWidth="374.0" stylesheets="@../styles/energyPageStyles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.EnergyPageController">
+<AnchorPane fx:id="energyPageAnchor" prefHeight="400.0" prefWidth="374.0" stylesheets="@../styles/energyPageStyles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.EnergyPageController">
    <children>
-      <Button fx:id="energyOverviewButton" layoutX="16.0" layoutY="448.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="328.0">
+      <Button fx:id="energyOverviewButton" layoutX="16.0" layoutY="448.0" mnemonicParsing="false" onAction="#handleEnergyOverviewButtonAction" prefHeight="50.0" prefWidth="328.0">
          <graphic>
             <Pane depthTest="ENABLE" prefHeight="36.0" prefWidth="284.0">
                <children>
-                  <Text fx:id="electricityText" fill="WHITE" layoutX="8.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Get an energy overview" wrappingWidth="211.91811561584473">
+                  <Text fx:id="electricityText" fill="WHITE" layoutX="8.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="See Energy Insights" wrappingWidth="211.91811561584473">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -34,9 +33,9 @@
             <Image url="@../images/ikea%20en%201.png" />
          </image>
       </ImageView>
-      <Text fill="WHITE" layoutX="25.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Energy overview" wrappingWidth="171.13671875">
+      <Text fill="WHITE" layoutX="26.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Energy Overview" wrappingWidth="195.13671875">
          <font>
-            <Font size="20.0" />
+            <Font size="24.0" />
          </font>
       </Text>
       <Pane fx:id="readMorePane" layoutX="19.0" layoutY="320.0" prefHeight="109.0" prefWidth="350.0">
@@ -69,7 +68,7 @@
       </Pane>
       <Pane fx:id="barPane" layoutX="9.0" layoutY="585.0" prefHeight="61.0" prefWidth="370.0" stylesheets="@../styles/styles.css">
          <children>
-            <Button fx:id="accountButton" layoutX="164.0" layoutY="14.0" mnemonicParsing="false" stylesheets="@../styles/styles.css">
+            <Button fx:id="energyButton" layoutX="164.0" layoutY="14.0" mnemonicParsing="false" stylesheets="@../styles/styles.css">
                <graphic>
                   <ImageView fx:id="settingsImage" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -87,7 +86,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="searchButton" layoutX="35.0" layoutY="11.0" minWidth="53.0" mnemonicParsing="false" onAction="#handleHomeButton" prefHeight="40.0" prefWidth="53.0">
+            <Button fx:id="homeButton" layoutX="35.0" layoutY="11.0" minWidth="53.0" mnemonicParsing="false" onAction="#handleHomeButton" prefHeight="40.0" prefWidth="53.0">
                <graphic>
                   <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                      <image>
