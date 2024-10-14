@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.VBox?>
 
-<FlowPane fx:id="recommendationsFlowPane" orientation="VERTICAL" prefHeight="414.0" prefWidth="325.0" styleClass="background-color" stylesheets="@../styles/recommendation_content.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.RecommendationsContentController">
+<FlowPane fx:id="recommendationsFlowPane" orientation="VERTICAL" prefHeight="414.0" prefWidth="325.0" styleClass="background-color" stylesheets="@../styles/recommendation_content.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.RecommendationsContentController">
    <children>
       <ScrollPane fx:id="recommendationsScrollPane" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="325.0" prefHeight="414.0" prefWidth="325.0" styleClass="background-color">
          <content>
