@@ -60,7 +60,8 @@ public class HomePageController {
 
     @FXML
     private Text electricityText;
-
+    
+    @FXML
     private Label tipsLabel;
 
     @FXML
