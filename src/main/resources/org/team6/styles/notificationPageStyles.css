@@ -1,0 +1,8 @@
+#notificationPageAnchor{
+-fx-pref-width: 375 ;
+-fx-pref-height:  667;
+-fx-border-radius: 15px;
+-fx-border-width: 5px;
+-fx-border-color: #21130d;
+-fx-background-color: #1e1e1e;
+}

@@ -79,5 +79,6 @@
       </VBox>
       <Label layoutX="123.0" layoutY="27.0" styleClass="title-text" text="Setttings" AnchorPane.leftAnchor="122.0" AnchorPane.rightAnchor="122.0" AnchorPane.topAnchor="24.0" />
       <Button fx:id="backButton" layoutX="14.0" layoutY="441.0" mnemonicParsing="false" onAction="#handleBackOnAction" text="Back" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="16.0" />
+      <Button fx:id="historyButton" layoutX="96.0" layoutY="619.0" mnemonicParsing="false" onAction="#handleHistoryPageAction" text="History" />
    </children>
 </AnchorPane>
