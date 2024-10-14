@@ -1,0 +1,1 @@
+Lastly there is a settings page.

@@ -1,0 +1,1 @@
+In the app you can connect your smart home devices in the start page.
