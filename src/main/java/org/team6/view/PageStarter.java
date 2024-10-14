@@ -65,7 +65,7 @@ public class PageStarter {
 
             AnchorPane settingsPopUpPane = getSettingsPopUpPage();
 
-            mainPage.getChildren().addAll(homePane, settingsPane, energyInsightsPane, recommendationsPane, notificationPane, settingsPopUpPane, energyPane, appTutorialPage);
+            mainPage.getChildren().addAll(homePane, settingsPane, energyInsightsPane, recommendationsPane, notificationPane,appTutorialPage, settingsPopUpPane, energyPane);
 
             notificationController.setupKeyHandling(scene);
         } catch (IOException e) {
