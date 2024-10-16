@@ -1,12 +1,10 @@
 package org.team6.utility;
 
-import javax.print.DocFlavor.STRING;
-
 public enum TextPath {
-    ONEROWTXT("/org/team6/texts/oneRowTestText.txt"),
-    MANYROWTXT("/org/team6/texts/manyRowTestText.txt"),
-    ONEROWMD("/org/team6/texts/oneRowTestText.md"),
-    MANYROWMD("/org/team6/texts/manyRowTestText.md");
+    ONE_ROW_TXT("/org/team6/texts/oneRowTestText.txt"),
+    MANY_ROW_TXT("/org/team6/texts/manyRowTestText.txt"),
+    ONE_ROW_MD("/org/team6/texts/oneRowTestText.md"),
+    MANY_ROW_MD("/org/team6/texts/manyRowTestText.md");
 
     private final String path;
 
