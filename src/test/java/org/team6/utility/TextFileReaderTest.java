@@ -1,6 +1,7 @@
 package org.team6.utility;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -23,7 +24,7 @@ public class TextFileReaderTest {
     @EnumSource(TextPath.class)
     void testTextFileReader_readTxt_isNotEmpty(TextPath textPath) {
         String testText = TextFileReader.readFileAsString(textPath.getPath());
-        assertTrue(testText.length() > 0);
+        assertFalse(testText.isEmpty());
     }
 
     @Test
