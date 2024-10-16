@@ -9,6 +9,7 @@ import org.testfx.framework.junit5.ApplicationExtension;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @ExtendWith(ApplicationExtension.class)
 class TutorialPageItemHandlerTest {
@@ -36,5 +37,9 @@ class TutorialPageItemHandlerTest {
         assertThrows(IndexOutOfBoundsException.class, () -> tutorialPageItemHandler.getTutorialPageItemAt(itemCount));
     }
 
-    
+    @Test
+    void testGetTutorialPageItemCount_ShouldBeGreaterThanZero() {
+        int itemCount = tutorialPageItemHandler.getTutorialPageItemCount();
+        assertTrue(itemCount > 0);
+    }
 }
