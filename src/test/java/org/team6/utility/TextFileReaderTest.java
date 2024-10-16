@@ -12,23 +12,17 @@ import org.junit.jupiter.params.provider.EnumSource;
 
 public class TextFileReaderTest {
     
-
-    @BeforeEach
-    void setUp(){
-
-    }
-
     @ParameterizedTest
     @EnumSource(TextPath.class)
-    void testTextFileReader_readTxt_notnull(){
-        String testText = TextFileReader.readFileAsString("/org/team6/texts/manyRowTestText.txt");
+    void testTextFileReader_readTxt_notnull(TextPath textPath){
+        String testText = TextFileReader.readFileAsString(textPath.getPath());
         assertNotNull(testText);
     }
 
     @ParameterizedTest
     @EnumSource(TextPath.class)
-    void testTextFileReader_readTxt_isNotEmpty(){
-        String testText = TextFileReader.readFileAsString("/org/team6/texts/manyRowTestText.txt");
+    void testTextFileReader_readTxt_isNotEmpty(TextPath textPath){
+        String testText = TextFileReader.readFileAsString(textPath.getPath());
         assertTrue(testText.length() > 0);
     }
 
