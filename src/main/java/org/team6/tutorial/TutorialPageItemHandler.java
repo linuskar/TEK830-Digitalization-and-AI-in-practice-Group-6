@@ -29,7 +29,11 @@ public class TutorialPageItemHandler {
     }
 
     public TutorialPageItem getTutorialPageItemAt(int index) {
-        return tutorialPageItems.get(index);
+        try {
+            return tutorialPageItems.get(index);
+        } catch (IndexOutOfBoundsException e) {
+            throw new IndexOutOfBoundsException("Index out of bounds: " + index);
+        }
     }
 
     public int getTutorialPageItemCount() {
