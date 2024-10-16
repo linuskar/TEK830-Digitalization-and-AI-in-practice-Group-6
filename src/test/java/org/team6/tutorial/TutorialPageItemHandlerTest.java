@@ -3,10 +3,9 @@ package org.team6.tutorial;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.MethodSource;
 import org.testfx.framework.junit5.ApplicationExtension;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -38,8 +37,46 @@ class TutorialPageItemHandlerTest {
     }
 
     @Test
+    void testGetTutorialPageItem_GivenValidIndex_ShouldReturnTutorialPageItemsWithContent() {
+        // Would like this to be parameterized, but it's not possible to pass the tutorialPageItemHandler as a parameter
+        for (int i = 0; i < tutorialPageItemHandler.getTutorialPageItemCount(); i++) {
+            TutorialPageItem tutorialPageItem = tutorialPageItemHandler.getTutorialPageItemAt(i);
+            assertNotNull(tutorialPageItem.infoText());
+            assertNotNull(tutorialPageItem.infoImage());
+        }
+    }
+
+    @Test
+    void testGetTutorialPageItem_GivenValidIndex_ShouldReturnTutorialPageItemWithNonEmptyText() {
+        for (int i = 0; i < tutorialPageItemHandler.getTutorialPageItemCount(); i++) {
+            TutorialPageItem tutorialPageItem = tutorialPageItemHandler.getTutorialPageItemAt(i);
+            assertFalse(tutorialPageItem.infoText().isEmpty());
+        }
+    }
+
+    @Test
+    void testGetTutorialPageItem_GivenValidIndex_ShouldReturnTutorialPageItemWithTextStartingWithCapitalLetter() {
+        for (int i = 0; i < tutorialPageItemHandler.getTutorialPageItemCount(); i++) {
+            TutorialPageItem tutorialPageItem = tutorialPageItemHandler.getTutorialPageItemAt(i);
+            assertTrue(Character.isUpperCase(tutorialPageItem.infoText().charAt(0)));
+        }
+    }
+
+    @Test
+    void testGetTutorialPageItem_GivenValidIndex_ShouldReturnTutorialPageItemWithTextEndingWithPunctionation() {
+        for (int i = 0; i < tutorialPageItemHandler.getTutorialPageItemCount(); i++) {
+            TutorialPageItem tutorialPageItem = tutorialPageItemHandler.getTutorialPageItemAt(i);
+            char lastChar = tutorialPageItem.infoText().charAt(tutorialPageItem.infoText().length() - 1);
+            assertTrue(lastChar == '.' || lastChar == '!' || lastChar == '?');
+        }
+    }
+
+    @Test
     void testGetTutorialPageItemCount_ShouldBeGreaterThanZero() {
         int itemCount = tutorialPageItemHandler.getTutorialPageItemCount();
         assertTrue(itemCount > 0);
     }
+
+
+
 }
