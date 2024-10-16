@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 public class RecommendationsBackend {
     // if personal recommendations are on, user data will be collected and used to generate recommendations
     private static boolean personalRecommendationsOn = true;
-    private static final List<Observer> observers = new ArrayList<Observer>();
+    private static final List<Observer> observers = new ArrayList<>();
 
     private RecommendationsBackend() {
     }
