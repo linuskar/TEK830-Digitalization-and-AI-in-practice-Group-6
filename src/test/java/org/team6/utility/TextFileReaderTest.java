@@ -14,27 +14,27 @@ public class TextFileReaderTest {
     
     @ParameterizedTest
     @EnumSource(TextPath.class)
-    void testTextFileReader_readTxt_notnull(TextPath textPath){
+    void testTextFileReader_readTxt_notnull(TextPath textPath) {
         String testText = TextFileReader.readFileAsString(textPath.getPath());
         assertNotNull(testText);
     }
 
     @ParameterizedTest
     @EnumSource(TextPath.class)
-    void testTextFileReader_readTxt_isNotEmpty(TextPath textPath){
+    void testTextFileReader_readTxt_isNotEmpty(TextPath textPath) {
         String testText = TextFileReader.readFileAsString(textPath.getPath());
         assertTrue(testText.length() > 0);
     }
 
     @Test
-    void testTextFileReader_readTxt_worksOneRow(){
+    void testTextFileReader_readTxt_worksOneRow() {
         String test = "ok";
         String testText = TextFileReader.readFileAsString("/org/team6/texts/oneRowTestText.txt");
         assertEquals(test,testText);
     }
 
     @Test
-    void testTextFileReader_readTxt_worksManyRows(){
+    void testTextFileReader_readTxt_worksManyRows() {
         String test = "hi guy local idiot here \r\n" + //
                         "guy: ok\r\n" + //
                         "local iebaot: hehea i the robbing you\r\n" + //
@@ -55,14 +55,14 @@ public class TextFileReaderTest {
 
 
     @Test
-    void testTextFileReader_readMd_worksOneRow(){
+    void testTextFileReader_readMd_worksOneRow() {
         String test = "ok";
         String testText = TextFileReader.readFileAsString("/org/team6/texts/oneRowTestText.md");
         assertEquals(test,testText);
     }
 
     @Test
-    void testTextFileReader_readMd_worksManyRows(){
+    void testTextFileReader_readMd_worksManyRows() {
         String test = "hi guy local idiot here \r\n" + //
                         "guy: ok\r\n" + //
                         "local iebaot: hehea i the robbing you\r\n" + //
@@ -80,8 +80,6 @@ public class TextFileReaderTest {
         String testText = TextFileReader.readFileAsString("/org/team6/texts/manyRowTestText.md");
         assertEquals(test,testText);
     }
-
-
 
 }   
 
