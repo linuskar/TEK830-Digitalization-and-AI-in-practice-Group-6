@@ -78,5 +78,11 @@ class TextFileReaderTest {
         String testText = TextFileReader.readFileAsString("/org/team6/texts/manyRowTestText.md");
         assertEquals(test,testText);
     }
-    
+
+    @Test
+    void testTextFileReader_NonexistantFile_emptystring() {
+        String testText = TextFileReader.readFileAsString("/org/team6/texts/fakeText.txt");
+        assertEquals("", testText);
+    }
+
 }   
