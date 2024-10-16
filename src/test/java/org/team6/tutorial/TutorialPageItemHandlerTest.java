@@ -63,7 +63,7 @@ class TutorialPageItemHandlerTest {
     }
 
     @Test
-    void testGetTutorialPageItem_GivenValidIndex_ShouldReturnTutorialPageItemWithTextEndingWithPunctionation() {
+    void testGetTutorialPageItem_GivenValidIndex_ShouldReturnTutorialPageItemWithTextEndingWithPunctuation() {
         for (int i = 0; i < tutorialPageItemHandler.getTutorialPageItemCount(); i++) {
             TutorialPageItem tutorialPageItem = tutorialPageItemHandler.getTutorialPageItemAt(i);
             char lastChar = tutorialPageItem.infoText().charAt(tutorialPageItem.infoText().length() - 1);
