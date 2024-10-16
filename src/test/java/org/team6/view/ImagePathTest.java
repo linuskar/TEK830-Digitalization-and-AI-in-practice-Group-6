@@ -6,6 +6,7 @@ import org.junit.jupiter.params.provider.EnumSource;
 import org.testfx.framework.junit5.ApplicationExtension;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 @ExtendWith(ApplicationExtension.class)
 class ImagePathTest {
     @ParameterizedTest
