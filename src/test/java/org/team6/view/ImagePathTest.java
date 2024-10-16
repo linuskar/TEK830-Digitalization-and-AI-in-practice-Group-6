@@ -12,6 +12,6 @@ class ImagePathTest {
     @ParameterizedTest
     @EnumSource(ImagePath.class)
     void testGetImage_ForALLImagePath_ReturnsImage(ImagePath imagePath) {
-        assertNotNull(imagePath.getImage());
+        assertNotNull(imagePath.getImage(), "Image should not be null");
     }
 }
