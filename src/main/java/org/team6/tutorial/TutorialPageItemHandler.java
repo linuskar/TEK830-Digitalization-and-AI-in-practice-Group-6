@@ -32,7 +32,7 @@ public class TutorialPageItemHandler {
         try {
             return tutorialPageItems.get(index);
         } catch (IndexOutOfBoundsException e) {
-            throw new IndexOutOfBoundsException("Index out of bounds: " + index);
+            throw new IndexOutOfBoundsException("Index out of bounds: " + index + ". Item count: " + tutorialPageItems.size());
         }
     }
 
