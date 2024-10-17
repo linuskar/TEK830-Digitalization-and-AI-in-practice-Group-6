@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.testfx.framework.junit5.ApplicationExtension;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -13,6 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @ExtendWith(ApplicationExtension.class)
 class TutorialPageItemHandlerTest {
     private TutorialPageItemHandler tutorialPageItemHandler;
+    private static final List<Character> punctuationMarks = List.of('.', '!', '?');
 
     @BeforeEach
     void setUp() {
@@ -67,7 +70,7 @@ class TutorialPageItemHandlerTest {
         for (int i = 0; i < tutorialPageItemHandler.getTutorialPageItemCount(); i++) {
             TutorialPageItem tutorialPageItem = tutorialPageItemHandler.getTutorialPageItemAt(i);
             char lastChar = tutorialPageItem.infoText().charAt(tutorialPageItem.infoText().length() - 1);
-            assertTrue(lastChar == '.' || lastChar == '!' || lastChar == '?');
+            assertTrue(punctuationMarks.contains(lastChar));
         }
     }
 
@@ -76,7 +79,4 @@ class TutorialPageItemHandlerTest {
         int itemCount = tutorialPageItemHandler.getTutorialPageItemCount();
         assertTrue(itemCount > 0);
     }
-
-
-
 }
