@@ -1,4 +1,4 @@
-package org.team6.model;
+package org.team6.model.Recommendations;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -6,6 +6,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.team6.model.EnergyUsage;
+import org.team6.model.EnergyUsageCategory;
+import org.team6.model.Observer;
 import org.team6.model.Products.Fridge;
 import org.team6.model.Products.Oven;
 import org.team6.model.Products.Product;

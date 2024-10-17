@@ -1,4 +1,4 @@
-package org.team6.model;
+package org.team6.model.Recommendations;
 
 public class RecommendationImagePath {
     public static String getImagePath(String recommendationTitle) {

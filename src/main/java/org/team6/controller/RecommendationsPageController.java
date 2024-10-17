@@ -3,8 +3,8 @@ package org.team6.controller;
 import java.io.IOException;
 
 import org.team6.model.Observer;
-import org.team6.model.Recommendation;
-import org.team6.model.RecommendationsBackend;
+import org.team6.model.Recommendations.Recommendation;
+import org.team6.model.Recommendations.RecommendationsBackend;
 import org.team6.view.PageStarter;
 
 import javafx.fxml.FXML;

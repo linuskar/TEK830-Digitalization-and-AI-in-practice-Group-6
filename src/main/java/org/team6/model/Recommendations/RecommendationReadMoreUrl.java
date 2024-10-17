@@ -1,11 +1,11 @@
-package org.team6.model;
+package org.team6.model.Recommendations;
 
 public class RecommendationReadMoreUrl {
     public static String getReadMoreUrl(String recommendationTitle) {
         String readMoreUrl = "";
         switch (recommendationTitle) {
             case "Tynnerås":
-                readMoreUrl = "https://www.ikea.com/se/sv/p/tynneras-bord-svart-00431702/";
+                readMoreUrl = "https://www.ikea.com/se/en/p/tynneras-fridge-ikea-500-freestanding-stainless-steel-10567950/";
                 break;
             case "Mutebo":
                 readMoreUrl = "https://www.ikea.com/se/en/p/mutebo-forced-air-oven-with-full-steam-ikea-700-stainless-steel-colour-10557041/";
