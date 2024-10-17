@@ -27,7 +27,7 @@ class TextFileReaderTest {
     @Test
     void testTextFileReader_GivenTxtFileWithOneRow_ReturnsCorrectText() {
         String test = "ok";
-        String testText = TextFileReader.readFileAsString("/org/team6/texts/oneRowTestText.txt");
+        String testText = TextFileReader.readFileAsString("/org/team6/texts/one_row_test_text.txt");
         assertEquals(test, testText, "Should return correct text.");
     }
 
@@ -48,7 +48,7 @@ class TextFileReaderTest {
                 guy: ok\r
                 \r
                 the edn : hi guys i ame the end, over""";
-        String testText = TextFileReader.readFileAsString("/org/team6/texts/manyRowTestText.txt");
+        String testText = TextFileReader.readFileAsString("/org/team6/texts/many_row_test_text.txt");
         assertEquals(test, testText, "Should return correct text.");
     }
 
@@ -56,7 +56,7 @@ class TextFileReaderTest {
     @Test
     void testTextFileReader_GivenMdFileWithOneRow_ReturnsCorrectText() {
         String test = "ok";
-        String testText = TextFileReader.readFileAsString("/org/team6/texts/oneRowTestText.md");
+        String testText = TextFileReader.readFileAsString("/org/team6/texts/one_row_test_text.md");
         assertEquals(test, testText, "Should return correct text.");
     }
 
@@ -77,13 +77,13 @@ class TextFileReaderTest {
                 guy: ok\r
                 \r
                 the edn : hi guys i ame the end, over""";
-        String testText = TextFileReader.readFileAsString("/org/team6/texts/manyRowTestText.md");
+        String testText = TextFileReader.readFileAsString("/org/team6/texts/many_row_test_text.md");
         assertEquals(test, testText, "Should return correct text.");
     }
 
     @Test
     void testTextFileReader_GivenNonexistentFile_ShouldReturnEmptyString() {
-        String testText = TextFileReader.readFileAsString("/org/team6/texts/fakeText.txt");
+        String testText = TextFileReader.readFileAsString("/org/team6/texts/fake_text.txt");
         assertEquals("", testText, "Should return empty string when file does not exist.");
     }
 }   
