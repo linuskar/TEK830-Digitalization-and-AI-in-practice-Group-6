@@ -1,8 +1,9 @@
 package org.team6.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Map;
 
 public class RecommendationsBackend {
     // if personal recommendations are on, user data will be collected and used to generate recommendations
@@ -11,21 +12,43 @@ public class RecommendationsBackend {
 
     private static List<Product> dataBaseProducts = new ArrayList<>();
     private static List<EnergyUsage> dataBaseEnergyUsageData = new ArrayList<>();
-    private static List<Recommendation> recommendations = new ArrayList<>();
+
+    private static List<Recommendation> generalProductRecommendations = new ArrayList<>();
+    private static List<Recommendation> personalProductRecommendations  = new ArrayList<>();
+
+    private static HashMap<EnergyUsageCategory, Integer> energySpenders = new HashMap<>();
+
 
     private RecommendationsBackend() {
     }
 
     public static void initialize(){
-        Product testProduct = new Product("Test Product", "Test Category", true, 100, 200);
-        dataBaseProducts.add(testProduct);
+        // TEMP: Products and energy usage data are hardcoded for now
+        // TODO: Put products in database
+        Product fridge = new Product("Tynnerås", EnergyUsageCategory.REFRIGERATION, 200);
 
-        EnergyUsage testEnergyUsage = new EnergyUsage("Test Category", 300, 250, "month");
-        dataBaseEnergyUsageData.add(testEnergyUsage);
 
-        Recommendation testRecommendation = new Recommendation("Tynnerås", "This is a fridge", "https://www.ikea.com/se/en/p/tynneras-fridge-ikea-500-freestanding-stainless-steel-10567950/");
+        dataBaseProducts.add(fridge);
 
-        recommendations.add(testRecommendation);
+        energySpenders.put(EnergyUsageCategory.REFRIGERATION, 300);
+        createGeneralRecommendations();
+        createPersonalRecommendations();
+    }
+
+    private static void createGeneralRecommendations() {
+        // TODO
+        for (EnergyUsageCategory category : EnergyUsageCategory.values()) {
+            recommendGeneralProducts(category);
+        }
+    }
+
+    private static void createPersonalRecommendations(){
+        // TODO
+        for (Map.Entry<EnergyUsageCategory, Integer> entry : energySpenders.entrySet()) {
+            EnergyUsageCategory category = entry.getKey();
+            int energyUsage = entry.getValue();
+            recommendPersonalProducts(category, energyUsage);
+        }
     }
 
     public static List<Product> getDataBaseProducts() {
@@ -36,8 +59,12 @@ public class RecommendationsBackend {
         return dataBaseEnergyUsageData;
     }
 
-    public static List<Recommendation> getRecommendations() {
-        return recommendations;
+    public static List<Recommendation> getPersonalProductRecommendations() {
+        return personalProductRecommendations;
+    }
+
+    public static List<Recommendation> getGeneralProductRecommendations() {
+        return generalProductRecommendations;
     }
 
     public static void addObserver(Observer observer) {
@@ -74,11 +101,45 @@ public class RecommendationsBackend {
 
     // Thought: maybe user could also set their own threshold?
 
-    public List<Product> recommendProductsBasedOnEnergyUsage(List<EnergyUsage> energyUsageData, List<Product> products, List<Product> currentProducts) {
-        List<Product> recommendations = new ArrayList<>();
+    private static void recommendPersonalProducts(EnergyUsageCategory category, int energyUsage) {
+        // Get products from the database
+        List<Product> products = getDataBaseProducts();
 
+        if (products.isEmpty()) {
+            System.out.println("No products found in the database");
+            return;
+        }
+        List<Product> relevantProducts = new ArrayList<>();
+        //List<Product> relevantProducts = products.stream()
+       // .filter(product -> product.getCategory().equals(category.toString()) && product.isEnergyEfficient())
+        //.collect(Collectors.toList());
+
+        for (Product product : getDataBaseProducts()) {
+            System.out.println("Product: " + product.getName());
+            System.out.println("Category: " + category.toString());
+            System.out.println("Category: " + product.getCategory());
+
+            if (product.getCategory().equals(category.toString())) {
+                relevantProducts.add(product);
+            }
+
+
+            //relevantProducts.add(product);
+        }
+
+        if (relevantProducts.isEmpty()) {
+            System.out.println("No relevant products found for category: " + category);
+            return;
+        }
+        for (Product product : relevantProducts) {
+            System.out.println("Product: " + product.getName());
+            personalProductRecommendations.add(new Recommendation(product.getName(), "test"));
+        }
+
+            /* 
         // Analyze energy usage data
         for (EnergyUsage usage : energyUsageData) {
+            
             if (usage.getConsumption() > usage.getThreshold()) {
                 // Find relevant products
                 List<Product> relevantProducts = products.stream()
@@ -104,8 +165,35 @@ public class RecommendationsBackend {
                     }
                 }
             }
+                */
+            
+    }
+
+    private static void recommendGeneralProducts(EnergyUsageCategory category) {
+        // Get products from the database
+        List<Product> products = getDataBaseProducts();
+
+        if (products.isEmpty()) {
+            System.out.println("No products found in the database");
+            return;
         }
 
-        return recommendations;
+        List<Product> relevantProducts = new ArrayList<>();
+
+        for (Product product : getDataBaseProducts()) {
+            if (product.getCategory().equals(category.toString())) {
+                relevantProducts.add(product);
+            }
+        }
+
+        if (relevantProducts.isEmpty()) {
+            System.out.println("No relevant products found for category: " + category);
+            return;
+        }
+
+        for (Product product : relevantProducts) {
+            System.out.println("Product: " + product.getName());
+            generalProductRecommendations.add(new Recommendation(product.getName(), "test"));
+        }      
     }
 }

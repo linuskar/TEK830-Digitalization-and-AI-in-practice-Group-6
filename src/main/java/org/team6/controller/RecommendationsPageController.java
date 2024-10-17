@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import org.team6.model.Observer;
 import org.team6.model.Recommendation;
-import org.team6.model.RecommendationImagePath;
 import org.team6.model.RecommendationsBackend;
 import org.team6.view.PageStarter;
 
@@ -136,8 +135,8 @@ public class RecommendationsPageController implements Observer {
             generalTipsRecommendationsFlowPane = controller.getTipsRecommendationsFlowPane();
 
             // Create and add recommendation cards
-            for (int i = 0; i < products; i++) {
-                createProductRecommendationCard(generalProductRecommendationsVBox);
+            for (Recommendation recommendation : RecommendationsBackend.getGeneralProductRecommendations()) {
+                createProductRecommendationCard(generalProductRecommendationsVBox, recommendation);
             }
 
             for (int i = 0; i < tips; i++) {
@@ -164,7 +163,7 @@ public class RecommendationsPageController implements Observer {
             personalTipsRecommendationsFlowPane = controller.getTipsRecommendationsFlowPane();
 
             // Create and add recommendation cards
-            for (Recommendation recommendation : RecommendationsBackend.getRecommendations()) {
+            for (Recommendation recommendation : RecommendationsBackend.getGeneralProductRecommendations()) {
                 createProductRecommendationCard(personalProductRecommendationsVBox, recommendation);
                 
             }
@@ -296,7 +295,7 @@ public class RecommendationsPageController implements Observer {
         // TODO: Set card title, text, and image from backend, 
         controller.setCardTitle(recommendation.getTitle());
         controller.setCardText(recommendation.getText());
-        String imageUrl = RecommendationImagePath.getImagePath(recommendation.getTitle());
+        String imageUrl = recommendation.getRecommendationImage();
         //String imageUrl = "/org/team6/images/ikea_home.png";
         Image image = new Image(getClass().getResourceAsStream(imageUrl));
         controller.setCardImage(image);
@@ -311,7 +310,7 @@ public class RecommendationsPageController implements Observer {
         }
         */
         controller.setCardText(recommendation.getText());
-        controller.setReadMoreURL(recommendation.getUrl());
+        controller.setReadMoreURL(recommendation.getReadMoreUrl());
 
             recommendationVBox.getChildren().add(card);
         } catch (IOException e) {

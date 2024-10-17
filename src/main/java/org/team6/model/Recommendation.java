@@ -3,12 +3,10 @@ package org.team6.model;
 public class Recommendation {
     private String title;
     private String text;
-    private String url;
 
-    public Recommendation(String title, String text, String url) {
+    public Recommendation(String title, String text) {
         this.title = title;
         this.text = text;
-        this.url = url;
     }
 
     public String getTitle() {
@@ -19,7 +17,11 @@ public class Recommendation {
         return text;
     }
 
-    public String getUrl() {
-        return url;
+    public String getRecommendationImage(){
+        return RecommendationImagePath.getImagePath(title);
+    }
+
+    public String getReadMoreUrl() {
+        return RecommendationReadMoreUrl.getReadMoreUrl(title);
     }
 }

@@ -2,8 +2,37 @@ package org.team6.model;
 
 public class EnergyUsage {
     // Helper classes for the example
-    private String category;
+    public enum Category {
+        LIGHTING,
+        HEATING,
+        COOLING,
+        REFRIGERATION,
+        OTHER;
+
+        @Override
+        public String toString() {
+            switch (this) {
+                case LIGHTING:
+                    return "Lighting";
+                case HEATING:
+                    return "Heating";
+                case COOLING:
+                    return "Cooling";
+                case REFRIGERATION:
+                    return "Refrigeration";
+                case OTHER:
+                    return "Other";
+                default:
+                    return super.toString();
+            }
+        }
+    }
+
+    private Category category;
+
     private double consumption;
+    //private static final List<String> refridgerationThreshold = 1.5;
+
     // thershold is the recommended maximum energy consumption for the category
     // in this case we base it on industry standards or guidelnies for energy consumption
     // base it on industry standards, regulations, or guidelines for energy consumption
@@ -12,15 +41,8 @@ public class EnergyUsage {
     private double threshold;
     private String timeFrame; // "week", "month", or "year"
 
-    public EnergyUsage(String category, double consumption, double threshold, String timeFrame) {
-        this.category = category;
+    public EnergyUsage(double consumption) {
         this.consumption = consumption;
-        this.threshold = threshold;
-        this.timeFrame = timeFrame;
-    }
-
-    public String getCategory() {
-        return category;
     }
 
     public double getConsumption() {

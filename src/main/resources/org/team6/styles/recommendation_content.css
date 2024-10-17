@@ -3,6 +3,7 @@
     .scroll-bar:horizontal {
         -fx-opacity: 0;
         -fx-pref-width: 0px; /* Set a preferred width for the vertical scrollbar */
+        -fx-background-color: #1e1e1e;
 
     }
 
