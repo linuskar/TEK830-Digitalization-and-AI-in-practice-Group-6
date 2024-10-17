@@ -10,6 +10,7 @@ class NotificationTest {
     @EnumSource(Notification.class)
     void testNotificationEnum_StringStartAllCaps(Notification notification) {
         String testNotificationText = Notification.getText(notification);
-        assertTrue(Character.isUpperCase(testNotificationText.charAt(0)));
+        boolean startsWithAllCaps = Character.isUpperCase(testNotificationText.charAt(0));
+        assertTrue(startsWithAllCaps, "Notification text should start with a capital letter.");
     }
 }
