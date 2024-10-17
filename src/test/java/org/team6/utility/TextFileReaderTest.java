@@ -14,21 +14,21 @@ class TextFileReaderTest {
     @EnumSource(TextPath.class)
     void testTextFileReader_GivenTextFile_ShouldNotReturnNull(TextPath textPath) {
         String testText = TextFileReader.readFileAsString(textPath.getPath());
-        assertNotNull(testText);
+        assertNotNull(testText, "Should not return null.");
     }
 
     @ParameterizedTest
     @EnumSource(TextPath.class)
     void testTextFileReader_GivenTextFile_ShouldNotReturnEmptyText(TextPath textPath) {
         String testText = TextFileReader.readFileAsString(textPath.getPath());
-        assertFalse(testText.isEmpty());
+        assertFalse(testText.isEmpty(), "Should not return empty text.");
     }
 
     @Test
     void testTextFileReader_GivenTxtFileWithOneRow_ReturnsCorrectText() {
         String test = "ok";
         String testText = TextFileReader.readFileAsString("/org/team6/texts/oneRowTestText.txt");
-        assertEquals(test, testText);
+        assertEquals(test, testText, "Should return correct text.");
     }
 
     @Test
@@ -48,7 +48,7 @@ class TextFileReaderTest {
                         "\r\n" + //
                         "the edn : hi guys i ame the end, over";
         String testText = TextFileReader.readFileAsString("/org/team6/texts/manyRowTestText.txt");
-        assertEquals(test, testText);
+        assertEquals(test, testText, "Should return correct text.");
     }
 
 
@@ -56,7 +56,7 @@ class TextFileReaderTest {
     void testTextFileReader_GivenMdFileWithOneRow_ReturnsCorrectText() {
         String test = "ok";
         String testText = TextFileReader.readFileAsString("/org/team6/texts/oneRowTestText.md");
-        assertEquals(test, testText);
+        assertEquals(test, testText, "Should return correct text.");
     }
 
     @Test
@@ -76,7 +76,7 @@ class TextFileReaderTest {
                         "\r\n" + //
                         "the edn : hi guys i ame the end, over";
         String testText = TextFileReader.readFileAsString("/org/team6/texts/manyRowTestText.md");
-        assertEquals(test, testText);
+        assertEquals(test, testText, "Should return correct text.");
     }
 
     @Test
