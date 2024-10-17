@@ -1,4 +1,4 @@
-package org.team6.model;
+package org.team6.model.Products;
 
 
 public enum ProductCategory {
