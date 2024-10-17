@@ -1,7 +1,10 @@
 package org.team6.controller;
 
+import org.team6.model.UrlOpener;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
@@ -23,6 +26,8 @@ public class RecommendationCardController {
     @FXML
     private Button readMoreButton;
 
+    private String readMoreURL;
+
     public void disableReadMoreButton() {
         readMoreButton.setVisible(false);
         readMoreButton.setDisable(true);
@@ -36,7 +41,16 @@ public class RecommendationCardController {
         cardText.setText(text);
     }
 
-    public void setCardImage(ImageView image) {
-        cardImage.setImage(image.getImage());
+    public void setCardImage(Image image) {
+        cardImage.setImage(image);
+    }
+
+    public void setReadMoreURL(String url) {
+        readMoreURL = url;
+    }
+
+    @FXML
+    public void handleReadMoreButtonAction() {
+        UrlOpener.openUrl(readMoreURL);
     }
 }

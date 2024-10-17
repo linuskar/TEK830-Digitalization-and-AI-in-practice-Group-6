@@ -3,6 +3,8 @@ package org.team6.controller;
 import java.io.IOException;
 
 import org.team6.model.Observer;
+import org.team6.model.Recommendation;
+import org.team6.model.RecommendationImagePath;
 import org.team6.model.RecommendationsBackend;
 import org.team6.view.PageStarter;
 
@@ -11,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
@@ -161,10 +164,15 @@ public class RecommendationsPageController implements Observer {
             personalTipsRecommendationsFlowPane = controller.getTipsRecommendationsFlowPane();
 
             // Create and add recommendation cards
+            for (Recommendation recommendation : RecommendationsBackend.getRecommendations()) {
+                createProductRecommendationCard(personalProductRecommendationsVBox, recommendation);
+                
+            }
+            /* 
             for (int i = 0; i < products; i++) {
                 createProductRecommendationCard(personalProductRecommendationsVBox);
             }
-
+*/
             for (int i = 0; i < tips; i++) {
                 createTipRecommendationCard(personalTipsRecommendationsVBox);
             }
@@ -275,6 +283,42 @@ public class RecommendationsPageController implements Observer {
             e.printStackTrace();
         }
     }
+
+    private void createProductRecommendationCard(VBox recommendationVBox, Recommendation recommendation) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/team6/view/RecommendationCard.fxml"));
+            AnchorPane card = loader.load();
+
+        RecommendationCardController controller = loader.getController();
+
+        //controller.disableReadMoreButton();
+        
+        // TODO: Set card title, text, and image from backend, 
+        controller.setCardTitle(recommendation.getTitle());
+        controller.setCardText(recommendation.getText());
+        String imageUrl = RecommendationImagePath.getImagePath(recommendation.getTitle());
+        //String imageUrl = "/org/team6/images/ikea_home.png";
+        Image image = new Image(getClass().getResourceAsStream(imageUrl));
+        controller.setCardImage(image);
+        /* 
+        try (){
+            //System.out.println(recommendation.getTitle());
+            //String imageUrl = RecommendationImagePath.getImagePath(recommendation.getTitle());
+            Image image = new Image(imageUrl);
+            controller.setCardImage(image);
+        } catch (Exception e) {
+            controller.setCardImage(null);
+        }
+        */
+        controller.setCardText(recommendation.getText());
+        controller.setReadMoreURL(recommendation.getUrl());
+
+            recommendationVBox.getChildren().add(card);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     private void createTipRecommendationCard(VBox recommendationVBox) {
         try {

@@ -9,7 +9,35 @@ public class RecommendationsBackend {
     private static boolean personalRecommendationsOn = true;
     private static final List<Observer> observers = new ArrayList<>();
 
+    private static List<Product> dataBaseProducts = new ArrayList<>();
+    private static List<EnergyUsage> dataBaseEnergyUsageData = new ArrayList<>();
+    private static List<Recommendation> recommendations = new ArrayList<>();
+
     private RecommendationsBackend() {
+    }
+
+    public static void initialize(){
+        Product testProduct = new Product("Test Product", "Test Category", true, 100, 200);
+        dataBaseProducts.add(testProduct);
+
+        EnergyUsage testEnergyUsage = new EnergyUsage("Test Category", 300, 250, "month");
+        dataBaseEnergyUsageData.add(testEnergyUsage);
+
+        Recommendation testRecommendation = new Recommendation("Tynnerås", "This is a fridge", "https://www.ikea.com/se/en/p/tynneras-fridge-ikea-500-freestanding-stainless-steel-10567950/");
+
+        recommendations.add(testRecommendation);
+    }
+
+    public static List<Product> getDataBaseProducts() {
+        return dataBaseProducts;
+    }
+
+    public static List<EnergyUsage> getDataBaseEnergyUsageData() {
+        return dataBaseEnergyUsageData;
+    }
+
+    public static List<Recommendation> getRecommendations() {
+        return recommendations;
     }
 
     public static void addObserver(Observer observer) {
