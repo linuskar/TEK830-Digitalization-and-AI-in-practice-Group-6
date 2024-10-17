@@ -310,6 +310,7 @@ public class RecommendationsPageController implements Observer {
         }
         */
         controller.setCardText(recommendation.getText());
+        System.out.println("Recommendation url: " + recommendation.getReadMoreUrl());
         controller.setReadMoreURL(recommendation.getReadMoreUrl());
 
             recommendationVBox.getChildren().add(card);

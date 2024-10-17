@@ -25,11 +25,25 @@ public class RecommendationsBackend {
     public static void initialize(){
         // TEMP: Products and energy usage data are hardcoded for now
         // TODO: Put products in database
-        Product fridge = new Product("Tynnerås", ProductCategory.FRIDGE, EnergyUsageCategory.REFRIGERATION, 200);
-        Product oven = new Product("Mutebo", ProductCategory.OVEN, EnergyUsageCategory.COOKING, 200);
+        Product fridge1 = new Product("Tynnerås", ProductCategory.FRIDGE, EnergyUsageCategory.REFRIGERATION, 200);
+        Product fridge2 = new Product("Mölnås", ProductCategory.FRIDGE, EnergyUsageCategory.REFRIGERATION, 200);
+        Product fridge3 = new Product("Alingsås", ProductCategory.FRIDGE, EnergyUsageCategory.REFRIGERATION, 200);
 
-        dataBaseProducts.add(fridge);
-        dataBaseProducts.add(oven);
+        Product oven1 = new Product("Mutebo", ProductCategory.OVEN, EnergyUsageCategory.COOKING, 200);
+        Product oven2 = new Product("Forneby", ProductCategory.OVEN, EnergyUsageCategory.COOKING, 200);
+        Product oven3 = new Product("Brändbo", ProductCategory.OVEN, EnergyUsageCategory.COOKING, 200);
+        Product oven4 = new Product("Lagan", ProductCategory.OVEN, EnergyUsageCategory.COOKING, 200);
+        Product oven5 = new Product("Mattradition", ProductCategory.OVEN, EnergyUsageCategory.COOKING, 200);
+
+        dataBaseProducts.add(fridge1);
+        dataBaseProducts.add(fridge2);
+        dataBaseProducts.add(fridge3);
+        
+        dataBaseProducts.add(oven1);
+        dataBaseProducts.add(oven2);
+        dataBaseProducts.add(oven3);
+        dataBaseProducts.add(oven4);
+        dataBaseProducts.add(oven5);
 
         // What amount of the total energy consumption for user is based on this category
         energySpenders.put(EnergyUsageCategory.REFRIGERATION, 300);
@@ -111,61 +125,32 @@ public class RecommendationsBackend {
 
     private static void recommendPersonalProducts(EnergyUsageCategory category, int energyUsage) {
         // Get products from the database
-        List<Product> products = getDataBaseProducts();
-
-        if (products.isEmpty()) {
-            System.out.println("No products found in the database");
-            return;
-        }
-
         Map<String, List<Product>> groupedProducts = new HashMap<>();
-        for (Product product : getDataBaseProducts()) {
+        for (Product product : dataBaseProducts) {
             if (product.getEnergyUsageCategory().equals(category.toString())) {
                 if (!groupedProducts.containsKey(product.getProductCategory())) {
                     groupedProducts.put(product.getProductCategory(), new ArrayList<>());
                 }
 
-                groupedProducts.get(product.getProductCategory()).add(product);
-                
+                groupedProducts.get(product.getProductCategory()).add(product);     
             }
         }
 
-        if (groupedProducts.isEmpty()) {
-            System.out.println("No relevant personal products found: " + category);
-            return;
-        }
-
-        // Group relevant products by their type of product category
-        // Process each group
         groupedProducts.forEach((productCategory, productsInCategory) -> {
-            System.out.println("Category: " + productCategory);
             for (Product product : productsInCategory) {
-                System.out.println("Product: " + product.getName());
-                personalProductRecommendations.add(new Recommendation(product.getName(), "test"));
+                String text = "You are spending " + energyUsage + " kWh on " + category.toString().toLowerCase() + " products. Consider switching to a " + product.getName() + " "+ product.getProductCategory().toLowerCase() +" to save energy.";
+                personalProductRecommendations.add(new Recommendation(product.getName(), text));
             }
         });            
     }
 
     private static void recommendGeneralProducts(EnergyUsageCategory category) {
-        // Get products from the database
-        List<Product> products = getDataBaseProducts();
-
-        if (products.isEmpty()) {
-            System.out.println("No products found in the database");
-            return;
-        }
-
         List<Product> relevantProducts = new ArrayList<>();
 
-        for (Product product : getDataBaseProducts()) {
+        for (Product product : dataBaseProducts) {
             if (product.getEnergyUsageCategory().equals(category.toString())) {
                 relevantProducts.add(product);
             }
-        }
-
-        if (relevantProducts.isEmpty()) {
-            System.out.println("No relevant general products found for category: " + category);
-            return;
         }
 
         for (Product product : relevantProducts) {
