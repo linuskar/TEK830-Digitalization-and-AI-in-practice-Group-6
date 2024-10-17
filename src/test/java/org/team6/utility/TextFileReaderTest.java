@@ -12,27 +12,27 @@ class TextFileReaderTest {
     
     @ParameterizedTest
     @EnumSource(TextPath.class)
-    void testTextFileReader_readTxt_notnull(TextPath textPath) {
+    void testTextFileReader_GivenTextFile_ShouldNotReturnNull(TextPath textPath) {
         String testText = TextFileReader.readFileAsString(textPath.getPath());
         assertNotNull(testText);
     }
 
     @ParameterizedTest
     @EnumSource(TextPath.class)
-    void testTextFileReader_readTxt_isNotEmpty(TextPath textPath) {
+    void testTextFileReader_GivenTextFile_ShouldNotReturnEmptyText(TextPath textPath) {
         String testText = TextFileReader.readFileAsString(textPath.getPath());
         assertFalse(testText.isEmpty());
     }
 
     @Test
-    void testTextFileReader_readTxt_worksOneRow() {
+    void testTextFileReader_GivenTxtFileWithOneRow_ReturnsCorrectText() {
         String test = "ok";
         String testText = TextFileReader.readFileAsString("/org/team6/texts/oneRowTestText.txt");
-        assertEquals(test,testText);
+        assertEquals(test, testText);
     }
 
     @Test
-    void testTextFileReader_readTxt_worksManyRows() {
+    void testTextFileReader_GivenTxtFileWithManyRows_ReturnsCorrectText() {
         String test = "hi guy local idiot here \r\n" + //
                         "guy: ok\r\n" + //
                         "local iebaot: hehea i the robbing you\r\n" + //
@@ -48,19 +48,19 @@ class TextFileReaderTest {
                         "\r\n" + //
                         "the edn : hi guys i ame the end, over";
         String testText = TextFileReader.readFileAsString("/org/team6/texts/manyRowTestText.txt");
-        assertEquals(test,testText);
+        assertEquals(test, testText);
     }
 
 
     @Test
-    void testTextFileReader_readMd_worksOneRow() {
+    void testTextFileReader_GivenMdFileWithOneRow_ReturnsCorrectText() {
         String test = "ok";
         String testText = TextFileReader.readFileAsString("/org/team6/texts/oneRowTestText.md");
-        assertEquals(test,testText);
+        assertEquals(test, testText);
     }
 
     @Test
-    void testTextFileReader_readMd_worksManyRows() {
+    void testTextFileReader_GivenMdFileWithManyRows_ReturnsCorrectText() {
         String test = "hi guy local idiot here \r\n" + //
                         "guy: ok\r\n" + //
                         "local iebaot: hehea i the robbing you\r\n" + //
@@ -76,13 +76,12 @@ class TextFileReaderTest {
                         "\r\n" + //
                         "the edn : hi guys i ame the end, over";
         String testText = TextFileReader.readFileAsString("/org/team6/texts/manyRowTestText.md");
-        assertEquals(test,testText);
+        assertEquals(test, testText);
     }
 
     @Test
-    void testTextFileReader_NonexistantFile_emptystring() {
+    void testTextFileReader_GivenNonexistentFile_ShouldReturnEmptyString() {
         String testText = TextFileReader.readFileAsString("/org/team6/texts/fakeText.txt");
-        assertEquals("", testText);
+        assertEquals("", testText, "Should return empty string when file does not exist.");
     }
-
 }   
