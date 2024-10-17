@@ -163,7 +163,7 @@ public class RecommendationsPageController implements Observer {
             personalTipsRecommendationsFlowPane = controller.getTipsRecommendationsFlowPane();
 
             // Create and add recommendation cards
-            for (Recommendation recommendation : RecommendationsBackend.getGeneralProductRecommendations()) {
+            for (Recommendation recommendation : RecommendationsBackend.getPersonalProductRecommendations()) {
                 createProductRecommendationCard(personalProductRecommendationsVBox, recommendation);
                 
             }

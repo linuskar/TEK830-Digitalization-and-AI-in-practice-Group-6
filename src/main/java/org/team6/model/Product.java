@@ -5,19 +5,25 @@ public class Product {
     // not saving image in database due to size
     private String name;
     private EnergyUsageCategory energySpendingcategory;
+    private ProductCategory productCategory;
     private double productConsumption; // Energy consumption of this product in kWh
 
-    public Product(String name, EnergyUsageCategory energySpendingcategory, double productConsumption) {
+    public Product(String name, ProductCategory productCategory, EnergyUsageCategory energySpendingcategory, double productConsumption) {
         this.name = name;
         this.energySpendingcategory = energySpendingcategory;
         this.productConsumption = productConsumption;
+        this.productCategory = productCategory;
     }
 
     public String getName() {
         return name;
     }
 
-    public String getCategory() {
+    public String getProductCategory() {
+        return productCategory.toString();
+    }
+
+    public String getEnergyUsageCategory() {
         return energySpendingcategory.toString();
     }
 

@@ -5,6 +5,7 @@ public enum EnergyUsageCategory {
     HEATING,
     COOLING,
     REFRIGERATION,
+    COOKING,
     OTHER;
 
     @Override
@@ -18,6 +19,8 @@ public enum EnergyUsageCategory {
                 return "Cooling";
             case REFRIGERATION:
                 return "Refrigeration";
+            case COOKING:
+                return "Cooking";
             case OTHER:
                 return "Other";
             default:

@@ -7,6 +7,9 @@ public class RecommendationImagePath {
             case "Tynnerås":
                 imagePath = "/org/team6/images/products/tynneras.png";
                 break;
+            case "Mutebo":
+                imagePath = "/org/team6/images/products/mutebo.png";
+                break;
             default:
                 throw new AssertionError();
         }

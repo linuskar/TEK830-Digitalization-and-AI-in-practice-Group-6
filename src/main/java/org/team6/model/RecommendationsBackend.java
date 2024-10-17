@@ -25,12 +25,19 @@ public class RecommendationsBackend {
     public static void initialize(){
         // TEMP: Products and energy usage data are hardcoded for now
         // TODO: Put products in database
-        Product fridge = new Product("Tynnerås", EnergyUsageCategory.REFRIGERATION, 200);
-
+        Product fridge = new Product("Tynnerås", ProductCategory.FRIDGE, EnergyUsageCategory.REFRIGERATION, 200);
+        Product oven = new Product("Mutebo", ProductCategory.OVEN, EnergyUsageCategory.COOKING, 200);
 
         dataBaseProducts.add(fridge);
+        dataBaseProducts.add(oven);
 
+        // What amount of the total energy consumption for user is based on this category
         energySpenders.put(EnergyUsageCategory.REFRIGERATION, 300);
+
+        createRecommendations();
+    }
+
+    private static void  createRecommendations(){
         createGeneralRecommendations();
         createPersonalRecommendations();
     }
@@ -46,6 +53,7 @@ public class RecommendationsBackend {
         // TODO
         for (Map.Entry<EnergyUsageCategory, Integer> entry : energySpenders.entrySet()) {
             EnergyUsageCategory category = entry.getKey();
+            System.out.println(category);
             int energyUsage = entry.getValue();
             recommendPersonalProducts(category, energyUsage);
         }
@@ -109,64 +117,33 @@ public class RecommendationsBackend {
             System.out.println("No products found in the database");
             return;
         }
-        List<Product> relevantProducts = new ArrayList<>();
-        //List<Product> relevantProducts = products.stream()
-       // .filter(product -> product.getCategory().equals(category.toString()) && product.isEnergyEfficient())
-        //.collect(Collectors.toList());
 
+        Map<String, List<Product>> groupedProducts = new HashMap<>();
         for (Product product : getDataBaseProducts()) {
-            System.out.println("Product: " + product.getName());
-            System.out.println("Category: " + category.toString());
-            System.out.println("Category: " + product.getCategory());
+            if (product.getEnergyUsageCategory().equals(category.toString())) {
+                if (!groupedProducts.containsKey(product.getProductCategory())) {
+                    groupedProducts.put(product.getProductCategory(), new ArrayList<>());
+                }
 
-            if (product.getCategory().equals(category.toString())) {
-                relevantProducts.add(product);
+                groupedProducts.get(product.getProductCategory()).add(product);
+                
             }
-
-
-            //relevantProducts.add(product);
         }
 
-        if (relevantProducts.isEmpty()) {
-            System.out.println("No relevant products found for category: " + category);
+        if (groupedProducts.isEmpty()) {
+            System.out.println("No relevant personal products found: " + category);
             return;
         }
-        for (Product product : relevantProducts) {
-            System.out.println("Product: " + product.getName());
-            personalProductRecommendations.add(new Recommendation(product.getName(), "test"));
-        }
 
-            /* 
-        // Analyze energy usage data
-        for (EnergyUsage usage : energyUsageData) {
-            
-            if (usage.getConsumption() > usage.getThreshold()) {
-                // Find relevant products
-                List<Product> relevantProducts = products.stream()
-                        .filter(product -> product.getCategory().equals(usage.getCategory()) && product.isEnergyEfficient())
-                        .collect(Collectors.toList());
-
-                // Compare with current products
-                for (Product currentProduct : currentProducts) {
-                    if (currentProduct.getCategory().equals(usage.getCategory())) {
-                        relevantProducts = relevantProducts.stream()
-                                .filter(product -> product.getEnergySavings(currentProduct) > 0)
-                                .collect(Collectors.toList());
-                    }
-                }
-
-                // Sort products by potential energy savings (assuming higher savings are better)
-                relevantProducts.sort((p1, p2) -> Double.compare(p2.getEnergySavings(), p1.getEnergySavings()));
-
-                // Add top recommendations to the list
-                for (Product product : relevantProducts) {
-                    if (recommendations.stream().noneMatch(p -> p.getName().equals(product.getName()))) {
-                        recommendations.add(product);
-                    }
-                }
+        // Group relevant products by their type of product category
+        // Process each group
+        groupedProducts.forEach((productCategory, productsInCategory) -> {
+            System.out.println("Category: " + productCategory);
+            for (Product product : productsInCategory) {
+                System.out.println("Product: " + product.getName());
+                personalProductRecommendations.add(new Recommendation(product.getName(), "test"));
             }
-                */
-            
+        });            
     }
 
     private static void recommendGeneralProducts(EnergyUsageCategory category) {
@@ -181,18 +158,19 @@ public class RecommendationsBackend {
         List<Product> relevantProducts = new ArrayList<>();
 
         for (Product product : getDataBaseProducts()) {
-            if (product.getCategory().equals(category.toString())) {
+            if (product.getEnergyUsageCategory().equals(category.toString())) {
                 relevantProducts.add(product);
             }
         }
 
         if (relevantProducts.isEmpty()) {
-            System.out.println("No relevant products found for category: " + category);
+            System.out.println("No relevant general products found for category: " + category);
             return;
         }
 
         for (Product product : relevantProducts) {
             System.out.println("Product: " + product.getName());
+
             generalProductRecommendations.add(new Recommendation(product.getName(), "test"));
         }      
     }
