@@ -25,18 +25,22 @@ class TutorialPageItemHandlerTest {
     @Test
     void testGetTutorialPageItem_GivenValidIndex_ShouldReturnATutorialPageItem() {
         TutorialPageItem tutorialPageItem = tutorialPageItemHandler.getTutorialPageItemAt(0);
-        assertNotNull(tutorialPageItem);
+        assertNotNull(tutorialPageItem, "TutorialPageItem should not be null");
     }
 
     @Test
     void testGetTutorialPageItem_GivenNegativeIndex_ShouldThrowIndexOutOfBoundsException() {
-        assertThrows(IndexOutOfBoundsException.class, () -> tutorialPageItemHandler.getTutorialPageItemAt(-1));
+        assertThrows(IndexOutOfBoundsException.class,
+                () -> tutorialPageItemHandler.getTutorialPageItemAt(-1),
+                "IndexOutOfBoundsException should be thrown when index is negative");
     }
 
     @Test
     void testGetTutorialPageItem_GivenTooBigIndex_ShouldThrowIndexOutOfBoundsException() {
         int itemCount = tutorialPageItemHandler.getTutorialPageItemCount();
-        assertThrows(IndexOutOfBoundsException.class, () -> tutorialPageItemHandler.getTutorialPageItemAt(itemCount));
+        assertThrows(IndexOutOfBoundsException.class,
+                () -> tutorialPageItemHandler.getTutorialPageItemAt(itemCount),
+                "IndexOutOfBoundsException should be thrown when index is too big");
     }
 
     @Test
@@ -44,8 +48,8 @@ class TutorialPageItemHandlerTest {
         // Would like this to be parameterized, but it's not possible to pass the tutorialPageItemHandler as a parameter
         for (int i = 0; i < tutorialPageItemHandler.getTutorialPageItemCount(); i++) {
             TutorialPageItem tutorialPageItem = tutorialPageItemHandler.getTutorialPageItemAt(i);
-            assertNotNull(tutorialPageItem.infoText());
-            assertNotNull(tutorialPageItem.infoImage());
+            assertNotNull(tutorialPageItem.infoText(), "TutorialPageItem should have text");
+            assertNotNull(tutorialPageItem.infoImage(), "TutorialPageItem should have image");
         }
     }
 
@@ -53,7 +57,7 @@ class TutorialPageItemHandlerTest {
     void testGetTutorialPageItem_GivenValidIndex_ShouldReturnTutorialPageItemWithNonEmptyText() {
         for (int i = 0; i < tutorialPageItemHandler.getTutorialPageItemCount(); i++) {
             TutorialPageItem tutorialPageItem = tutorialPageItemHandler.getTutorialPageItemAt(i);
-            assertFalse(tutorialPageItem.infoText().isEmpty());
+            assertFalse(tutorialPageItem.infoText().isEmpty(), "TutorialPageItem text should not be empty");
         }
     }
 
@@ -61,7 +65,9 @@ class TutorialPageItemHandlerTest {
     void testGetTutorialPageItem_GivenValidIndex_ShouldReturnTutorialPageItemWithTextStartingWithCapitalLetter() {
         for (int i = 0; i < tutorialPageItemHandler.getTutorialPageItemCount(); i++) {
             TutorialPageItem tutorialPageItem = tutorialPageItemHandler.getTutorialPageItemAt(i);
-            assertTrue(Character.isUpperCase(tutorialPageItem.infoText().charAt(0)));
+            boolean startsWithCapitalLetter = Character.isUpperCase(tutorialPageItem.infoText().charAt(0));
+            assertTrue(startsWithCapitalLetter,
+                    "TutorialPageItem text should start with capital letter. \nCurrent text:\n" + tutorialPageItem.infoText());
         }
     }
 
@@ -70,13 +76,14 @@ class TutorialPageItemHandlerTest {
         for (int i = 0; i < tutorialPageItemHandler.getTutorialPageItemCount(); i++) {
             TutorialPageItem tutorialPageItem = tutorialPageItemHandler.getTutorialPageItemAt(i);
             char lastChar = tutorialPageItem.infoText().charAt(tutorialPageItem.infoText().length() - 1);
-            assertTrue(punctuationMarks.contains(lastChar));
+            assertTrue(punctuationMarks.contains(lastChar),
+                    "TutorialPageItem text should end with punctuation. \nCurrent text:\n" + tutorialPageItem.infoText());
         }
     }
 
     @Test
     void testGetTutorialPageItemCount_ShouldBeGreaterThanZero() {
         int itemCount = tutorialPageItemHandler.getTutorialPageItemCount();
-        assertTrue(itemCount > 0);
+        assertTrue(itemCount > 0, "TutorialPageItemCount should be greater than zero");
     }
 }
