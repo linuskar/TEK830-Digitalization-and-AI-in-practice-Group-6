@@ -17,7 +17,7 @@ class NotificationBackendTest {
     private User userUnderTest;
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         userUnderTest = new User("Bob", "Bobsson", "bob.bobsson@email.com", "Bob123");
         NotificationBackend.setUser(userUnderTest);
     }
