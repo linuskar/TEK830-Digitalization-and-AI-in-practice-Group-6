@@ -4,15 +4,17 @@ public class Product {
     // TODO: get product image based on id from database
     // not saving image in database due to size
     private String name;
-    private EnergyUsageCategory energySpendingcategory;
+    private EnergyUsageCategory energySpendingCategory;
     private ProductCategory productCategory;
     private double productConsumption; // Energy consumption of this product in kWh
+    private int price; // price in kr
 
-    public Product(String name, ProductCategory productCategory, EnergyUsageCategory energySpendingcategory, double productConsumption) {
+    public Product(String name, ProductCategory productCategory, EnergyUsageCategory energySpendingcategory, double productConsumption, int price) {
         this.name = name;
-        this.energySpendingcategory = energySpendingcategory;
+        this.energySpendingCategory = energySpendingcategory;
         this.productConsumption = productConsumption;
         this.productCategory = productCategory;
+        this.price = price;
     }
 
     public String getName() {
@@ -24,14 +26,14 @@ public class Product {
     }
 
     public String getEnergyUsageCategory() {
-        return energySpendingcategory.toString();
+        return energySpendingCategory.toString();
     }
 
     public double getProductConsumption() {
         return productConsumption;
     }
 
-    public double getEnergySavings(Product currentProduct) {
-        return currentProduct.getProductConsumption() - this.productConsumption;
+    public int getPrice() {
+        return price;
     }
 }

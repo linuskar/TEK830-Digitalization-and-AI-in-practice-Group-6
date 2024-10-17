@@ -1,6 +1,7 @@
 package org.team6.model;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,15 +26,15 @@ public class RecommendationsBackend {
     public static void initialize(){
         // TEMP: Products and energy usage data are hardcoded for now
         // TODO: Put products in database
-        Product fridge1 = new Product("Tynnerås", ProductCategory.FRIDGE, EnergyUsageCategory.REFRIGERATION, 200);
-        Product fridge2 = new Product("Mölnås", ProductCategory.FRIDGE, EnergyUsageCategory.REFRIGERATION, 200);
-        Product fridge3 = new Product("Alingsås", ProductCategory.FRIDGE, EnergyUsageCategory.REFRIGERATION, 200);
+        Product fridge1 = new Product("Tynnerås", ProductCategory.FRIDGE, EnergyUsageCategory.REFRIGERATION, 114, 7995);
+        Product fridge2 = new Product("Mölnås", ProductCategory.FRIDGE, EnergyUsageCategory.REFRIGERATION, 164, 8995);
+        Product fridge3 = new Product("Alingsås", ProductCategory.FRIDGE, EnergyUsageCategory.REFRIGERATION, 198, 7995);
 
-        Product oven1 = new Product("Mutebo", ProductCategory.OVEN, EnergyUsageCategory.COOKING, 200);
-        Product oven2 = new Product("Forneby", ProductCategory.OVEN, EnergyUsageCategory.COOKING, 200);
-        Product oven3 = new Product("Brändbo", ProductCategory.OVEN, EnergyUsageCategory.COOKING, 200);
-        Product oven4 = new Product("Lagan", ProductCategory.OVEN, EnergyUsageCategory.COOKING, 200);
-        Product oven5 = new Product("Mattradition", ProductCategory.OVEN, EnergyUsageCategory.COOKING, 200);
+        Product oven1 = new Product("Mutebo", ProductCategory.OVEN, EnergyUsageCategory.COOKING, 200, 10995);
+        Product oven2 = new Product("Forneby", ProductCategory.OVEN, EnergyUsageCategory.COOKING, 200, 5495);
+        Product oven3 = new Product("Brändbo", ProductCategory.OVEN, EnergyUsageCategory.COOKING, 200, 4995);
+        Product oven4 = new Product("Lagan", ProductCategory.OVEN, EnergyUsageCategory.COOKING, 200, 2495);
+        Product oven5 = new Product("Mattradition", ProductCategory.OVEN, EnergyUsageCategory.COOKING, 200, 3995);
 
         dataBaseProducts.add(fridge1);
         dataBaseProducts.add(fridge2);
@@ -137,11 +138,37 @@ public class RecommendationsBackend {
         }
 
         groupedProducts.forEach((productCategory, productsInCategory) -> {
-            for (Product product : productsInCategory) {
-                String text = "You are spending " + energyUsage + " kWh on " + category.toString().toLowerCase() + " products. Consider switching to a " + product.getName() + " "+ product.getProductCategory().toLowerCase() +" to save energy.";
-                personalProductRecommendations.add(new Recommendation(product.getName(), text));
+            // Sort products in the category based on energy consumption
+            Product lowestConsumptionProduct = productsInCategory.stream()
+                    .sorted(Comparator.comparingDouble(Product::getProductConsumption))
+                    .findFirst()
+                    .orElse(null);
+
+            if (lowestConsumptionProduct != null) {
+                StringBuilder sb = new StringBuilder();
+
+                sb.append("You are spending ");
+                sb.append(energyUsage);
+                sb.append(" kWh on ");
+                sb.append(category.toString().toLowerCase());
+                sb.append(" . We therefore recommend a ");
+                sb.append(lowestConsumptionProduct.getName());
+                sb.append(" ");
+                sb.append(lowestConsumptionProduct.getEnergyUsageCategory().toLowerCase());
+                sb.append(" to save energy.");
+                sb.append("\n\n");
+                sb.append("• This product costs ");
+                sb.append(lowestConsumptionProduct.getPrice());
+                sb.append(" kr.");
+                sb.append("\n");
+                sb.append("• This product consumes ");
+                sb.append(lowestConsumptionProduct.getProductConsumption());
+                sb.append(" kWh/annum.");
+
+                String productRecommendationDescription = sb.toString();
+                personalProductRecommendations.add(new Recommendation(lowestConsumptionProduct.getName(), productRecommendationDescription));
             }
-        });            
+        });    
     }
 
     private static void recommendGeneralProducts(EnergyUsageCategory category) {
@@ -154,9 +181,43 @@ public class RecommendationsBackend {
         }
 
         for (Product product : relevantProducts) {
-            System.out.println("Product: " + product.getName());
+            StringBuilder sb = new StringBuilder();
 
-            generalProductRecommendations.add(new Recommendation(product.getName(), "test"));
+            // Add product information based on product category as needed
+            if (product.getProductCategory().equals(ProductCategory.FRIDGE.toString())) {
+                sb.append("• This product costs ");
+                sb.append(product.getPrice());
+                sb.append(" kr.");
+                sb.append("\n");
+                sb.append("• Product category: ");
+                sb.append(product.getProductCategory());
+                sb.append("\n");
+                sb.append("• Energy spender category: ");
+                sb.append(product.getEnergyUsageCategory());
+                sb.append("\n");
+                sb.append("• This product consumes ");
+                sb.append(product.getProductConsumption());
+                sb.append(" kWh/annum.");
+                String productRecommendationDescription = sb.toString();
+                generalProductRecommendations.add(new Recommendation(product.getName(), productRecommendationDescription));
+            }
+            else{
+                sb.append("• This product costs ");
+                sb.append(product.getPrice());
+                sb.append(" kr.");
+                sb.append("\n");
+                sb.append("• Product category: ");
+                sb.append(product.getProductCategory());
+                sb.append("\n");
+                sb.append("• Energy spender category: ");
+                sb.append(product.getEnergyUsageCategory());
+                sb.append("\n");
+                sb.append("• This product consumes ");
+                sb.append(product.getProductConsumption());
+                sb.append(" kWh");
+                String productRecommendationDescription = sb.toString();
+                generalProductRecommendations.add(new Recommendation(product.getName(), productRecommendationDescription));
+            }
         }      
     }
 }
