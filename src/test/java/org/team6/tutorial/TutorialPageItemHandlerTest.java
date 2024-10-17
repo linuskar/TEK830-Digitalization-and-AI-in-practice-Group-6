@@ -24,8 +24,10 @@ class TutorialPageItemHandlerTest {
 
     @Test
     void testGetTutorialPageItem_GivenValidIndex_ShouldReturnATutorialPageItem() {
-        TutorialPageItem tutorialPageItem = tutorialPageItemHandler.getTutorialPageItemAt(0);
-        assertNotNull(tutorialPageItem, "TutorialPageItem should not be null");
+        for (int i = 0; i < tutorialPageItemHandler.getTutorialPageItemCount(); i++) {
+            TutorialPageItem tutorialPageItem = tutorialPageItemHandler.getTutorialPageItemAt(i);
+            assertNotNull(tutorialPageItem, "TutorialPageItem should not be null");
+        }
     }
 
     @Test
