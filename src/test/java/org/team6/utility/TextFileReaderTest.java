@@ -33,20 +33,21 @@ class TextFileReaderTest {
 
     @Test
     void testTextFileReader_GivenTxtFileWithManyRows_ReturnsCorrectText() {
-        String test = "hi guy local idiot here \r\n" + //
-                        "guy: ok\r\n" + //
-                        "local iebaot: hehea i the robbing you\r\n" + //
-                        "guy: ok\r\n" + //
-                        "polceiace: i am poltergieste to scary four you away\r\n" + //
-                        "locale ibeote: ahh and then the locale idiot ran away\r\n" + //
-                        "locale iebaot: why died h running away\r\n" + //
-                        "table: he ws sacred or the poltergieste\r\n" + //
-                        "poltesgeist: haha\r\n" + //
-                        "vacume clener: vroom\r\n" + //
-                        "locale ibeote: and the poltergiest was dead by the vacuem clener\r\n" + //
-                        "guy: ok\r\n" + //
-                        "\r\n" + //
-                        "the edn : hi guys i ame the end, over";
+        String test = """
+                hi guy local idiot here \r
+                guy: ok\r
+                local iebaot: hehea i the robbing you\r
+                guy: ok\r
+                polceiace: i am poltergieste to scary four you away\r
+                locale ibeote: ahh and then the locale idiot ran away\r
+                locale iebaot: why died h running away\r
+                table: he ws sacred or the poltergieste\r
+                poltesgeist: haha\r
+                vacume clener: vroom\r
+                locale ibeote: and the poltergiest was dead by the vacuem clener\r
+                guy: ok\r
+                \r
+                the edn : hi guys i ame the end, over""";
         String testText = TextFileReader.readFileAsString("/org/team6/texts/manyRowTestText.txt");
         assertEquals(test, testText, "Should return correct text.");
     }
@@ -61,20 +62,21 @@ class TextFileReaderTest {
 
     @Test
     void testTextFileReader_GivenMdFileWithManyRows_ReturnsCorrectText() {
-        String test = "hi guy local idiot here \r\n" + //
-                        "guy: ok\r\n" + //
-                        "local iebaot: hehea i the robbing you\r\n" + //
-                        "guy: ok\r\n" + //
-                        "polceiace: i am poltergieste to scary four you away\r\n" + //
-                        "locale ibeote: ahh and then the locale idiot ran away\r\n" + //
-                        "locale iebaot: why died h running away\r\n" + //
-                        "table: he ws sacred or the poltergieste\r\n" + //
-                        "poltesgeist: haha\r\n" + //
-                        "vacume clener: vroom\r\n" + //
-                        "locale ibeote: and the poltergiest was dead by the vacuem clener\r\n" + //
-                        "guy: ok\r\n" + //
-                        "\r\n" + //
-                        "the edn : hi guys i ame the end, over";
+        String test = """
+                hi guy local idiot here \r
+                guy: ok\r
+                local iebaot: hehea i the robbing you\r
+                guy: ok\r
+                polceiace: i am poltergieste to scary four you away\r
+                locale ibeote: ahh and then the locale idiot ran away\r
+                locale iebaot: why died h running away\r
+                table: he ws sacred or the poltergieste\r
+                poltesgeist: haha\r
+                vacume clener: vroom\r
+                locale ibeote: and the poltergiest was dead by the vacuem clener\r
+                guy: ok\r
+                \r
+                the edn : hi guys i ame the end, over""";
         String testText = TextFileReader.readFileAsString("/org/team6/texts/manyRowTestText.md");
         assertEquals(test, testText, "Should return correct text.");
     }
