@@ -69,7 +69,7 @@ public class PageStarter {
             notificationController.setNotificationHistory(notificationHistory);
             notificationPageController.setNotificationText(notificationText);
 
-            mainPage.getChildren().addAll(homePane, settingsPane, notificationPane, appTutorialPage, settingsPopUpPane, energyPane,notificationHistoryPane);
+            mainPage.getChildren().addAll(homePane, settingsPane, appTutorialPage, settingsPopUpPane, energyPane,notificationHistoryPane,notificationPane);
 
             notificationController.setupKeyHandling(scene);
         } catch (IOException e) {
