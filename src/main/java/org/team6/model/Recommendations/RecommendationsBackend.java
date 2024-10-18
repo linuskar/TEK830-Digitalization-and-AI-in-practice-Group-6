@@ -60,7 +60,7 @@ public class RecommendationsBackend {
 
         createRecommendations();
     }
-
+    // fix later procentage to percantage
     private static double getEnergyUsageProcentage(EnergyUsageCategory category){
         double totalEnergyUsage = getTotalEnergyUsage();
         double energyUsageForCategory = energySpenders.get(category);
