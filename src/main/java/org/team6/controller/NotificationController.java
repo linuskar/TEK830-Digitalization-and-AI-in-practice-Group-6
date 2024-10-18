@@ -45,6 +45,10 @@ public class NotificationController implements NotificationListener {
         return notificationText.getText();
     }
 
+    public String getAppNameText() {
+        return appNameText.getText();
+    }
+
     public void setupKeyHandling(Scene scene) {
         scene.addEventHandler(KeyEvent.KEY_PRESSED, this::handleKeyPress);
     }

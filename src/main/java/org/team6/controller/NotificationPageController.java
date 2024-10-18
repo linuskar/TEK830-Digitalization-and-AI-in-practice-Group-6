@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -42,20 +43,28 @@ public class NotificationPageController {
     private Button accountButton;
 
     @FXML
+    private ToggleButton toggleButton;
+
+    @FXML
     private String notificationText;
 
     public void setNotificationHistory(NotificationHistory history) {
         this.notificationHistory = history;
     }
 
-    public void setNotificationText(Text text){
-        this.notificationText = text.getText();
+    public void setNotificationText(String text){
+        this.notificationText = text;
     }
 
 
     @FXML
     private void initialize() {
+        System.out.println(notificationText);
+    }
 
+    @FXML
+    private void hideVbox(){
+        notificationHistoryVBox.setVisible(false);
     }
 
     // Method adds a notification to a VBox. When a button is pressed the notification is added to the vbox.
@@ -86,6 +95,7 @@ public class NotificationPageController {
             notificationCopy.toFront();
 
         }
+        notificationHistoryVBox.setVisible(toggleButton.isSelected());
     }
 
     @FXML

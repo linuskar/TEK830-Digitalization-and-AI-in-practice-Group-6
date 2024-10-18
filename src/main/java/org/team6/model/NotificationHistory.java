@@ -21,7 +21,7 @@ import java.util.ArrayList;
         @FXML
         public void addNotification(AnchorPane notificationPane) {
             // TODO : Change max array size.
-            if (notificationArray.size() == 2) {
+            if (notificationArray.size() == 5) {
                 notificationArray.remove(0);  // Remove the oldest notification
                 System.out.println("I am removed");
             }

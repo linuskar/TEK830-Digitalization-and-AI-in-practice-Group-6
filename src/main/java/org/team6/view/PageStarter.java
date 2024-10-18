@@ -48,7 +48,7 @@ public class PageStarter {
 
             NotificationController notificationController = notificationLoader.getController();
             NotificationBackend.addNotificationListener(notificationController);
-            Text notificationText = notificationController.returnText();
+            String notificationText = notificationController.getNotificationText();
 
 
             settingsPane = getSettingsPage();

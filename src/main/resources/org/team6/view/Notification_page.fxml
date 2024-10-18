@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -16,9 +17,8 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <VBox fx:id="notificationHistoryVBox" layoutX="3.0" layoutY="81.0" prefHeight="368.0" prefWidth="370.0" />
-      <Button fx:id="testButton" layoutX="218.0" layoutY="33.0" mnemonicParsing="false" onAction="#addNotificationToVbox" text="show" />
-      <Pane fx:id="barPane" layoutX="5.0" layoutY="585.0" prefHeight="61.0" prefWidth="370.0" stylesheets="@../styles/styles.css">
+      <VBox fx:id="notificationHistoryVBox" layoutX="3.0" layoutY="89.0" prefHeight="420.0" prefWidth="381.0" styleClass="vbox" stylesheets="@../styles/notificationPageStyles.css" />
+      <Pane fx:id="barPane" layoutX="4.0" layoutY="587.0" prefHeight="61.0" prefWidth="370.0" stylesheets="@../styles/styles.css">
          <children>
             <Button fx:id="accountButton" layoutX="164.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleEnergyButtonAction">
                <graphic>
@@ -49,5 +49,11 @@
             </Button>
          </children>
       </Pane>
+      <ToggleButton fx:id="toggleButton" layoutX="141.0" layoutY="57.0" mnemonicParsing="false" onAction="#addNotificationToVbox" prefWidth="64.0" styleClass="mobile-toggle" />
+      <Text fill="WHITE" layoutX="16.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Show notification">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
