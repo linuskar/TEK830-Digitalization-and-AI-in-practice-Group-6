@@ -28,6 +28,7 @@ public class PageStarter {
     private static AnchorPane energyPane;
     private static Scene scene;
     private static Stage primaryStage;
+    private static AnchorPane appTutorialPage;
 
     private PageStarter() {
         // Private constructor to prevent instantiation
@@ -58,18 +59,32 @@ public class PageStarter {
             settingsPane = getSettingsPage();
             pages.add(settingsPane);
 
-            AnchorPane appTutorialPage = getAppTutorialPage();
+            appTutorialPage = getAppTutorialPage();
 
             energyPane = getEnergyPane();
             pages.add(energyPane);
 
             AnchorPane settingsPopUpPane = getSettingsPopUpPage();
 
-            mainPage.getChildren().addAll(homePane, settingsPane, energyInsightsPane, recommendationsPane, notificationPane,appTutorialPage, settingsPopUpPane, energyPane);
 
+
+            mainPage.getChildren().addAll(homePane, settingsPane, energyInsightsPane, recommendationsPane, notificationPane,appTutorialPage, settingsPopUpPane, energyPane);
             notificationController.setupKeyHandling(scene);
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    private static void setAppTutorialVisible(boolean visible) {
+        // Ensure homePane (main page) is visible and appTutorialPage is shown or hidden based on the argument
+        settingsPane.setVisible(true);  // Always keep the main page visible
+        appTutorialPage.setVisible(visible);
+
+        // If appTutorialPage needs to be visible, bring it to the front
+        if (visible) {
+            StackPane parent = (StackPane) appTutorialPage.getParent();
+            parent.getChildren().remove(appTutorialPage);  // Remove it first
+            parent.getChildren().add(appTutorialPage);     // Add it back to bring it to the top
         }
     }
 
@@ -113,6 +128,12 @@ public class PageStarter {
         setPageVisible(energyPane);
         primaryStage.setTitle("Energy overview");
         primaryStage.setScene(scene);
+    }
+
+    public static void openAppTutorial() {
+        pages.add(appTutorialPage);
+        setAppTutorialVisible(true);
+        primaryStage.setTitle("App Tutorial");
     }
 
     private static StackPane getMainPage() throws IOException {
