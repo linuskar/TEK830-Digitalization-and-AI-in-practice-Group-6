@@ -10,6 +10,7 @@ import javafx.scene.layout.AnchorPane;
 import org.team6.tutorial.TutorialPageItem;
 import org.team6.tutorial.TutorialPageItemHandler;
 import org.team6.view.ImageUtils;
+import org.team6.view.PageStarter;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -40,6 +41,8 @@ public class AppTutorialController implements Initializable {
 
     private double startWidth;
     private double startHeight;
+
+    private boolean firstTime = true;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -101,6 +104,12 @@ public class AppTutorialController implements Initializable {
         currentPageNumber = 0;
         updatePageContent(currentPageNumber);
         windowPane.setVisible(false);
-        windowPane.setDisable(true);
+        if(firstTime) {
+            PageStarter.switchToHomePage();
+            firstTime = false;
+        } else {
+            PageStarter.switchToSettingsPage();
+        }
+
     }
 }
