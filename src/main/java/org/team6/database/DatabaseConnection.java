@@ -14,8 +14,10 @@ import java.util.List;
 import java.util.Properties;
 
 import org.team6.model.EnergyUsageCategory;
+import org.team6.model.Products.ConventionalOven;
+import org.team6.model.Products.ForcedAirOven;
 import org.team6.model.Products.Fridge;
-import org.team6.model.Products.Oven;
+import org.team6.model.Products.FridgeFreezer;
 import org.team6.model.Products.Product;
 import org.team6.model.Products.ProductCategory;
 
@@ -105,26 +107,30 @@ public class DatabaseConnection {
 
         // TEMP: Products and energy usage data are hardcoded for now
         // TODO: Put products in database
-        Fridge fridge1 = new Fridge("Tynnerås", ProductCategory.FRIDGE, EnergyUsageCategory.REFRIGERATION, 114, 7995);
-        Fridge fridge2 = new Fridge("Mölnås", ProductCategory.FRIDGE, EnergyUsageCategory.REFRIGERATION, 164, 8995);
-        Fridge fridge3 = new Fridge("Alingsås", ProductCategory.FRIDGE, EnergyUsageCategory.REFRIGERATION, 198, 7995);
+        Fridge fridge1 = new Fridge("Tynnerås", ProductCategory.FRIDGE, EnergyUsageCategory.REFRIGERATION, 114, 7995,365);
 
-        Oven oven1 = new Oven("Mutebo", ProductCategory.OVEN, EnergyUsageCategory.COOKING, 10995, 1.09, 0.52, 1, 70);
-        Oven oven2 = new Oven("Forneby", ProductCategory.OVEN, EnergyUsageCategory.COOKING, 5495, 0.93,0.69, 1, 72);
-        Oven oven3 = new Oven("Brändbo", ProductCategory.OVEN, EnergyUsageCategory.COOKING, 4995,0.93,0.69, 1, 72);
-        // TODO: ovens with no fan forced convection
-        Oven oven4 = new Oven("Lagan", ProductCategory.OVEN, EnergyUsageCategory.COOKING, 2495, 0.82,0,0,74);
-        Oven oven5 = new Oven("Mattradition", ProductCategory.OVEN, EnergyUsageCategory.COOKING, 3995, 0.99,0.81, 1, 71);
+        FridgeFreezer fridgeFreezer1 = new FridgeFreezer("Mölnås", ProductCategory.FRIDGE_FREEZER, EnergyUsageCategory.REFRIGERATION, 164, 8995, 249, 106);
+        FridgeFreezer fridgeFreezer2 = new FridgeFreezer("Alingsås", ProductCategory.FRIDGE_FREEZER, EnergyUsageCategory.REFRIGERATION, 198, 7995,210,106);
+
+        ForcedAirOven forcedAirOven1 = new ForcedAirOven("Mutebo", ProductCategory.FORCED_AIR_OVEN, EnergyUsageCategory.COOKING, 10995, 1.09, 0.52, 1, 70);
+        ForcedAirOven forcedAirOven2 = new ForcedAirOven("Forneby", ProductCategory.FORCED_AIR_OVEN, EnergyUsageCategory.COOKING, 5495, 0.93,0.69, 1, 72);
+        ForcedAirOven forcedAirOven3 = new ForcedAirOven("Brändbo", ProductCategory.FORCED_AIR_OVEN, EnergyUsageCategory.COOKING, 4995,0.93,0.69, 1, 72);
+        ForcedAirOven forcedAirOven4 = new ForcedAirOven("Mattradition", ProductCategory.FORCED_AIR_OVEN, EnergyUsageCategory.COOKING, 3995, 0.99,0.81, 1, 71);
+
+        ConventionalOven oven1 = new ConventionalOven("Lagan", ProductCategory.OVEN, EnergyUsageCategory.COOKING, 2495, 0.82,74);
+
 
         dataBaseProducts.add(fridge1);
-        dataBaseProducts.add(fridge2);
-        dataBaseProducts.add(fridge3);
+
+        dataBaseProducts.add(fridgeFreezer1);
+        dataBaseProducts.add(fridgeFreezer2);
         
         dataBaseProducts.add(oven1);
-        dataBaseProducts.add(oven2);
-        dataBaseProducts.add(oven3);
-        dataBaseProducts.add(oven4);
-        dataBaseProducts.add(oven5);
+
+        dataBaseProducts.add(forcedAirOven1);
+        dataBaseProducts.add(forcedAirOven2);
+        dataBaseProducts.add(forcedAirOven3);
+        dataBaseProducts.add(forcedAirOven4);
 
         return dataBaseProducts;
     }

@@ -2,22 +2,30 @@ package org.team6.model.Products;
 
 import org.team6.model.EnergyUsageCategory;
 
-public class Fridge extends Product {
-    private double energyConsumption; // Energy consumption of this product in kWh/annum for fridge
+public class FridgeFreezer extends Product {
+    private int freezerVolume; // volume of the freezer in liters
     private int fridgeVolume; // volume of the fridge in liters
+    private double energyConsumption; // Energy consumption of this product in kWh/annum for fridge freezer
 
-    public Fridge(String name, ProductCategory productCategory, EnergyUsageCategory energySpendingcategory, double energyConsumption, int price, int fridgeVolume) {
+    
+
+    public FridgeFreezer(String name, ProductCategory productCategory, EnergyUsageCategory energySpendingcategory, double energyConsumption, int price, int fridgeVolume, int freezerVolume) {
         super(name, productCategory, energySpendingcategory, price);
         this.energyConsumption = energyConsumption;
         this.fridgeVolume = fridgeVolume;
+        this.freezerVolume = freezerVolume;
     }    
 
-    public double getEnergyConsumption() {
-        return energyConsumption;
+    public int getFreezerVolume() {
+        return freezerVolume;
     }
 
     public int getFridgeVolume() {
         return fridgeVolume;
+    }
+
+    public double getEnergyConsumption() {
+        return energyConsumption;
     }
 
     @Override
@@ -40,7 +48,11 @@ public class Fridge extends Product {
         sb.append("• This product has a chill compartments volume of ");
         sb.append(this.getFridgeVolume());
         sb.append(" liters.");
-
+        sb.append("\n");
+        sb.append("• This product has a frozen compartments volume of ");
+        sb.append(this.getFreezerVolume());
+        sb.append(" liters.");
+        
         return sb.toString();
     }
 }

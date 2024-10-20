@@ -8,7 +8,9 @@ import java.util.Map;
 
 import org.team6.database.DatabaseConnection;
 import org.team6.model.EnergyUsageCategory;
+import org.team6.model.Products.ForcedAirOven;
 import org.team6.model.Products.Fridge;
+import org.team6.model.Products.FridgeFreezer;
 import org.team6.model.Products.Oven;
 import org.team6.model.Products.Product;
 import org.team6.model.Products.ProductCategory;
@@ -135,8 +137,26 @@ public class RecommendationsBackend {
                     personalProductRecommendations.add(new Recommendation(lowestConsumptionFridge.getName(), description));
                 }
             }
-            else{
+            else if (productCategory.equals(ProductCategory.FRIDGE_FREEZER.toString())) {
+                FridgeFreezer lowestConsumptionFridgeFreezer = recommendFridgeFreezer(productsInCategory);
+
+                if (lowestConsumptionFridgeFreezer != null) {
+                    String description = personalRecommendationDescription(lowestConsumptionFridgeFreezer, category);
+
+                    personalProductRecommendations.add(new Recommendation(lowestConsumptionFridgeFreezer.getName(), description));
+                }
+            }
+            else if (productCategory.equals(ProductCategory.OVEN.toString())) {
                 Oven lowestConsumptionOven = recommendOven(productsInCategory);
+
+                if (lowestConsumptionOven != null) {
+                    String description = personalRecommendationDescription(lowestConsumptionOven, category);
+
+                    personalProductRecommendations.add(new Recommendation(lowestConsumptionOven.getName(), description));
+                }
+            }
+            else{
+                ForcedAirOven lowestConsumptionOven = recommendForcedAirOven(productsInCategory);
  
                 if (lowestConsumptionOven != null) {
                     String description = personalRecommendationDescription(lowestConsumptionOven, category);
@@ -151,11 +171,10 @@ public class RecommendationsBackend {
         StringBuilder sb = new StringBuilder();
         String energyUsagePercentageForCategory = Math.round(getEnergyUsagePercantage(category)) + "%";
         String personalRecommendationDescription = personalRecommendationEnergySavingsDescription(product, category, energyUsagePercentageForCategory);
-        String productRecommendationDescription = productRecommendationDescription(product);
 
         sb.append(personalRecommendationDescription);
         sb.append("\n\n");
-        sb.append(productRecommendationDescription);
+        sb.append(product.getProductDescription());
 
         return sb.toString();
     }
@@ -176,49 +195,6 @@ public class RecommendationsBackend {
         return sb.toString();
     }
 
-    private static String productRecommendationDescription(Product product){
-        StringBuilder sb = new StringBuilder();
-
-        if (product instanceof Fridge){
-            Fridge fridge = (Fridge) product;
-            sb.append("• This product costs ");
-            sb.append(fridge.getPrice());
-            sb.append(" kr.");
-            sb.append("\n");
-            sb.append("• Product category: ");
-            sb.append(fridge.getProductCategory());
-            sb.append("\n");
-            sb.append("• Energy spender category: ");
-            sb.append(fridge.getEnergyUsageCategory());
-            sb.append("\n");
-            sb.append("• This product consumes ");
-            sb.append(fridge.getEnergyConsumption());
-            sb.append(" kWh/annum.");
-        }
-        else{
-            Oven oven = (Oven) product;
-            sb.append("• This product costs ");
-            sb.append(oven.getPrice());
-            sb.append(" kr.");
-            sb.append("\n");
-            sb.append("• Product category: ");
-            sb.append(oven.getProductCategory());
-            sb.append("\n");
-            sb.append("• Energy spender category: ");
-            sb.append(oven.getEnergyUsageCategory());
-            sb.append("\n");
-            sb.append("• This product consumes ");
-            sb.append(oven.getEnergyConsumptionConventional());
-            sb.append(" kWh/cycle (conventional).");
-            sb.append("\n");
-            sb.append("• This product consumes ");
-            sb.append(oven.getEnergyConsumptionFanForcedConvection());
-            sb.append(" kWh/cycle (fan forced convection).");
-        }
-
-        return sb.toString();
-    }
-
     private static Fridge recommendFridge(List<Product> products) {
         // Sort products in the category based on energy consumption
         Fridge lowestConsumptionFridge = products.stream()
@@ -231,12 +207,34 @@ public class RecommendationsBackend {
         return lowestConsumptionFridge;
     }
 
+    private static FridgeFreezer recommendFridgeFreezer(List<Product> products) {
+        FridgeFreezer lowestConsumptionFridgeFreezer = products.stream()
+            .filter(product -> product instanceof FridgeFreezer)
+            .map(product -> (FridgeFreezer) product)
+            .sorted(Comparator.comparingDouble(FridgeFreezer::getEnergyConsumption))
+            .findFirst()
+            .orElse(null);
+
+        return lowestConsumptionFridgeFreezer;
+    }
+
+    private static ForcedAirOven recommendForcedAirOven(List<Product> products) {
+        ForcedAirOven lowestConsumptionOven = products.stream()
+            .filter(product -> product instanceof ForcedAirOven)
+            .map(product -> (ForcedAirOven) product)
+            .sorted(Comparator.comparingDouble(ForcedAirOven::getEnergyConsumptionFanForcedConvection)
+                .thenComparingDouble(ForcedAirOven::getEnergyConsumptionConventional))
+            .findFirst()
+            .orElse(null);
+
+        return lowestConsumptionOven;
+    }
+
     private static Oven recommendOven(List<Product> products) {
         Oven lowestConsumptionOven = products.stream()
             .filter(product -> product instanceof Oven)
             .map(product -> (Oven) product)
-            .sorted(Comparator.comparingDouble(Oven::getEnergyConsumptionFanForcedConvection)
-                .thenComparingDouble(Oven::getEnergyConsumptionConventional))
+            .sorted(Comparator.comparingDouble(Oven::getEnergyConsumptionConventional))
             .findFirst()
             .orElse(null);
 
@@ -253,19 +251,7 @@ public class RecommendationsBackend {
         }
 
         for (Product product : relevantProducts) {
-            // Add product information based on product category as needed
-            if (product.getProductCategory().equals(ProductCategory.FRIDGE.toString())) {
-                Fridge fridge = (Fridge) product;
-
-                String productRecommendationDescription = productRecommendationDescription(fridge);
-                generalProductRecommendations.add(new Recommendation(product.getName(), productRecommendationDescription));
-            }
-            else{
-                Oven oven = (Oven) product;
-
-                String productRecommendationDescription = productRecommendationDescription(oven);
-                generalProductRecommendations.add(new Recommendation(product.getName(), productRecommendationDescription));
-            }
+            generalProductRecommendations.add(new Recommendation(product.getName(), product.getProductDescription()));
         }      
     }
 }

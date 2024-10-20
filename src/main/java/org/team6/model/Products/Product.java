@@ -2,7 +2,7 @@ package org.team6.model.Products;
 
 import org.team6.model.EnergyUsageCategory;
 
-public abstract class Product {
+public abstract class Product implements IProduct  {
     // TODO: get product image based on id from database
     // not saving image in database due to size
     private String name;
