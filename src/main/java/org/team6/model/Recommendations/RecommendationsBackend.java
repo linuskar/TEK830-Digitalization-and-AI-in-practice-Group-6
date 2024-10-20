@@ -9,6 +9,7 @@ import java.util.Map;
 import org.team6.database.DatabaseConnection;
 import org.team6.model.EnergyUsageCategory;
 import org.team6.model.Products.ForcedAirOven;
+import org.team6.model.Products.Freezer;
 import org.team6.model.Products.Fridge;
 import org.team6.model.Products.FridgeFreezer;
 import org.team6.model.Products.Oven;
@@ -119,11 +120,11 @@ public class RecommendationsBackend {
         Map<String, List<Product>> groupedProducts = new HashMap<>();
         for (Product product : dataBaseProducts) {
             if (product.getEnergyUsageCategory().equals(category.toString())) {
-                if (!groupedProducts.containsKey(product.getProductCategory())) {
-                    groupedProducts.put(product.getProductCategory(), new ArrayList<>());
+                if (!groupedProducts.containsKey(product.getProductCategoryString())) {
+                    groupedProducts.put(product.getProductCategoryString(), new ArrayList<>());
                 }
 
-                groupedProducts.get(product.getProductCategory()).add(product);     
+                groupedProducts.get(product.getProductCategoryString()).add(product);     
             }
         }
 
@@ -134,7 +135,16 @@ public class RecommendationsBackend {
                 if (lowestConsumptionFridge != null) {
                     String description = personalRecommendationDescription(lowestConsumptionFridge, category);
 
-                    personalProductRecommendations.add(new Recommendation(lowestConsumptionFridge.getName(), description));
+                    personalProductRecommendations.add(new Recommendation(lowestConsumptionFridge.getName(), description, ProductCategory.FRIDGE));
+                }
+            }
+            else if (productCategory.equals(ProductCategory.FREEZER.toString())) {
+                Freezer lowestConsumptionFreezer = recommendFreezer(productsInCategory);
+
+                if (lowestConsumptionFreezer != null) {
+                    String description = personalRecommendationDescription(lowestConsumptionFreezer, category);
+
+                    personalProductRecommendations.add(new Recommendation(lowestConsumptionFreezer.getName(), description, ProductCategory.FREEZER));
                 }
             }
             else if (productCategory.equals(ProductCategory.FRIDGE_FREEZER.toString())) {
@@ -143,7 +153,7 @@ public class RecommendationsBackend {
                 if (lowestConsumptionFridgeFreezer != null) {
                     String description = personalRecommendationDescription(lowestConsumptionFridgeFreezer, category);
 
-                    personalProductRecommendations.add(new Recommendation(lowestConsumptionFridgeFreezer.getName(), description));
+                    personalProductRecommendations.add(new Recommendation(lowestConsumptionFridgeFreezer.getName(), description, ProductCategory.FRIDGE_FREEZER));
                 }
             }
             else if (productCategory.equals(ProductCategory.OVEN.toString())) {
@@ -152,7 +162,7 @@ public class RecommendationsBackend {
                 if (lowestConsumptionOven != null) {
                     String description = personalRecommendationDescription(lowestConsumptionOven, category);
 
-                    personalProductRecommendations.add(new Recommendation(lowestConsumptionOven.getName(), description));
+                    personalProductRecommendations.add(new Recommendation(lowestConsumptionOven.getName(), description, ProductCategory.OVEN));
                 }
             }
             else{
@@ -161,7 +171,7 @@ public class RecommendationsBackend {
                 if (lowestConsumptionOven != null) {
                     String description = personalRecommendationDescription(lowestConsumptionOven, category);
 
-                    personalProductRecommendations.add(new Recommendation(lowestConsumptionOven.getName(), description));
+                    personalProductRecommendations.add(new Recommendation(lowestConsumptionOven.getName(), description, ProductCategory.FORCED_AIR_OVEN));
                 }
             }
         });    
@@ -189,7 +199,7 @@ public class RecommendationsBackend {
         sb.append(". We therefore recommend a ");
         sb.append(product.getName());
         sb.append(" ");
-        sb.append(product.getProductCategory().toLowerCase());
+        sb.append(product.getProductCategoryString().toLowerCase());
         sb.append(" to save energy.");
 
         return sb.toString();
@@ -205,6 +215,17 @@ public class RecommendationsBackend {
             .orElse(null);
 
         return lowestConsumptionFridge;
+    }
+
+    private static Freezer recommendFreezer(List<Product> products) {
+        Freezer lowestConsumptionFreezer = products.stream()
+            .filter(product -> product instanceof Freezer)
+            .map(product -> (Freezer) product)
+            .sorted(Comparator.comparingDouble(Freezer::getEnergyConsumption))
+            .findFirst()
+            .orElse(null);
+
+        return lowestConsumptionFreezer;
     }
 
     private static FridgeFreezer recommendFridgeFreezer(List<Product> products) {
@@ -251,7 +272,8 @@ public class RecommendationsBackend {
         }
 
         for (Product product : relevantProducts) {
-            generalProductRecommendations.add(new Recommendation(product.getName(), product.getProductDescription()));
+            Recommendation recommendation = new Recommendation(product.getName(), product.getProductDescription(), product.getProductCategory());
+            generalProductRecommendations.add(recommendation);
         }      
     }
 }

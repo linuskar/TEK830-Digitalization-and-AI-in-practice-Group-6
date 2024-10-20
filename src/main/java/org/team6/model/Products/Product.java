@@ -21,7 +21,11 @@ public abstract class Product implements IProduct  {
         return name;
     }
 
-    public String getProductCategory() {
+    public ProductCategory getProductCategory() {
+        return productCategory;
+    }
+
+    public String getProductCategoryString() {
         return productCategory.toString();
     }
 

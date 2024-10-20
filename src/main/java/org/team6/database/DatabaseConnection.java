@@ -16,6 +16,7 @@ import java.util.Properties;
 import org.team6.model.EnergyUsageCategory;
 import org.team6.model.Products.ConventionalOven;
 import org.team6.model.Products.ForcedAirOven;
+import org.team6.model.Products.Freezer;
 import org.team6.model.Products.Fridge;
 import org.team6.model.Products.FridgeFreezer;
 import org.team6.model.Products.Product;
@@ -108,6 +109,10 @@ public class DatabaseConnection {
         // TEMP: Products and energy usage data are hardcoded for now
         // TODO: Put products in database
         Fridge fridge1 = new Fridge("Tynnerås", ProductCategory.FRIDGE, EnergyUsageCategory.REFRIGERATION, 114, 7995,365);
+        Fridge fridge2 = new Fridge("Forsnäs", ProductCategory.FRIDGE, EnergyUsageCategory.REFRIGERATION, 91, 7995, 310);    
+
+        Freezer freezer1 = new Freezer("Forsnäs", ProductCategory.FREEZER, EnergyUsageCategory.REFRIGERATION, 189, 8495, 212);
+        Freezer freezer2 = new Freezer("Tynnerås", ProductCategory.FREEZER, EnergyUsageCategory.REFRIGERATION, 250, 8995, 286);
 
         FridgeFreezer fridgeFreezer1 = new FridgeFreezer("Mölnås", ProductCategory.FRIDGE_FREEZER, EnergyUsageCategory.REFRIGERATION, 164, 8995, 249, 106);
         FridgeFreezer fridgeFreezer2 = new FridgeFreezer("Alingsås", ProductCategory.FRIDGE_FREEZER, EnergyUsageCategory.REFRIGERATION, 198, 7995,210,106);
@@ -121,6 +126,10 @@ public class DatabaseConnection {
 
 
         dataBaseProducts.add(fridge1);
+        dataBaseProducts.add(fridge2);
+
+        dataBaseProducts.add(freezer1);
+        dataBaseProducts.add(freezer2);
 
         dataBaseProducts.add(fridgeFreezer1);
         dataBaseProducts.add(fridgeFreezer2);
