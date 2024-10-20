@@ -1,0 +1,1 @@
+Here you can toggle notifications and their related settings.

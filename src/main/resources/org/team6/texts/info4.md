@@ -1,1 +1,1 @@
-That is it for this tour. If you want to see it again you can find it on the page shown in the image. You can now close this window to experience a smarter home.
+For this page you’re presented with an energy graph giving you the expected energy prices in 24 hour intervals. There is a bar that displays where you’ve set your energy limit, which can be done in the settings page.

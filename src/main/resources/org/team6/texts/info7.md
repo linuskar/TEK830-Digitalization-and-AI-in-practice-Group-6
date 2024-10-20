@@ -1,0 +1,1 @@
+In this page there is another level for settings more related to the technical side of the app.
