@@ -7,7 +7,7 @@ import java.util.ResourceBundle;
 
 import org.team6.model.Notification;
 import org.team6.model.NotificationBackend;
-import org.team6.model.Observer;
+import org.team6.model.Recommendations.RecommendationObserver;
 import org.team6.model.Recommendations.RecommendationsBackend;
 import org.team6.view.PageStarter;
 
@@ -21,7 +21,7 @@ import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.AnchorPane;
 
-public class SettingsPageController implements Initializable, Observer {
+public class SettingsPageController implements Initializable, RecommendationObserver {
     @FXML
     private ToggleButton sendNotificationsToggleButton;
     @FXML

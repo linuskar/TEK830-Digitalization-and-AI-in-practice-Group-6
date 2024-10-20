@@ -2,8 +2,8 @@ package org.team6.controller;
 
 import java.io.IOException;
 
-import org.team6.model.Observer;
 import org.team6.model.Recommendations.Recommendation;
+import org.team6.model.Recommendations.RecommendationObserver;
 import org.team6.model.Recommendations.RecommendationsBackend;
 import org.team6.view.PageStarter;
 
@@ -17,7 +17,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 
-public class RecommendationsPageController implements Observer {
+public class RecommendationsPageController implements RecommendationObserver {
     @FXML
     private Button homeButton;
     @FXML
@@ -82,14 +82,6 @@ public class RecommendationsPageController implements Observer {
     public void update() {
         recommendationsToggleButton.setSelected(RecommendationsBackend.isPersonalRecommendationsOn());
         personalToggleButton.setDisable(!RecommendationsBackend.isPersonalRecommendationsOn());
-
-        if (RecommendationsBackend.isPersonalRecommendationsOn()) {
-            //System.out.println("Personal recommendations are on");
-        } else {
-            //handleRecommendationPrivacyTypeToggle(generalToggleButton);
-            //handleContentToggle();
-            //System.out.println("Personal recommendations are off");
-        }
     }
 
     private void initializeRecommendations() {
@@ -261,28 +253,6 @@ public class RecommendationsPageController implements Observer {
         PageStarter.switchToEnergyInsightsPage();
     }
 
-    private void createProductRecommendationCard(VBox recommendationVBox) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/team6/view/RecommendationCard.fxml"));
-            AnchorPane card = loader.load();
-
-        RecommendationCardController controller = loader.getController();
-        
-        // TODO:
-        // maybe add url to backend for recommedation card
-        // if url does not exist then disable read more button
-        
-        // TODO: Set card title, text, and image from backend
-        //controller.setCardTitle("Card Title");
-        //controller.setCardText("Card Text");
-        //controller.setCardImage(null);
-
-            recommendationVBox.getChildren().add(card);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     private void createProductRecommendationCard(VBox recommendationVBox, Recommendation recommendation) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/team6/view/RecommendationCard.fxml"));
@@ -290,27 +260,14 @@ public class RecommendationsPageController implements Observer {
 
         RecommendationCardController controller = loader.getController();
 
-        //controller.disableReadMoreButton();
-        
-        // TODO: Set card title, text, and image from backend, 
         controller.setCardTitle(recommendation.getTitle());
         controller.setCardText(recommendation.getText());
         String imageUrl = recommendation.getRecommendationImage();
-        //String imageUrl = "/org/team6/images/ikea_home.png";
+
         Image image = new Image(getClass().getResourceAsStream(imageUrl));
         controller.setCardImage(image);
-        /* 
-        try (){
-            //System.out.println(recommendation.getTitle());
-            //String imageUrl = RecommendationImagePath.getImagePath(recommendation.getTitle());
-            Image image = new Image(imageUrl);
-            controller.setCardImage(image);
-        } catch (Exception e) {
-            controller.setCardImage(null);
-        }
-        */
         controller.setCardText(recommendation.getText());
-        System.out.println("Recommendation url: " + recommendation.getReadMoreUrl());
+
         controller.setReadMoreURL(recommendation.getReadMoreUrl());
 
             recommendationVBox.getChildren().add(card);

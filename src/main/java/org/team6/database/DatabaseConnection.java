@@ -2,8 +2,22 @@ package org.team6.database;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.sql.*; // JDBC stuff.
+import java.sql.Connection; // JDBC stuff.
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Properties;
+
+import org.team6.model.EnergyUsageCategory;
+import org.team6.model.Products.Fridge;
+import org.team6.model.Products.Oven;
+import org.team6.model.Products.Product;
+import org.team6.model.Products.ProductCategory;
 
 // Link to information about the database:
 // https://docs.google.com/document/d/1JxDC5xcKDjNiRzDip7-FgzctD0OXAkUr1Vwq7ylGTpA/edit?usp=sharing
@@ -68,7 +82,8 @@ public class DatabaseConnection {
      *
      * @return a string containing all products
      */
-    public String getProducts() {
+    public static List<Product> getProducts() {
+        /* 
         String query = "SELECT * FROM Products";
         try (PreparedStatement ps = conn.prepareStatement(query)) {
             ResultSet rs = ps.executeQuery();
@@ -84,6 +99,47 @@ public class DatabaseConnection {
         } catch (SQLException e) {
             return "{\"error\":\""+getError(e)+"\"}";
         }
+        */
+
+        List<Product> dataBaseProducts = new ArrayList<>();
+
+        // TEMP: Products and energy usage data are hardcoded for now
+        // TODO: Put products in database
+        Fridge fridge1 = new Fridge("Tynnerås", ProductCategory.FRIDGE, EnergyUsageCategory.REFRIGERATION, 114, 7995);
+        Fridge fridge2 = new Fridge("Mölnås", ProductCategory.FRIDGE, EnergyUsageCategory.REFRIGERATION, 164, 8995);
+        Fridge fridge3 = new Fridge("Alingsås", ProductCategory.FRIDGE, EnergyUsageCategory.REFRIGERATION, 198, 7995);
+
+        Oven oven1 = new Oven("Mutebo", ProductCategory.OVEN, EnergyUsageCategory.COOKING, 10995, 1.09, 0.52, 1, 70);
+        Oven oven2 = new Oven("Forneby", ProductCategory.OVEN, EnergyUsageCategory.COOKING, 5495, 0.93,0.69, 1, 72);
+        Oven oven3 = new Oven("Brändbo", ProductCategory.OVEN, EnergyUsageCategory.COOKING, 4995,0.93,0.69, 1, 72);
+        // TODO: ovens with no fan forced convection
+        Oven oven4 = new Oven("Lagan", ProductCategory.OVEN, EnergyUsageCategory.COOKING, 2495, 0.82,0,0,74);
+        Oven oven5 = new Oven("Mattradition", ProductCategory.OVEN, EnergyUsageCategory.COOKING, 3995, 0.99,0.81, 1, 71);
+
+        dataBaseProducts.add(fridge1);
+        dataBaseProducts.add(fridge2);
+        dataBaseProducts.add(fridge3);
+        
+        dataBaseProducts.add(oven1);
+        dataBaseProducts.add(oven2);
+        dataBaseProducts.add(oven3);
+        dataBaseProducts.add(oven4);
+        dataBaseProducts.add(oven5);
+
+        return dataBaseProducts;
+    }
+
+    public static HashMap<EnergyUsageCategory, Integer> getEnergySpenders() {
+        HashMap<EnergyUsageCategory, Integer> energySpending = new HashMap<>();
+
+        energySpending.put(EnergyUsageCategory.LIGHTING, 100);
+        energySpending.put(EnergyUsageCategory.HEATING, 200);
+        energySpending.put(EnergyUsageCategory.COOKING, 300);
+        energySpending.put(EnergyUsageCategory.COOLING, 400);
+        energySpending.put(EnergyUsageCategory.REFRIGERATION, 500);
+        energySpending.put(EnergyUsageCategory.OTHER, 600);
+
+        return energySpending;
     }
 
     // This is a hack to turn an SQLException into a JSON string error message. No need to change.
