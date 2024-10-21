@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 
 import org.team6.model.Notification;
 import org.team6.model.NotificationBackend;
+import org.team6.model.User;
 import org.team6.view.PageStarter;
 
 import java.net.URL;
@@ -23,7 +24,7 @@ import java.util.ResourceBundle;
 import org.team6.model.Observer;
 import org.team6.model.RecommendationsBackend;
 
-public class SettingsPageController implements Initializable, Observer {
+public class SettingsPageController implements Initializable, Observer, IPageWithUser {
     @FXML
     private ToggleButton sendNotificationsToggleButton;
     @FXML
@@ -61,6 +62,8 @@ public class SettingsPageController implements Initializable, Observer {
     // Map of specific notification buttons. For instance used for
     // enabling and disabling all buttons if notifications are switched on or off.
     private final Map<ToggleButton, Notification> notificationButtons = new HashMap<>();
+
+    private User user;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -208,5 +211,10 @@ public class SettingsPageController implements Initializable, Observer {
 
     private void handleEndNotificationTimeChanged(int newTime) {
         NotificationBackend.setEndNotificationTime(newTime);
+    }
+
+    @Override
+    public void setUser(User user) {
+        this.user = user;
     }
 }

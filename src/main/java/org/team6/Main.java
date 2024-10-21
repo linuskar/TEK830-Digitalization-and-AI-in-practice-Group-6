@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
         User user = new User("a", "b", "c", "d");
         NotificationBackend.setUser(user);
-        SoundHandler soundHandler = new SoundHandler();
+        SoundHandler soundHandler = new SoundHandler(user);
         NotificationBackend.addNotificationListener(soundHandler);
         App app = new App();
         app.startView(args);

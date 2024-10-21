@@ -7,14 +7,16 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
+import org.team6.controller.IPageWithUser;
 import org.team6.controller.NotificationController;
 import org.team6.model.NotificationBackend;
+import org.team6.model.User;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PageStarter {
+public class PageStarter implements IPageWithUser {
     private static AnchorPane homePane;
     @FXML
     private static AnchorPane energyInsightsPane;
@@ -28,6 +30,8 @@ public class PageStarter {
     private static AnchorPane energyPane;
     private static Scene scene;
     private static Stage primaryStage;
+
+    private User user;
 
     private PageStarter() {
         // Private constructor to prevent instantiation
@@ -153,5 +157,10 @@ public class PageStarter {
     private static AnchorPane getSettingsPopUpPage() throws IOException {
         FXMLLoader settingsPopUp = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/settings_popup.fxml"));
         return settingsPopUp.load();
+    }
+
+    @Override
+    public void setUser(User user) {
+        PageStarter.user = user;
     }
 }

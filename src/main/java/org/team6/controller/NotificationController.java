@@ -13,9 +13,10 @@ import javafx.util.Duration;
 import org.team6.model.Notification;
 import org.team6.model.NotificationBackend;
 import org.team6.model.NotificationListener;
+import org.team6.model.User;
 import org.team6.view.ImageUtils;
 
-public class NotificationController implements NotificationListener {
+public class NotificationController implements NotificationListener, IPageWithUser {
 
     @FXML
     private Text appNameText;
@@ -25,7 +26,9 @@ public class NotificationController implements NotificationListener {
     private AnchorPane notificationPane;
     @FXML
     private ImageView imageView;
-    
+
+    private User user;
+
     @FXML
     public void initialize() {
         notificationPane.setVisible(false);
@@ -101,5 +104,10 @@ public class NotificationController implements NotificationListener {
     @Override
     public void onNotificationSent(Notification notification) {
         showNotificationPane(Notification.getText(notification));
+    }
+
+    @Override
+    public void setUser(User user) {
+        this.user = user;
     }
 }

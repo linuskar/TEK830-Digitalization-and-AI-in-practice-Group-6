@@ -7,6 +7,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import org.team6.model.NotificationBackend;
 import org.team6.model.NotificationListener;
+import org.team6.model.User;
 
 import java.net.URL;
 import java.util.EnumMap;
@@ -16,8 +17,11 @@ import java.util.Objects;
 public class SoundHandler implements NotificationListener {
     private final Map<Notification, Media> notificationSoundMap = new EnumMap<>(Notification.class);
     private static final String SOUND_PATH = "/org/team6/sounds/test.mp3";
+    private final User user;
 
-    public SoundHandler() {
+    public SoundHandler(User user) {
+        this.user = user;
+
         for (Notification notification : Notification.values()) {
             Media sound = getSoundFromPath(SOUND_PATH);
             notificationSoundMap.put(notification, sound);
