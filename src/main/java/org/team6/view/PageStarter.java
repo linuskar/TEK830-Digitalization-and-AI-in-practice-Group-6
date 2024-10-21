@@ -76,16 +76,7 @@ public class PageStarter {
     }
 
     private static void setAppTutorialVisible(boolean visible) {
-        // Ensure homePane (main page) is visible and appTutorialPage is shown or hidden based on the argument
-        settingsPane.setVisible(true);  // Always keep the main page visible
         appTutorialPage.setVisible(visible);
-
-        // If appTutorialPage needs to be visible, bring it to the front
-        if (visible) {
-            StackPane parent = (StackPane) appTutorialPage.getParent();
-            parent.getChildren().remove(appTutorialPage);  // Remove it first
-            parent.getChildren().add(appTutorialPage);     // Add it back to bring it to the top
-        }
     }
 
     private static void setPageVisible(AnchorPane thePage) {
@@ -131,7 +122,7 @@ public class PageStarter {
     }
 
     public static void openAppTutorial() {
-        pages.add(appTutorialPage);
+
         setAppTutorialVisible(true);
         primaryStage.setTitle("App Tutorial");
     }

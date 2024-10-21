@@ -203,7 +203,8 @@ public class SettingsPageController implements Initializable, Observer {
         NotificationBackend.setEndNotificationTime(newTime);
     }
 
-    public void handleAppTutorialButton(ActionEvent event) {
+    @FXML
+    private void handleAppTutorialButton(ActionEvent event) {
         PageStarter.openAppTutorial();
     }
 }
