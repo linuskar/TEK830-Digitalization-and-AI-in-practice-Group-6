@@ -29,6 +29,8 @@ public class PageStarter {
     private static Scene scene;
     private static Stage primaryStage;
 
+    private static AnchorPane systemSettingsPane;
+
     private PageStarter() {
         // Private constructor to prevent instantiation
     }
@@ -63,9 +65,12 @@ public class PageStarter {
             energyPane = getEnergyPane();
             pages.add(energyPane);
 
+            systemSettingsPane = getSystemSettingsPage();
+            pages.add(systemSettingsPane);
+
             AnchorPane settingsPopUpPane = getSettingsPopUpPage();
 
-            mainPage.getChildren().addAll(homePane, settingsPane, energyInsightsPane, recommendationsPane, notificationPane,appTutorialPage, settingsPopUpPane, energyPane);
+            mainPage.getChildren().addAll(homePane, settingsPane, energyInsightsPane, recommendationsPane,appTutorialPage, settingsPopUpPane, energyPane,systemSettingsPane,notificationPane);
 
             notificationController.setupKeyHandling(scene);
         } catch (IOException e) {
@@ -115,6 +120,14 @@ public class PageStarter {
         primaryStage.setScene(scene);
     }
 
+    public static void switchToSystemSettings(){
+        setPageVisible(systemSettingsPane);
+        primaryStage.setTitle("System Settings");
+        primaryStage.setScene(scene);
+    }
+
+
+
     private static StackPane getMainPage() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/MainPage.fxml"));
         return fxmlLoader.load();
@@ -153,5 +166,10 @@ public class PageStarter {
     private static AnchorPane getSettingsPopUpPage() throws IOException {
         FXMLLoader settingsPopUp = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/settings_popup.fxml"));
         return settingsPopUp.load();
+    }
+
+    private static AnchorPane getSystemSettingsPage() throws IOException {
+        FXMLLoader systemSettingsPage = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/systemSettings.fxml"));
+        return systemSettingsPage.load();
     }
 }

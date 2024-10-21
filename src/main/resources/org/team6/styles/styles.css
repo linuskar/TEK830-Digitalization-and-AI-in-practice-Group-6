@@ -1,8 +1,8 @@
+
+
 #mainPage{
--fx-pref-width: 375px ;
--fx-pref-height:  667px;
--fx-border-radius: 15px;
--fx-border-width: 5px;
+-fx-pref-width: 390 ;
+-fx-pref-height:  844;
 -fx-border-color: #21130d;
 -fx-background-color: #1e1e1e;
 }
@@ -14,16 +14,13 @@
 
 #barPane{
 -fx-background-color: #1e1e1e;
+-fx-pref-width: 390;
+-fx-pref-height: 60;
 }
-
-#searchButton{
+#searchButton, #accountButton, #settingsButton, #menuButton1{
 -fx-background-color: transparent;
 }
-
-#energyButton, #homeButton{
--fx-background-color: transparent;
-}
-
+/*
 #accountButton{
 -fx-background-color: transparent;
 }
@@ -35,17 +32,16 @@
 #menuButton1{
 -fx-background-color: transparent;
 }
-
+*/
 
 #electricityButton, #productTutorialButton , #tipsButton {
     -fx-background-color: #2A3338;
-
     -fx-background-radius: 20px;
-    -fx-padding: 10px 20px;
     -fx-border-width: 1px;
     -fx-border-radius: 20px;
     -fx-pref-width: 357;
-    -fx-pref-height: 55;
+    -fx-pref-height: 70;
+
 
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 5, 0, 0, 2);
 }
@@ -62,3 +58,10 @@
 Button:hover {
     -fx-cursor: hand;
 }
+
+
+
+
+
+
+

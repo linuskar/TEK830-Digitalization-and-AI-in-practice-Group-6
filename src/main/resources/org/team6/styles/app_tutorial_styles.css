@@ -1,3 +1,27 @@
 Button:hover {
     -fx-cursor: hand;
 }
+
+#windowPane {
+    -fx-background-color: #80808080;
+}
+#windowPane2 {
+    -fx-background-color: #1e1e1e;
+    -fx-background-radius: 40px;
+}
+
+
+#backButton , #forwardButton {
+    -fx-background-color: #FBDA0C;
+    -fx-background-radius: 10px;
+    -fx-pref-width: 60;
+    -fx-pref-height: 30;
+}
+
+#closeButton {
+    -fx-background-color: #FF0000;
+    -fx-background-radius: 10px;
+    -fx-pref-width: 60;
+    -fx-pref-height: 30;
+}
+
