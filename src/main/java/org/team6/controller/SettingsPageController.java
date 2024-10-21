@@ -3,9 +3,16 @@ package org.team6.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Slider;
+import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.AnchorPane;
-import org.team6.model.*;
+import org.team6.model.Notification;
+import org.team6.model.NotificationBackend;
+import org.team6.model.Observer;
+import org.team6.model.RecommendationsBackend;
 import org.team6.view.PageStarter;
 
 import java.net.URL;
