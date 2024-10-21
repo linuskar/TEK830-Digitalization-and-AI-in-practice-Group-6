@@ -26,7 +26,7 @@
                   <Button fx:id="EnergySettingsButton" alignment="BASELINE_LEFT" layoutX="15.0" layoutY="245.0" mnemonicParsing="false" onAction="#handleAdvancedSettingsButtonOnAction" prefHeight="75.0" prefWidth="0.0" text="Advanced settings" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" />
                   <Button fx:id="AppTutorialButton" alignment="BASELINE_LEFT" layoutX="24.0" layoutY="335.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="333.0" text="App tutorial" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" />
                   <Label fx:id="label1" layoutX="15.0" layoutY="446.0" text="Help and support" AnchorPane.leftAnchor="15.0" />
-                  <Button fx:id="HelpButton" alignment="BASELINE_LEFT" layoutX="15.0" layoutY="501.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="0.0" text="help and support centeron" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" />
+                  <Button fx:id="HelpButton" alignment="BASELINE_LEFT" layoutX="15.0" layoutY="501.0" mnemonicParsing="false" onAction="#handleHelpAndSupportButtonOnAction" prefHeight="75.0" prefWidth="0.0" text="help and support center" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" />
                   <Label fx:id="label2" layoutX="15.0" layoutY="595.0" text="jurisprudence" AnchorPane.leftAnchor="15.0" />
                   <VBox layoutY="645.0" prefHeight="357.0" prefWidth="375.0" AnchorPane.bottomAnchor="276.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <children>
