@@ -101,6 +101,7 @@ public class AppTutorialController implements Initializable {
         currentPageNumber = 0;
         updatePageContent(currentPageNumber);
         windowPane.setVisible(false);
-        windowPane.setDisable(true);
+
+
     }
 }
