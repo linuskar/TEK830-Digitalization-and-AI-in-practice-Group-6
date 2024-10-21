@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="backgroundPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="844.0" prefWidth="390.0" stylesheets="@../styles/EnergyPageStyles2.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ScrollPane prefHeight="362.0" prefWidth="343.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="668.0" prefWidth="389.0">
+               <children>
+                  <AnchorPane prefHeight="250.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Button fx:id="usageButton" mnemonicParsing="false" prefHeight="200.0" prefWidth="200.0">
+                                 <HBox.margin>
+                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                 </HBox.margin>
+                                 <graphic>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                       <children>
+                                          <Label layoutX="11.0" layoutY="9.0" prefHeight="60.0" prefWidth="98.0" text="Usage (month)" textFill="#d3bfb7" wrapText="true" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                                          <Label layoutX="11.0" layoutY="116.0" text="147" textFill="#9d8d87" />
+                                          <Label layoutX="11.0" layoutY="64.0" text="13" textFill="WHITE" AnchorPane.bottomAnchor="75.0">
+                                             <font>
+                                                <Font name="System Bold" size="26.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="48.0" layoutY="64.0" text="kWh" textFill="#9d8d87" AnchorPane.bottomAnchor="75.0" AnchorPane.rightAnchor="48.0" />
+                                          <Label layoutX="52.0" layoutY="123.0" text="kWh prognosis" textFill="#9d8d87">
+                                             <font>
+                                                <Font size="11.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="priceButton" mnemonicParsing="false" prefHeight="200.0" prefWidth="200.0">
+                                 <HBox.margin>
+                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                 </HBox.margin>
+                                 <graphic>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                       <children>
+                                          <Label layoutX="3.0" layoutY="14.0" text="Usage (month)" textFill="#d3bfb7" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                                          <Label layoutX="90.0" layoutY="127.0" text="156" textFill="#9d8d87" />
+                                          <Label layoutX="6.0" layoutY="127.0" text="22" textFill="#9d8d87" />
+                                          <Label layoutX="17.0" layoutY="86.0" text="31" textFill="WHITE" AnchorPane.bottomAnchor="75.0">
+                                             <font>
+                                                <Font name="System Bold" size="26.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="47.0" layoutY="93.0" text="öre/kWh" textFill="#9d8d87" AnchorPane.bottomAnchor="75.0" AnchorPane.rightAnchor="11.0" />
+                                          <Slider layoutX="28.0" layoutY="130.0" prefHeight="24.0" prefWidth="53.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="232.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <children>
+                        <Button fx:id="comparisonButton" layoutX="102.0" layoutY="75.0" mnemonicParsing="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="0.0">
+                           <graphic>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Label text="Compare with others" textFill="#d3bfb7" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0" />
+                                    <VBox layoutY="96.0" prefHeight="104.0" prefWidth="100.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="100.0">
+                                       <children>
+                                          <AnchorPane fx:id="comparisonPane1" prefHeight="200.0" prefWidth="200.0">
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" />
+                                             </VBox.margin>
+                                             <children>
+                                                <Label text="Your house" textFill="WHITE" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane fx:id="comparisonPane2" prefHeight="200.0" prefWidth="200.0">
+                                             <children>
+                                                <Label text="Similar houses" textFill="WHITE" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="32.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <children>
+                        <Button fx:id="priceButton1" layoutX="132.0" layoutY="63.0" mnemonicParsing="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="0.0">
+                           <graphic>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Label text="Current Price (per hour)" textFill="#d3bfb7" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0" />
+                                    <Label layoutX="254.0" layoutY="41.0" text="140" textFill="#9d8d87" />
+                                    <Label layoutX="34.0" layoutY="56.0" text="31" textFill="WHITE" AnchorPane.bottomAnchor="82.0" AnchorPane.leftAnchor="37.0">
+                                       <font>
+                                          <Font name="System Bold" size="26.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="261.0" layoutY="102.0" text="30" textFill="#9d8d87" />
+                                    <Label layoutX="99.0" layoutY="56.0" text="öre/kWh" textFill="#9d8d87" AnchorPane.bottomAnchor="82.0" AnchorPane.leftAnchor="71.0" />
+                                 </children>
+                              </AnchorPane>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <AnchorPane fx:id="barPane" prefHeight="60.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Button fx:id="searchButton" minWidth="53.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="53.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="55.0">
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Group%201.0.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="accountButton" layoutX="172.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleEnergyButtonAction" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="172.0">
+               <graphic>
+                  <ImageView fx:id="settingsImage" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Group%202.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="settingsButton" mnemonicParsing="false" onAction="#handleSettingsButtonAction" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="55.0">
+               <graphic>
+                  <ImageView fx:id="accountImage" fitHeight="26.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Group%203.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
