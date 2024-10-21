@@ -51,3 +51,10 @@
 -fx-background-color: transparent;
 }
 
+Button:hover {
+    -fx-cursor: hand;
+}
+
+.scroll-bar  {
+    -fx-opacity: 0;
+}

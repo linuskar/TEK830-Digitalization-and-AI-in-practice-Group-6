@@ -59,7 +59,7 @@
       </AnchorPane>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="116.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
          <children>
-            <Button fx:id="energyOverviewButton" mnemonicParsing="false" prefHeight="70.0" prefWidth="328.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
+            <Button fx:id="energyOverviewButton" mnemonicParsing="false" onAction="#handleEnergyOverviewOnAction" prefHeight="70.0" prefWidth="328.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
                <graphic>
                   <Pane depthTest="ENABLE" prefHeight="36.0" prefWidth="284.0">
                      <children>
