@@ -51,3 +51,6 @@
 -fx-background-color: transparent;
 }
 
+Button:hover {
+    -fx-cursor: hand;
+}

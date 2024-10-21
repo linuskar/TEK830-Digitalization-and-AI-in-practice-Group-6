@@ -31,6 +31,8 @@ public class PageStarter {
 
     private static AnchorPane systemSettingsPane;
 
+    private static AnchorPane energyPage2;
+
     private PageStarter() {
         // Private constructor to prevent instantiation
     }
@@ -68,9 +70,12 @@ public class PageStarter {
             systemSettingsPane = getSystemSettingsPage();
             pages.add(systemSettingsPane);
 
+            energyPage2 = getEnergyPage2();
+            pages.add(energyPage2);
+
             AnchorPane settingsPopUpPane = getSettingsPopUpPage();
 
-            mainPage.getChildren().addAll(homePane, settingsPane, energyInsightsPane, recommendationsPane,appTutorialPage, settingsPopUpPane, energyPane,systemSettingsPane,notificationPane);
+            mainPage.getChildren().addAll(homePane, settingsPane, energyInsightsPane, recommendationsPane,appTutorialPage, settingsPopUpPane, energyPane,systemSettingsPane,energyPage2,notificationPane);
 
             notificationController.setupKeyHandling(scene);
         } catch (IOException e) {
@@ -110,7 +115,7 @@ public class PageStarter {
     public static void switchToSettingsPage() {
         setPageVisible(settingsPane);
 
-        primaryStage.setTitle("Settings");
+        primaryStage.setTitle("Advanced Settings");
         primaryStage.setScene(scene);
     }
 
@@ -123,6 +128,12 @@ public class PageStarter {
     public static void switchToSystemSettings(){
         setPageVisible(systemSettingsPane);
         primaryStage.setTitle("System Settings");
+        primaryStage.setScene(scene);
+    }
+
+    public static void switchToEnergyPage2(){
+        setPageVisible(energyPage2);
+        primaryStage.setTitle("Energy overview");
         primaryStage.setScene(scene);
     }
 
@@ -171,5 +182,10 @@ public class PageStarter {
     private static AnchorPane getSystemSettingsPage() throws IOException {
         FXMLLoader systemSettingsPage = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/systemSettings.fxml"));
         return systemSettingsPage.load();
+    }
+
+    private static AnchorPane getEnergyPage2() throws IOException {
+        FXMLLoader energyPage2 = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/energyPage2.fxml"));
+        return energyPage2.load();
     }
 }
