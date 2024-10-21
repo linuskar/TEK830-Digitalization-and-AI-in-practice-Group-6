@@ -55,6 +55,9 @@ public class SettingsPageController implements Initializable, Observer {
     private Button backButton;
     private AnchorPane settingsPagePane;
 
+    @FXML
+    private Button historyButton;
+
     // Nicer to show the user a scale from 0 to 100 rather than 0 to 1.
     private static final int VOLUME_SCALE_FACTOR = 100;
 
@@ -188,6 +191,11 @@ public class SettingsPageController implements Initializable, Observer {
     @FXML
     private void handleEnergyButtonAction(){
         PageStarter.switchToEnergyPage();
+    }
+
+    @FXML
+    private void handleHistoryPageAction(){
+        PageStarter.switchToNotificationPage();
     }
 
     private void handleVolumeChanged(double newVolume) {

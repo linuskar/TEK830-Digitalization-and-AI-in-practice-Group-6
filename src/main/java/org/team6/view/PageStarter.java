@@ -5,10 +5,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import org.team6.controller.NotificationController;
+import org.team6.controller.NotificationPageController;
 import org.team6.model.NotificationBackend;
+import org.team6.model.NotificationHistory;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -36,6 +39,10 @@ public class PageStarter {
     private static AnchorPane energyPage3;
 
 
+    private static AnchorPane notificationHistoryPane;
+
+    private static NotificationPageController notificationPageController;
+
     private PageStarter() {
         // Private constructor to prevent instantiation
     }
@@ -55,6 +62,8 @@ public class PageStarter {
 
             NotificationController notificationController = notificationLoader.getController();
             NotificationBackend.addNotificationListener(notificationController);
+            String notificationText = notificationController.getNotificationText();
+
 
             energyInsightsPane = getEnergyInsightsPage();
             pages.add(energyInsightsPane);
@@ -82,6 +91,15 @@ public class PageStarter {
             AnchorPane settingsPopUpPane = getSettingsPopUpPage();
 
             mainPage.getChildren().addAll(homePane, settingsPane, energyInsightsPane, recommendationsPane,appTutorialPage, settingsPopUpPane, energyPane,systemSettingsPane,energyPage2, energyPage3, notificationPane);
+            notificationHistoryPane = getNotificationHistoryPage();
+            pages.add(notificationHistoryPane);
+
+            NotificationHistory notificationHistory = new NotificationHistory();
+            notificationPageController.setNotificationHistory(notificationHistory);
+            notificationController.setNotificationHistory(notificationHistory);
+            notificationPageController.setNotificationText(notificationText);
+
+            mainPage.getChildren().addAll(homePane, settingsPane, appTutorialPage, settingsPopUpPane, energyPane,notificationHistoryPane,notificationPane);
 
             notificationController.setupKeyHandling(scene);
         } catch (IOException e) {
@@ -114,14 +132,13 @@ public class PageStarter {
     public static void switchToHomePage() {
         setPageVisible(homePane);
 
-        primaryStage.setTitle("Home");
+        primaryStage.setTitle("Home Page");
         primaryStage.setScene(scene);
     }
 
     public static void switchToSettingsPage() {
         setPageVisible(settingsPane);
-
-        primaryStage.setTitle("Advanced Settings");
+        primaryStage.setTitle("Settings Page");
         primaryStage.setScene(scene);
     }
 
@@ -149,6 +166,12 @@ public class PageStarter {
         primaryStage.setScene(scene);
     }
 
+
+    public static void switchToNotificationPage(){
+        setPageVisible(notificationHistoryPane);
+        primaryStage.setTitle("Notification History");
+        primaryStage.setScene(scene);
+    }
 
     private static StackPane getMainPage() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/MainPage.fxml"));
@@ -206,5 +229,13 @@ public class PageStarter {
     }
 
 
+
+
+    private static AnchorPane getNotificationHistoryPage() throws IOException {
+        FXMLLoader notificationPage = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/Notification_page.fxml"));
+        AnchorPane notificationHistoryPane = notificationPage.load();
+        notificationPageController = notificationPage.getController();
+        return notificationHistoryPane;
+    }
 
 }

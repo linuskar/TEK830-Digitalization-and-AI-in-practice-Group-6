@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="notificationPageAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="844.0" prefWidth="416.0" stylesheets="@../styles/notificationPageStyles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.NotificationPageController">
+   <children>
+      <Text fill="WHITE" layoutX="16.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notification history" wrappingWidth="184.13671875">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <VBox fx:id="notificationHistoryVBox" layoutX="3.0" layoutY="89.0" prefHeight="420.0" prefWidth="370.0" styleClass="vbox" stylesheets="@../styles/notificationPageStyles.css" />
+      <Pane fx:id="barPane" layoutX="4.0" layoutY="587.0" prefHeight="61.0" prefWidth="370.0" stylesheets="@../styles/styles.css">
+         <children>
+            <Button fx:id="accountButton" layoutX="164.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleEnergyButtonAction">
+               <graphic>
+                  <ImageView fx:id="settingsImage" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images//Group%202.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="settingsButton" layoutX="279.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleSettingsButtonAction">
+               <graphic>
+                  <ImageView fx:id="accountImage" fitHeight="26.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Group%203.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="searchButton" layoutX="35.0" layoutY="11.0" minWidth="53.0" mnemonicParsing="false" onAction="#handleBackOnAction" prefHeight="40.0" prefWidth="53.0">
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Group%201.0.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </Pane>
+      <ToggleButton fx:id="toggleButton" layoutX="141.0" layoutY="57.0" mnemonicParsing="false" onAction="#addNotificationToVbox" prefWidth="64.0" styleClass="mobile-toggle" />
+      <Text fill="WHITE" layoutX="16.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Show notification">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
