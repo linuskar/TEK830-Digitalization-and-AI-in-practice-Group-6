@@ -7,10 +7,12 @@ import org.team6.view.App;
 public class Main {
     public static void main(String[] args) {
         User user = new User("a", "b", "c", "d");
-        NotificationBackend.setUser(user);
+        NotificationBackend backend = new NotificationBackend(user);
         SoundHandler soundHandler = new SoundHandler(user);
-        NotificationBackend.addNotificationListener(soundHandler);
+        backend.addNotificationListener(soundHandler);
         App app = new App();
+        app.setUser(user);
+        app.setBackend(backend);
         app.startView(args);
     }
 }

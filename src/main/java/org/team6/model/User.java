@@ -64,61 +64,74 @@ public class User {
         this.password = password;
     }
 
-    double getVolume() {
+    public double getVolume() {
         return volume;
     }
 
-    void setVolume(double volume) {
+    /** Set volume for the user that has been set previously. Only volumes [0, 1] is allowed.
+     * Volumes over will be changed to 1 and volumes under will be changed to 0.
+     * @param volume volume to change to.
+     */
+    public void setVolume(double volume) {
+        if (volume < 0) {
+            volume = 0;
+        } else if (volume > 1) {
+            volume = 1;
+        }
         this.volume = volume;
     }
 
-    boolean areNotificationsOn() {
+    public boolean areNotificationsOn() {
         return notificationsOn;
     }
 
-    void toggleNotifications() {
+    public void toggleNotifications() {
         notificationsOn = !notificationsOn;
     }
 
-    boolean isNotificationOn(Notification notification) {
+    public boolean isNotificationOn(Notification notification) {
         return notifications.get(notification);
     }
 
-    void toggleSpecificNotification(Notification notification) {
+    public void toggleSpecificNotification(Notification notification) {
+        if (!notificationsOn) {
+            return;
+        }
+
         Boolean currentState = notifications.get(notification);
         Boolean toggledState = !currentState;
         notifications.put(notification, toggledState);
     }
 
-    int getDailyReportTime() {
+    public int getDailyReportTime() {
         return dailyReportTime;
     }
 
-    void setDailyReportTime(int dailyReportTime) {
+    public void setDailyReportTime(int dailyReportTime) {
         this.dailyReportTime = dailyReportTime;
     }
 
-    double getElectricityPriceLimit() {
+    public double getElectricityPriceLimit() {
         return electricityPriceLimit;
     }
 
-    void setElectricityPriceLimit(double electricityPriceLimit) {
+    public void setElectricityPriceLimit(double electricityPriceLimit) {
         this.electricityPriceLimit = electricityPriceLimit;
     }
 
-    int getStartNotificationTime() {
+    public int getStartNotificationTime() {
         return startNotificationTime;
     }
 
-    void setStartNotificationTime(int startNotificationTime) {
+    public void setStartNotificationTime(int startNotificationTime) {
         this.startNotificationTime = startNotificationTime;
     }
 
-    int getEndNotificationTime() {
+    public int getEndNotificationTime() {
         return endNotificationTime;
     }
 
-    void setEndNotificationTime(int endNotificationTime) {
+    public void setEndNotificationTime(int endNotificationTime) {
         this.endNotificationTime = endNotificationTime;
     }
 }

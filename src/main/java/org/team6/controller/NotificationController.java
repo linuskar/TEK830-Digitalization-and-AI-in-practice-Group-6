@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 import org.team6.model.Notification;
@@ -16,7 +15,7 @@ import org.team6.model.NotificationListener;
 import org.team6.model.User;
 import org.team6.view.ImageUtils;
 
-public class NotificationController implements NotificationListener, IPageWithUser {
+public class NotificationController implements NotificationListener, IPageWithNotificationBackend {
 
     @FXML
     private Text appNameText;
@@ -27,7 +26,7 @@ public class NotificationController implements NotificationListener, IPageWithUs
     @FXML
     private ImageView imageView;
 
-    private User user;
+    private NotificationBackend backend;
 
     @FXML
     public void initialize() {
@@ -97,8 +96,8 @@ public class NotificationController implements NotificationListener, IPageWithUs
 
     }
 
-    private static void sendNotification(Notification notification) {
-        NotificationBackend.sendNotification(notification);
+    private void sendNotification(Notification notification) {
+        backend.sendNotification(notification);
     }
 
     @Override
@@ -107,7 +106,7 @@ public class NotificationController implements NotificationListener, IPageWithUs
     }
 
     @Override
-    public void setUser(User user) {
-        this.user = user;
+    public void setBackend(NotificationBackend backend) {
+        this.backend = backend;
     }
 }

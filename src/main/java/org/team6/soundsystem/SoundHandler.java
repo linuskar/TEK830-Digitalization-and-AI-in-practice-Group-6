@@ -5,7 +5,6 @@ import org.team6.model.Notification;
 
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import org.team6.model.NotificationBackend;
 import org.team6.model.NotificationListener;
 import org.team6.model.User;
 
@@ -38,7 +37,7 @@ public class SoundHandler implements NotificationListener {
         Media sound = notificationSoundMap.get(notification);
         if (sound != null) {
             MediaPlayer mediaPlayer = new MediaPlayer(sound);
-            mediaPlayer.setVolume(NotificationBackend.getVolume());
+            mediaPlayer.setVolume(user.getVolume());
             mediaPlayer.play();
         }
     }

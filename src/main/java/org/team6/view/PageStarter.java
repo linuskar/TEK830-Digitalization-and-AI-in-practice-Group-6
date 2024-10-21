@@ -7,8 +7,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
+import org.team6.controller.IPageWithNotificationBackend;
 import org.team6.controller.IPageWithUser;
 import org.team6.controller.NotificationController;
+import org.team6.controller.SettingsPageController;
 import org.team6.model.NotificationBackend;
 import org.team6.model.User;
 
@@ -16,7 +18,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PageStarter implements IPageWithUser {
+public class PageStarter {
     private static AnchorPane homePane;
     @FXML
     private static AnchorPane energyInsightsPane;
@@ -31,7 +33,8 @@ public class PageStarter implements IPageWithUser {
     private static Scene scene;
     private static Stage primaryStage;
 
-    private User user;
+    private static NotificationBackend backend;
+    private static User user;
 
     private PageStarter() {
         // Private constructor to prevent instantiation
@@ -51,7 +54,8 @@ public class PageStarter implements IPageWithUser {
             AnchorPane notificationPane = notificationLoader.load();
 
             NotificationController notificationController = notificationLoader.getController();
-            NotificationBackend.addNotificationListener(notificationController);
+            backend.addNotificationListener(notificationController);
+            notificationController.setBackend(backend);
 
             energyInsightsPane = getEnergyInsightsPage();
             pages.add(energyInsightsPane);
@@ -141,7 +145,10 @@ public class PageStarter implements IPageWithUser {
 
     private static AnchorPane getSettingsPage() throws IOException {
         FXMLLoader loader = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/settings_page.fxml"));
-        return loader.load();
+        AnchorPane settingsPage = loader.load();
+        SettingsPageController settingsPageController = loader.getController();
+        settingsPageController.setUser(user);
+        return settingsPage;
     }
 
     private static AnchorPane getAppTutorialPage() throws IOException {
@@ -159,8 +166,11 @@ public class PageStarter implements IPageWithUser {
         return settingsPopUp.load();
     }
 
-    @Override
-    public void setUser(User user) {
+    public static void setUser(User user) {
         PageStarter.user = user;
+    }
+
+    public static void setBackend(NotificationBackend backend) {
+        PageStarter.backend = backend;
     }
 }

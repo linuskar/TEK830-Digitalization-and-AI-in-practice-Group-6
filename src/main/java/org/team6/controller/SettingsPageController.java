@@ -9,10 +9,8 @@ import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 
 import org.team6.model.Notification;
-import org.team6.model.NotificationBackend;
 import org.team6.model.User;
 import org.team6.view.PageStarter;
 
@@ -91,7 +89,7 @@ public class SettingsPageController implements Initializable, Observer, IPageWit
     }
 
     private void initVolumeSlider() {
-        volumeSlider.setValue(NotificationBackend.getVolume()*VOLUME_SCALE_FACTOR);
+        volumeSlider.setValue(user.getVolume()*VOLUME_SCALE_FACTOR);
         // Don't think you can add it directly in Scenebuilder.
         volumeSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
             // If double is not the supported type in the model, it can easily be changed here I think.
@@ -100,7 +98,7 @@ public class SettingsPageController implements Initializable, Observer, IPageWit
     }
 
     private void initToggleButtons() {
-        sendNotificationsToggleButton.setSelected(NotificationBackend.areNotificationsOn());
+        sendNotificationsToggleButton.setSelected(user.areNotificationsOn());
         recommendationsToggleButton.setSelected(RecommendationsBackend.isPersonalRecommendationsOn());
         initToggleButtonsState();
         toggleNotificationButtonsAvailability();
@@ -120,16 +118,16 @@ public class SettingsPageController implements Initializable, Observer, IPageWit
     }
 
     private void initDefaultSpinnerValues() {
-        int dailyReportTime = NotificationBackend.getDailyReportTime();
+        int dailyReportTime = user.getDailyReportTime();
         dailyReportTimeSpinner.getValueFactory().setValue(dailyReportTime);
 
-        double electricityPriceLimit = NotificationBackend.getElectricityPriceLimit();
+        double electricityPriceLimit = user.getElectricityPriceLimit();
         electricityPriceLimitSpinner.getValueFactory().setValue(electricityPriceLimit);
 
-        int startNotificationTime = NotificationBackend.getStartNotificationTime();
+        int startNotificationTime = user.getStartNotificationTime();
         startNotificationTimeSpinner.getValueFactory().setValue(startNotificationTime);
 
-        int endNotificationTime = NotificationBackend.getEndNotificationTime();
+        int endNotificationTime = user.getEndNotificationTime();
         endNotificationTimeSpinner.getValueFactory().setValue(endNotificationTime);
     }
 
@@ -152,7 +150,7 @@ public class SettingsPageController implements Initializable, Observer, IPageWit
         for (Map.Entry<ToggleButton, Notification> notificationEntry : notificationButtons.entrySet()) {
             ToggleButton toggleButton = notificationEntry.getKey();
             Notification notification = notificationEntry.getValue();
-            toggleButton.setSelected(NotificationBackend.isNotificationOn(notification));
+            toggleButton.setSelected(user.isNotificationOn(notification));
         }
     }
 
@@ -167,7 +165,7 @@ public class SettingsPageController implements Initializable, Observer, IPageWit
     // Meant for toggling notifications in general.
     @FXML
     private void handleSendNotificationsOnAction() {
-        NotificationBackend.toggleAllNotifications();
+        user.toggleNotifications();
         toggleNotificationButtonsAvailability();
     }
 
@@ -177,7 +175,7 @@ public class SettingsPageController implements Initializable, Observer, IPageWit
 
         if (notificationButtons.containsKey(sourceButton)) {
             Notification notificationToBeToggled = notificationButtons.get(sourceButton);
-            NotificationBackend.toggleASpecificNotification(notificationToBeToggled);
+            user.toggleSpecificNotification(notificationToBeToggled);
         } else {
             System.err.println("Event button" + sourceButton + "does not exist in Map!");
         }
@@ -194,23 +192,23 @@ public class SettingsPageController implements Initializable, Observer, IPageWit
     }
 
     private void handleVolumeChanged(double newVolume) {
-        NotificationBackend.setVolume(newVolume/VOLUME_SCALE_FACTOR);
+        user.setVolume(newVolume/VOLUME_SCALE_FACTOR);
     }
 
     private void handleDailyReportTimeChanged(int newTime) {
-        NotificationBackend.setDailyReportTime(newTime);
+        user.setDailyReportTime(newTime);
     }
 
     private void handleElectricityPriceLimitChanged(double newLimit) {
-        NotificationBackend.setElectricityPriceLimit(newLimit);
+        user.setElectricityPriceLimit(newLimit);
     }
 
     private void handleStartNotificationTimeChanged(int newTime) {
-        NotificationBackend.setStartNotificationTime(newTime);
+        user.setStartNotificationTime(newTime);
     }
 
     private void handleEndNotificationTimeChanged(int newTime) {
-        NotificationBackend.setEndNotificationTime(newTime);
+        user.setEndNotificationTime(newTime);
     }
 
     @Override

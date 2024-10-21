@@ -15,17 +15,18 @@ import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 class NotificationBackendTest {
     private User userUnderTest;
+    private NotificationBackend backendUnderTest;
 
     @BeforeEach
     void setUp() {
         userUnderTest = new User("Bob", "Bobsson", "bob.bobsson@email.com", "Bob123");
-        NotificationBackend.setUser(userUnderTest);
+        backendUnderTest = new NotificationBackend(userUnderTest);
     }
 
     @Test
     void testToggleAllNotifications_GivenToggledOnce_ShouldHaveOppositeValue() {
         boolean initialNotificationValue = userUnderTest.areNotificationsOn();
-        NotificationBackend.toggleAllNotifications();
+        userUnderTest.toggleNotifications();
         boolean finalNotificationValue = userUnderTest.areNotificationsOn();
 
         assertEquals(!initialNotificationValue, finalNotificationValue);
@@ -34,8 +35,8 @@ class NotificationBackendTest {
     @Test
     void testToggleAllNotifications_GivenToggledTwice_ShouldHaveSameValue() {
         boolean initialNotificationValue = userUnderTest.areNotificationsOn();
-        NotificationBackend.toggleAllNotifications();
-        NotificationBackend.toggleAllNotifications();
+        userUnderTest.toggleNotifications();
+        userUnderTest.toggleNotifications();
         boolean finalNotificationValue = userUnderTest.areNotificationsOn();
 
         assertEquals(initialNotificationValue, finalNotificationValue);
@@ -46,7 +47,7 @@ class NotificationBackendTest {
     void testToggleASpecificNotification_GivenToggledOnceAndNotificationsAreOn_ShouldHaveOppositeValue(Notification notification) {
         assumeTrue(userUnderTest.areNotificationsOn());
         boolean initialNotificationValue = userUnderTest.isNotificationOn(notification);
-        NotificationBackend.toggleASpecificNotification(notification);
+        userUnderTest.toggleSpecificNotification(notification);
         boolean finalNotificationValue = userUnderTest.isNotificationOn(notification);
 
         assertEquals(!initialNotificationValue, finalNotificationValue);
@@ -57,8 +58,8 @@ class NotificationBackendTest {
     void testToggleASpecificNotification_GivenToggledTwiceAndNotificationsAreOn_ShouldHaveSameValue(Notification notification) {
         assumeTrue(userUnderTest.areNotificationsOn());
         boolean initialNotificationValue = userUnderTest.isNotificationOn(notification);
-        NotificationBackend.toggleASpecificNotification(notification);
-        NotificationBackend.toggleASpecificNotification(notification);
+        userUnderTest.toggleSpecificNotification(notification);
+        userUnderTest.toggleSpecificNotification(notification);
         boolean finalNotificationValue = userUnderTest.isNotificationOn(notification);
 
         assertEquals(initialNotificationValue, finalNotificationValue);
@@ -68,9 +69,9 @@ class NotificationBackendTest {
     @EnumSource(Notification.class)
     void testToggleASpecificNotification_GivenToggledOnceAndNotificationsAreOff_ShouldHaveSameValue(Notification notification) {
         assumeTrue(userUnderTest.areNotificationsOn());
-        NotificationBackend.toggleAllNotifications();
+        userUnderTest.toggleNotifications();
         boolean initialNotificationValue = userUnderTest.isNotificationOn(notification);
-        NotificationBackend.toggleASpecificNotification(notification);
+        userUnderTest.toggleSpecificNotification(notification);
         boolean finalNotificationValue = userUnderTest.isNotificationOn(notification);
 
         assertEquals(initialNotificationValue, finalNotificationValue);
@@ -79,7 +80,7 @@ class NotificationBackendTest {
     @ParameterizedTest
     @ValueSource(doubles = {0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0})
     void testSetVolume_GivenAValidVolume_ShouldChangeToIt(double volume) {
-        NotificationBackend.setVolume(volume);
+        userUnderTest.setVolume(volume);
         double changedVolume = userUnderTest.getVolume();
 
         assertEquals(volume, changedVolume);
@@ -87,7 +88,7 @@ class NotificationBackendTest {
 
     @Test
     void testSetVolume_GivenTooLowVolume_ShouldChangeToZero() {
-        NotificationBackend.setVolume(-1);
+        userUnderTest.setVolume(-1);
         double changedVolume = userUnderTest.getVolume();
 
         assertEquals(0, changedVolume);
@@ -95,7 +96,7 @@ class NotificationBackendTest {
 
     @Test
     void testSetVolume_GivenTooHighVolume_ShouldChangeToOne() {
-        NotificationBackend.setVolume(2);
+        userUnderTest.setVolume(2);
         double changedVolume = userUnderTest.getVolume();
 
         assertEquals(1, changedVolume);
@@ -122,10 +123,10 @@ class NotificationBackendTest {
         }
     }
 
-    private static void sendNotificationSequence(Notification notification, NotificationListener listener) {
-        NotificationBackend.addNotificationListener(listener);
-        NotificationBackend.sendNotification(notification);
-        NotificationBackend.removeNotificationListener(listener);
+    private void sendNotificationSequence(Notification notification, NotificationListener listener) {
+        backendUnderTest.addNotificationListener(listener);
+        backendUnderTest.sendNotification(notification);
+        backendUnderTest.removeNotificationListener(listener);
     }
 
     @ParameterizedTest
@@ -133,7 +134,7 @@ class NotificationBackendTest {
     void testSendNotification_GivenNotificationsAreOnAndNotificationToTestIsOff_ShouldNotNotifyListener(Notification notification) {
         assumeTrue(userUnderTest.areNotificationsOn());
         assumeTrue(userUnderTest.isNotificationOn(notification));
-        NotificationBackend.toggleASpecificNotification(notification);
+        userUnderTest.toggleSpecificNotification(notification);
 
         NotificationListener listener = sentNotification -> fail();
         sendNotificationSequence(notification, listener);
@@ -144,7 +145,7 @@ class NotificationBackendTest {
     void testSendNotification_GivenNotificationsAreOffAndNotificationToTestIsOn_ShouldNotNotifyListener(Notification notification) {
         assumeTrue(userUnderTest.areNotificationsOn());
         assumeTrue(userUnderTest.isNotificationOn(notification));
-        NotificationBackend.toggleAllNotifications();
+        userUnderTest.toggleNotifications();
 
         NotificationListener listener = sentNotification -> fail();
         sendNotificationSequence(notification, listener);
@@ -155,8 +156,8 @@ class NotificationBackendTest {
     void testSendNotification_GivenNotificationsAreOffAndNotificationToTestIsOff_ShouldNotNotifyListener(Notification notification) {
         assumeTrue(userUnderTest.areNotificationsOn());
         assumeTrue(userUnderTest.isNotificationOn(notification));
-        NotificationBackend.toggleAllNotifications();
-        NotificationBackend.toggleASpecificNotification(notification);
+        userUnderTest.toggleNotifications();
+        userUnderTest.toggleSpecificNotification(notification);
 
         NotificationListener listener = sentNotification -> fail();
         sendNotificationSequence(notification, listener);
