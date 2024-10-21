@@ -105,6 +105,15 @@
                                                 <ToggleButton fx:id="recommendationsToggleButton" mnemonicParsing="false" onAction="#handleRecommendationsToggleButtonAction" prefWidth="64.0" styleClass="mobile-toggle" />
                                              </children>
                                           </HBox>
+                                          <HBox alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="314.0" styleClass="hbox">
+                                             <children>
+                                                <Label prefHeight="34.0" prefWidth="165.0" styleClass="normal-text"
+                                                       text="Show App Tutorial" wrapText="true" />
+                                                <Button fx:id="appTutorial" mnemonicParsing="false"
+                                                        onAction="#handleAppTutorialButton" prefWidth="64.0"
+                                                        styleClass="mobile-toggle" text="Click Me" />
+                                             </children>
+                                          </HBox>
                                        </children>
                                     </VBox>
                                  </children>
