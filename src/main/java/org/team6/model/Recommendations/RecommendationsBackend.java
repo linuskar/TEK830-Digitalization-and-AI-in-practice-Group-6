@@ -8,6 +8,7 @@ import java.util.Map;
 
 import org.team6.database.DatabaseConnection;
 import org.team6.model.EnergyUsageCategory;
+import org.team6.model.Products.ConventionalOven;
 import org.team6.model.Products.ForcedAirOven;
 import org.team6.model.Products.Freezer;
 import org.team6.model.Products.Fridge;
@@ -42,26 +43,6 @@ public class RecommendationsBackend {
         createRecommendations();
     }
 
-    private static double getEnergyUsagePercantage(EnergyUsageCategory category){
-        double totalEnergyUsage = getTotalEnergyUsage();
-        double energyUsageForCategory = dataBaseEnergySpenders.get(category);
-
-        double totalEnergyUsageProcent = 100*energyUsageForCategory/totalEnergyUsage;
-
-        return totalEnergyUsageProcent;
-    }
-
-    private static double getTotalEnergyUsage() {
-        double totalEnergyUsage = 0;
-
-        for (Map.Entry<EnergyUsageCategory, Integer> entry : dataBaseEnergySpenders.entrySet()) {
-            int energyUsage = entry.getValue();
-            totalEnergyUsage += energyUsage;
-        }
-
-        return totalEnergyUsage;
-    }
-
     private static void  createRecommendations(){
         createGeneralRecommendations();
         createPersonalRecommendations();
@@ -73,46 +54,55 @@ public class RecommendationsBackend {
         }
     }
 
+    private static void recommendGeneralProducts(EnergyUsageCategory category) {
+        List<Product> relevantProducts = new ArrayList<>();
+
+        for (Product product : dataBaseProducts) {
+            if (product.getEnergyUsageCategory().equals(category.toString())) {
+                relevantProducts.add(product);
+            }
+        }
+
+        for (Product product : relevantProducts) {
+            Recommendation recommendation = new Recommendation(product.getName(), product.getProductDescription(), product.getProductCategory());
+            generalProductRecommendations.add(recommendation);
+        }      
+    }
+
     private static void createPersonalRecommendations(){
-        for (Map.Entry<EnergyUsageCategory, Integer> entry : dataBaseEnergySpenders.entrySet()) {
+        HashMap <EnergyUsageCategory, Integer> topEnergySpenders = getTopEnergySpenders();
+
+        for (Map.Entry<EnergyUsageCategory, Integer> entry : topEnergySpenders.entrySet()) {
             EnergyUsageCategory category = entry.getKey();
             recommendPersonalProducts(category);
         }
     }
 
-    public static List<Product> getDataBaseProducts() {
-        return dataBaseProducts;
-    }
+    private static HashMap <EnergyUsageCategory, Integer> getTopEnergySpenders(){
+        // Get top energy spenders based on the energy usage in dataBaseEnergySpenders summing up to 50% of the total energy usage
+        // sort to get the top energy spenders
+        // then go through the energy spenders till the usage sums up to or greater than 50% of the total energy usage
 
-    public static List<Recommendation> getPersonalProductRecommendations() {
-        return personalProductRecommendations;
-    }
+        HashMap <EnergyUsageCategory, Integer> topEnergySpenders = new HashMap<>();
 
-    public static List<Recommendation> getGeneralProductRecommendations() {
-        return generalProductRecommendations;
-    }
+        List<Map.Entry<EnergyUsageCategory, Integer>> sortedEnergySpenders = new ArrayList<>(dataBaseEnergySpenders.entrySet());
 
-    public static void addObserver(RecommendationObserver observer) {
-        observers.add(observer);
-    }
+        sortedEnergySpenders.sort((entry1, entry2) -> entry2.getValue().compareTo(entry1.getValue()));
 
-    public static void removeObserver(RecommendationObserver observer) {
-        observers.remove(observer);
-    }
+        double totalEnergyUsage = getTotalEnergyUsage();
+        double energyUsageSum = 0;
+        double threshold = totalEnergyUsage/2;
 
-    private static void notifyObservers() {
-        for (RecommendationObserver observer : observers) {
-            observer.update();
+        for (Map.Entry<EnergyUsageCategory, Integer> entry : sortedEnergySpenders) {
+            if (energyUsageSum >= threshold) {
+                break;
+            }
+
+            topEnergySpenders.put(entry.getKey(), entry.getValue());
+            energyUsageSum += entry.getValue();
         }
-    }
 
-    public static boolean isPersonalRecommendationsOn() {
-        return personalRecommendationsOn;
-    }
-
-    public static void setPersonalRecommendationsOn(boolean privateRecommendationsOn) {
-        RecommendationsBackend.personalRecommendationsOn = privateRecommendationsOn;
-        notifyObservers();
+        return topEnergySpenders;
     }
 
     private static void recommendPersonalProducts(EnergyUsageCategory category) {
@@ -177,34 +167,7 @@ public class RecommendationsBackend {
         });    
     }
 
-    private static String personalRecommendationDescription(Product product, EnergyUsageCategory category){
-        StringBuilder sb = new StringBuilder();
-        String energyUsagePercentageForCategory = Math.round(getEnergyUsagePercantage(category)) + "%";
-        String personalRecommendationDescription = personalRecommendationEnergySavingsDescription(product, category, energyUsagePercentageForCategory);
-
-        sb.append(personalRecommendationDescription);
-        sb.append("\n\n");
-        sb.append(product.getProductDescription());
-
-        return sb.toString();
-    }
-
-    private static String personalRecommendationEnergySavingsDescription(Product product, EnergyUsageCategory category, String energyUsagePercentageForCategory){
-        StringBuilder sb = new StringBuilder();
-
-        sb.append("You are spending ");
-        sb.append(energyUsagePercentageForCategory);
-        sb.append(" kWh on ");
-        sb.append(category.toString().toLowerCase());
-        sb.append(". We therefore recommend a ");
-        sb.append(product.getName());
-        sb.append(" ");
-        sb.append(product.getProductCategoryString().toLowerCase());
-        sb.append(" to save energy.");
-
-        return sb.toString();
-    }
-
+    
     private static Fridge recommendFridge(List<Product> products) {
         // Sort products in the category based on energy consumption
         Fridge lowestConsumptionFridge = products.stream()
@@ -239,8 +202,19 @@ public class RecommendationsBackend {
         return lowestConsumptionFridgeFreezer;
     }
 
+    private static Oven recommendOven(List<Product> products) {
+        ConventionalOven lowestConsumptionConventionalOven = products.stream()
+            .filter(product -> product instanceof ConventionalOven)
+            .map(product -> (ConventionalOven) product)
+            .sorted(Comparator.comparingDouble(ConventionalOven::getEnergyConsumptionConventional))
+            .findFirst()
+            .orElse(null);
+
+        return lowestConsumptionConventionalOven;
+    }
+
     private static ForcedAirOven recommendForcedAirOven(List<Product> products) {
-        ForcedAirOven lowestConsumptionOven = products.stream()
+        ForcedAirOven lowestConsumptionForcedAirOven = products.stream()
             .filter(product -> product instanceof ForcedAirOven)
             .map(product -> (ForcedAirOven) product)
             .sorted(Comparator.comparingDouble(ForcedAirOven::getEnergyConsumptionFanForcedConvection)
@@ -248,32 +222,89 @@ public class RecommendationsBackend {
             .findFirst()
             .orElse(null);
 
-        return lowestConsumptionOven;
+        return lowestConsumptionForcedAirOven;
     }
 
-    private static Oven recommendOven(List<Product> products) {
-        Oven lowestConsumptionOven = products.stream()
-            .filter(product -> product instanceof Oven)
-            .map(product -> (Oven) product)
-            .sorted(Comparator.comparingDouble(Oven::getEnergyConsumptionConventional))
-            .findFirst()
-            .orElse(null);
+    private static String personalRecommendationDescription(Product product, EnergyUsageCategory category){
+        StringBuilder sb = new StringBuilder();
+        String energyUsagePercentageForCategory = Math.round(getEnergyUsagePercantage(category)) + "%";
+        String personalRecommendationDescription = personalRecommendationEnergySavingsDescription(product, category, energyUsagePercentageForCategory);
 
-        return lowestConsumptionOven;
+        sb.append(personalRecommendationDescription);
+        sb.append("\n\n");
+        sb.append(product.getProductDescription());
+
+        return sb.toString();
     }
 
-    private static void recommendGeneralProducts(EnergyUsageCategory category) {
-        List<Product> relevantProducts = new ArrayList<>();
+    private static double getEnergyUsagePercantage(EnergyUsageCategory category){
+        double totalEnergyUsage = getTotalEnergyUsage();
+        double energyUsageForCategory = dataBaseEnergySpenders.get(category);
 
-        for (Product product : dataBaseProducts) {
-            if (product.getEnergyUsageCategory().equals(category.toString())) {
-                relevantProducts.add(product);
-            }
+        double totalEnergyUsageProcent = 100*energyUsageForCategory/totalEnergyUsage;
+
+        return totalEnergyUsageProcent;
+    }
+
+    private static double getTotalEnergyUsage() {
+        double totalEnergyUsage = 0;
+
+        for (Map.Entry<EnergyUsageCategory, Integer> entry : dataBaseEnergySpenders.entrySet()) {
+            int energyUsage = entry.getValue();
+            totalEnergyUsage += energyUsage;
         }
 
-        for (Product product : relevantProducts) {
-            Recommendation recommendation = new Recommendation(product.getName(), product.getProductDescription(), product.getProductCategory());
-            generalProductRecommendations.add(recommendation);
-        }      
+        return totalEnergyUsage;
+    }
+
+    private static String personalRecommendationEnergySavingsDescription(Product product, EnergyUsageCategory category, String energyUsagePercentageForCategory){
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("You are spending ");
+        sb.append(energyUsagePercentageForCategory);
+        sb.append(" kWh on ");
+        sb.append(category.toString().toLowerCase());
+        sb.append(". We therefore recommend a ");
+        sb.append(product.getName());
+        sb.append(" ");
+        sb.append(product.getProductCategoryString().toLowerCase());
+        sb.append(" to save energy.");
+
+        return sb.toString();
+    }
+
+    public static List<Product> getDataBaseProducts() {
+        return dataBaseProducts;
+    }
+
+    public static List<Recommendation> getPersonalProductRecommendations() {
+        return personalProductRecommendations;
+    }
+
+    public static List<Recommendation> getGeneralProductRecommendations() {
+        return generalProductRecommendations;
+    }
+
+    public static void addObserver(RecommendationObserver observer) {
+        observers.add(observer);
+    }
+
+    public static void removeObserver(RecommendationObserver observer) {
+        observers.remove(observer);
+    }
+
+    private static void notifyObservers() {
+        for (RecommendationObserver observer : observers) {
+            observer.update();
+        }
+    }
+
+    public static boolean isPersonalRecommendationsOn() {
+        return personalRecommendationsOn;
+    }
+
+    public static void setPersonalRecommendationsOn(boolean privateRecommendationsOn) {
+        RecommendationsBackend.personalRecommendationsOn = privateRecommendationsOn;
+        notifyObservers();
     }
 }

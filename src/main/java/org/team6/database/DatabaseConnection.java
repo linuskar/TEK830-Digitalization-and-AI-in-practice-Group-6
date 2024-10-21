@@ -149,10 +149,10 @@ public class DatabaseConnection {
 
         energySpending.put(EnergyUsageCategory.LIGHTING, 100);
         energySpending.put(EnergyUsageCategory.HEATING, 200);
-        energySpending.put(EnergyUsageCategory.COOKING, 300);
+        energySpending.put(EnergyUsageCategory.OTHER, 300);
         energySpending.put(EnergyUsageCategory.COOLING, 400);
         energySpending.put(EnergyUsageCategory.REFRIGERATION, 500);
-        energySpending.put(EnergyUsageCategory.OTHER, 600);
+        energySpending.put(EnergyUsageCategory.COOKING, 600);
 
         return energySpending;
     }
