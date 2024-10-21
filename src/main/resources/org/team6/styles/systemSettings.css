@@ -3,7 +3,6 @@
 }
 
 #scrollPane {
-    TODO: change the color in the following line
     -fx-background-color: #000000; /* Color of the stroke of the scrollPane */
     -fx-background: #000000;       /* Color of the insisde */
 }
