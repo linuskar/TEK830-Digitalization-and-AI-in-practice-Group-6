@@ -17,9 +17,9 @@
             <Font name="Arial Bold" size="30.0" />
          </font>
       </Text>
-      <ScrollPane fx:id="scrollPane" layoutX="62.0" layoutY="290.0" prefHeight="639.0" prefWidth="390.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+      <ScrollPane fx:id="scrollPane" layoutX="62.0" layoutY="290.0" prefHeight="684.0" prefWidth="390.0" stylesheets="@../styles/systemSettings.css" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
          <content>
-            <AnchorPane prefHeight="1278.0" prefWidth="375.0">
+            <AnchorPane fx:id="anchorpPane1" prefHeight="1250.0" prefWidth="389.0">
                <children>
                   <Button fx:id="TheHubButton" alignment="BASELINE_LEFT" layoutX="15.0" layoutY="27.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="345.0" text="Add a DIRIGERA hub" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="30.0" />
                   <Button fx:id="FamilyAccountButton" alignment="BASELINE_LEFT" layoutX="15.0" layoutY="150.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="0.0" text="IKEA Family Account" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="150.0" />
@@ -28,9 +28,9 @@
                   <Label fx:id="label1" layoutX="15.0" layoutY="446.0" text="Help and support" AnchorPane.leftAnchor="15.0" />
                   <Button fx:id="HelpButton" alignment="BASELINE_LEFT" layoutX="15.0" layoutY="501.0" mnemonicParsing="false" onAction="#handleHelpAndSupportButtonOnAction" prefHeight="75.0" prefWidth="0.0" text="help and support center" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" />
                   <Label fx:id="label2" layoutX="15.0" layoutY="595.0" text="jurisprudence" AnchorPane.leftAnchor="15.0" />
-                  <VBox layoutY="645.0" prefHeight="357.0" prefWidth="375.0" AnchorPane.bottomAnchor="276.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                  <VBox layoutX="-3.0" layoutY="663.0" prefHeight="357.0" prefWidth="375.0" AnchorPane.bottomAnchor="230.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="3.0">
                      <children>
-                        <Button fx:id="jur1" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="90.0" prefWidth="375.0" text="Terms and conditions" />
+                        <Button fx:id="jur1" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="85.0" prefWidth="404.0" text="Terms and conditions" />
                         <Button fx:id="jur2" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="90.0" prefWidth="375.0" text="Privacy Policy" />
                         <Button fx:id="jur3" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="90.0" prefWidth="375.0" text="Data and privacy" />
                         <Button fx:id="jur4" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="90.0" prefWidth="375.0" text="Third party license" />
