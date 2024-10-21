@@ -5,9 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
 import org.team6.controller.NotificationController;
 import org.team6.controller.NotificationPageController;
 import org.team6.model.NotificationBackend;
@@ -37,7 +35,6 @@ public class PageStarter {
     private static AnchorPane energyPage2;
 
     private static AnchorPane energyPage3;
-
 
     private static AnchorPane notificationHistoryPane;
 
@@ -90,7 +87,7 @@ public class PageStarter {
 
             AnchorPane settingsPopUpPane = getSettingsPopUpPage();
 
-            mainPage.getChildren().addAll(homePane, settingsPane, energyInsightsPane, recommendationsPane,appTutorialPage, settingsPopUpPane, energyPane,systemSettingsPane,energyPage2, energyPage3, notificationPane);
+
             notificationHistoryPane = getNotificationHistoryPage();
             pages.add(notificationHistoryPane);
 
@@ -99,8 +96,7 @@ public class PageStarter {
             notificationController.setNotificationHistory(notificationHistory);
             notificationPageController.setNotificationText(notificationText);
 
-            mainPage.getChildren().addAll(homePane, settingsPane, appTutorialPage, settingsPopUpPane, energyPane,notificationHistoryPane,notificationPane);
-
+            mainPage.getChildren().addAll(homePane, settingsPane, energyInsightsPane, recommendationsPane,appTutorialPage, settingsPopUpPane, energyPane,systemSettingsPane,energyPage2, energyPage3, notificationHistoryPane, notificationPane);
             notificationController.setupKeyHandling(scene);
         } catch (IOException e) {
             e.printStackTrace();
