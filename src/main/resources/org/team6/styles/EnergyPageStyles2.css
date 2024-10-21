@@ -53,7 +53,6 @@
 #productRecommendationButton {
     -fx-background-color: #005ef5;
     -fx-background-radius: 30px;
-<
 }
 
 #productRecommendationText {
@@ -65,7 +64,21 @@
 
 
 #AnchorScrollPane {
-    TODO: change the color in the following line
     -fx-background-color: #000000; /* Color of the stroke of the scrollPane */
-    -fx-background: #000000;       /* Color of the insisde */
+     -fx-background: #000000;       /* Color of the insisde */
+}
+
+#ScrollPane {
+    -fx-background-color: #000000; /* Color of the stroke of the scrollPane */
+     -fx-background: #000000;       /* Color of the insisde */
+}
+
+
+Button:hover {
+    -fx-cursor: hand;
+}
+
+.scroll-bar  {
+    -fx-opacity: 0;
+    -fx-background-color: #000000;
 }

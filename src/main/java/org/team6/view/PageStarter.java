@@ -33,6 +33,9 @@ public class PageStarter {
 
     private static AnchorPane energyPage2;
 
+    private static AnchorPane energyPage3;
+
+
     private PageStarter() {
         // Private constructor to prevent instantiation
     }
@@ -73,9 +76,12 @@ public class PageStarter {
             energyPage2 = getEnergyPage2();
             pages.add(energyPage2);
 
+            energyPage3 = getEnergyPage3();
+            pages.add(energyPage3);
+
             AnchorPane settingsPopUpPane = getSettingsPopUpPage();
 
-            mainPage.getChildren().addAll(homePane, settingsPane, energyInsightsPane, recommendationsPane,appTutorialPage, settingsPopUpPane, energyPane,systemSettingsPane,energyPage2,notificationPane);
+            mainPage.getChildren().addAll(homePane, settingsPane, energyInsightsPane, recommendationsPane,appTutorialPage, settingsPopUpPane, energyPane,systemSettingsPane,energyPage2, energyPage3, notificationPane);
 
             notificationController.setupKeyHandling(scene);
         } catch (IOException e) {
@@ -137,6 +143,11 @@ public class PageStarter {
         primaryStage.setScene(scene);
     }
 
+    public static void switchToEnergyPage3(){
+        setPageVisible(energyPage3);
+        primaryStage.setTitle("Detailed Energy overview");
+        primaryStage.setScene(scene);
+    }
 
 
     private static StackPane getMainPage() throws IOException {
@@ -188,4 +199,12 @@ public class PageStarter {
         FXMLLoader energyPage2 = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/energyPage2.fxml"));
         return energyPage2.load();
     }
+
+    private static AnchorPane getEnergyPage3() throws IOException {
+        FXMLLoader energyPage3 = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/energyPage3.fxml"));
+        return energyPage3.load();
+    }
+
+
+
 }

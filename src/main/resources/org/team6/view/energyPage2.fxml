@@ -15,9 +15,9 @@
 
 <AnchorPane fx:id="backgroundPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="844.0" prefWidth="390.0" stylesheets="@../styles/EnergyPageStyles2.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.EnergyPage2Controller">
    <children>
-      <ScrollPane prefHeight="689.0" prefWidth="390.0" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+      <ScrollPane fx:id="ScrollPane" prefHeight="689.0" prefWidth="390.0" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
         <content>
-          <AnchorPane fx:id="AnchorScrollPane" minHeight="0.0" minWidth="0.0" prefHeight="795.0" prefWidth="389.0" stylesheets="@../styles/EnergyPageStyles2.css">
+          <AnchorPane fx:id="AnchorScrollPane" minHeight="0.0" minWidth="0.0" prefHeight="803.0" prefWidth="375.0">
                <children>
                   <AnchorPane prefHeight="250.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <children>
@@ -47,7 +47,7 @@
                                     </AnchorPane>
                                  </graphic>
                               </Button>
-                              <Button fx:id="priceButton" mnemonicParsing="false" prefHeight="200.0" prefWidth="200.0">
+                              <Button fx:id="priceButton" mnemonicParsing="false" onAction="#handleEnergyPage3Button" prefHeight="200.0" prefWidth="200.0">
                                  <HBox.margin>
                                     <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                                  </HBox.margin>
@@ -104,7 +104,7 @@
                   </AnchorPane>
                   <AnchorPane layoutY="450.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="458.0">
                      <children>
-                        <Button fx:id="priceButton1" layoutX="132.0" layoutY="63.0" mnemonicParsing="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="0.0">
+                        <Button fx:id="priceButton1" layoutX="132.0" layoutY="63.0" mnemonicParsing="false" onAction="#handleEnergyPage3Button" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="0.0">
                            <graphic>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                  <children>
