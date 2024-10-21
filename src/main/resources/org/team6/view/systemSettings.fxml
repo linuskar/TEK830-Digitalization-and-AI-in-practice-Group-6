@@ -49,7 +49,7 @@
       </ScrollPane>
       <AnchorPane fx:id="barPane" prefHeight="60.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Button fx:id="searchButton" minWidth="53.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="53.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="55.0">
+            <Button fx:id="searchButton" minWidth="53.0" mnemonicParsing="false" onAction="#handleHomeButtonOnAction" prefHeight="40.0" prefWidth="53.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="55.0">
                <graphic>
                   <ImageView fitHeight="26.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -58,7 +58,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="accountButton" layoutX="172.0" layoutY="8.0" mnemonicParsing="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="172.0">
+            <Button fx:id="accountButton" layoutX="172.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleEnergyPageButtonOnAction" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="172.0">
                <graphic>
                   <ImageView fx:id="settingsImage" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -67,7 +67,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="settingsButton" mnemonicParsing="false" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="55.0">
+            <Button fx:id="settingsButton" mnemonicParsing="false" onAction="#handleSystemSettingsButtonOnAction" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="55.0">
                <graphic>
                   <ImageView fx:id="accountImage" fitHeight="26.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                      <image>
