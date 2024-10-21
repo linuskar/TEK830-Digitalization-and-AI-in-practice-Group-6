@@ -49,3 +49,16 @@
     -fx-background-radius: 0 5 5 0;
 
 }
+
+#productRecommendationButton {
+    -fx-background-color: #005ef5;
+    -fx-background-radius: 30px;
+<
+}
+
+#productRecommendationText {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Alata Regular";
+    -fx-text-fill: #ffffff;
+}
