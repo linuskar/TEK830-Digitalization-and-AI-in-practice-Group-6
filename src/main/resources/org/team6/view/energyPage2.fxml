@@ -15,9 +15,9 @@
 
 <AnchorPane fx:id="backgroundPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="844.0" prefWidth="390.0" stylesheets="@../styles/EnergyPageStyles2.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ScrollPane prefHeight="807.0" prefWidth="390.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+      <ScrollPane prefHeight="689.0" prefWidth="390.0" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="795.0" prefWidth="389.0">
+          <AnchorPane fx:id="AnchorScrollPane" minHeight="0.0" minWidth="0.0" prefHeight="795.0" prefWidth="389.0" stylesheets="@../styles/EnergyPageStyles2.css">
                <children>
                   <AnchorPane prefHeight="250.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <children>
@@ -54,7 +54,7 @@
                                  <graphic>
                                     <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                        <children>
-                                          <Label layoutX="3.0" layoutY="14.0" text="Usage (month)" textFill="#d3bfb7" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                                          <Label layoutX="3.0" layoutY="14.0" text="Current Price" textFill="#d3bfb7" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
                                           <Label layoutX="90.0" layoutY="127.0" text="156" textFill="#9d8d87" />
                                           <Label layoutX="6.0" layoutY="127.0" text="22" textFill="#9d8d87" />
                                           <Label layoutX="17.0" layoutY="86.0" text="31" textFill="WHITE" AnchorPane.bottomAnchor="75.0">

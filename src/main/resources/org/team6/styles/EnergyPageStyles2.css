@@ -58,7 +58,14 @@
 
 #productRecommendationText {
     -fx-font-size: 15px;
-    -fx-font-weight: bold;
+    -fx-font-weight: bold;S
     -fx-font-family: "Alata Regular";
     -fx-text-fill: #ffffff;
+}
+
+
+#AnchorScrollPane {
+    TODO: change the color in the following line
+    -fx-background-color: #000000; /* Color of the stroke of the scrollPane */
+    -fx-background: #000000;       /* Color of the insisde */
 }
