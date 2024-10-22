@@ -10,13 +10,13 @@
     -fx-font-family: "Alata-Regular";
     -fx-font-size: 40;
     -fx-font-weight: bold;
-    -fx-fill: #FBDA0C;
+    -fx-fill: #ffffff;
 }
 
 .main-text {
     -fx-font-family: "Alata-Regular";
     -fx-font-size: 24;
-    -fx-text-fill: #FBDA0C;
+    -fx-text-fill: #ffffff;
     -fx-font-weight: bold;
 }
 

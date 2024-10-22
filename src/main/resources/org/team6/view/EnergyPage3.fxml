@@ -6,49 +6,20 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
 
 
-<AnchorPane fx:id="backgroundPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="844.0" prefWidth="390.0" stylesheets="@../styles/EnergyPageStyles3.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.PriceChartController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="844.0" prefWidth="390.0" stylesheets="@../styles/EnergyPageStyles3.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.PriceChartController" fx:id="x">
    <children>
-      <ScrollPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="-100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0" />
-      <AnchorPane fx:id="LayeredBackgroundPane" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
+      <AnchorPane fx:id="TitelPane" prefHeight="75.0" prefWidth="390.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
          <children>
-            <Label fx:id="TitelLabel" layoutX="116.0" layoutY="57.0" text="Energy Overview" AnchorPane.leftAnchor="116.0" AnchorPane.topAnchor="20.0" />
-            <AnchorPane fx:id="barPane" prefHeight="60.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-               <children>
-                  <Button fx:id="searchButton" minWidth="53.0" mnemonicParsing="false" onAction="#handleHomePageButtonOnAction" prefHeight="40.0" prefWidth="53.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="55.0">
-                     <graphic>
-                        <ImageView fitHeight="26.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/Group%201.0.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button fx:id="accountButton" layoutX="172.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleEnergyButtonOnAction" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="172.0">
-                     <graphic>
-                        <ImageView fx:id="settingsImage" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/Group%202.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button fx:id="settingsButton" mnemonicParsing="false" onAction="#handleSystemSettingsButton" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="55.0">
-                     <graphic>
-                        <ImageView fx:id="accountImage" fitHeight="26.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/Group%203.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-               </children>
-            </AnchorPane>
-            <Button fx:id="SettingsButton" layoutX="324.0" layoutY="23.0" mnemonicParsing="false">
+            <Label fx:id="TitelLabel" layoutX="118.0" layoutY="23.0" text="Energy Overview" AnchorPane.leftAnchor="118.0" AnchorPane.topAnchor="23.0" />
+            <Button fx:id="SettingsButton" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="20.0">
                <graphic>
                   <ImageView fitHeight="35.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -57,15 +28,83 @@
                   </ImageView>
                </graphic>
             </Button>
-            <BarChart fx:id="PriceChart" layoutX="1.0" layoutY="133.0" prefHeight="328.0" prefWidth="390.0" stylesheets="@../styles/PriceChart.css">
-              <xAxis>
-                <CategoryAxis side="BOTTOM" />
-              </xAxis>
-              <yAxis>
-                <NumberAxis side="LEFT" />
-              </yAxis>
-            </BarChart>
-            <Label layoutX="88.0" layoutY="507.0" text="Label" />
+         </children>
+      </AnchorPane>
+      <ScrollPane fx:id="ScrollPane" layoutY="151.0" prefHeight="633.0" prefWidth="422.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-32.0" AnchorPane.topAnchor="150.0">
+         <content>
+            <AnchorPane fx:id="LayeredBackgroundPane" prefHeight="684.0" prefWidth="390.0">
+               <children>
+                  <TabPane layoutX="68.0" layoutY="87.0" prefHeight="301.0" prefWidth="390.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
+                    <tabs>
+                        <Tab text="Year">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <BarChart fx:id="priceChart" layoutX="23.0" layoutY="14.0" prefHeight="251.0" prefWidth="311.0">
+                                       <xAxis>
+                                          <CategoryAxis side="BOTTOM" fx:id="xAxis" />
+                                       </xAxis>
+                                       <yAxis>
+                                          <NumberAxis fx:id="yAxis" side="LEFT" />
+                                       </yAxis>
+                                    </BarChart>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                      <Tab text="Month">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                        </content>
+                      </Tab>
+                      <Tab text="Week">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                        </content>
+                      </Tab>
+                        <Tab text="Day">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                           </content>
+                        </Tab>
+                    </tabs>
+                  </TabPane>
+                  <Label fx:id="Title1" layoutX="53.0" layoutY="343.0" text="Stay updated" AnchorPane.leftAnchor="34.0" AnchorPane.topAnchor="343.0" />
+                  <Text fx:id="Text1" strokeType="OUTSIDE" strokeWidth="0.0" text="Avoid an expensive wash by checking the best time to use electricity. Electricity prices go up and down during the day, so staying updated can make a big difference for your bills.Prices are released every day and are valid for 24 hours. This can help you plan for the upcoming day and schedule any electricity-demanding activities at a time that is a little easier on your wallet." wrappingWidth="316.5" AnchorPane.leftAnchor="34.0" AnchorPane.topAnchor="400.0" />
+                  <Text fx:id="Text2" strokeType="OUTSIDE" strokeWidth="0.0" text="Prices are exclusive of energy tax, VAT, surcharges, certification, and network fees." wrappingWidth="316.5" AnchorPane.leftAnchor="34.0" AnchorPane.topAnchor="617.0" />
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+      <AnchorPane fx:id="barPane" prefHeight="60.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Button fx:id="searchButton" minWidth="53.0" mnemonicParsing="false" onAction="#handleHomePageButtonOnAction" prefHeight="40.0" prefWidth="53.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="55.0">
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Group%201.0.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="accountButton" layoutX="172.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleEnergyButtonOnAction" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="172.0">
+               <graphic>
+                  <ImageView fx:id="settingsImage" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Group%202.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="settingsButton" mnemonicParsing="false" onAction="#handleSystemSettingsButton" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="55.0">
+               <graphic>
+                  <ImageView fx:id="accountImage" fitHeight="26.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Group%203.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
       </AnchorPane>
    </children>
