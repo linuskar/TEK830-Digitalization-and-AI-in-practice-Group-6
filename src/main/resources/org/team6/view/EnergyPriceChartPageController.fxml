@@ -11,10 +11,10 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="844.0" prefWidth="390.0" stylesheets="@../styles/EnergyPageStyles3.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.PriceChartController" fx:id="x">
+<AnchorPane fx:id="BackgroundPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="844.0" prefWidth="390.0" stylesheets="@../styles/EnergyPriceChartPageStyles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.PriceChartController">
    <children>
       <AnchorPane fx:id="TitelPane" prefHeight="75.0" prefWidth="390.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
          <children>
@@ -23,10 +23,15 @@
                <graphic>
                   <ImageView fitHeight="35.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../../../Users/shado/Downloads/image_transparent.png" />
+                        <Image url="@/org/team6/images/settings2.png" />
                      </image>
                   </ImageView>
                </graphic>
+            </Button>
+            <Button fx:id="backButton" mnemonicParsing="false" text="🡄" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
             </Button>
          </children>
       </AnchorPane>

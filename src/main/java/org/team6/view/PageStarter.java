@@ -228,12 +228,12 @@ public class PageStarter {
     }
 
     private static AnchorPane getEnergyPage2() throws IOException {
-        FXMLLoader energyPage2 = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/energyPage2.fxml"));
+        FXMLLoader energyPage2 = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/EnergyUsagePageController.fxml"));
         return energyPage2.load();
     }
 
     private static AnchorPane getEnergyPage3() throws IOException {
-        FXMLLoader energyPage3 = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/energyPage3.fxml"));
+        FXMLLoader energyPage3 = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/EnergyPriceChartPageController.fxml"));
         return energyPage3.load();
     }
 

@@ -22,7 +22,7 @@
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <Label fx:id="counterLabel" layoutX="155.0" layoutY="335.0" text="99/99" textFill="WHITE" AnchorPane.leftAnchor="155.0" AnchorPane.rightAnchor="154.0" AnchorPane.topAnchor="335.0" />
+            <Label fx:id="counterLabel" layoutX="344.0" layoutY="43.0" prefHeight="17.0" prefWidth="37.0" text="99/99" textFill="WHITE" AnchorPane.leftAnchor="344.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="43.0" />
             <Button fx:id="backButton" mnemonicParsing="false" onAction="#handleBackOnAction" text="◀" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="16.0">
                <font>
                   <Font name="System Bold" size="21.0" />

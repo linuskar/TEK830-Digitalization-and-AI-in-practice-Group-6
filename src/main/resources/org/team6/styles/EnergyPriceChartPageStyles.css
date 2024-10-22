@@ -16,8 +16,13 @@
     -fx-background-radius: 20 20 0 0;
 }
 
+#backButton {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10;
+}
 
-#x {
+
+#BackgroundPane {
     -fx-background-color: #5c5c5c;
 
 }
