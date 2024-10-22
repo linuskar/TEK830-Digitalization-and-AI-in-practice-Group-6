@@ -1,19 +1,15 @@
 package org.team6.controller;
 
-import javafx.scene.control.Label;
-import org.h2.mvstore.Page;
-
-import org.team6.model.UrlOpener;
-
-import org.team6.view.PageStarter;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+import org.team6.model.UrlOpener;
+import org.team6.view.PageStarter;
 
 public class HomePageController {
     @FXML
@@ -72,7 +68,7 @@ public class HomePageController {
 
     @FXML
     private void handleSettingsButtonAction() {
-        PageStarter.switchToSettingsPage();
+        PageStarter.switchToSystemSettings();
     }
 
     @FXML

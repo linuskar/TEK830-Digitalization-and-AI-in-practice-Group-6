@@ -12,6 +12,7 @@ import javafx.scene.text.Text;
 import javafx.util.Duration;
 import org.team6.model.Notification;
 import org.team6.model.NotificationBackend;
+import org.team6.model.NotificationHistory;
 import org.team6.model.NotificationListener;
 import org.team6.view.ImageUtils;
 
@@ -34,6 +35,8 @@ public class NotificationController implements NotificationListener {
         appNameText.setText("IKEA Home App");
     }
 
+    private NotificationHistory notificationHistory;
+
     public void setNotificationText(String text){
         notificationText.setText(text);
     }
@@ -42,8 +45,16 @@ public class NotificationController implements NotificationListener {
         return notificationText.getText();
     }
 
+    public String getAppNameText() {
+        return appNameText.getText();
+    }
+
     public void setupKeyHandling(Scene scene) {
         scene.addEventHandler(KeyEvent.KEY_PRESSED, this::handleKeyPress);
+    }
+
+    public void setNotificationHistory(NotificationHistory notificationHistory){
+        this.notificationHistory = notificationHistory;
     }
 
     public void showNotificationPane(String notificationText) {
@@ -101,5 +112,17 @@ public class NotificationController implements NotificationListener {
     @Override
     public void onNotificationSent(Notification notification) {
         showNotificationPane(Notification.getText(notification));
+        addNotificationToList();
     }
+
+    public void addNotificationToList(){
+        if(notificationPane.isVisible()){
+            notificationHistory.addNotification(notificationPane);
+        }
+    }
+
+    public Text returnText(){
+        return appNameText;
+    }
+
 }
