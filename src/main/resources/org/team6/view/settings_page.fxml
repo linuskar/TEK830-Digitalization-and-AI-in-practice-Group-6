@@ -11,18 +11,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="settingsPagePane" prefHeight="660.0" prefWidth="375.0" stylesheets="@../styles/settings_styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.SettingsPageController">
+<AnchorPane fx:id="settingsPagePane" prefHeight="844.0" prefWidth="390.0" stylesheets="@../styles/settings_styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.SettingsPageController">
    <children>
-      <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox prefHeight="587.0" prefWidth="390.0" AnchorPane.bottomAnchor="182.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
          <children>
             <HBox alignment="CENTER">
-               <children>
-                  <Label alignment="CENTER" styleClass="title-text" text="Settings">
-                     <HBox.margin>
-                        <Insets top="24.0" />
-                     </HBox.margin>
-                  </Label>
-               </children>
                <VBox.margin>
                   <Insets bottom="16.0" />
                </VBox.margin>
@@ -107,11 +100,8 @@
                                           </HBox>
                                           <HBox alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="314.0" styleClass="hbox">
                                              <children>
-                                                <Label prefHeight="34.0" prefWidth="165.0" styleClass="normal-text"
-                                                       text="Show App Tutorial" wrapText="true" />
-                                                <Button fx:id="appTutorial" mnemonicParsing="false"
-                                                        onAction="#handleAppTutorialButton" prefWidth="64.0"
-                                                        styleClass="mobile-toggle" text="Click Me" />
+                                                <Label prefHeight="34.0" prefWidth="165.0" styleClass="normal-text" text="Show App Tutorial" wrapText="true" />
+                                                <Button fx:id="appTutorial" mnemonicParsing="false" onAction="#handleAppTutorialButton" prefWidth="64.0" styleClass="mobile-toggle" text="Click Me" />
                                              </children>
                                           </HBox>
                                        </children>
@@ -135,8 +125,8 @@
             </HBox>
          </children>
       </VBox>
-      <Label layoutX="123.0" layoutY="27.0" styleClass="title-text" text="Setttings" AnchorPane.leftAnchor="122.0" AnchorPane.rightAnchor="122.0" AnchorPane.topAnchor="24.0" />
       <Button fx:id="backButton" layoutX="14.0" layoutY="441.0" mnemonicParsing="false" onAction="#handleBackOnAction" text="Back" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="16.0" />
       <Button fx:id="historyButton" layoutX="96.0" layoutY="619.0" mnemonicParsing="false" onAction="#handleHistoryPageAction" text="History" />
+      <Label alignment="CENTER" styleClass="title-text" text="Settings" AnchorPane.leftAnchor="34.0" AnchorPane.topAnchor="60.0" />
    </children>
 </AnchorPane>

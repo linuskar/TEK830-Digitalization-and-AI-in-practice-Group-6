@@ -203,7 +203,7 @@ public class PageStarter {
     }
 
     private static AnchorPane getSettingsPage() throws IOException {
-        FXMLLoader loader = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/settings_page.fxml"));
+        FXMLLoader loader = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/advanced_settings_page.fxml"));
         return loader.load();
     }
 

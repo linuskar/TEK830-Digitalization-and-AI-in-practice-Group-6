@@ -1,28 +1,13 @@
 package org.team6.controller;
 
-import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.ResourceBundle;
-
-import org.team6.model.Notification;
-import org.team6.model.NotificationBackend;
-import org.team6.model.Recommendations.RecommendationObserver;
-import org.team6.model.Recommendations.RecommendationsBackend;
-import org.team6.view.PageStarter;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Slider;
-import javafx.scene.control.Spinner;
-import javafx.scene.control.SpinnerValueFactory;
-import javafx.scene.control.ToggleButton;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
-
 import org.team6.model.Notification;
 import org.team6.model.NotificationBackend;
+import org.team6.model.Recommendations.RecommendationObserver;
 import org.team6.model.Recommendations.RecommendationsBackend;
 import org.team6.view.PageStarter;
 
@@ -89,6 +74,21 @@ public class SettingsPageController implements Initializable, RecommendationObse
         initVolumeSlider();
         initToggleButtons();
         initSpinners();
+    }
+
+    @FXML
+    private void handleHomeButtonOnAction(){
+        PageStarter.switchToHomePage();
+    }
+
+    @FXML
+    private void handleEnergyPageButtonOnAction(){
+        PageStarter.switchToEnergyPage();
+    }
+
+    @FXML
+    private void handleSystemSettingsButtonOnAction(){
+        PageStarter.switchToSystemSettings();
     }
 
     @Override

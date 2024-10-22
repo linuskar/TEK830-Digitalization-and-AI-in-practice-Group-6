@@ -1,0 +1,75 @@
+#TitleLabel {
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff; /* Correct property to set text color */
+}
+
+#searchButton, #accountButton, #settingsButton, #menuButton1{
+-fx-background-color: transparent;
+}
+
+
+#BackgroundPane {
+    -fx-background-color: #000000;
+}
+
+#AnchorScrollPane {
+    -fx-background-color: #000000;
+}
+
+#label1,
+#label2,
+#label3,
+#label4,
+#label5,
+#label6,
+#label7,
+#label8,
+#label9,
+#label10,
+#label11,
+#label12
+{
+
+    -fx-background-color: #000000;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 15px;
+    -fx-font-family: "Alata Regular";
+    -fx-font-weight: bold;
+
+}
+
+#appTutorial, #historyButton {
+    -fx-background-color: #000000;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 20px;
+    -fx-font-family: "Alata Regular";
+    -fx-font-weight: bold;
+    -fx-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-color: #ffffff;
+
+}
+
+.mobile-toggle {
+    -fx-background-color: #ccc;
+    -fx-background-radius: 16px;
+    -fx-text-fill: transparent;
+}
+
+.mobile-toggle:selected {
+    -fx-background-color: #4caf50;
+    -fx-alignment: center-right;
+}
+
+
+Button:hover {
+    -fx-cursor: hand;
+}
+
+ToggleButton:hover {
+    -fx-cursor: hand;
+}
+
+
+

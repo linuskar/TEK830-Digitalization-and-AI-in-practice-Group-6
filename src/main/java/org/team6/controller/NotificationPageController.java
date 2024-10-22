@@ -2,16 +2,10 @@ package org.team6.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.control.Slider;
 import javafx.scene.control.ToggleButton;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
-import org.h2.value.Transfer;
 import org.team6.model.NotificationHistory;
 import org.team6.view.PageStarter;
 
@@ -56,6 +50,13 @@ public class NotificationPageController {
         this.notificationText = text;
     }
 
+    @FXML
+    private void handleHomeButton(){
+        PageStarter.switchToHomePage();
+    }
+
+
+
 
     @FXML
     private void initialize() {
@@ -98,10 +99,7 @@ public class NotificationPageController {
         notificationHistoryVBox.setVisible(toggleButton.isSelected());
     }
 
-    @FXML
-    private void handleBackOnAction() {
-        PageStarter.switchToHomePage();
-    }
+
 
     @FXML
     private void handleEnergyButtonAction(){
