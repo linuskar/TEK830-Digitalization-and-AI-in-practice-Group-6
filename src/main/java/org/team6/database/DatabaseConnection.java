@@ -142,15 +142,23 @@ public class DatabaseConnection {
         return dataBaseProducts;
     }
 
+    // Mock data for energy spenders for the household 
+    // where the integers are the amount of energy spent in kWh
     public static HashMap<EnergyUsageCategory, Integer> getEnergySpenders() {
+        // We mock the data so that it is biased towards the products we have in the database
+        // which is for the products with refrigeration and cooking energy usage categories
         HashMap<EnergyUsageCategory, Integer> energySpending = new HashMap<>();
 
-        energySpending.put(EnergyUsageCategory.LIGHTING, 100);
-        energySpending.put(EnergyUsageCategory.HEATING, 200);
-        energySpending.put(EnergyUsageCategory.OTHER, 300);
-        energySpending.put(EnergyUsageCategory.COOLING, 400);
-        energySpending.put(EnergyUsageCategory.REFRIGERATION, 500);
-        energySpending.put(EnergyUsageCategory.COOKING, 600);
+        energySpending.put(EnergyUsageCategory.HEATING, 60);
+        energySpending.put(EnergyUsageCategory.COOKING, 160);
+        energySpending.put(EnergyUsageCategory.HOT_WATER, 10);
+        energySpending.put(EnergyUsageCategory.COOLING, 70);
+        energySpending.put(EnergyUsageCategory.HOME_ELECTRONICS, 50);
+        energySpending.put(EnergyUsageCategory.REFRIGERATION, 275);
+        energySpending.put(EnergyUsageCategory.LIGHTING, 25);
+        energySpending.put(EnergyUsageCategory.ALWAYS_ON, 11);
+        energySpending.put(EnergyUsageCategory.LAUNDRY, 30);
+        energySpending.put(EnergyUsageCategory.OTHER, 15);
 
         return energySpending;
     }
