@@ -1,3 +1,10 @@
+#TItleLabel {
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Alata Regular";
+    -fx-text-fill: #ffffff;
+}
+
 #usageButton {
     -fx-background-color: #353027;
     -fx-text-fill: #ffffff;

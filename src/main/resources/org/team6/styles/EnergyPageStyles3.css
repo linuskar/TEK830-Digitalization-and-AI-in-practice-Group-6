@@ -1,3 +1,31 @@
+#searchButton, #accountButton, #settingsButton, #menuButton1{
+-fx-background-color: transparent;
+}
+
+
+#backgroundPane {
+    -fx-background-color: transparent;
+}
+
+#LayeredBackgroundPane {
+    -fx-background-color: #898989;
+    -fx-background-radius: 20 20 0 0;
+}
+
+#TitelLabel {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Alata Regular";
+    -fx-text-fill: #ffffff;
+}
+
+#SettingsButton {
+    -fx-background-color: transparent;
+    -fx-background-radius: 30px;
+}
+
+
+
 Button:hover {
     -fx-cursor: hand;
 }

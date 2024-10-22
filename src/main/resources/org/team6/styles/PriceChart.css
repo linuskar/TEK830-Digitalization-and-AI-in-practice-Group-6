@@ -1,0 +1,61 @@
+/* Styling the entire PriceChart with a dark background */
+#PriceChart {
+    -fx-background-color: #2c2c2c;  /* Dark background color */
+    -fx-padding: 20px;  /* Padding around the chart */
+}
+
+/* Styling the bars with muted golden colors */
+#PriceChart .default-color0.chart-bar {
+    -fx-bar-fill: #d4b06a; /* Muted golden color for the bars */
+}
+
+#PriceChart .default-color1.chart-bar {
+    -fx-bar-fill: #b89459; /* Slightly darker tone for another data series */
+}
+
+/* Hover effect on bars - Brighten the bar on hover */
+#PriceChart .chart-bar:hover {
+    -fx-bar-fill: #f5c469; /* Brighter golden color on hover */
+    -fx-opacity: 1;  /* Full opacity when hovered */
+    -fx-cursor: hand;  /* Pointer on hover */
+}
+
+/* Bars that are not hovered - make them a bit transparent */
+#PriceChart .chart-bar {
+    -fx-opacity: 0.85;  /* Slight transparency for non-hovered bars */
+}
+
+/* Axis styling with subtle, light-gray labels */
+#PriceChart .axis {
+    -fx-tick-label-fill: #cccccc;  /* Light gray axis label color */
+    -fx-tick-label-font-size: 12px; /* Slightly smaller font size */
+}
+
+#PriceChart .axis-label {
+    -fx-text-fill: #cccccc; /* Light gray axis label text color */
+    -fx-font-size: 14px;  /* Font size */
+}
+
+/* Chart title styling (optional, adjust based on your needs) */
+#PriceChart .chart-title {
+    -fx-text-fill: #ffffff; /* White color for title */
+    -fx-font-size: 18px; /* Title font size */
+    -fx-font-weight: bold; /* Bold title */
+}
+
+/* Grid lines - make them subtle */
+#PriceChart .chart-horizontal-grid-lines,
+#PriceChart .chart-vertical-grid-lines {
+    -fx-stroke: #4d4d4d; /* Dark gray grid lines */
+    -fx-stroke-width: 1; /* Thin grid lines */
+}
+
+/* Legend styling (if needed, adjust based on your chart layout) */
+#PriceChart .chart-legend-item-symbol {
+    -fx-background-color: transparent; /* No border around legend symbol */
+}
+
+#PriceChart .chart-legend-item {
+    -fx-text-fill: #cccccc; /* Light gray legend text color */
+    -fx-font-size: 12px;  /* Legend font size */
+}

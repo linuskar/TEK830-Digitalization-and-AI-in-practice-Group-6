@@ -176,5 +176,6 @@
             </Button>
          </children>
       </AnchorPane>
+      <Label fx:id="TItleLabel" layoutX="41.0" layoutY="49.0" text="Energy Overview" AnchorPane.leftAnchor="34.0" AnchorPane.topAnchor="55.0" />
    </children>
 </AnchorPane>
