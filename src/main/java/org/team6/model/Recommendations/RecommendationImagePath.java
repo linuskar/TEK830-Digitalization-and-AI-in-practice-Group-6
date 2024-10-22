@@ -3,7 +3,19 @@ package org.team6.model.Recommendations;
 import org.team6.model.Products.ProductCategory;
 
 public class RecommendationImagePath {
-    public static String getImagePath(String recommendationTitle, ProductCategory productCategory) {
+    public static String getTipImagePath(String recommendationTitle) {
+        String imagePath = "";
+        switch (recommendationTitle) {
+            case "Tip 1":
+                imagePath = "/org/team6/images/products/mutebo.png";
+                break;
+            default:
+                throw new AssertionError();
+        }
+        return imagePath;
+    }
+
+    public static String getProductImagePath(String recommendationTitle, ProductCategory productCategory) {
         String imagePath = "";
         switch (recommendationTitle) {
             case "Tynnerås":

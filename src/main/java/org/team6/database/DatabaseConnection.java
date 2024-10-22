@@ -103,11 +103,9 @@ public class DatabaseConnection {
             return "{\"error\":\""+getError(e)+"\"}";
         }
         */
-
+        // TODO: Put products in database
         List<Product> dataBaseProducts = new ArrayList<>();
 
-        // TEMP: Products and energy usage data are hardcoded for now
-        // TODO: Put products in database
         Fridge fridge1 = new Fridge("Tynnerås", ProductCategory.FRIDGE, EnergyUsageCategory.REFRIGERATION, 114, 7995,365);
         Fridge fridge2 = new Fridge("Forsnäs", ProductCategory.FRIDGE, EnergyUsageCategory.REFRIGERATION, 91, 7995, 310);    
 

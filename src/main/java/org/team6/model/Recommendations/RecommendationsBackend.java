@@ -24,10 +24,15 @@ public class RecommendationsBackend {
 
     private static List<Product> dataBaseProducts = new ArrayList<>();
 
-    private static List<Recommendation> generalProductRecommendations = new ArrayList<>();
-    private static List<Recommendation> personalProductRecommendations  = new ArrayList<>();
+    private static List<ProductRecommendation> generalProductRecommendations = new ArrayList<>();
+    private static List<ProductRecommendation> personalProductRecommendations  = new ArrayList<>();
+
+    private static List<TipRecommendation> generalTipsRecommendations = new ArrayList<>();
+    private static List<TipRecommendation> personalTipsRecommendations  = new ArrayList<>();
 
     private static HashMap<EnergyUsageCategory, Integer> dataBaseEnergySpenders = new HashMap<>();
+
+    private static List<Tip> tips = new ArrayList<>();
 
     private RecommendationsBackend() {
     }
@@ -36,9 +41,7 @@ public class RecommendationsBackend {
         dataBaseProducts = DatabaseConnection.getProducts();
         dataBaseEnergySpenders = DatabaseConnection.getEnergySpenders();
 
-        // What amount of the total energy consumption for user is based on this category
-        //dataBaseEnergySpenders.put(EnergyUsageCategory.REFRIGERATION, 325);
-        //dataBaseEnergySpenders.put(EnergyUsageCategory.COOKING, 100);
+        createTips();
 
         createRecommendations();
     }
@@ -49,24 +52,30 @@ public class RecommendationsBackend {
     }
 
     private static void createGeneralRecommendations() {
-        for (EnergyUsageCategory category : EnergyUsageCategory.values()) {
-            recommendGeneralProducts(category);
+        recommendGeneralProducts();
+        recommendGeneralTips();
+    }
+
+    private static void recommendGeneralProducts() {
+        for (Product product : dataBaseProducts) {
+            ProductRecommendation recommendation = new ProductRecommendation(product.getName(), product.getProductDescription(), product.getProductCategory());
+            generalProductRecommendations.add(recommendation);
+        }      
+    }
+
+    private static void recommendGeneralTips(){
+        for (Tip tip : tips) {
+            TipRecommendation recommendation = new TipRecommendation(tip.getTipTitle(), tip.getTipDescription());
+            generalTipsRecommendations.add(recommendation);    
         }
     }
 
-    private static void recommendGeneralProducts(EnergyUsageCategory category) {
-        List<Product> relevantProducts = new ArrayList<>();
+    private static void createTips(){    
+        Tip tip1 = new Tip("Tip 1", "Turn off the lights when you leave a room", EnergyUsageCategory.LIGHTING);
+        Tip tip2 = new Tip("Tip 1", "Close the door when leaving your refrigerator", EnergyUsageCategory.REFRIGERATION);
 
-        for (Product product : dataBaseProducts) {
-            if (product.getEnergyUsageCategory().equals(category.toString())) {
-                relevantProducts.add(product);
-            }
-        }
-
-        for (Product product : relevantProducts) {
-            Recommendation recommendation = new Recommendation(product.getName(), product.getProductDescription(), product.getProductCategory());
-            generalProductRecommendations.add(recommendation);
-        }      
+        tips.add(tip1);
+        tips.add(tip2);
     }
 
     private static void createPersonalRecommendations(){
@@ -75,6 +84,16 @@ public class RecommendationsBackend {
         for (Map.Entry<EnergyUsageCategory, Integer> entry : topEnergySpenders.entrySet()) {
             EnergyUsageCategory category = entry.getKey();
             recommendPersonalProducts(category);
+            recommendPersonalTips(category);
+        }
+    }
+
+    private static void recommendPersonalTips(EnergyUsageCategory category){
+        for (Tip tip : tips) {
+            if (tip.getEnergyUsageCategory().equals(category)) {
+                TipRecommendation recommendation = new TipRecommendation(tip.getTipTitle(), tip.getTipDescription());
+                personalTipsRecommendations.add(recommendation);
+            }
         }
     }
 
@@ -125,7 +144,7 @@ public class RecommendationsBackend {
                 if (lowestConsumptionFridge != null) {
                     String description = personalRecommendationDescription(lowestConsumptionFridge, category);
 
-                    personalProductRecommendations.add(new Recommendation(lowestConsumptionFridge.getName(), description, ProductCategory.FRIDGE));
+                    personalProductRecommendations.add(new ProductRecommendation(lowestConsumptionFridge.getName(), description, ProductCategory.FRIDGE));
                 }
             }
             else if (productCategory.equals(ProductCategory.FREEZER.toString())) {
@@ -134,7 +153,7 @@ public class RecommendationsBackend {
                 if (lowestConsumptionFreezer != null) {
                     String description = personalRecommendationDescription(lowestConsumptionFreezer, category);
 
-                    personalProductRecommendations.add(new Recommendation(lowestConsumptionFreezer.getName(), description, ProductCategory.FREEZER));
+                    personalProductRecommendations.add(new ProductRecommendation(lowestConsumptionFreezer.getName(), description, ProductCategory.FREEZER));
                 }
             }
             else if (productCategory.equals(ProductCategory.FRIDGE_FREEZER.toString())) {
@@ -143,7 +162,7 @@ public class RecommendationsBackend {
                 if (lowestConsumptionFridgeFreezer != null) {
                     String description = personalRecommendationDescription(lowestConsumptionFridgeFreezer, category);
 
-                    personalProductRecommendations.add(new Recommendation(lowestConsumptionFridgeFreezer.getName(), description, ProductCategory.FRIDGE_FREEZER));
+                    personalProductRecommendations.add(new ProductRecommendation(lowestConsumptionFridgeFreezer.getName(), description, ProductCategory.FRIDGE_FREEZER));
                 }
             }
             else if (productCategory.equals(ProductCategory.OVEN.toString())) {
@@ -152,7 +171,7 @@ public class RecommendationsBackend {
                 if (lowestConsumptionOven != null) {
                     String description = personalRecommendationDescription(lowestConsumptionOven, category);
 
-                    personalProductRecommendations.add(new Recommendation(lowestConsumptionOven.getName(), description, ProductCategory.OVEN));
+                    personalProductRecommendations.add(new ProductRecommendation(lowestConsumptionOven.getName(), description, ProductCategory.OVEN));
                 }
             }
             else{
@@ -161,7 +180,7 @@ public class RecommendationsBackend {
                 if (lowestConsumptionOven != null) {
                     String description = personalRecommendationDescription(lowestConsumptionOven, category);
 
-                    personalProductRecommendations.add(new Recommendation(lowestConsumptionOven.getName(), description, ProductCategory.FORCED_AIR_OVEN));
+                    personalProductRecommendations.add(new ProductRecommendation(lowestConsumptionOven.getName(), description, ProductCategory.FORCED_AIR_OVEN));
                 }
             }
         });    
@@ -277,12 +296,20 @@ public class RecommendationsBackend {
         return dataBaseProducts;
     }
 
-    public static List<Recommendation> getPersonalProductRecommendations() {
+    public static List<ProductRecommendation> getPersonalProductRecommendations() {
         return personalProductRecommendations;
     }
 
-    public static List<Recommendation> getGeneralProductRecommendations() {
+    public static List<ProductRecommendation> getGeneralProductRecommendations() {
         return generalProductRecommendations;
+    }
+
+    public static List<TipRecommendation> getGeneralTipsRecommendations() {
+        return generalTipsRecommendations;
+    }
+
+    public static List<TipRecommendation> getPersonalTipsRecommendations() {
+        return personalTipsRecommendations;
     }
 
     public static void addObserver(RecommendationObserver observer) {

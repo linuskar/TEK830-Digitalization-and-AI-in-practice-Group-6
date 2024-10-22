@@ -3,7 +3,20 @@ package org.team6.model.Recommendations;
 import org.team6.model.Products.ProductCategory;
 
 public class RecommendationReadMoreUrl {
-    public static String getReadMoreUrl(String recommendationTitle, ProductCategory productCategory) {
+    public static String getTipReadMoreUrl(String recommendationTitle) {
+        // IKEA would have to implement tips that link to an indepth article on the IKEA website or something
+        String readMoreUrl = "";
+        switch (recommendationTitle) {
+            case "Tip 1":
+                break;
+            default:
+                throw new AssertionError();
+        }
+        
+        return readMoreUrl;
+    }
+
+    public static String getProductReadMoreUrl(String recommendationTitle, ProductCategory productCategory) {
         String readMoreUrl = "";
         switch (recommendationTitle) {
             case "Tynnerås":

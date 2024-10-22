@@ -1,16 +1,12 @@
 package org.team6.model.Recommendations;
 
-import org.team6.model.Products.ProductCategory;
-
-public class Recommendation {
+public abstract class Recommendation {
     private String title;
     private String text;
-    private ProductCategory productCategory;
 
-    public Recommendation(String title, String text, ProductCategory productCategory) {
+    public Recommendation(String title, String text) {
         this.title = title;
         this.text = text;
-        this.productCategory = productCategory;
     }
 
     public String getTitle() {
@@ -21,11 +17,7 @@ public class Recommendation {
         return text;
     }
 
-    public String getRecommendationImage(){
-        return RecommendationImagePath.getImagePath(title, productCategory);
-    }
+    public abstract String getRecommendationImage();
 
-    public String getReadMoreUrl() {
-        return RecommendationReadMoreUrl.getReadMoreUrl(title, productCategory);
-    }
+    public abstract String getReadMoreUrl();
 }

@@ -2,9 +2,10 @@ package org.team6.controller;
 
 import java.io.IOException;
 
-import org.team6.model.Recommendations.Recommendation;
+import org.team6.model.Recommendations.ProductRecommendation;
 import org.team6.model.Recommendations.RecommendationObserver;
 import org.team6.model.Recommendations.RecommendationsBackend;
+import org.team6.model.Recommendations.TipRecommendation;
 import org.team6.view.PageStarter;
 
 import javafx.fxml.FXML;
@@ -65,8 +66,6 @@ public class RecommendationsPageController implements RecommendationObserver {
     @FXML
     private FlowPane personalTipsRecommendationsFlowPane;
 
-    // TODO: if we do not have time for tip recommendations than just disable the tab.
-
     @FXML
     private void initialize() {
         RecommendationsBackend.addObserver(this);
@@ -89,9 +88,8 @@ public class RecommendationsPageController implements RecommendationObserver {
         // For each recommendation, create a card
         // Add the card to the appropriate flow pane
 
-        // For now, we'll just create some dummy cards
-        initializeGeneralRecommendations(2,1);
-        initializePersonalRecommendations(3,2);
+        initializeGeneralRecommendations();
+        initializePersonalRecommendations();
     }
 
     private void initializeToggleGroups() {
@@ -114,7 +112,7 @@ public class RecommendationsPageController implements RecommendationObserver {
         personalToggleButton.setDisable(!RecommendationsBackend.isPersonalRecommendationsOn());
     }
 
-    private void initializeGeneralRecommendations(int products, int tips) {
+    private void initializeGeneralRecommendations() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/team6/view/RecommendationContent.fxml"));
             generalRecommendationsFlowPane = loader.load();
@@ -127,12 +125,12 @@ public class RecommendationsPageController implements RecommendationObserver {
             generalTipsRecommendationsFlowPane = controller.getTipsRecommendationsFlowPane();
 
             // Create and add recommendation cards
-            for (Recommendation recommendation : RecommendationsBackend.getGeneralProductRecommendations()) {
+            for (ProductRecommendation recommendation : RecommendationsBackend.getGeneralProductRecommendations()) {
                 createProductRecommendationCard(generalProductRecommendationsVBox, recommendation);
             }
 
-            for (int i = 0; i < tips; i++) {
-                createTipRecommendationCard(generalTipsRecommendationsVBox);
+            for (TipRecommendation recommendation : RecommendationsBackend.getGeneralTipsRecommendations()) {
+                createTipRecommendationCard(generalTipsRecommendationsVBox, recommendation);
             }
 
             recommendationsContentPane.getChildren().add(generalRecommendationsFlowPane);
@@ -141,8 +139,7 @@ public class RecommendationsPageController implements RecommendationObserver {
         }
     }
 
-    // products and tips testing values for cards due to lack of backend
-    private void initializePersonalRecommendations(int products, int tips) {
+    private void initializePersonalRecommendations() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/team6/view/RecommendationContent.fxml"));
             personalRecommendationsFlowPane = loader.load();
@@ -155,17 +152,13 @@ public class RecommendationsPageController implements RecommendationObserver {
             personalTipsRecommendationsFlowPane = controller.getTipsRecommendationsFlowPane();
 
             // Create and add recommendation cards
-            for (Recommendation recommendation : RecommendationsBackend.getPersonalProductRecommendations()) {
+            for (ProductRecommendation recommendation : RecommendationsBackend.getPersonalProductRecommendations()) {
                 createProductRecommendationCard(personalProductRecommendationsVBox, recommendation);
                 
             }
-            /* 
-            for (int i = 0; i < products; i++) {
-                createProductRecommendationCard(personalProductRecommendationsVBox);
-            }
-*/
-            for (int i = 0; i < tips; i++) {
-                createTipRecommendationCard(personalTipsRecommendationsVBox);
+
+            for (TipRecommendation recommendation : RecommendationsBackend.getPersonalTipsRecommendations()) {
+                createTipRecommendationCard(personalTipsRecommendationsVBox, recommendation);
             }
 
             recommendationsContentPane.getChildren().add(personalRecommendationsFlowPane);
@@ -253,7 +246,7 @@ public class RecommendationsPageController implements RecommendationObserver {
         PageStarter.switchToEnergyInsightsPage();
     }
 
-    private void createProductRecommendationCard(VBox recommendationVBox, Recommendation recommendation) {
+    private void createProductRecommendationCard(VBox recommendationVBox, ProductRecommendation recommendation) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/team6/view/RecommendationCard.fxml"));
             AnchorPane card = loader.load();
@@ -285,11 +278,31 @@ public class RecommendationsPageController implements RecommendationObserver {
         RecommendationCardController controller = loader.getController();
 
         controller.disableReadMoreButton();
+    
+            recommendationVBox.getChildren().add(card);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void createTipRecommendationCard(VBox recommendationVBox, TipRecommendation recommendation) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/team6/view/RecommendationCard.fxml"));
+            AnchorPane card = loader.load();
+
+        RecommendationCardController controller = loader.getController();
         
-        // TODO: Set card title, text, and image from backend, 
-        //controller.setCardTitle("Card Title");
-        //controller.setCardText("Card Text");
-        //controller.setCardImage(null);
+        controller.disableReadMoreButton();
+
+        controller.setCardTitle(recommendation.getTitle());
+        controller.setCardText(recommendation.getText());
+        String imageUrl = recommendation.getRecommendationImage();
+
+        Image image = new Image(getClass().getResourceAsStream(imageUrl));
+        controller.setCardImage(image);
+        controller.setCardText(recommendation.getText());
+
+        // controller.setReadMoreURL(recommendation.getReadMoreUrl());
 
             recommendationVBox.getChildren().add(card);
         } catch (IOException e) {
