@@ -3,7 +3,7 @@ package org.team6.controller;
 import javafx.fxml.FXML;
 import org.team6.view.PageStarter;
 
-public class EnergyPage3Controller {
+public class EnergyPriceChartPageController {
 
 
     @FXML
