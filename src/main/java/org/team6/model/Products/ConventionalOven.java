@@ -31,5 +31,4 @@ public class ConventionalOven extends Oven {
 
         return sb.toString();
     }
-
 }
