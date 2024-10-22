@@ -12,7 +12,7 @@ Button:hover {
 
 
 #backButton , #forwardButton {
-    -fx-background-color: #FBDA0C;
+    -fx-background-color: #ffffff;
     -fx-background-radius: 10px;
     -fx-pref-width: 60;
     -fx-pref-height: 30;

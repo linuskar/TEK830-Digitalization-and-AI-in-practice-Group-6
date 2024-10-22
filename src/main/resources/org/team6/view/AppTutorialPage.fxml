@@ -13,12 +13,12 @@
    <children>
       <AnchorPane fx:id="windowPane2" layoutY="60.0" prefHeight="600.0" prefWidth="340.0" AnchorPane.bottomAnchor="184.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
          <children>
-            <Text fill="#fbda0c" layoutX="29.0" layoutY="37.740234375" strokeType="OUTSIDE" strokeWidth="0.0" text="Information about the IKEA Home Smart app" textAlignment="CENTER" wrappingWidth="297.13671875" AnchorPane.leftAnchor="29.0" AnchorPane.topAnchor="14.0">
+            <Text fill="WHITE" layoutX="29.0" layoutY="37.740234375" strokeType="OUTSIDE" strokeWidth="0.0" text="Information about the IKEA Home Smart app" textAlignment="CENTER" wrappingWidth="297.13671875" AnchorPane.leftAnchor="29.0" AnchorPane.topAnchor="14.0">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
             </Text>
-            <Label fx:id="infoText" layoutX="16.0" layoutY="342.0" prefHeight="112.0" prefWidth="177.0" text="Here is some info,Here is some info" textAlignment="CENTER" textFill="#fbda0c" wrapText="true" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="340.0">
+            <Label fx:id="infoText" layoutX="16.0" layoutY="342.0" prefHeight="112.0" prefWidth="177.0" text="Here is some info,Here is some info" textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="340.0">
                <font>
                   <Font size="14.0" />
                </font></Label>
