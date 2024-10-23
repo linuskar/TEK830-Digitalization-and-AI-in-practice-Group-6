@@ -1,10 +1,10 @@
 #BackgroundPane {
-    -fx-background-color: #000000;
+    -fx-background-color: #1e1e1e;
 }
 
 #scrollPane {
-    -fx-background-color: #000000; /* Color of the stroke of the scrollPane */
-    -fx-background: #000000;       /* Color of the insisde */
+    -fx-background-color: #1e1e1e; /* Color of the stroke of the scrollPane */
+    -fx-background: #1e1e1e;       /* Color of the insisde */
 }
 
 #TheHubButton,
@@ -14,7 +14,7 @@
 #WorkshopButton,
 #AppTutorialButton,
 #HelpButton  {
-    -fx-background-color: #000000;
+    -fx-background-color: #2A3338;
     -fx-text-fill: #ffffff;
     -fx-font-size: 20px;
     -fx-font-family: "Alata Regular";
@@ -29,7 +29,7 @@
 #jur2,
 #jur3,
 #jur4 {
-    -fx-background-color: #000000;
+    -fx-background-color:  #2A3338;
     -fx-text-fill: #ffffff;
     -fx-font-size: 20px;
     -fx-font-family: "Alata Regular";

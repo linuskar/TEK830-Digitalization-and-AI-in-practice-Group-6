@@ -146,7 +146,7 @@ public class PageStarter {
 
     public static void switchToEnergyPage(){
         setPageVisible(energyPane);
-        primaryStage.setTitle("Energy overview");
+        primaryStage.setTitle("Energy Insights");
         primaryStage.setScene(scene);
     }
 
