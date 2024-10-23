@@ -131,9 +131,7 @@ public class NotificationController implements NotificationListener {
     }
 
     public void addNotificationToList(Notification notification){
-        if(notificationPane.isVisible()) {
             notificationHistory.addNotification(notification);
-        }
 
     }
 }
