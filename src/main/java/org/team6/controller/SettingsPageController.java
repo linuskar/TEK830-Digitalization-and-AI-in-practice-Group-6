@@ -1,5 +1,16 @@
 package org.team6.controller;
 
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.ResourceBundle;
+
+import org.team6.model.Notification;
+import org.team6.model.NotificationBackend;
+import org.team6.model.Recommendations.RecommendationObserver;
+import org.team6.model.Recommendations.RecommendationsBackend;
+import org.team6.view.PageStarter;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,10 +20,10 @@ import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 
 import org.team6.model.Notification;
 import org.team6.model.NotificationBackend;
+import org.team6.model.Recommendations.RecommendationsBackend;
 import org.team6.view.PageStarter;
 
 import java.net.URL;
@@ -20,10 +31,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
 
-import org.team6.model.Observer;
-import org.team6.model.RecommendationsBackend;
-
-public class SettingsPageController implements Initializable, Observer {
+public class SettingsPageController implements Initializable, RecommendationObserver {
     @FXML
     private ToggleButton sendNotificationsToggleButton;
     @FXML
@@ -50,9 +58,12 @@ public class SettingsPageController implements Initializable, Observer {
 
     @FXML
     private ToggleButton recommendationsToggleButton;
+    @FXML
+    private Button appTutorial;
 
     @FXML
     private Button backButton;
+    @FXML
     private AnchorPane settingsPagePane;
 
     // Nicer to show the user a scale from 0 to 100 rather than 0 to 1.
@@ -208,5 +219,10 @@ public class SettingsPageController implements Initializable, Observer {
 
     private void handleEndNotificationTimeChanged(int newTime) {
         NotificationBackend.setEndNotificationTime(newTime);
+    }
+
+    @FXML
+    private void handleAppTutorialButton(ActionEvent event) {
+        PageStarter.openAppTutorial();
     }
 }

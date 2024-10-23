@@ -28,6 +28,7 @@ public class PageStarter {
     private static AnchorPane energyPane;
     private static Scene scene;
     private static Stage primaryStage;
+    private static AnchorPane appTutorialPage;
 
     private PageStarter() {
         // Private constructor to prevent instantiation
@@ -58,7 +59,7 @@ public class PageStarter {
             settingsPane = getSettingsPage();
             pages.add(settingsPane);
 
-            AnchorPane appTutorialPage = getAppTutorialPage();
+            appTutorialPage = getAppTutorialPage();
 
             energyPane = getEnergyPane();
             pages.add(energyPane);
@@ -66,11 +67,14 @@ public class PageStarter {
             AnchorPane settingsPopUpPane = getSettingsPopUpPage();
 
             mainPage.getChildren().addAll(homePane, settingsPane, energyInsightsPane, recommendationsPane, notificationPane,appTutorialPage, settingsPopUpPane, energyPane);
-
             notificationController.setupKeyHandling(scene);
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private static void setAppTutorialVisible(boolean visible) {
+        appTutorialPage.setVisible(visible);
     }
 
     private static void setPageVisible(AnchorPane thePage) {
@@ -113,6 +117,12 @@ public class PageStarter {
         setPageVisible(energyPane);
         primaryStage.setTitle("Energy overview");
         primaryStage.setScene(scene);
+    }
+
+    public static void openAppTutorial() {
+
+        setAppTutorialVisible(true);
+        primaryStage.setTitle("App Tutorial");
     }
 
     private static StackPane getMainPage() throws IOException {

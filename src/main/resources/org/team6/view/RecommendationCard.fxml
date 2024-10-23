@@ -50,7 +50,7 @@
                         </HBox>
                         <HBox alignment="BOTTOM_RIGHT">
                            <children>
-                              <Button fx:id="readMoreButton" mnemonicParsing="false" text="Read More">
+                              <Button fx:id="readMoreButton" mnemonicParsing="false" onAction="#handleReadMoreButtonAction" text="Read More">
                                  <HBox.margin>
                                     <Insets right="5.0" />
                                  </HBox.margin>
