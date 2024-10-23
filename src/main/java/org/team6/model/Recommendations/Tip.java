@@ -18,7 +18,15 @@ public class Tip {
     }
 
     public String getTipDescription() {
-        return tipDescription;
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(tipDescription);
+        sb.append("\n\n");
+        sb.append("This tip is for ");
+        sb.append(getEnergyUsageCategory().toString().toLowerCase());
+        sb.append(".");
+
+        return sb.toString();
     }
 
     public EnergyUsageCategory getEnergyUsageCategory() {
