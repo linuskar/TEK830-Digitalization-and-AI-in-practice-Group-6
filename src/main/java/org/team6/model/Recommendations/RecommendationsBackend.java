@@ -71,11 +71,26 @@ public class RecommendationsBackend {
     }
 
     private static void createTips(){    
-        Tip tip1 = new Tip("Tip 1", "Turn off the lights when you leave a room", EnergyUsageCategory.LIGHTING);
-        Tip tip2 = new Tip("Tip 1", "Close the door when leaving your refrigerator", EnergyUsageCategory.REFRIGERATION);
+        Tip refrigerationTip1 = new Tip("Close the refrigerator door", "Keep the door for the refrigerator closed", EnergyUsageCategory.REFRIGERATION);
+        Tip refrigerationTip2 = new Tip("Avoid hot food in the refigerator", "Do not put hot food in the refrigerator", EnergyUsageCategory.REFRIGERATION);
 
-        tips.add(tip1);
-        tips.add(tip2);
+        Tip cookingTip1 = new Tip("Oven usage", "Optimise oven use", EnergyUsageCategory.COOKING);
+        Tip cookingTip2 = new Tip("Use lids", "Cover pots and pans with lids", EnergyUsageCategory.COOKING);
+
+        Tip hotWaterTip1 = new Tip("Avoid letting the water run", "Dont let the water run", EnergyUsageCategory.HOT_WATER);
+        Tip hotWaterTip2 = new Tip("Reduce time in the shower", "Reduce time in shower", EnergyUsageCategory.HOT_WATER);
+
+        Tip lightingTip1 = new Tip("Lights usage", "Keeps lights low or off when not used", EnergyUsageCategory.LIGHTING);
+        Tip lightingTip2 = new Tip("Use natural light", "Natural light", EnergyUsageCategory.LIGHTING);
+
+        tips.add(refrigerationTip1);
+        tips.add(refrigerationTip2);
+        tips.add(cookingTip1);
+        tips.add(cookingTip2);
+        tips.add(hotWaterTip1);
+        tips.add(hotWaterTip2);
+        tips.add(lightingTip1);
+        tips.add(lightingTip2);
     }
 
     private static void createPersonalRecommendations(){
@@ -91,10 +106,24 @@ public class RecommendationsBackend {
     private static void recommendPersonalTips(EnergyUsageCategory category){
         for (Tip tip : tips) {
             if (tip.getEnergyUsageCategory().equals(category)) {
-                TipRecommendation recommendation = new TipRecommendation(tip.getTipTitle(), tip.getTipDescription());
+                String description = personalTipRecommendationDescription(tip, category);
+
+                TipRecommendation recommendation = new TipRecommendation(tip.getTipTitle(), description);
                 personalTipsRecommendations.add(recommendation);
             }
         }
+    }
+
+    private static String personalTipRecommendationDescription(Tip tip, EnergyUsageCategory category){
+        StringBuilder sb = new StringBuilder();
+        String energyUsagePercentageForCategory = Math.round(getEnergyUsagePercantage(category)) + "%";
+        String personalRecommendationDescription = personalTipRecommendationEnergySavingsDescription(category, energyUsagePercentageForCategory);
+
+        sb.append(personalRecommendationDescription);
+        sb.append("\n\n");
+        sb.append(tip.getTipDescription());
+
+        return sb.toString();
     }
 
     private static HashMap <EnergyUsageCategory, Integer> getTopEnergySpenders(){
@@ -142,7 +171,7 @@ public class RecommendationsBackend {
                 Fridge lowestConsumptionFridge = recommendFridge(productsInCategory);
 
                 if (lowestConsumptionFridge != null) {
-                    String description = personalRecommendationDescription(lowestConsumptionFridge, category);
+                    String description = personalProductRecommendationDescription(lowestConsumptionFridge, category);
 
                     personalProductRecommendations.add(new ProductRecommendation(lowestConsumptionFridge.getName(), description, ProductCategory.FRIDGE));
                 }
@@ -151,7 +180,7 @@ public class RecommendationsBackend {
                 Freezer lowestConsumptionFreezer = recommendFreezer(productsInCategory);
 
                 if (lowestConsumptionFreezer != null) {
-                    String description = personalRecommendationDescription(lowestConsumptionFreezer, category);
+                    String description = personalProductRecommendationDescription(lowestConsumptionFreezer, category);
 
                     personalProductRecommendations.add(new ProductRecommendation(lowestConsumptionFreezer.getName(), description, ProductCategory.FREEZER));
                 }
@@ -160,7 +189,7 @@ public class RecommendationsBackend {
                 FridgeFreezer lowestConsumptionFridgeFreezer = recommendFridgeFreezer(productsInCategory);
 
                 if (lowestConsumptionFridgeFreezer != null) {
-                    String description = personalRecommendationDescription(lowestConsumptionFridgeFreezer, category);
+                    String description = personalProductRecommendationDescription(lowestConsumptionFridgeFreezer, category);
 
                     personalProductRecommendations.add(new ProductRecommendation(lowestConsumptionFridgeFreezer.getName(), description, ProductCategory.FRIDGE_FREEZER));
                 }
@@ -169,7 +198,7 @@ public class RecommendationsBackend {
                 Oven lowestConsumptionOven = recommendOven(productsInCategory);
 
                 if (lowestConsumptionOven != null) {
-                    String description = personalRecommendationDescription(lowestConsumptionOven, category);
+                    String description = personalProductRecommendationDescription(lowestConsumptionOven, category);
 
                     personalProductRecommendations.add(new ProductRecommendation(lowestConsumptionOven.getName(), description, ProductCategory.OVEN));
                 }
@@ -178,7 +207,7 @@ public class RecommendationsBackend {
                 ForcedAirOven lowestConsumptionOven = recommendForcedAirOven(productsInCategory);
  
                 if (lowestConsumptionOven != null) {
-                    String description = personalRecommendationDescription(lowestConsumptionOven, category);
+                    String description = personalProductRecommendationDescription(lowestConsumptionOven, category);
 
                     personalProductRecommendations.add(new ProductRecommendation(lowestConsumptionOven.getName(), description, ProductCategory.FORCED_AIR_OVEN));
                 }
@@ -244,10 +273,10 @@ public class RecommendationsBackend {
         return lowestConsumptionForcedAirOven;
     }
 
-    private static String personalRecommendationDescription(Product product, EnergyUsageCategory category){
+    private static String personalProductRecommendationDescription(Product product, EnergyUsageCategory category){
         StringBuilder sb = new StringBuilder();
         String energyUsagePercentageForCategory = Math.round(getEnergyUsagePercantage(category)) + "%";
-        String personalRecommendationDescription = personalRecommendationEnergySavingsDescription(product, category, energyUsagePercentageForCategory);
+        String personalRecommendationDescription = personalProductRecommendationEnergySavingsDescription(product, category, energyUsagePercentageForCategory);
 
         sb.append(personalRecommendationDescription);
         sb.append("\n\n");
@@ -276,18 +305,39 @@ public class RecommendationsBackend {
         return totalEnergyUsage;
     }
 
-    private static String personalRecommendationEnergySavingsDescription(Product product, EnergyUsageCategory category, String energyUsagePercentageForCategory){
+    private static String personalProductRecommendationEnergySavingsDescription(Product product, EnergyUsageCategory category, String energyUsagePercentageForCategory){
+        StringBuilder sb = new StringBuilder();
+        String energyUsageDescription = personalRecommendationEnergyUsageDescription(category, energyUsagePercentageForCategory);
+
+
+        sb.append(energyUsageDescription);
+        sb.append(energyUsagePercentageForCategory);
+        sb.append(". We therefore recommend a ");
+        sb.append(product.getName());
+        sb.append(" ");
+        sb.append(product.getProductCategoryString().toLowerCase());
+        sb.append(" to save energy.");
+
+        return sb.toString();
+    }
+
+    private static String personalTipRecommendationEnergySavingsDescription(EnergyUsageCategory category, String energyUsagePercentageForCategory){
+        StringBuilder sb = new StringBuilder();
+        String energyUsageDescription = personalRecommendationEnergyUsageDescription(category, energyUsagePercentageForCategory);
+
+        sb.append(energyUsageDescription);
+        sb.append(". We therefore recommend this tip to save energy.");
+
+        return sb.toString();
+    }
+
+    private static String personalRecommendationEnergyUsageDescription(EnergyUsageCategory category, String energyUsagePercentageForCategory){
         StringBuilder sb = new StringBuilder();
 
         sb.append("You are spending ");
         sb.append(energyUsagePercentageForCategory);
         sb.append(" kWh on ");
         sb.append(category.toString().toLowerCase());
-        sb.append(". We therefore recommend a ");
-        sb.append(product.getName());
-        sb.append(" ");
-        sb.append(product.getProductCategoryString().toLowerCase());
-        sb.append(" to save energy.");
 
         return sb.toString();
     }

@@ -6,9 +6,30 @@ public class RecommendationImagePath {
     public static String getTipImagePath(String recommendationTitle) {
         String imagePath = "";
         switch (recommendationTitle) {
-            case "Tip 1":
+            case "Close the refrigerator door":
                 imagePath = "/org/team6/images/products/mutebo.png";
                 break;
+            case "Avoid hot food in the refigerator":
+                imagePath = "/org/team6/images/products/mutebo.png";
+                break;
+            case "Oven usage":
+                imagePath = "/org/team6/images/products/mutebo.png";
+                break;
+            case "Use lids":
+                imagePath = "/org/team6/images/products/mutebo.png";
+                break;
+            case "Avoid letting the water run":
+                imagePath = "/org/team6/images/products/mutebo.png";
+                break;
+            case "Reduce time in the shower":
+                imagePath = "/org/team6/images/products/mutebo.png";
+                break;
+            case "Lights usage":
+                imagePath = "/org/team6/images/products/mutebo.png";
+                break;
+            case "Use natural light":   
+                imagePath = "/org/team6/images/products/mutebo.png";
+                break;     
             default:
                 throw new AssertionError();
         }

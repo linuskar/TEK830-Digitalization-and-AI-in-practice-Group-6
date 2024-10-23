@@ -7,12 +7,25 @@ public class RecommendationReadMoreUrl {
         // IKEA would have to implement tips that link to an indepth article on the IKEA website or something
         String readMoreUrl = "";
         switch (recommendationTitle) {
-            case "Tip 1":
+            case "Close the refrigerator door":
                 break;
+            case "Avoid hot food in the refigerator":
+                break;
+            case "Oven usage":
+                break;
+            case "Use lids":
+                break;
+            case "Avoid letting the water run":
+                break;
+            case "Reduce time in the shower":
+                break;
+            case "Lights usage":
+                break;
+            case "Use natural light":   
+                break;        
             default:
                 throw new AssertionError();
         }
-        
         return readMoreUrl;
     }
 
