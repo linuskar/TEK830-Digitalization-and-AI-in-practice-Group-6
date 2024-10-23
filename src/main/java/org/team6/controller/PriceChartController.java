@@ -1,4 +1,3 @@
-
 package org.team6.controller;
 
 
@@ -73,5 +72,10 @@ public class PriceChartController {
 
 
         priceChart.getData().add(series1);
+    }
+
+    @FXML
+    private void handleBackToEnergyUsagePage(){
+        PageStarter.switchToEnergyPage2();
     }
 }

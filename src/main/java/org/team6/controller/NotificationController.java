@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 import org.team6.model.Notification;
@@ -51,6 +50,9 @@ public class NotificationController implements NotificationListener {
 
     public void setupKeyHandling(Scene scene) {
         scene.addEventHandler(KeyEvent.KEY_PRESSED, this::handleKeyPress);
+    }
+
+    public void setNotificationHistoryVBox(AnchorPane notificationHistoryVBox) {
     }
 
     public void setNotificationHistory(NotificationHistory notificationHistory){
@@ -120,9 +122,4 @@ public class NotificationController implements NotificationListener {
             notificationHistory.addNotification(notificationPane);
         }
     }
-
-    public Text returnText(){
-        return appNameText;
-    }
-
 }

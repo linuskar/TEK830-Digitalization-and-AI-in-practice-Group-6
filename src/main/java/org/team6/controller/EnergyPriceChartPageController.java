@@ -6,6 +6,8 @@ import org.team6.view.PageStarter;
 public class EnergyPriceChartPageController {
 
 
+
+
     @FXML
     private void handleHomePageButtonOnAction(){
         PageStarter.switchToHomePage();
@@ -26,4 +28,5 @@ public class EnergyPriceChartPageController {
     private void handleEnergyPage3Button(){
     PageStarter.switchToEnergyPage3();
     }
+
 }

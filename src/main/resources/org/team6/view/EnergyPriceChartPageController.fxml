@@ -28,7 +28,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="backButton" mnemonicParsing="false" text="🡄" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+            <Button fx:id="backButton" mnemonicParsing="false" onAction="#handleBackToEnergyUsagePage" text="🡄" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
                <font>
                   <Font name="System Bold Italic" size="15.0" />
                </font>

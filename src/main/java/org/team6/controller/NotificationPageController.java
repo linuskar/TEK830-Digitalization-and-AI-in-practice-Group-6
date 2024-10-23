@@ -18,7 +18,6 @@ public class NotificationPageController {
     @FXML
     private AnchorPane notificationPageAnchor;
 
-
     @FXML
     private Button backButton;
 
@@ -55,9 +54,6 @@ public class NotificationPageController {
         PageStarter.switchToHomePage();
     }
 
-
-
-
     @FXML
     private void initialize() {
         System.out.println(notificationText);
@@ -70,15 +66,13 @@ public class NotificationPageController {
 
     // Method adds a notification to a VBox. When a button is pressed the notification is added to the vbox.
     @FXML
-    public void addNotificationToVbox() throws IOException {
+    private void addNotificationToVbox() throws IOException {
         if (notificationHistoryVBox == null) {
-            System.out.println("notificationHistoryVBox is null!");
             return;
         }
         notificationHistoryVBox.getChildren().clear();
         ArrayList<AnchorPane> notificationList = notificationHistory.getNotificationList();
 
-        System.out.println("I am added");
 
         for (AnchorPane notification : notificationList) {
             // Load a new instance of the FXML file, could not make it work otherwise.
@@ -91,7 +85,6 @@ public class NotificationPageController {
             System.out.println(notificationText);
 
             notificationHistoryVBox.getChildren().add(notificationCopy);
-            System.out.println("Hello!");
             notificationCopy.setVisible(true);
             notificationCopy.toFront();
 
