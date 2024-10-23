@@ -19,7 +19,6 @@ public class NotificationPageController {
 
     private NotificationHistory notificationHistory;
 
-    private AnchorPane notificationPane;
 
     @FXML
     private ToggleButton toggleButton;
@@ -47,9 +46,9 @@ public class NotificationPageController {
         for (Notification notification : notificationList) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/team6/view/NotificationTemplate.fxml"));
             AnchorPane notificationPane = loader.load();  // Load FXML for each notification
-            // Set the notification text in the controller of the notification template
             NotificationController notificationController = loader.getController();
-            notificationController.setNotificationText(Notification.getText(notification));  // Use actual notification text
+
+            notificationController.setNotificationText(Notification.getText(notification));  // Used the actual notification text
 
             notificationHistoryVBox.getChildren().add(notificationPane); // Add to VBox
 
@@ -61,6 +60,7 @@ public class NotificationPageController {
     }
 
     public void makeNotificationHistoryComponentsVisible() {
+        //if the toggleButton is selected then the vbox is visible
         notificationHistoryVBox.setVisible(toggleButton.isSelected());
     }
 

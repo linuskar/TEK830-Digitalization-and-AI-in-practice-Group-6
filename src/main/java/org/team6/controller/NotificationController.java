@@ -60,8 +60,6 @@ public class NotificationController implements NotificationListener {
         scene.addEventHandler(KeyEvent.KEY_PRESSED, this::handleKeyPress);
     }
 
-    public void setNotificationHistoryVBox(AnchorPane notificationHistoryVBox) {
-    }
 
     public void setNotificationHistory(NotificationHistory notificationHistory){
         this.notificationHistory = notificationHistory;

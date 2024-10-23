@@ -61,7 +61,6 @@ public class PageStarter {
 
             NotificationController notificationController = notificationLoader.getController();
             NotificationBackend.addNotificationListener(notificationController);
-            String notificationText = notificationController.getNotificationText();
 
 
             energyInsightsPane = getEnergyInsightsPage();
