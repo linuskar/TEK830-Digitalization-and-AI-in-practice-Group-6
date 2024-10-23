@@ -1,1 +1,1 @@
-Here is an overview over different tools to give you better insights over your electricity consumption. It is possible to see an estimate or your actual energy consumption in the top left button. There is also a button which leads you to an energy graph.
+Here is an overview over different tools to give you better insights over your electricity consumption. It is possible to see an estimate or your actual energy consumption in the top left button. There is also a button which leads you to a price chart.
