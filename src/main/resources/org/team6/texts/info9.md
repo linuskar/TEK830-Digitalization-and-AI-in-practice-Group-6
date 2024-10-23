@@ -1,1 +1,1 @@
-Here you can toggle notifications and their related settings.
+In this page you can see the latest notifications in case you accidentally closed them without reading them.

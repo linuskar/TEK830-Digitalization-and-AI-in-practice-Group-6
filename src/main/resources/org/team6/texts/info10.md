@@ -1,1 +1,1 @@
-In this page you can see the latest notifications in case you accidentally closed them without reading them.
+That is it for this tour. If you want to see it again you can find it on the page shown in the image. You can now close this window to experience a smarter home.

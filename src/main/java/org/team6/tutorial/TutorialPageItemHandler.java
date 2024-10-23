@@ -11,7 +11,7 @@ public class TutorialPageItemHandler {
     private final List<TutorialPageItem> tutorialPageItems = new ArrayList<>();
     private static final String TEXT_FILE_PATH = "/org/team6/texts/";
     private static final String IMAGE_FILE_PATH = "/org/team6/images/tutorial/";
-    private static final int ITEM_COUNT = 12;
+    private static final int ITEM_COUNT = 11;
 
     public TutorialPageItemHandler() {
         for (int i = 0; i < ITEM_COUNT; i++) {
