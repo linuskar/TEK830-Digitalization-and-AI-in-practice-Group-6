@@ -120,7 +120,7 @@ public class NotificationController implements NotificationListener {
     @Override
     public void onNotificationSent(Notification notification) {
         showNotificationPane(Notification.getText(notification));
-        addNotificationToList(notification);
+        notificationHistory.addNotification(notification);
         try {
             notificationPageController.addNotificationToVbox();
         } catch (IOException e) {
@@ -128,8 +128,4 @@ public class NotificationController implements NotificationListener {
         }
     }
 
-    public void addNotificationToList(Notification notification){
-            notificationHistory.addNotification(notification);
-
-    }
 }
