@@ -9,7 +9,7 @@ public class RecommendationImagePath {
             case "Close the refrigerator door":
                 imagePath = "/org/team6/images/tips/refrigerator_closed.png";
                 break;
-            case "Avoid hot food in the refigerator":
+            case "Avoid hot food in the refrigerator":
                 imagePath = "/org/team6/images/tips/hot_food.png";
                 break;
             case "Oven usage":

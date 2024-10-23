@@ -72,13 +72,13 @@ public class RecommendationsBackend {
 
     private static void createTips(){    
         Tip refrigerationTip1 = new Tip("Close the refrigerator door", "Make sure the refrigerator is properly closed if you have to be away from the refrigerator for a moment. Leaving the door open lets the refrigerator work harder to bring the temperature down due to the cool air going out.", EnergyUsageCategory.REFRIGERATION);
-        Tip refrigerationTip2 = new Tip("Avoid hot food in the refigerator", "Having hot things in the refrigerator forces the refrigerator to work more to bring the temperature down. Therefore allow the food to cool down to room temperature before putting it in the refrigerator.", EnergyUsageCategory.REFRIGERATION);
+        Tip refrigerationTip2 = new Tip("Avoid hot food in the refrigerator", "Having hot things in the refrigerator forces the refrigerator to work more to bring the temperature down. Therefore allow the food to cool down to room temperature before putting it in the refrigerator.", EnergyUsageCategory.REFRIGERATION);
 
-        Tip cookingTip1 = new Tip("Oven usage", "With high temperatures and longer cooking times the oven can consume a high amount of energy. Therefore try to not preheat the oven for too long. Try to avoid opening the oven door too much, as you will let heat each time, which means you will have to cook longer with the oven.", EnergyUsageCategory.COOKING);
-        Tip cookingTip2 = new Tip("Use lids", "Cover pots and pans with lids to save energy. As while cooking this can trap the heat speeding the cooking process, reducing energy consumptions", EnergyUsageCategory.COOKING);
+        Tip cookingTip1 = new Tip("Oven usage", "With high temperatures and longer cooking times the oven can consume a high amount of energy. Therefore try to not preheat the oven for too long. Try to avoid opening the oven door too much, as you will let heat out each time, which means you will have to cook longer with the oven.", EnergyUsageCategory.COOKING);
+        Tip cookingTip2 = new Tip("Use lids", "Cover pots and pans with lids to save energy. As while cooking this can trap the heat speeding the cooking process, reducing energy consumption.", EnergyUsageCategory.COOKING);
 
-        Tip hotWaterTip1 = new Tip("Avoid letting the water run", "Using less water means less wasted water. Therefore think about not wasting too much water to save on energy consumption.", EnergyUsageCategory.HOT_WATER);
-        Tip hotWaterTip2 = new Tip("Reduce time in the shower", "Avoid spending too much unecessary time in the shower to reduce energy consumption. For example try turning the water off while using soap and shampoo.", EnergyUsageCategory.HOT_WATER);
+        Tip hotWaterTip1 = new Tip("Avoid letting the water run", "Using less water means less wasted water. Therefore, think about not wasting too much water to save on energy consumption.", EnergyUsageCategory.HOT_WATER);
+        Tip hotWaterTip2 = new Tip("Reduce time in the shower", "Avoid spending too much unnecessary time in the shower to reduce energy consumption. For example, try turning the water off while using soap and shampoo.", EnergyUsageCategory.HOT_WATER);
 
         Tip lightingTip1 = new Tip("Lights usage", "Make sure to keep lights low or off when not used. As this is one of the better ways to reduce energy consumption.", EnergyUsageCategory.LIGHTING);
         Tip lightingTip2 = new Tip("Use natural light", "When possible, try to use more natural light to reduce the need of having the lights on, which will reduce energy consumption.", EnergyUsageCategory.LIGHTING);
