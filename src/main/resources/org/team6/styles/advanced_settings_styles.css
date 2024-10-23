@@ -1,5 +1,5 @@
 #TitleLabel {
-    -fx-font-size: 20;
+    -fx-font-size: 25;
     -fx-font-weight: bold;
     -fx-text-fill: #ffffff; /* Correct property to set text color */
 }
@@ -69,6 +69,11 @@ Button:hover {
 
 ToggleButton:hover {
     -fx-cursor: hand;
+}
+
+#scrollPane{
+ -fx-background-color: #000000;
+
 }
 
 

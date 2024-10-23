@@ -11,6 +11,7 @@ import org.team6.view.PageStarter;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class NotificationPageController {
 
@@ -41,7 +42,7 @@ public class NotificationPageController {
 
         notificationHistoryVBox.getChildren().clear(); // Clear the VBox
 
-        ArrayList<Notification> notificationList = notificationHistory.getNotificationList(); // Get notifications
+        List<Notification> notificationList = notificationHistory.getNotificationList(); // Get notifications
 
         for (Notification notification : notificationList) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/team6/view/NotificationTemplate.fxml"));

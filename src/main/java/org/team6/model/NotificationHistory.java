@@ -4,8 +4,9 @@ import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
 
 import java.util.ArrayList;
+import java.util.List;
 
-    public class NotificationHistory {
+public class NotificationHistory {
 
         private ArrayList<Notification> notificationArray = new ArrayList<>();
 
@@ -20,7 +21,7 @@ import java.util.ArrayList;
             }
             notificationArray.add(notification);  // Add the new notification
         }
-        public ArrayList<Notification> getNotificationList(){
+        public List<Notification> getNotificationList(){
             return notificationArray;
         }
     }
