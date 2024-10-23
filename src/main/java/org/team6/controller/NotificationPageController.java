@@ -2,10 +2,10 @@ package org.team6.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import org.team6.model.Notification;
 import org.team6.model.NotificationHistory;
 import org.team6.view.PageStarter;
 
@@ -14,83 +14,57 @@ import java.util.ArrayList;
 
 public class NotificationPageController {
 
-
-    @FXML
-    private AnchorPane notificationPageAnchor;
-
-    @FXML
-    private Button backButton;
-
     @FXML
     private VBox notificationHistoryVBox;
 
-    @FXML
-    private Button testButton;
-
     private NotificationHistory notificationHistory;
 
-    @FXML
-    private Button searchButton;
-
-    @FXML
-    private Button accountButton;
+    private AnchorPane notificationPane;
 
     @FXML
     private ToggleButton toggleButton;
-
-    @FXML
-    private String notificationText;
 
     public void setNotificationHistory(NotificationHistory history) {
         this.notificationHistory = history;
     }
 
-    public void setNotificationText(String text){
-        this.notificationText = text;
+    public void initialize(){
+        toggleButton.setSelected(true);
+        notificationHistoryVBox.setVisible(true);
     }
 
     @FXML
-    private void handleHomeButton(){
-        PageStarter.switchToHomePage();
-    }
-
-    @FXML
-    private void initialize() {
-        System.out.println(notificationText);
-    }
-
-    @FXML
-    private void hideVbox(){
-        notificationHistoryVBox.setVisible(false);
-    }
-
-    // Method adds a notification to a VBox. When a button is pressed the notification is added to the vbox.
-    @FXML
-    private void addNotificationToVbox() throws IOException {
+    public void addNotificationToVbox() throws IOException {
         if (notificationHistoryVBox == null) {
+            System.out.println("notificationHistoryVBox is null!");
             return;
         }
-        notificationHistoryVBox.getChildren().clear();
-        ArrayList<AnchorPane> notificationList = notificationHistory.getNotificationList();
 
+        notificationHistoryVBox.getChildren().clear(); // Clear the VBox
 
-        for (AnchorPane notification : notificationList) {
-            // Load a new instance of the FXML file, could not make it work otherwise.
+        ArrayList<Notification> notificationList = notificationHistory.getNotificationList(); // Get notifications
+
+        for (Notification notification : notificationList) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/team6/view/NotificationTemplate.fxml"));
-            AnchorPane notificationCopy = loader.load();  // This gives a fresh copy
-
-            //Transfer the data from the original notification.
+            AnchorPane notificationPane = loader.load();  // Load FXML for each notification
+            // Set the notification text in the controller of the notification template
             NotificationController notificationController = loader.getController();
-            notificationController.setNotificationText(notificationText);
-            System.out.println(notificationText);
+            notificationController.setNotificationText(Notification.getText(notification));  // Use actual notification text
 
-            notificationHistoryVBox.getChildren().add(notificationCopy);
-            notificationCopy.setVisible(true);
-            notificationCopy.toFront();
+            notificationHistoryVBox.getChildren().add(notificationPane); // Add to VBox
 
+            notificationPane.setVisible(true);
         }
+
+
+
+    }
+
+    public void makeNotificationHistoryComponentsVisible() {
         notificationHistoryVBox.setVisible(toggleButton.isSelected());
     }
+
+
 
 
 
@@ -103,4 +77,10 @@ public class NotificationPageController {
     private void handleSettingsButtonAction(){
         PageStarter.switchToSettingsPage();
     }
+
+    @FXML
+    private void handleHomeButton(){
+        PageStarter.switchToHomePage();
+    }
+
 }

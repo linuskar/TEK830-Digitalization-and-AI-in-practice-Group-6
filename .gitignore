@@ -30,3 +30,4 @@ build/
 
 ### Mac OS ###
 .DS_Store
+/src/main/resources/org/team6/view/Notification_page.fxml

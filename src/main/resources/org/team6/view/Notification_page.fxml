@@ -17,7 +17,7 @@
          </font>
       </Text>
       <VBox fx:id="notificationHistoryVBox" layoutX="7.0" layoutY="176.0" prefHeight="492.0" prefWidth="370.0" styleClass="vbox" stylesheets="@../styles/notificationPageStyles.css" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="162.0" />
-      <ToggleButton fx:id="toggleButton" layoutX="301.0" layoutY="127.0" mnemonicParsing="false" onAction="#addNotificationToVbox" prefWidth="64.0" styleClass="mobile-toggle" AnchorPane.rightAnchor="33.0" AnchorPane.topAnchor="127.0" />
+      <ToggleButton fx:id="toggleButton" layoutX="300.0" layoutY="127.0" mnemonicParsing="false" onAction="#makeNotificationHistoryComponentsVisible" prefWidth="64.0" styleClass="mobile-toggle" AnchorPane.rightAnchor="34.0" AnchorPane.topAnchor="127.0" />
       <Text fx:id="label1" fill="WHITE" layoutX="16.0" layoutY="146.1865234375" strokeType="OUTSIDE" strokeWidth="0.0" text="Show notification" AnchorPane.topAnchor="130.0">
          <font>
             <Font size="15.0" />

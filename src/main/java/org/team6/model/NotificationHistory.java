@@ -7,20 +7,20 @@ import java.util.ArrayList;
 
     public class NotificationHistory {
 
-        private ArrayList<AnchorPane> notificationArray = new ArrayList<>();
+        private ArrayList<Notification> notificationArray = new ArrayList<>();
 
 
 
         //Adds notification to an arraylist.
         @FXML
-        public void addNotification(AnchorPane notificationPane) {
+        public void addNotification(Notification notification) {
             // TODO : Change max array size.
             if (notificationArray.size() == 5) {
                 notificationArray.remove(0);  // Remove the oldest notification
             }
-            notificationArray.add(notificationPane);  // Add the new notification
+            notificationArray.add(notification);  // Add the new notification
         }
-        public ArrayList<AnchorPane> getNotificationList(){
+        public ArrayList<Notification> getNotificationList(){
             return notificationArray;
         }
     }

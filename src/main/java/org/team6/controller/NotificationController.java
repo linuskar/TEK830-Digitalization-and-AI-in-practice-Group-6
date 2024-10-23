@@ -15,6 +15,8 @@ import org.team6.model.NotificationHistory;
 import org.team6.model.NotificationListener;
 import org.team6.view.ImageUtils;
 
+import java.io.IOException;
+
 public class NotificationController implements NotificationListener {
 
     @FXML
@@ -25,6 +27,8 @@ public class NotificationController implements NotificationListener {
     private AnchorPane notificationPane;
     @FXML
     private ImageView imageView;
+
+    NotificationPageController notificationPageController;
     
     @FXML
     public void initialize() {
@@ -38,6 +42,10 @@ public class NotificationController implements NotificationListener {
 
     public void setNotificationText(String text){
         notificationText.setText(text);
+    }
+
+    public void getNotificationPageController(NotificationPageController notificationPageController){
+        this.notificationPageController  = notificationPageController;
     }
 
     public String getNotificationText(){
@@ -114,12 +122,18 @@ public class NotificationController implements NotificationListener {
     @Override
     public void onNotificationSent(Notification notification) {
         showNotificationPane(Notification.getText(notification));
-        addNotificationToList();
+        addNotificationToList(notification);
+        try {
+            notificationPageController.addNotificationToVbox();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void addNotificationToList(){
-        if(notificationPane.isVisible()){
-            notificationHistory.addNotification(notificationPane);
+    public void addNotificationToList(Notification notification){
+        if(notificationPane.isVisible()) {
+            notificationHistory.addNotification(notification);
         }
+
     }
 }

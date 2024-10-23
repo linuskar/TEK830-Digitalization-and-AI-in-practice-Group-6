@@ -96,7 +96,7 @@ public class PageStarter {
             NotificationHistory notificationHistory = new NotificationHistory();
             notificationPageController.setNotificationHistory(notificationHistory);
             notificationController.setNotificationHistory(notificationHistory);
-            notificationPageController.setNotificationText(notificationText);
+            notificationController.getNotificationPageController(notificationPageController);
 
             mainPage.getChildren().addAll(homePane, settingsPane, energyInsightsPane, recommendationsPane,appTutorialPage, settingsPopUpPane, energyPane,systemSettingsPane,energyPage2, energyPage3, notificationHistoryPane, notificationPane);
             notificationController.setupKeyHandling(scene);
