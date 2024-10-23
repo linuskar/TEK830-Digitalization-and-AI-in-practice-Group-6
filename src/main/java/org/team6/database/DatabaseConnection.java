@@ -1,7 +1,9 @@
 package org.team6.database;
 
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.sql.Connection; // JDBC stuff.
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -12,6 +14,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Properties;
+import java.util.stream.Collectors;
 
 import org.team6.model.EnergyUsageCategory;
 import org.team6.model.Products.ConventionalOven;
@@ -34,11 +37,12 @@ public class DatabaseConnection {
     // default user and password
     private static final String USERNAME = "sa";
     private static final String PASSWORD = "";
-    private static final String SETUPSQLFILEPATH = "src\\main\\resources\\org\\team6\\sql\\setup.sql";
-    private static final String INSERTSSQLFILEPATH = "src\\main\\resources\\org\\team6\\sql\\inserts.sql";
-    private static final String VIEWSSQLFILEPATH = "src\\main\\resources\\org\\team6\\sql\\views.sql";
-    private static final String TABLESSQLFILEPATH = "src\\main\\resources\\org\\team6\\sql\\tables.sql";
-    private static final String RESETSQLFILEPATH = "src\\main\\resources\\org\\team6\\sql\\reset.sql";
+    private static final String SETUPSQLFILEPATH = "/org/team6/sql/setup.sql";
+    private static final String INSERTSSQLFILEPATH = "/org/team6/sql/inserts.sql";
+    private static final String VIEWSSQLFILEPATH = "/org/team6/sql/views.sql";
+    private static final String TABLESSQLFILEPATH = "/org/team6/sql/tables.sql";
+    private static final String RESETSQLFILEPATH = "/org/team6/sql/reset.sql";
+
 
     // This is the JDBC connection object you will be using in your methods.
     private Connection conn;
@@ -186,10 +190,10 @@ public class DatabaseConnection {
     // Run setup SQL commands
     private static void runSetupSQL(Connection conn) {
         try {
-            // Read the SQL file as a string
-            String tablesSql = new String(Files.readAllBytes(Paths.get(TABLESSQLFILEPATH)));
-            String insertsSQL = new String(Files.readAllBytes(Paths.get(INSERTSSQLFILEPATH)));
-            String viewsSQL = new String(Files.readAllBytes(Paths.get(VIEWSSQLFILEPATH)));
+            // Read the SQL files as Strings
+            String tablesSql = readResourceFile(TABLESSQLFILEPATH);
+            String insertsSQL = readResourceFile(INSERTSSQLFILEPATH);
+            String viewsSQL = readResourceFile(VIEWSSQLFILEPATH);
 
             // Execute the SQL statements
             try (Statement stmt = conn.createStatement()) {
@@ -200,6 +204,16 @@ public class DatabaseConnection {
             }
         } catch (Exception e) {
             System.out.println("Error running SQL from file: " + e.getMessage());
+        }
+    }
+
+    private static String readResourceFile(String resourcePath) throws Exception {
+        try (InputStream inputStream = DatabaseConnection.class.getResourceAsStream(resourcePath);
+             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8))) {
+            return reader.lines().collect(Collectors.joining(System.lineSeparator()));
+        }
+        catch (Exception e) {
+            throw new Exception("Error reading resource file: " + e.getMessage());
         }
     }
 
@@ -226,9 +240,7 @@ public class DatabaseConnection {
     public void resetDatabase() {
         try {
             // Read the SQL file as a string
-            String resetSQL = new String(Files.readAllBytes(Paths.get(RESETSQLFILEPATH)));
-            String insertsSQL = new String(Files.readAllBytes(Paths.get(INSERTSSQLFILEPATH)));
-            String viewsSQL = new String(Files.readAllBytes(Paths.get(VIEWSSQLFILEPATH)));
+            String resetSQL = readResourceFile(RESETSQLFILEPATH);
 
             // Execute the SQL statements
             try (Statement stmt = conn.createStatement()) {
