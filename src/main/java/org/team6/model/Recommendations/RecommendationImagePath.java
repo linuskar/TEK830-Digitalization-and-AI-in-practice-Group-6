@@ -7,28 +7,28 @@ public class RecommendationImagePath {
         String imagePath = "";
         switch (recommendationTitle) {
             case "Close the refrigerator door":
-                imagePath = "/org/team6/images/products/mutebo.png";
+                imagePath = "/org/team6/images/tips/refrigerator_closed.png";
                 break;
             case "Avoid hot food in the refigerator":
-                imagePath = "/org/team6/images/products/mutebo.png";
+                imagePath = "/org/team6/images/tips/hot_food.png";
                 break;
             case "Oven usage":
-                imagePath = "/org/team6/images/products/mutebo.png";
+                imagePath = "/org/team6/images/tips/open_oven.png";
                 break;
             case "Use lids":
-                imagePath = "/org/team6/images/products/mutebo.png";
+                imagePath = "/org/team6/images/tips/pot_lid.png";
                 break;
             case "Avoid letting the water run":
-                imagePath = "/org/team6/images/products/mutebo.png";
+                imagePath = "/org/team6/images/tips/water_running.png";
                 break;
             case "Reduce time in the shower":
-                imagePath = "/org/team6/images/products/mutebo.png";
+                imagePath = "/org/team6/images/tips/shower.png";
                 break;
             case "Lights usage":
-                imagePath = "/org/team6/images/products/mutebo.png";
+                imagePath = "/org/team6/images/tips/lamp_turning_off.png";
                 break;
             case "Use natural light":   
-                imagePath = "/org/team6/images/products/mutebo.png";
+                imagePath = "/org/team6/images/tips/natural_light.png";
                 break;     
             default:
                 throw new AssertionError();
