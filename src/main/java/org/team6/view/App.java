@@ -1,6 +1,6 @@
 package org.team6.view;
 
-import org.team6.model.Recommendations.RecommendationsBackend;
+import org.team6.model.recommendations.RecommendationsBackend;
 
 import javafx.application.Application;
 import javafx.stage.Stage;

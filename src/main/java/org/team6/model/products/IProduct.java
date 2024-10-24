@@ -1,4 +1,4 @@
-package org.team6.model.Products;
+package org.team6.model.products;
 
 public interface IProduct {
     public String getProductDescription();

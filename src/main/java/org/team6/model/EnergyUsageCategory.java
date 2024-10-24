@@ -1,30 +1,27 @@
 package org.team6.model;
 
+// Some guesses for what the energy spending categories
+// might be for IKEAS Energy Insight in the IKEA Home Smart App.
 public enum EnergyUsageCategory {
-    LIGHTING,
-    HEATING,
-    COOLING,
-    REFRIGERATION,
-    COOKING,
-    OTHER;
+    HEATING("Heating"),
+    COOKING("Cooking"),
+    HOT_WATER("Hot Water"),
+    COOLING("Cooling"),
+    HOME_ELECTRONICS("Home Electronics"),
+    REFRIGERATION("Refrigeration"),
+    LIGHTING("Lighting"),
+    ALWAYS_ON("Always On"),
+    LAUNDRY("Laundry"),
+    OTHER("Other");
+
+    private final String categoryLabel;
+
+    EnergyUsageCategory(String categoryLabel) {
+        this.categoryLabel = categoryLabel;
+    }
 
     @Override
     public String toString() {
-        switch (this) {
-            case LIGHTING:
-                return "Lighting";
-            case HEATING:
-                return "Heating";
-            case COOLING:
-                return "Cooling";
-            case REFRIGERATION:
-                return "Refrigeration";
-            case COOKING:
-                return "Cooking";
-            case OTHER:
-                return "Other";
-            default:
-                return super.toString();
-        }
+        return categoryLabel;
     }
 }

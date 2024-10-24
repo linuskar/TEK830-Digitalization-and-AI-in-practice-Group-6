@@ -1,7 +1,9 @@
 package org.team6.database;
 
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.sql.Connection; // JDBC stuff.
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -12,15 +14,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Properties;
+import java.util.stream.Collectors;
 
 import org.team6.model.EnergyUsageCategory;
-import org.team6.model.Products.ConventionalOven;
-import org.team6.model.Products.ForcedAirOven;
-import org.team6.model.Products.Freezer;
-import org.team6.model.Products.Fridge;
-import org.team6.model.Products.FridgeFreezer;
-import org.team6.model.Products.Product;
-import org.team6.model.Products.ProductCategory;
+import org.team6.model.products.ConventionalOven;
+import org.team6.model.products.ForcedAirOven;
+import org.team6.model.products.Freezer;
+import org.team6.model.products.Fridge;
+import org.team6.model.products.FridgeFreezer;
+import org.team6.model.products.Product;
+import org.team6.model.products.ProductCategory;
 
 // Link to information about the database:
 // https://docs.google.com/document/d/1JxDC5xcKDjNiRzDip7-FgzctD0OXAkUr1Vwq7ylGTpA/edit?usp=sharing
@@ -34,11 +37,12 @@ public class DatabaseConnection {
     // default user and password
     private static final String USERNAME = "sa";
     private static final String PASSWORD = "";
-    private static final String SETUPSQLFILEPATH = "src\\main\\resources\\org\\team6\\sql\\setup.sql";
-    private static final String INSERTSSQLFILEPATH = "src\\main\\resources\\org\\team6\\sql\\inserts.sql";
-    private static final String VIEWSSQLFILEPATH = "src\\main\\resources\\org\\team6\\sql\\views.sql";
-    private static final String TABLESSQLFILEPATH = "src\\main\\resources\\org\\team6\\sql\\tables.sql";
-    private static final String RESETSQLFILEPATH = "src\\main\\resources\\org\\team6\\sql\\reset.sql";
+    private static final String SETUPSQLFILEPATH = "/org/team6/sql/setup.sql";
+    private static final String INSERTSSQLFILEPATH = "/org/team6/sql/inserts.sql";
+    private static final String VIEWSSQLFILEPATH = "/org/team6/sql/views.sql";
+    private static final String TABLESSQLFILEPATH = "/org/team6/sql/tables.sql";
+    private static final String RESETSQLFILEPATH = "/org/team6/sql/reset.sql";
+
 
     // This is the JDBC connection object you will be using in your methods.
     private Connection conn;
@@ -103,11 +107,9 @@ public class DatabaseConnection {
             return "{\"error\":\""+getError(e)+"\"}";
         }
         */
-
+        // TODO: Put products in database
         List<Product> dataBaseProducts = new ArrayList<>();
 
-        // TEMP: Products and energy usage data are hardcoded for now
-        // TODO: Put products in database
         Fridge fridge1 = new Fridge("Tynnerås", ProductCategory.FRIDGE, EnergyUsageCategory.REFRIGERATION, 114, 7995,365);
         Fridge fridge2 = new Fridge("Forsnäs", ProductCategory.FRIDGE, EnergyUsageCategory.REFRIGERATION, 91, 7995, 310);    
 
@@ -123,7 +125,6 @@ public class DatabaseConnection {
         ForcedAirOven forcedAirOven4 = new ForcedAirOven("Mattradition", ProductCategory.FORCED_AIR_OVEN, EnergyUsageCategory.COOKING, 3995, 0.99,0.81, 1, 71);
 
         ConventionalOven oven1 = new ConventionalOven("Lagan", ProductCategory.OVEN, EnergyUsageCategory.COOKING, 2495, 0.82,74);
-
 
         dataBaseProducts.add(fridge1);
         dataBaseProducts.add(fridge2);
@@ -144,15 +145,23 @@ public class DatabaseConnection {
         return dataBaseProducts;
     }
 
+    // Mock data for energy spenders for the household 
+    // where the integers are the amount of energy spent in kWh
     public static HashMap<EnergyUsageCategory, Integer> getEnergySpenders() {
+        // We mock the data so that it is biased towards the products we have in the database
+        // which is for the products with refrigeration and cooking energy usage categories
         HashMap<EnergyUsageCategory, Integer> energySpending = new HashMap<>();
 
-        energySpending.put(EnergyUsageCategory.LIGHTING, 100);
-        energySpending.put(EnergyUsageCategory.HEATING, 200);
-        energySpending.put(EnergyUsageCategory.OTHER, 300);
-        energySpending.put(EnergyUsageCategory.COOLING, 400);
-        energySpending.put(EnergyUsageCategory.REFRIGERATION, 500);
-        energySpending.put(EnergyUsageCategory.COOKING, 600);
+        energySpending.put(EnergyUsageCategory.HEATING, 60);
+        energySpending.put(EnergyUsageCategory.COOKING, 160);
+        energySpending.put(EnergyUsageCategory.HOT_WATER, 10);
+        energySpending.put(EnergyUsageCategory.COOLING, 70);
+        energySpending.put(EnergyUsageCategory.HOME_ELECTRONICS, 50);
+        energySpending.put(EnergyUsageCategory.REFRIGERATION, 275);
+        energySpending.put(EnergyUsageCategory.LIGHTING, 25);
+        energySpending.put(EnergyUsageCategory.ALWAYS_ON, 11);
+        energySpending.put(EnergyUsageCategory.LAUNDRY, 30);
+        energySpending.put(EnergyUsageCategory.OTHER, 15);
 
         return energySpending;
     }
@@ -180,10 +189,10 @@ public class DatabaseConnection {
     // Run setup SQL commands
     private static void runSetupSQL(Connection conn) {
         try {
-            // Read the SQL file as a string
-            String tablesSql = new String(Files.readAllBytes(Paths.get(TABLESSQLFILEPATH)));
-            String insertsSQL = new String(Files.readAllBytes(Paths.get(INSERTSSQLFILEPATH)));
-            String viewsSQL = new String(Files.readAllBytes(Paths.get(VIEWSSQLFILEPATH)));
+            // Read the SQL files as Strings
+            String tablesSql = readResourceFile(TABLESSQLFILEPATH);
+            String insertsSQL = readResourceFile(INSERTSSQLFILEPATH);
+            String viewsSQL = readResourceFile(VIEWSSQLFILEPATH);
 
             // Execute the SQL statements
             try (Statement stmt = conn.createStatement()) {
@@ -194,6 +203,16 @@ public class DatabaseConnection {
             }
         } catch (Exception e) {
             System.out.println("Error running SQL from file: " + e.getMessage());
+        }
+    }
+
+    private static String readResourceFile(String resourcePath) throws Exception {
+        try (InputStream inputStream = DatabaseConnection.class.getResourceAsStream(resourcePath);
+             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8))) {
+            return reader.lines().collect(Collectors.joining(System.lineSeparator()));
+        }
+        catch (Exception e) {
+            throw new Exception("Error reading resource file: " + e.getMessage());
         }
     }
 
@@ -220,9 +239,7 @@ public class DatabaseConnection {
     public void resetDatabase() {
         try {
             // Read the SQL file as a string
-            String resetSQL = new String(Files.readAllBytes(Paths.get(RESETSQLFILEPATH)));
-            String insertsSQL = new String(Files.readAllBytes(Paths.get(INSERTSSQLFILEPATH)));
-            String viewsSQL = new String(Files.readAllBytes(Paths.get(VIEWSSQLFILEPATH)));
+            String resetSQL = readResourceFile(RESETSQLFILEPATH);
 
             // Execute the SQL statements
             try (Statement stmt = conn.createStatement()) {

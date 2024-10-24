@@ -1,11 +1,11 @@
-package org.team6.model.Products;
+package org.team6.model.products;
 
 import org.team6.model.EnergyUsageCategory;
 
-public class Dishwasher extends Product {
-    private double energyConsumption; // Energy consumption of this product in kWh/annum for dishwasher
+public class WashingMachine extends Product {
+    private double energyConsumption; // Energy consumption of this product in kWh/annum for washing machine
 
-    public Dishwasher(String name, ProductCategory productCategory, EnergyUsageCategory energySpendingcategory, double energyConsumption, int price) {
+    public WashingMachine(String name, ProductCategory productCategory, EnergyUsageCategory energySpendingcategory, double energyConsumption, int price) {
         super(name, productCategory, energySpendingcategory, price);
         this.energyConsumption = energyConsumption;
     }    
@@ -18,4 +18,5 @@ public class Dishwasher extends Product {
     public String getProductDescription() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+    
 }
