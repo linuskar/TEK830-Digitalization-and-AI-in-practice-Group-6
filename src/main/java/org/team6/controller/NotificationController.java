@@ -7,13 +7,15 @@ import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 import org.team6.model.Notification;
 import org.team6.model.NotificationBackend;
+import org.team6.model.NotificationHistory;
 import org.team6.model.NotificationListener;
 import org.team6.view.ImageUtils;
+
+import java.io.IOException;
 
 public class NotificationController implements NotificationListener {
 
@@ -25,6 +27,8 @@ public class NotificationController implements NotificationListener {
     private AnchorPane notificationPane;
     @FXML
     private ImageView imageView;
+
+    private NotificationPageController notificationPageController;
     
     @FXML
     public void initialize() {
@@ -34,16 +38,31 @@ public class NotificationController implements NotificationListener {
         appNameText.setText("IKEA Home App");
     }
 
+    private NotificationHistory notificationHistory;
+
     public void setNotificationText(String text){
         notificationText.setText(text);
+    }
+
+    public void getNotificationPageController(NotificationPageController notificationPageController){
+        this.notificationPageController  = notificationPageController;
     }
 
     public String getNotificationText(){
         return notificationText.getText();
     }
 
+    public String getAppNameText() {
+        return appNameText.getText();
+    }
+
     public void setupKeyHandling(Scene scene) {
         scene.addEventHandler(KeyEvent.KEY_PRESSED, this::handleKeyPress);
+    }
+
+
+    public void setNotificationHistory(NotificationHistory notificationHistory){
+        this.notificationHistory = notificationHistory;
     }
 
     public void showNotificationPane(String notificationText) {
@@ -101,5 +120,12 @@ public class NotificationController implements NotificationListener {
     @Override
     public void onNotificationSent(Notification notification) {
         showNotificationPane(Notification.getText(notification));
+        notificationHistory.addNotification(notification);
+        try {
+            notificationPageController.addNotificationToVbox();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
 }

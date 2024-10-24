@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import org.h2.mvstore.Page;
 import org.team6.view.PageStarter;
 
 public class EnergyPageController {
@@ -22,7 +23,7 @@ public class EnergyPageController {
 
     @FXML
     private void handleSettingsButtonAction() {
-        PageStarter.switchToSettingsPage();
+        PageStarter.switchToSystemSettings();
     }
 
     @FXML
@@ -33,5 +34,10 @@ public class EnergyPageController {
     @FXML
     private void handleEnergyOverviewButtonAction() {
         PageStarter.switchToEnergyInsightsPage();
-    } 
+    }
+
+    @FXML
+    private void  handleEnergyOverviewOnAction(){
+        PageStarter.switchToEnergyPage2();
+    }
 }

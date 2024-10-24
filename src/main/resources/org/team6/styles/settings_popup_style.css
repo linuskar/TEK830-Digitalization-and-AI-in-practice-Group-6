@@ -1,38 +1,58 @@
 
 @font-face {
-    -fx-font-family: 'alata'; 
+    -fx-font-family: 'Alata';
     -fx-src: url("src/main/resources/org/team6/fonts/Alata-Regular.ttf"); 
     -fx-font-weight: normal;
     -fx-font-style: normal;
 } 
 
-.title-text{
-    -fx-font-family: "alata";
+.title-text {
+    -fx-font-family: "Alata-Regular";
     -fx-font-size: 40;
     -fx-font-weight: bold;
+    -fx-fill: #ffffff;
 }
 
-.main-text{
-    -fx-font-family: "alata";
+.main-text {
+    -fx-font-family: "Alata-Regular";
     -fx-font-size: 24;
-    -fx-text-fill: white;
+    -fx-text-fill: #ffffff;
     -fx-font-weight: bold;
 }
 
+
 .allow-button{
-    -fx-font-family: "alata";
+    -fx-font-family: "Alata-Regular";
     -fx-font-size: 24;
+    -fx-font-weight: bold;
     -fx-background-color: #0058a3;
     -fx-text-fill: white;
+    -fx-background-radius: 20px;
 }
 
 .reject-button{
-    -fx-font-family: "alata";
+    -fx-font-family: "Alata-Regular";
     -fx-font-size: 24;
+    -fx-font-weight: bold;
     -fx-background-color: white;
     -fx-text-fill: black;
+    -fx-background-radius: 20px;
 }
 
 Button:hover {
     -fx-cursor: hand;
+}
+
+
+
+#popUpPane{
+    -fx-background-color: #80808080;
+    -fx-pref-width: 390;
+    -fx-pref-height: 844;
+    fx-radius: 40px;
+}
+
+#popUpPane2 {
+    -fx-background-color: #1e1e1e;
+    -fx-background-radius: 40px;
 }

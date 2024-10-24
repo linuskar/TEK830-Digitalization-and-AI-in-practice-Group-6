@@ -1,0 +1,91 @@
+#TItleLabel {
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Alata Regular";
+    -fx-text-fill: #ffffff;
+}
+
+#usageButton {
+    -fx-background-color: #353027;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 20px;
+    -fx-font-family: "Alata Regular";
+    -fx-background-radius: 30px;
+}
+
+#priceButton {
+    -fx-background-color: #332119;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 20px;
+    -fx-font-family: "Alata Regular";
+    -fx-background-radius: 30px;
+}
+
+#searchButton, #accountButton, #settingsButton, #menuButton1{
+-fx-background-color: transparent;
+}
+
+#backgroundPane {
+    -fx-background-color: #000000;
+}
+
+#comparisonButton {
+    -fx-background-color: #353027;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 20px;
+    -fx-font-family: "Alata Regular";
+    -fx-background-radius: 30px;
+}
+
+#priceButton1 {
+    -fx-background-color: #332119;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 20px;
+    -fx-font-family: "Alata Regular";
+    -fx-background-radius: 30px;
+}
+
+#comparisonPane1 {
+    -fx-background-color: #bdab76;
+    -fx-background-radius: 0 5 5 0;
+
+}
+
+#comparisonPane2 {
+    -fx-background-color: #85774c;
+    -fx-background-radius: 0 5 5 0;
+
+}
+
+#productRecommendationButton {
+    -fx-background-color: #005ef5;
+    -fx-background-radius: 30px;
+}
+
+#productRecommendationText {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Alata Regular";
+    -fx-text-fill: #ffffff;
+}
+
+
+#AnchorScrollPane {
+    -fx-background-color: #000000; /* Color of the stroke of the scrollPane */
+     -fx-background: #000000;       /* Color of the insisde */
+}
+
+#ScrollPane {
+    -fx-background-color: #000000; /* Color of the stroke of the scrollPane */
+     -fx-background: #000000;       /* Color of the insisde */
+}
+
+
+Button:hover {
+    -fx-cursor: hand;
+}
+
+.scroll-bar  {
+    -fx-opacity: 0;
+    -fx-background-color: #000000;
+}

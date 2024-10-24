@@ -1,0 +1,77 @@
+#searchButton, #accountButton, #settingsButton, #menuButton1{
+-fx-background-color: transparent;
+}
+
+#ScrollPane {
+    -fx-background-color: #000000; /* Color of the stroke of the scrollPane */
+    -fx-background: #000000;       /* Color of the insisde */
+}
+
+#barPane {
+    -fx-background-color: #000000;
+}
+
+#TitelPane {
+    -fx-background-color: #000000;
+    -fx-background-radius: 20 20 0 0;
+}
+
+#backButton {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10;
+}
+
+
+#BackgroundPane {
+    -fx-background-color: #5c5c5c;
+
+}
+
+#LayeredBackgroundPane {
+    -fx-background-color: #000000;
+}
+
+#TitelLabel, #Title1 {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Alata Regular";
+    -fx-text-fill: #ffffff;
+}
+
+#SettingsButton {
+    -fx-background-color: transparent;
+    -fx-background-radius: 30px;
+}
+
+#Text1 {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Alata Regular";
+    -fx-fill: #ffffff;
+}
+
+#Text2 {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Alata Regular";
+    -fx-fill: #ffffff;
+}
+
+
+.tab-pane {
+    -fx-tab-min-width: 81;   /* Minimum width for each tab is 50% */
+    -fx-tab-max-width: 81;   /* Maximum width for each tab is 50% */
+}
+
+.tab-pane .tab {
+    -fx-background-color: #333333;  /* Example background color for tabs */
+    -fx-text-base-color: white;     /* Text color */
+}
+
+Button:hover {
+    -fx-cursor: hand;
+}
+
+.scroll-bar  {
+    -fx-opacity: 0;
+}
