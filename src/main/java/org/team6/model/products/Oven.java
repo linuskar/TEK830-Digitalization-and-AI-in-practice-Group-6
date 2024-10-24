@@ -1,4 +1,4 @@
-package org.team6.model.Products;
+package org.team6.model.products;
 
 import org.team6.model.EnergyUsageCategory;
 

@@ -1,4 +1,4 @@
-package org.team6.model.Recommendations;
+package org.team6.model.recommendations;
 
 public abstract class Recommendation {
     private String title;

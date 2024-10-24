@@ -1,4 +1,4 @@
-package org.team6.model.Recommendations;
+package org.team6.model.recommendations;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -9,14 +9,14 @@ import java.util.Map;
 
 import org.team6.database.DatabaseConnection;
 import org.team6.model.EnergyUsageCategory;
-import org.team6.model.Products.ConventionalOven;
-import org.team6.model.Products.ForcedAirOven;
-import org.team6.model.Products.Freezer;
-import org.team6.model.Products.Fridge;
-import org.team6.model.Products.FridgeFreezer;
-import org.team6.model.Products.Oven;
-import org.team6.model.Products.Product;
-import org.team6.model.Products.ProductCategory;
+import org.team6.model.products.ConventionalOven;
+import org.team6.model.products.ForcedAirOven;
+import org.team6.model.products.Freezer;
+import org.team6.model.products.Fridge;
+import org.team6.model.products.FridgeFreezer;
+import org.team6.model.products.Oven;
+import org.team6.model.products.Product;
+import org.team6.model.products.ProductCategory;
 
 public class RecommendationsBackend {
     // if personal recommendations are on, user data will be collected and used to generate recommendations
@@ -119,7 +119,7 @@ public class RecommendationsBackend {
 
     private static String personalTipRecommendationDescription(Tip tip, EnergyUsageCategory category){
         StringBuilder sb = new StringBuilder();
-        String energyUsagePercentageForCategory = Math.round(getEnergyUsagePercantage(category)) + "%";
+        String energyUsagePercentageForCategory = Math.round(getTotalEnergyUsagePercentage(category)) + "%";
         String personalRecommendationDescription = personalTipRecommendationEnergySavingsDescription(category, energyUsagePercentageForCategory);
 
         sb.append(personalRecommendationDescription);
@@ -232,53 +232,48 @@ public class RecommendationsBackend {
     private static Fridge recommendFridge(List<Product> products) {
         // Sort products in the category based on energy consumption
         return products.stream()
-            .filter(product -> product instanceof Fridge)
-            .map(product -> (Fridge) product)
-            .sorted(Comparator.comparingDouble(Fridge::getEnergyConsumption))
-            .findFirst()
+            .filter(Fridge.class::isInstance)
+            .map(Fridge.class::cast)
+            .min(Comparator.comparingDouble(Fridge::getEnergyConsumption))
             .orElse(null);
     }
 
     private static Freezer recommendFreezer(List<Product> products) {
         return products.stream()
-            .filter(product -> product instanceof Freezer)
-            .map(product -> (Freezer) product)
-            .sorted(Comparator.comparingDouble(Freezer::getEnergyConsumption))
-            .findFirst()
+            .filter(Freezer.class::isInstance)
+            .map(Freezer.class::cast)
+            .min(Comparator.comparingDouble(Freezer::getEnergyConsumption))
             .orElse(null);
     }
 
     private static FridgeFreezer recommendFridgeFreezer(List<Product> products) {
         return products.stream()
-            .filter(product -> product instanceof FridgeFreezer)
-            .map(product -> (FridgeFreezer) product)
-            .sorted(Comparator.comparingDouble(FridgeFreezer::getEnergyConsumption))
-            .findFirst()
+            .filter(FridgeFreezer.class::isInstance)
+            .map(FridgeFreezer.class::cast)
+            .min(Comparator.comparingDouble(FridgeFreezer::getEnergyConsumption))
             .orElse(null);
     }
 
     private static Oven recommendOven(List<Product> products) {
         return products.stream()
-            .filter(product -> product instanceof ConventionalOven)
-            .map(product -> (ConventionalOven) product)
-            .sorted(Comparator.comparingDouble(ConventionalOven::getEnergyConsumptionConventional))
-            .findFirst()
+            .filter(ConventionalOven.class::isInstance)
+            .map(ConventionalOven.class::cast)
+            .min(Comparator.comparingDouble(ConventionalOven::getEnergyConsumptionConventional))
             .orElse(null);
     }
 
     private static ForcedAirOven recommendForcedAirOven(List<Product> products) {
         return products.stream()
-            .filter(product -> product instanceof ForcedAirOven)
-            .map(product -> (ForcedAirOven) product)
-            .sorted(Comparator.comparingDouble(ForcedAirOven::getEnergyConsumptionFanForcedConvection)
-                .thenComparingDouble(ForcedAirOven::getEnergyConsumptionConventional))
-            .findFirst()
+            .filter(ForcedAirOven.class::isInstance)
+            .map(ForcedAirOven.class::cast)
+            .min(Comparator.comparingDouble(ForcedAirOven::getEnergyConsumptionFanForcedConvection)
+            .thenComparingDouble(ForcedAirOven::getEnergyConsumptionConventional))
             .orElse(null);
     }
 
     private static String personalProductRecommendationDescription(Product product, EnergyUsageCategory category){
         StringBuilder sb = new StringBuilder();
-        String energyUsagePercentageForCategory = Math.round(getEnergyUsagePercantage(category)) + "%";
+        String energyUsagePercentageForCategory = Math.round(getTotalEnergyUsagePercentage(category)) + "%";
         String personalRecommendationDescription = personalProductRecommendationEnergySavingsDescription(product, category, energyUsagePercentageForCategory);
 
         sb.append(personalRecommendationDescription);
@@ -288,13 +283,11 @@ public class RecommendationsBackend {
         return sb.toString();
     }
 
-    private static double getEnergyUsagePercantage(EnergyUsageCategory category){
+    private static double getTotalEnergyUsagePercentage(EnergyUsageCategory category){
         double totalEnergyUsage = getTotalEnergyUsage();
         double energyUsageForCategory = dataBaseEnergySpenders.get(category);
 
-        double totalEnergyUsageProcent = 100*energyUsageForCategory/totalEnergyUsage;
-
-        return totalEnergyUsageProcent;
+        return 100*energyUsageForCategory/totalEnergyUsage;
     }
 
     private static double getTotalEnergyUsage() {

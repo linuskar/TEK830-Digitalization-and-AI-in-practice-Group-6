@@ -1,6 +1,6 @@
-package org.team6.model.Recommendations;
+package org.team6.model.recommendations;
 
-import org.team6.model.Products.ProductCategory;
+import org.team6.model.products.ProductCategory;
 
 public class RecommendationReadMoreUrl {
     public static String getTipReadMoreUrl(String recommendationTitle) {
