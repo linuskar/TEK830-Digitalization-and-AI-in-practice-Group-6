@@ -1,6 +1,6 @@
 package org.team6.controller;
 
-import org.team6.model.Recommendations.RecommendationsBackend;
+import org.team6.model.recommendations.RecommendationsBackend;
 
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;

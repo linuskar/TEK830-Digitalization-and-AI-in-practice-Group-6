@@ -1,4 +1,4 @@
-package org.team6.model.Recommendations;
+package org.team6.model.recommendations;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -9,14 +9,14 @@ import java.util.Map;
 
 import org.team6.database.DatabaseConnection;
 import org.team6.model.EnergyUsageCategory;
-import org.team6.model.Products.ConventionalOven;
-import org.team6.model.Products.ForcedAirOven;
-import org.team6.model.Products.Freezer;
-import org.team6.model.Products.Fridge;
-import org.team6.model.Products.FridgeFreezer;
-import org.team6.model.Products.Oven;
-import org.team6.model.Products.Product;
-import org.team6.model.Products.ProductCategory;
+import org.team6.model.products.ConventionalOven;
+import org.team6.model.products.ForcedAirOven;
+import org.team6.model.products.Freezer;
+import org.team6.model.products.Fridge;
+import org.team6.model.products.FridgeFreezer;
+import org.team6.model.products.Oven;
+import org.team6.model.products.Product;
+import org.team6.model.products.ProductCategory;
 
 public class RecommendationsBackend {
     // if personal recommendations are on, user data will be collected and used to generate recommendations

@@ -17,13 +17,13 @@ import java.util.Properties;
 import java.util.stream.Collectors;
 
 import org.team6.model.EnergyUsageCategory;
-import org.team6.model.Products.ConventionalOven;
-import org.team6.model.Products.ForcedAirOven;
-import org.team6.model.Products.Freezer;
-import org.team6.model.Products.Fridge;
-import org.team6.model.Products.FridgeFreezer;
-import org.team6.model.Products.Product;
-import org.team6.model.Products.ProductCategory;
+import org.team6.model.products.ConventionalOven;
+import org.team6.model.products.ForcedAirOven;
+import org.team6.model.products.Freezer;
+import org.team6.model.products.Fridge;
+import org.team6.model.products.FridgeFreezer;
+import org.team6.model.products.Product;
+import org.team6.model.products.ProductCategory;
 
 // Link to information about the database:
 // https://docs.google.com/document/d/1JxDC5xcKDjNiRzDip7-FgzctD0OXAkUr1Vwq7ylGTpA/edit?usp=sharing

@@ -2,11 +2,11 @@ package org.team6.controller;
 
 import java.io.IOException;
 
-import org.team6.model.Recommendations.ProductRecommendation;
-import org.team6.model.Recommendations.Recommendation;
-import org.team6.model.Recommendations.RecommendationObserver;
-import org.team6.model.Recommendations.RecommendationsBackend;
-import org.team6.model.Recommendations.TipRecommendation;
+import org.team6.model.recommendations.ProductRecommendation;
+import org.team6.model.recommendations.Recommendation;
+import org.team6.model.recommendations.RecommendationObserver;
+import org.team6.model.recommendations.RecommendationsBackend;
+import org.team6.model.recommendations.TipRecommendation;
 import org.team6.view.PageStarter;
 
 import javafx.fxml.FXML;
