@@ -232,47 +232,42 @@ public class RecommendationsBackend {
     private static Fridge recommendFridge(List<Product> products) {
         // Sort products in the category based on energy consumption
         return products.stream()
-            .filter(product -> product instanceof Fridge)
-            .map(product -> (Fridge) product)
-            .sorted(Comparator.comparingDouble(Fridge::getEnergyConsumption))
-            .findFirst()
+            .filter(Fridge.class::isInstance)
+            .map(Fridge.class::cast)
+            .min(Comparator.comparingDouble(Fridge::getEnergyConsumption))
             .orElse(null);
     }
 
     private static Freezer recommendFreezer(List<Product> products) {
         return products.stream()
-            .filter(product -> product instanceof Freezer)
-            .map(product -> (Freezer) product)
-            .sorted(Comparator.comparingDouble(Freezer::getEnergyConsumption))
-            .findFirst()
+            .filter(Freezer.class::isInstance)
+            .map(Freezer.class::cast)
+            .min(Comparator.comparingDouble(Freezer::getEnergyConsumption))
             .orElse(null);
     }
 
     private static FridgeFreezer recommendFridgeFreezer(List<Product> products) {
         return products.stream()
-            .filter(product -> product instanceof FridgeFreezer)
-            .map(product -> (FridgeFreezer) product)
-            .sorted(Comparator.comparingDouble(FridgeFreezer::getEnergyConsumption))
-            .findFirst()
+            .filter(FridgeFreezer.class::isInstance)
+            .map(FridgeFreezer.class::cast)
+            .min(Comparator.comparingDouble(FridgeFreezer::getEnergyConsumption))
             .orElse(null);
     }
 
     private static Oven recommendOven(List<Product> products) {
         return products.stream()
-            .filter(product -> product instanceof ConventionalOven)
-            .map(product -> (ConventionalOven) product)
-            .sorted(Comparator.comparingDouble(ConventionalOven::getEnergyConsumptionConventional))
-            .findFirst()
+            .filter(ConventionalOven.class::isInstance)
+            .map(ConventionalOven.class::cast)
+            .min(Comparator.comparingDouble(ConventionalOven::getEnergyConsumptionConventional))
             .orElse(null);
     }
 
     private static ForcedAirOven recommendForcedAirOven(List<Product> products) {
         return products.stream()
-            .filter(product -> product instanceof ForcedAirOven)
-            .map(product -> (ForcedAirOven) product)
-            .sorted(Comparator.comparingDouble(ForcedAirOven::getEnergyConsumptionFanForcedConvection)
-                .thenComparingDouble(ForcedAirOven::getEnergyConsumptionConventional))
-            .findFirst()
+            .filter(ForcedAirOven.class::isInstance)
+            .map(ForcedAirOven.class::cast)
+            .min(Comparator.comparingDouble(ForcedAirOven::getEnergyConsumptionFanForcedConvection)
+            .thenComparingDouble(ForcedAirOven::getEnergyConsumptionConventional))
             .orElse(null);
     }
 
