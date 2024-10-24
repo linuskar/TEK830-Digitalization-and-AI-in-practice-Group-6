@@ -119,7 +119,7 @@ public class RecommendationsBackend {
 
     private static String personalTipRecommendationDescription(Tip tip, EnergyUsageCategory category){
         StringBuilder sb = new StringBuilder();
-        String energyUsagePercentageForCategory = Math.round(getEnergyUsagePercantage(category)) + "%";
+        String energyUsagePercentageForCategory = Math.round(getTotalEnergyUsagePercentage(category)) + "%";
         String personalRecommendationDescription = personalTipRecommendationEnergySavingsDescription(category, energyUsagePercentageForCategory);
 
         sb.append(personalRecommendationDescription);
@@ -273,7 +273,7 @@ public class RecommendationsBackend {
 
     private static String personalProductRecommendationDescription(Product product, EnergyUsageCategory category){
         StringBuilder sb = new StringBuilder();
-        String energyUsagePercentageForCategory = Math.round(getEnergyUsagePercantage(category)) + "%";
+        String energyUsagePercentageForCategory = Math.round(getTotalEnergyUsagePercentage(category)) + "%";
         String personalRecommendationDescription = personalProductRecommendationEnergySavingsDescription(product, category, energyUsagePercentageForCategory);
 
         sb.append(personalRecommendationDescription);
@@ -283,13 +283,11 @@ public class RecommendationsBackend {
         return sb.toString();
     }
 
-    private static double getEnergyUsagePercantage(EnergyUsageCategory category){
+    private static double getTotalEnergyUsagePercentage(EnergyUsageCategory category){
         double totalEnergyUsage = getTotalEnergyUsage();
         double energyUsageForCategory = dataBaseEnergySpenders.get(category);
 
-        double totalEnergyUsageProcent = 100*energyUsageForCategory/totalEnergyUsage;
-
-        return totalEnergyUsageProcent;
+        return 100*energyUsageForCategory/totalEnergyUsage;
     }
 
     private static double getTotalEnergyUsage() {
