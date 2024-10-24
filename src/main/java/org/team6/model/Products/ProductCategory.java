@@ -2,34 +2,22 @@ package org.team6.model.Products;
 
 
 public enum ProductCategory {
-    FRIDGE,
-    FREEZER,
-    FRIDGE_FREEZER,
-    OVEN,
-    WASHING_MACHINE,
-    FORCED_AIR_OVEN,
-    DISHWASHER;
+    FRIDGE("Fridge"),
+    FREEZER("Freezer"),
+    FRIDGE_FREEZER("Fridge Freezer"),
+    OVEN("Oven"),
+    WASHING_MACHINE("Washing Machine"),
+    FORCED_AIR_OVEN("Forced Air Oven"),
+    DISHWASHER("Dishwasher");
+
+    private final String categoryLabel;
+
+    ProductCategory(String categoryLabel) {
+        this.categoryLabel = categoryLabel;
+    }
 
     @Override
     public String toString() {
-        switch (this) {
-            case FRIDGE:
-                return "Fridge";
-            case FREEZER:
-                return "Freezer";
-            case FRIDGE_FREEZER:
-                return "Fridge Freezer";
-            case OVEN:
-                return "Oven";
-            case FORCED_AIR_OVEN:
-                return "Forced Air Oven";
-            case WASHING_MACHINE:
-                return "Washing Machine";
-            case DISHWASHER:
-                return "Dishwasher";
-            default:
-                return super.toString();
-        }
+        return categoryLabel;
     }
-
 }

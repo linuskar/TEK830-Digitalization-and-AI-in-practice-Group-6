@@ -126,7 +126,6 @@ public class DatabaseConnection {
 
         ConventionalOven oven1 = new ConventionalOven("Lagan", ProductCategory.OVEN, EnergyUsageCategory.COOKING, 2495, 0.82,74);
 
-
         dataBaseProducts.add(fridge1);
         dataBaseProducts.add(fridge2);
 

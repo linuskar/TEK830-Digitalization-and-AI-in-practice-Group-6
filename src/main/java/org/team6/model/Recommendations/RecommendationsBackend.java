@@ -2,6 +2,7 @@ package org.team6.model.Recommendations;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,16 +24,15 @@ public class RecommendationsBackend {
     private static final List<RecommendationObserver> observers = new ArrayList<>();
 
     private static List<Product> dataBaseProducts = new ArrayList<>();
+    private static Map<EnergyUsageCategory, Integer> dataBaseEnergySpenders = new EnumMap<>(EnergyUsageCategory.class);
 
-    private static List<ProductRecommendation> generalProductRecommendations = new ArrayList<>();
-    private static List<ProductRecommendation> personalProductRecommendations  = new ArrayList<>();
+    private static final List<ProductRecommendation> generalProductRecommendations = new ArrayList<>();
+    private static final List<ProductRecommendation> personalProductRecommendations  = new ArrayList<>();
 
-    private static List<TipRecommendation> generalTipsRecommendations = new ArrayList<>();
-    private static List<TipRecommendation> personalTipsRecommendations  = new ArrayList<>();
+    private static final List<TipRecommendation> generalTipsRecommendations = new ArrayList<>();
+    private static final List<TipRecommendation> personalTipsRecommendations  = new ArrayList<>();
 
-    private static HashMap<EnergyUsageCategory, Integer> dataBaseEnergySpenders = new HashMap<>();
-
-    private static List<Tip> tips = new ArrayList<>();
+    private static final List<Tip> tips = new ArrayList<>();
 
     private RecommendationsBackend() {
     }
@@ -97,7 +97,7 @@ public class RecommendationsBackend {
     }
 
     private static void createPersonalRecommendations(){
-        HashMap <EnergyUsageCategory, Integer> topEnergySpenders = getTopEnergySpenders();
+        Map <EnergyUsageCategory, Integer> topEnergySpenders = getTopEnergySpenders();
 
         for (Map.Entry<EnergyUsageCategory, Integer> entry : topEnergySpenders.entrySet()) {
             EnergyUsageCategory category = entry.getKey();
@@ -139,12 +139,12 @@ public class RecommendationsBackend {
         return sb.toString();
     }
 
-    private static HashMap <EnergyUsageCategory, Integer> getTopEnergySpenders(){
+    private static EnumMap <EnergyUsageCategory, Integer> getTopEnergySpenders(){
         // Get top energy spenders based on the energy usage in dataBaseEnergySpenders summing up to 50% of the total energy usage
         // sort to get the top energy spenders
         // then go through the energy spenders till the usage sums up to or greater than 50% of the total energy usage
 
-        HashMap <EnergyUsageCategory, Integer> topEnergySpenders = new HashMap<>();
+        EnumMap<EnergyUsageCategory, Integer> topEnergySpenders = new EnumMap<>(EnergyUsageCategory.class);
 
         List<Map.Entry<EnergyUsageCategory, Integer>> sortedEnergySpenders = new ArrayList<>(dataBaseEnergySpenders.entrySet());
 
@@ -231,59 +231,49 @@ public class RecommendationsBackend {
     
     private static Fridge recommendFridge(List<Product> products) {
         // Sort products in the category based on energy consumption
-        Fridge lowestConsumptionFridge = products.stream()
+        return products.stream()
             .filter(product -> product instanceof Fridge)
             .map(product -> (Fridge) product)
             .sorted(Comparator.comparingDouble(Fridge::getEnergyConsumption))
             .findFirst()
             .orElse(null);
-
-        return lowestConsumptionFridge;
     }
 
     private static Freezer recommendFreezer(List<Product> products) {
-        Freezer lowestConsumptionFreezer = products.stream()
+        return products.stream()
             .filter(product -> product instanceof Freezer)
             .map(product -> (Freezer) product)
             .sorted(Comparator.comparingDouble(Freezer::getEnergyConsumption))
             .findFirst()
             .orElse(null);
-
-        return lowestConsumptionFreezer;
     }
 
     private static FridgeFreezer recommendFridgeFreezer(List<Product> products) {
-        FridgeFreezer lowestConsumptionFridgeFreezer = products.stream()
+        return products.stream()
             .filter(product -> product instanceof FridgeFreezer)
             .map(product -> (FridgeFreezer) product)
             .sorted(Comparator.comparingDouble(FridgeFreezer::getEnergyConsumption))
             .findFirst()
             .orElse(null);
-
-        return lowestConsumptionFridgeFreezer;
     }
 
     private static Oven recommendOven(List<Product> products) {
-        ConventionalOven lowestConsumptionConventionalOven = products.stream()
+        return products.stream()
             .filter(product -> product instanceof ConventionalOven)
             .map(product -> (ConventionalOven) product)
             .sorted(Comparator.comparingDouble(ConventionalOven::getEnergyConsumptionConventional))
             .findFirst()
             .orElse(null);
-
-        return lowestConsumptionConventionalOven;
     }
 
     private static ForcedAirOven recommendForcedAirOven(List<Product> products) {
-        ForcedAirOven lowestConsumptionForcedAirOven = products.stream()
+        return products.stream()
             .filter(product -> product instanceof ForcedAirOven)
             .map(product -> (ForcedAirOven) product)
             .sorted(Comparator.comparingDouble(ForcedAirOven::getEnergyConsumptionFanForcedConvection)
                 .thenComparingDouble(ForcedAirOven::getEnergyConsumptionConventional))
             .findFirst()
             .orElse(null);
-
-        return lowestConsumptionForcedAirOven;
     }
 
     private static String personalProductRecommendationDescription(Product product, EnergyUsageCategory category){
@@ -324,7 +314,6 @@ public class RecommendationsBackend {
 
 
         sb.append(energyUsageDescription);
-        sb.append(energyUsagePercentageForCategory);
         sb.append(". We therefore recommend a ");
         sb.append(product.getName());
         sb.append(" ");

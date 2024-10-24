@@ -9,7 +9,7 @@ public class RecommendationReadMoreUrl {
         switch (recommendationTitle) {
             case "Close the refrigerator door":
                 break;
-            case "Avoid hot food in the refigerator":
+            case "Avoid hot food in the refrigerator":
                 break;
             case "Oven usage":
                 break;

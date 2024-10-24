@@ -3,6 +3,7 @@ package org.team6.controller;
 import java.io.IOException;
 
 import org.team6.model.Recommendations.ProductRecommendation;
+import org.team6.model.Recommendations.Recommendation;
 import org.team6.model.Recommendations.RecommendationObserver;
 import org.team6.model.Recommendations.RecommendationsBackend;
 import org.team6.model.Recommendations.TipRecommendation;
@@ -247,12 +248,29 @@ public class RecommendationsPageController implements RecommendationObserver {
     }
 
     private void createProductRecommendationCard(VBox recommendationVBox, ProductRecommendation recommendation) {
+        createRecommendationCard(recommendationVBox, recommendation, true);
+    }
+
+    private void createTipRecommendationCard(VBox recommendationVBox, TipRecommendation recommendation) {
+        createRecommendationCard(recommendationVBox, recommendation, false);
+
+    }
+
+    private void createRecommendationCard(VBox recommendationVBox, Recommendation recommendation, boolean hasReadMoreButton) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/team6/view/RecommendationCard.fxml"));
+            FXMLLoader loader  = new FXMLLoader(getClass().getResource("/org/team6/view/RecommendationCard.fxml"));
             AnchorPane card = loader.load();
+            recommendationVBox.getChildren().add(card);
+    
+            RecommendationCardController controller = loader.getController();
 
-        RecommendationCardController controller = loader.getController();
+            setRecommendationCard(controller, recommendation, hasReadMoreButton);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
+    private void setRecommendationCard(RecommendationCardController controller, Recommendation recommendation, boolean hasReadMoreButton) {
         controller.setCardTitle(recommendation.getTitle());
         controller.setCardText(recommendation.getText());
         String imageUrl = recommendation.getRecommendationImage();
@@ -263,50 +281,8 @@ public class RecommendationsPageController implements RecommendationObserver {
 
         controller.setReadMoreURL(recommendation.getReadMoreUrl());
 
-            recommendationVBox.getChildren().add(card);
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (!hasReadMoreButton) {
+            controller.disableReadMoreButton();
         }
-    }
-
-
-    private void createTipRecommendationCard(VBox recommendationVBox) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/team6/view/RecommendationCard.fxml"));
-            AnchorPane card = loader.load();
-
-        RecommendationCardController controller = loader.getController();
-
-        controller.disableReadMoreButton();
-    
-            recommendationVBox.getChildren().add(card);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void createTipRecommendationCard(VBox recommendationVBox, TipRecommendation recommendation) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/team6/view/RecommendationCard.fxml"));
-            AnchorPane card = loader.load();
-
-        RecommendationCardController controller = loader.getController();
-        
-        controller.disableReadMoreButton();
-
-        controller.setCardTitle(recommendation.getTitle());
-        controller.setCardText(recommendation.getText());
-        String imageUrl = recommendation.getRecommendationImage();
-
-        Image image = new Image(getClass().getResourceAsStream(imageUrl));
-        controller.setCardImage(image);
-        controller.setCardText(recommendation.getText());
-
-        // controller.setReadMoreURL(recommendation.getReadMoreUrl());
-
-            recommendationVBox.getChildren().add(card);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+    } 
 }
