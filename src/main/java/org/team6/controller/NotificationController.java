@@ -28,7 +28,7 @@ public class NotificationController implements NotificationListener {
     @FXML
     private ImageView imageView;
 
-    NotificationPageController notificationPageController;
+    private NotificationPageController notificationPageController;
     
     @FXML
     public void initialize() {

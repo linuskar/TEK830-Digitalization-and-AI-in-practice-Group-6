@@ -13,15 +13,15 @@ Button:hover {
 
 #backButton , #forwardButton {
     -fx-background-color: #ffffff;
-    -fx-background-radius: 10px;
+    -fx-background-radius: 15px;
     -fx-pref-width: 60;
     -fx-pref-height: 30;
 }
 
 #closeButton {
-    -fx-background-color: #FF0000;
-    -fx-background-radius: 10px;
-    -fx-pref-width: 60;
-    -fx-pref-height: 30;
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 15px;
+    -fx-pref-width: 100;
+    -fx-pref-height: 45;
 }
 
