@@ -11,7 +11,7 @@
 
 <AnchorPane fx:id="windowPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="844.0" prefWidth="390.0" stylesheets="@../styles/app_tutorial_styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.AppTutorialController">
    <children>
-      <AnchorPane fx:id="windowPane2" layoutY="60.0" prefHeight="600.0" prefWidth="340.0" AnchorPane.bottomAnchor="184.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+      <AnchorPane fx:id="windowPane2" layoutY="60.0" prefHeight="618.0" prefWidth="390.0" AnchorPane.bottomAnchor="164.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
          <children>
             <Text fill="WHITE" layoutX="29.0" layoutY="37.740234375" strokeType="OUTSIDE" strokeWidth="0.0" text="Information about the IKEA Home Smart app" textAlignment="CENTER" wrappingWidth="297.13671875" AnchorPane.leftAnchor="29.0" AnchorPane.topAnchor="14.0">
                <font>
