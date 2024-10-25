@@ -1,10 +1,8 @@
 package org.team6.controller;
 
-import org.team6.view.PageStarter;
-
 import javafx.fxml.FXML;
-import javafx.scene.Cursor;
 import javafx.scene.control.Button;
+import org.team6.view.PageStarter;
 
 public class EnergyInsightsPageController {
     @FXML

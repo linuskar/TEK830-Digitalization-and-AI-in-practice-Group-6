@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="BackgroundPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="844.0" prefWidth="390.0" stylesheets="@../styles/advanced_settings_styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.SettingsPageController">
+   <children>
+      <ScrollPane fx:id="scrollPane" prefHeight="980.0" prefWidth="414.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-24.0" AnchorPane.topAnchor="100.0">
+        <content>
+          <AnchorPane fx:id="AnchorScrollPane" minHeight="0.0" minWidth="0.0" prefHeight="963.0" prefWidth="390.0">
+               <children>
+                  <AnchorPane prefHeight="60.0" prefWidth="360.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="10.0">
+                     <children>
+                        <Label fx:id="label1" text="Send Notification" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="20.0" />
+                        <ToggleButton fx:id="sendNotificationsToggleButton" layoutX="280.0" layoutY="13.0" mnemonicParsing="false" onAction="#handleSendNotificationsOnAction" prefHeight="30.0" prefWidth="70.0" styleClass="mobile-toggle" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="60.0" prefWidth="360.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="80.0">
+                     <children>
+                        <Label fx:id="label2" text="Send low electric price notifications" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="20.0" />
+                        <ToggleButton fx:id="sendLowElectricPriceToggleButton" mnemonicParsing="false" onAction="#handleSpecificNotificationOnAction" prefHeight="30.0" prefWidth="70.0" styleClass="mobile-toggle" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="15.0" layoutY="174.0" prefHeight="60.0" prefWidth="360.0" AnchorPane.topAnchor="150.0">
+                     <children>
+                        <Label fx:id="label3" text="Send high electric price notifications" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="20.0" />
+                        <ToggleButton fx:id="sendHighElectricPriceToggleButton" mnemonicParsing="false" onAction="#handleSpecificNotificationOnAction" prefHeight="30.0" prefWidth="70.0" styleClass="mobile-toggle" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="15.0" layoutY="244.0" prefHeight="60.0" prefWidth="360.0" AnchorPane.topAnchor="220.0">
+                     <children>
+                        <Label fx:id="label4" text="Send sunny weather notifications" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="20.0" />
+                        <ToggleButton fx:id="sendSunnyWeatherToggleButton" mnemonicParsing="false" onAction="#handleSpecificNotificationOnAction" prefHeight="30.0" prefWidth="70.0" styleClass="mobile-toggle" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="15.0" layoutY="290.0" prefHeight="60.0" prefWidth="360.0">
+                     <children>
+                        <Label fx:id="label5" text="Send cold weather notifications" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="20.0" />
+                        <ToggleButton fx:id="sendColdWeatherToggleButton" mnemonicParsing="false" onAction="#handleSpecificNotificationOnAction" prefHeight="30.0" prefWidth="70.0" styleClass="mobile-toggle" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="15.0" layoutY="360.0" prefHeight="60.0" prefWidth="360.0">
+                     <children>
+                        <Label fx:id="label6" text="Send daily report notifications" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="20.0" />
+                        <ToggleButton fx:id="sendDailyReportToggleButton" mnemonicParsing="false" onAction="#handleSpecificNotificationOnAction" prefHeight="30.0" prefWidth="70.0" styleClass="mobile-toggle" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="15.0" layoutY="430.0" prefHeight="60.0" prefWidth="360.0">
+                     <children>
+                        <Label fx:id="label7" text="Volume" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="20.0" />
+                        <Slider fx:id="volumeSlider" layoutX="211.0" layoutY="18.0" minorTickCount="1" showTickLabels="true" showTickMarks="true" snapToTicks="true" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="15.0" layoutY="500.0" prefHeight="60.0" prefWidth="360.0">
+                     <children>
+                        <Label fx:id="label8" text="Daily report time" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="20.0" />
+                        <Spinner fx:id="dailyReportTimeSpinner" editable="true" layoutX="105.0" layoutY="15.0" prefWidth="56.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="10.0" layoutY="567.0" prefHeight="60.0" prefWidth="360.0">
+                     <children>
+                        <Label fx:id="label9" text="Electricity Price Limit" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="20.0" />
+                        <Spinner fx:id="electricityPriceLimitSpinner" editable="true" layoutX="188.0" layoutY="8.0" prefWidth="56.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="10.0" layoutY="637.0" prefHeight="60.0" prefWidth="360.0">
+                     <children>
+                        <Label fx:id="label10" text="Send Notifications from" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="20.0" />
+                        <Spinner fx:id="startNotificationTimeSpinner" editable="true" layoutX="189.0" layoutY="16.0" prefWidth="56.0" AnchorPane.rightAnchor="115.0" AnchorPane.topAnchor="16.0" />
+                        <Spinner fx:id="endNotificationTimeSpinner" editable="true" layoutX="279.0" layoutY="17.0" prefWidth="56.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0" />
+                        <Label text="To" textFill="WHITE" AnchorPane.rightAnchor="85.0" AnchorPane.topAnchor="20.0">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="10.0" layoutY="707.0" prefHeight="60.0" prefWidth="360.0">
+                     <children>
+                        <Label fx:id="label11" text="Toggle Personal Recommendations" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="20.0" />
+                        <ToggleButton fx:id="recommendationsToggleButton" mnemonicParsing="false" onAction="#handleRecommendationsToggleButtonAction" prefHeight="30.0" prefWidth="70.0" styleClass="mobile-toggle" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0" />
+                     </children>
+                  </AnchorPane>
+                  <Button fx:id="appTutorial" layoutX="96.0" layoutY="841.0" mnemonicParsing="false" onAction="#handleAppTutorialButton" prefHeight="60.0" prefWidth="360.0" text="Show App Tutorial" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="780.0" />
+                  <Button fx:id="historyButton" mnemonicParsing="false" onAction="#handleHistoryPageAction" prefHeight="60.0" prefWidth="360.0" text="Notification History" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="850.0" />
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <AnchorPane fx:id="barPane" prefHeight="60.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Button fx:id="searchButton" minWidth="53.0" mnemonicParsing="false" onAction="#handleHomeButtonOnAction" prefHeight="40.0" prefWidth="53.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="55.0">
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Group%201.0.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="accountButton" layoutX="172.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleEnergyPageButtonOnAction" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="172.0">
+               <graphic>
+                  <ImageView fx:id="settingsImage" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Group%202.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="settingsButton" mnemonicParsing="false" onAction="#handleSystemSettingsButtonOnAction" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="55.0">
+               <graphic>
+                  <ImageView fx:id="accountImage" fitHeight="26.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Group%203.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+      <Label fx:id="TitleLabel" stylesheets="@../styles/advanced_settings_styles.css" text="Advanced Settings" AnchorPane.leftAnchor="34.0" AnchorPane.topAnchor="60.0" />
+   </children>
+</AnchorPane>
