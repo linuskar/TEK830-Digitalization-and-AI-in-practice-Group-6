@@ -1,92 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="energyPageAnchor" prefHeight="400.0" prefWidth="374.0" stylesheets="@../styles/energyPageStyles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.EnergyPageController">
+<AnchorPane fx:id="energyPageAnchor" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="844.0" prefWidth="390.0" stylesheets="@../styles/energyPageStyles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.EnergyPageController">
    <children>
-      <Button fx:id="energyOverviewButton" layoutX="16.0" layoutY="448.0" mnemonicParsing="false" onAction="#handleEnergyOverviewButtonAction" prefHeight="50.0" prefWidth="328.0">
-         <graphic>
-            <Pane depthTest="ENABLE" prefHeight="36.0" prefWidth="284.0">
-               <children>
-                  <Text fx:id="electricityText" fill="WHITE" layoutX="8.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="See Energy Insights" wrappingWidth="211.91811561584473">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </Text>
-                  <ImageView fitHeight="34.0" fitWidth="39.0" layoutX="260.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/Group%2034.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </Pane>
-         </graphic>
-      </Button>
-      <ImageView fitHeight="263.0" fitWidth="357.0" layoutX="19.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/ikea%20en%201.png" />
-         </image>
-      </ImageView>
-      <Text fill="WHITE" layoutX="26.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Energy Overview" wrappingWidth="195.13671875">
+      <Text fill="WHITE" layoutX="25.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Energy Insights" wrappingWidth="256.13671875" AnchorPane.leftAnchor="34.0" AnchorPane.topAnchor="60.0">
          <font>
-            <Font size="24.0" />
+            <Font name="Arial Bold" size="30.0" />
          </font>
       </Text>
-      <Pane fx:id="readMorePane" layoutX="19.0" layoutY="320.0" prefHeight="109.0" prefWidth="350.0">
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="260.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="102.0">
          <children>
-            <Text fill="WHITE" layoutX="12.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Keep track of your electricity consumption, compare it with similar homes, and find new ways to save!" wrappingWidth="332.13671875">
-               <font>
-                  <Font size="11.0" />
-               </font>
-            </Text>
-            <Button fx:id="readMoreEnergyButton" layoutX="12.0" layoutY="75.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="89.0">
-               <graphic>
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Read more" wrappingWidth="79.13671875">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Text>
-               </graphic>
-            </Button>
-            <ImageView fitHeight="13.0" fitWidth="24.0" layoutX="101.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="263.0" fitWidth="357.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <image>
-                  <Image url="@../images/→.png" />
+                  <Image url="@../images/ikea%20en%201.png" />
                </image>
             </ImageView>
-            <Text fill="WHITE" layoutX="12.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Is your energy cost high?">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Text>
+            <AnchorPane fx:id="readMorePane" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="58.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="263.0">
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Is your energy cost high?" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="readMoreEnergyButton" alignment="BASELINE_LEFT" layoutX="24.0" layoutY="150.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="89.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <graphic>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Read more" wrappingWidth="124.13671875">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                        </Text>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold Italic" size="22.0" />
+                     </font>
+                  </Button>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Keep track of your electricity consumption, compare it with similar homes, and find new ways to save!" wrappingWidth="332.13671875" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="50.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Circle fill="WHITE" layoutX="205.0" layoutY="146.0" radius="20.0" stroke="TRANSPARENT" strokeType="INSIDE" AnchorPane.bottomAnchor="6.0" AnchorPane.rightAnchor="20.0" />
+                  <Text fill="#2a3338" layoutX="205.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="➔" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="29.0">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
          </children>
-      </Pane>
-      <Pane fx:id="barPane" layoutX="9.0" layoutY="585.0" prefHeight="61.0" prefWidth="370.0" stylesheets="@../styles/styles.css">
+      </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="116.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
          <children>
-            <Button fx:id="energyButton" layoutX="164.0" layoutY="14.0" mnemonicParsing="false" stylesheets="@../styles/styles.css">
+            <Button fx:id="energyOverviewButton" mnemonicParsing="false" onAction="#handleEnergyOverviewOnAction" prefHeight="70.0" prefWidth="328.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
                <graphic>
-                  <ImageView fx:id="settingsImage" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/Group%202.png" />
-                     </image>
-                  </ImageView>
+                  <Pane depthTest="ENABLE" prefHeight="36.0" prefWidth="284.0">
+                     <children>
+                        <Text fill="WHITE" layoutX="14.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="See energy insights">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font>
+                        </Text>
+                        <Circle fill="WHITE" layoutX="309.0" layoutY="31.0" radius="20.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Text fill="#2a3338" layoutX="297.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="➔">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
                </graphic>
             </Button>
-            <Button fx:id="settingsButton" layoutX="279.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleSettingsButtonAction" stylesheets="@../styles/styles.css">
-               <graphic>
-                  <ImageView fx:id="accountImage" fitHeight="26.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/Group%203.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="homeButton" layoutX="35.0" layoutY="11.0" minWidth="53.0" mnemonicParsing="false" onAction="#handleHomeButton" prefHeight="40.0" prefWidth="53.0">
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="barPane" prefHeight="60.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Button fx:id="searchButton" minWidth="53.0" mnemonicParsing="false" onAction="#handleHomeButton" prefHeight="40.0" prefWidth="53.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="55.0">
                <graphic>
                   <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -95,7 +88,25 @@
                   </ImageView>
                </graphic>
             </Button>
+            <Button fx:id="accountButton" layoutX="168.0" layoutY="16.0" mnemonicParsing="false" stylesheets="@../styles/styles.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="172.0">
+               <graphic>
+                  <ImageView fx:id="settingsImage" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Group%202.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="settingsButton" mnemonicParsing="false" onAction="#handleSettingsButtonAction" stylesheets="@../styles/styles.css" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="55.0">
+               <graphic>
+                  <ImageView fx:id="accountImage" fitHeight="26.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Group%203.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
-      </Pane>
+      </AnchorPane>
    </children>
 </AnchorPane>
