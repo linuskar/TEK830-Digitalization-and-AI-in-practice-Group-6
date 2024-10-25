@@ -1,1 +1,1 @@
-That is it for this tour. If you want to see it again you can find it in this page. You can now close this window to experience a smarter home.
+For this page you’re presented with a price chart giving you the expected energy prices in 24 hour intervals. There is also other information provided in this page such as yearly information.

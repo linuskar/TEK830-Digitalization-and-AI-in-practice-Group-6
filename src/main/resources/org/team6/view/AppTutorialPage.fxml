@@ -35,9 +35,9 @@
                <font>
                   <Font name="System Bold" size="16.0" />
                </font></Button>
-            <HBox alignment="CENTER" prefHeight="240.0" prefWidth="340.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0">
+            <HBox alignment="CENTER" prefHeight="240.0" prefWidth="390.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0">
                <children>
-                  <ImageView fx:id="tutorialImage" fitHeight="240.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tutorialImage" fitHeight="240.0" fitWidth="370.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/pexels-czapp-arpad-3647289-11498771.jpg" />
                      </image>

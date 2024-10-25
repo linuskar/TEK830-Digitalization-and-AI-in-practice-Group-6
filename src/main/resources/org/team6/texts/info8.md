@@ -1,0 +1,1 @@
+Here you can toggle notifications and their related settings. In this page there is another level for settings more related to the technical side of the app.

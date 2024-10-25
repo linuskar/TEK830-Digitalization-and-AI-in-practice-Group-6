@@ -1,0 +1,1 @@
+Here is the product recommendation main page. In this page you can either see general or personal recommendations depending on whether you consented for your data to be used.

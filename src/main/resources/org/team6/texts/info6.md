@@ -1,0 +1,1 @@
+Here you can see various settings like connecting a DIRIGERA hub, seeing legal information and help features such as this tour.

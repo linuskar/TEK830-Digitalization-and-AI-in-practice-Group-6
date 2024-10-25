@@ -1,1 +1,1 @@
-In the app you can connect your smart home devices in the start page.
+Here is the home page. In this page you can start setting up your home smart environment by pressing "Add a hub now". You can also see information about what the home smart environment can do by pressing "Read more". Lastly, there is another button "New IKEA home smart product, what now?", where you can get immediate information about how to set up the environment.
