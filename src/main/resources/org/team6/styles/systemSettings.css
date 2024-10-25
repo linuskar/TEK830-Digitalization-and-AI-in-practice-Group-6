@@ -1,10 +1,10 @@
 #BackgroundPane {
-    -fx-background-color: #1e1e1e;
+    -fx-background-color: black;
 }
 
 #scrollPane {
-    -fx-background-color: #1e1e1e; /* Color of the stroke of the scrollPane */
-    -fx-background: #1e1e1e;       /* Color of the insisde */
+    -fx-background-color: black; /* Color of the stroke of the scrollPane */
+    -fx-background: black;       /* Color of the insisde */
 }
 
 #TheHubButton,
@@ -14,7 +14,7 @@
 #WorkshopButton,
 #AppTutorialButton,
 #HelpButton  {
-    -fx-background-color: #2A3338;
+    -fx-background-color: black;
     -fx-text-fill: #ffffff;
     -fx-font-size: 20px;
     -fx-font-family: "Alata Regular";
@@ -29,14 +29,16 @@
 #jur2,
 #jur3,
 #jur4 {
-    -fx-background-color:  #2A3338;
+    -fx-background-color: black;
     -fx-text-fill: #ffffff;
     -fx-font-size: 20px;
     -fx-font-family: "Alata Regular";
     -fx-font-weight: bold;
-    -fx-border-color: #4d4d4d;
-    -fx-border-width: 1px;
 
+    /* Border color and style only for top and bottom */
+    -fx-border-color: #4d4d4d transparent #4d4d4d transparent; /* top, right, bottom, left */
+    -fx-border-width: 1px 0px 1px 0px; /* top, right, bottom, left */
+    -fx-border-style: solid none solid none; /* Apply border only on top and bottom */
 }
 
 #label1, #label2 {
@@ -54,6 +56,16 @@ Button:hover {
     -fx-cursor: hand;
 }
 
-.scroll-bar  {
+.scroll-bar {
     -fx-opacity: 0;
+}
+
+.scroll-bar:vertical .thumb,
+.scroll-bar:horizontal .thumb {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:vertical .track,
+.scroll-bar:horizontal .track {
+    -fx-background-color: transparent;
 }
