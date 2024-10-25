@@ -1,9 +1,42 @@
-package org.team6.model.Recommendations;
+package org.team6.model.recommendations;
 
-import org.team6.model.Products.ProductCategory;
+import org.team6.model.products.ProductCategory;
 
 public class RecommendationImagePath {
-    public static String getImagePath(String recommendationTitle, ProductCategory productCategory) {
+    public static String getTipImagePath(String recommendationTitle) {
+        String imagePath = "";
+        switch (recommendationTitle) {
+            case "Close the refrigerator door":
+                imagePath = "/org/team6/images/tips/refrigerator_closed.png";
+                break;
+            case "Avoid hot food in the refrigerator":
+                imagePath = "/org/team6/images/tips/hot_food.png";
+                break;
+            case "Oven usage":
+                imagePath = "/org/team6/images/tips/open_oven.png";
+                break;
+            case "Use lids":
+                imagePath = "/org/team6/images/tips/pot_lid.png";
+                break;
+            case "Avoid letting the water run":
+                imagePath = "/org/team6/images/tips/water_running.png";
+                break;
+            case "Reduce time in the shower":
+                imagePath = "/org/team6/images/tips/shower.png";
+                break;
+            case "Lights usage":
+                imagePath = "/org/team6/images/tips/lamp_turning_off.png";
+                break;
+            case "Use natural light":   
+                imagePath = "/org/team6/images/tips/natural_light.png";
+                break;     
+            default:
+                throw new AssertionError();
+        }
+        return imagePath;
+    }
+
+    public static String getProductImagePath(String recommendationTitle, ProductCategory productCategory) {
         String imagePath = "";
         switch (recommendationTitle) {
             case "Tynnerås":
