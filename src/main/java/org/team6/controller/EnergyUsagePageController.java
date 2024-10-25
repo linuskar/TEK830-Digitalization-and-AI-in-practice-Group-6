@@ -1,6 +1,8 @@
 package org.team6.controller;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+
 import org.team6.view.PageStarter;
 
 public class EnergyUsagePageController {
@@ -26,5 +28,8 @@ public class EnergyUsagePageController {
     PageStarter.switchToEnergyPage3();
     }
 
-
+    @FXML
+    private void handleRecommendationsButtonAction() {
+        PageStarter.switchToRecommendationsPage();
+    }
 }

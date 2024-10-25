@@ -125,7 +125,7 @@
                   </AnchorPane>
                   <AnchorPane layoutY="737.0" prefHeight="125.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="661.0">
                      <children>
-                        <Button fx:id="productRecommendationButton" layoutX="132.0" layoutY="63.0" mnemonicParsing="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="0.0">
+                        <Button fx:id="productRecommendationButton" layoutX="132.0" layoutY="63.0" mnemonicParsing="false" onAction="#handleRecommendationsButtonAction" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="0.0">
                            <graphic>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                  <children>
