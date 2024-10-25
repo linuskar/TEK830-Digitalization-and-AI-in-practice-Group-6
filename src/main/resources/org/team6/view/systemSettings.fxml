@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -12,22 +13,34 @@
 
 <AnchorPane fx:id="BackgroundPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="844.0" prefWidth="390.0" stylesheets="@../styles/systemSettings.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.SystemSettingsController">
    <children>
-      <ScrollPane fx:id="scrollPane" layoutX="62.0" layoutY="290.0" prefHeight="1202.0" prefWidth="390.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+      <ScrollPane fx:id="scrollPane" layoutX="62.0" layoutY="290.0" prefHeight="1202.0" prefWidth="390.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-20.0" AnchorPane.topAnchor="100.0">
          <content>
-            <AnchorPane prefHeight="1079.0" prefWidth="375.0">
+            <AnchorPane prefHeight="1079.0" prefWidth="390.0">
                <children>
                   <Button fx:id="FamilyAccountButton" alignment="BASELINE_LEFT" layoutX="15.0" layoutY="150.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="0.0" text="IKEA Family Account" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="150.0" />
                   <Button fx:id="TheHubButton" alignment="BASELINE_LEFT" layoutX="15.0" layoutY="20.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="345.0" text="Add a DIRIGERA hub" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="20.0" />
                   <Button fx:id="EnergySettingsButton" alignment="BASELINE_LEFT" layoutX="15.0" layoutY="245.0" mnemonicParsing="false" onAction="#handleAdvancedSettingsButtonOnAction" prefHeight="75.0" prefWidth="0.0" text="Advanced settings" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" />
                   <Label fx:id="label1" layoutX="15.0" layoutY="337.0" text="Help and support" AnchorPane.leftAnchor="15.0" />
                   <Label fx:id="label2" layoutX="15.0" layoutY="486.0" text="Jurisprudence" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="486.0" />
-                  <Button fx:id="HelpButton" alignment="BASELINE_LEFT" layoutX="15.0" layoutY="392.0" mnemonicParsing="false" onAction="#handleHelpAndSupportButtonOnAction" prefHeight="75.0" prefWidth="0.0" text="help and support center" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" />
-                  <VBox layoutY="536.0" prefHeight="357.0" prefWidth="375.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="536.0">
+                  <Button fx:id="HelpButton" alignment="BASELINE_LEFT" layoutX="15.0" layoutY="392.0" mnemonicParsing="false" onAction="#handleHelpAndSupportButtonOnAction" prefHeight="75.0" prefWidth="0.0" text="Help and support center" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" />
+                  <VBox layoutY="536.0" prefHeight="357.0" prefWidth="390.0" AnchorPane.leftAnchor="-2.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="536.0">
                      <children>
-                        <Button fx:id="jur1" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="90.0" prefWidth="375.0" text="Terms and conditions" />
-                        <Button fx:id="jur2" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="90.0" prefWidth="375.0" text="Privacy Policy" />
-                        <Button fx:id="jur3" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="90.0" prefWidth="375.0" text="Data and privacy" />
-                        <Button fx:id="jur4" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="90.0" prefWidth="375.0" text="Third party license" />
+                        <Button fx:id="jur1" alignment="BASELINE_LEFT" minWidth="392.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="390.0" text="Terms and conditions">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin></Button>
+                        <Button fx:id="jur2" alignment="BASELINE_LEFT" minWidth="392.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="375.0" text="Privacy Policy">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin></Button>
+                        <Button fx:id="jur3" alignment="BASELINE_LEFT" minWidth="392.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="375.0" text="Data and privacy">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin></Button>
+                        <Button fx:id="jur4" alignment="BASELINE_LEFT" minWidth="392.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="375.0" text="Third party license">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin></Button>
                      </children>
                   </VBox>
                   <Button fx:id="WorkshopButton" alignment="TOP_LEFT" contentDisplay="TOP" layoutX="15.0" layoutY="936.0" mnemonicParsing="false" prefHeight="91.0" prefWidth="345.0" text="Workshop" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="936.0" />
