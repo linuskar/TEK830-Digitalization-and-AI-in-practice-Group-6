@@ -240,7 +240,7 @@ public class RecommendationsPageController implements RecommendationObserver {
 
     @FXML
     private void handleSettingsButtonAction() {
-        PageStarter.switchToSettingsPage();
+        PageStarter.switchToSystemSettings();
     }
 
     @FXML
@@ -250,7 +250,7 @@ public class RecommendationsPageController implements RecommendationObserver {
 
     @FXML
     private void handleEnergyInsightsButtonAction() {
-        PageStarter.switchToEnergyInsightsPage();
+        PageStarter.switchToEnergyPage2();
     }
 
     private void createProductRecommendationCard(VBox recommendationVBox, Recommendation recommendation) {
