@@ -1,1 +1,1 @@
-For this page you’re presented with a price chart giving you the expected energy prices in 24 hour intervals. There is a bar that displays where you’ve set your energy limit, which can be done in the settings page.
+For this page you’re presented with a price chart giving you the expected energy prices in 24 hour intervals. There is also other information provided in this page such as yearly information.
