@@ -1,0 +1,59 @@
+#BackgroundPane {
+    -fx-background-color: #1e1e1e;
+}
+
+#scrollPane {
+    -fx-background-color: #1e1e1e; /* Color of the stroke of the scrollPane */
+    -fx-background: #1e1e1e;       /* Color of the insisde */
+}
+
+#TheHubButton,
+#FamilyAccountButton,
+#FamilyAccountButton,
+#EnergySettingsButton,
+#WorkshopButton,
+#AppTutorialButton,
+#HelpButton  {
+    -fx-background-color: #2A3338;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 20px;
+    -fx-font-family: "Alata Regular";
+    -fx-font-weight: bold;
+    -fx-border-color: #4d4d4d;
+    -fx-border-width: 1px;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+}
+
+#jur1,
+#jur2,
+#jur3,
+#jur4 {
+    -fx-background-color:  #2A3338;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 20px;
+    -fx-font-family: "Alata Regular";
+    -fx-font-weight: bold;
+    -fx-border-color: #4d4d4d;
+    -fx-border-width: 1px;
+
+}
+
+#label1, #label2 {
+    -fx-font-size: 25px;
+    -fx-font-family: "Alata Regular";
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+}
+
+#searchButton, #accountButton, #settingsButton, #menuButton1{
+-fx-background-color: transparent;
+}
+
+Button:hover {
+    -fx-cursor: hand;
+}
+
+.scroll-bar  {
+    -fx-opacity: 0;
+}

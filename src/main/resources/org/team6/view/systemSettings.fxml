@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="BackgroundPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="844.0" prefWidth="390.0" stylesheets="@../styles/systemSettings.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.SystemSettingsController">
+   <children>
+      <ScrollPane fx:id="scrollPane" layoutX="62.0" layoutY="290.0" prefHeight="1202.0" prefWidth="390.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+         <content>
+            <AnchorPane prefHeight="1079.0" prefWidth="375.0">
+               <children>
+                  <Button fx:id="FamilyAccountButton" alignment="BASELINE_LEFT" layoutX="15.0" layoutY="150.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="0.0" text="IKEA Family Account" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="150.0" />
+                  <Button fx:id="TheHubButton" alignment="BASELINE_LEFT" layoutX="15.0" layoutY="20.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="345.0" text="Add a DIRIGERA hub" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="20.0" />
+                  <Button fx:id="EnergySettingsButton" alignment="BASELINE_LEFT" layoutX="15.0" layoutY="245.0" mnemonicParsing="false" onAction="#handleAdvancedSettingsButtonOnAction" prefHeight="75.0" prefWidth="0.0" text="Advanced settings" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" />
+                  <Label fx:id="label1" layoutX="15.0" layoutY="337.0" text="Help and support" AnchorPane.leftAnchor="15.0" />
+                  <Label fx:id="label2" layoutX="15.0" layoutY="486.0" text="Jurisprudence" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="486.0" />
+                  <Button fx:id="HelpButton" alignment="BASELINE_LEFT" layoutX="15.0" layoutY="392.0" mnemonicParsing="false" onAction="#handleHelpAndSupportButtonOnAction" prefHeight="75.0" prefWidth="0.0" text="help and support center" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" />
+                  <VBox layoutY="536.0" prefHeight="357.0" prefWidth="375.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="536.0">
+                     <children>
+                        <Button fx:id="jur1" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="90.0" prefWidth="375.0" text="Terms and conditions" />
+                        <Button fx:id="jur2" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="90.0" prefWidth="375.0" text="Privacy Policy" />
+                        <Button fx:id="jur3" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="90.0" prefWidth="375.0" text="Data and privacy" />
+                        <Button fx:id="jur4" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="90.0" prefWidth="375.0" text="Third party license" />
+                     </children>
+                  </VBox>
+                  <Button fx:id="WorkshopButton" alignment="TOP_LEFT" contentDisplay="TOP" layoutX="15.0" layoutY="936.0" mnemonicParsing="false" prefHeight="91.0" prefWidth="345.0" text="Workshop" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="936.0" />
+                  <Label layoutX="100.0" layoutY="1169.0" text="IKEA Home smart-app: 2.0 #1111" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="100.0" />
+                  <Text fill="WHITE" layoutX="30.0" layoutY="987.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Try out our latest ideas and features that haven't been released yet!" wrappingWidth="256.13671875" AnchorPane.topAnchor="974.05078125">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+      <Text fill="WHITE" layoutX="14.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="System settings" wrappingWidth="256.13671875" AnchorPane.leftAnchor="34.0" AnchorPane.topAnchor="60.0">
+         <font>
+            <Font name="Arial Bold" size="30.0" />
+         </font>
+      </Text>
+      <AnchorPane fx:id="barPane" prefHeight="60.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Button fx:id="searchButton" minWidth="53.0" mnemonicParsing="false" onAction="#handleHomeButtonOnAction" prefHeight="40.0" prefWidth="53.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="55.0">
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Group%201.0.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="accountButton" layoutX="172.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleEnergyPageButtonOnAction" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="172.0">
+               <graphic>
+                  <ImageView fx:id="settingsImage" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Group%202.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="settingsButton" mnemonicParsing="false" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="55.0">
+               <graphic>
+                  <ImageView fx:id="accountImage" fitHeight="26.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Group%203.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
