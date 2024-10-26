@@ -73,8 +73,8 @@ ToggleButton:hover {
 
 #scrollPane{
  -fx-background-color: #000000;
-
 }
 
-
-
+#AnchorScrollPane{
+ -fx-background-color: #000000;
+}
