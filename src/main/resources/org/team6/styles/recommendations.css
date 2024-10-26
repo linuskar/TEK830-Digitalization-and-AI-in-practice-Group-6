@@ -58,3 +58,8 @@ Button:hover, ToggleButton:hover {
     -fx-background-color: #8e8f8f;
     -fx-text-fill: #000000;
 }
+
+#recommendationsToggleButton {
+    /*Taken from https://stackoverflow.com/questions/42468235/what-does-the-property-fx-background-insets-mean-and-all-means-of-its-params*/
+    -fx-background-insets: 0 0 0 0, 0, 1, 2;
+}
