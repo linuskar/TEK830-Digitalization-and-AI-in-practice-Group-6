@@ -28,6 +28,8 @@ ToggleButton {
     -fx-text-fill: #000;
     -fx-border-style: solid;
     -fx-border-color: #000;
+    /*Taken from https://stackoverflow.com/questions/42468235/what-does-the-property-fx-background-insets-mean-and-all-means-of-its-params*/
+    -fx-background-insets: 0 0 0 0, 0, 1, 2;
 }
 
 ToggleButton:selected {
@@ -47,4 +49,14 @@ Button:hover, ToggleButton:hover {
 .menuButtons{
     -fx-background-color: transparent;
     -fx-border-width: 0;
+}
+
+#energyInsightsButton{
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10;
+}
+
+#energyInsightsButton:hover{
+    -fx-background-color: #8e8f8f;
+    -fx-text-fill: #000000;
 }
