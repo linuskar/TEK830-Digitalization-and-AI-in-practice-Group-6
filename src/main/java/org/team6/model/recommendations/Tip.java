@@ -2,10 +2,10 @@ package org.team6.model.recommendations;
 
 import org.team6.model.EnergyUsageCategory;
 
-public class Tip {
-    private String tipTitle;
-    private String tipDescription;
-    private EnergyUsageCategory energyUsageCategory;
+class Tip {
+    private final String tipTitle;
+    private final String tipDescription;
+    private final EnergyUsageCategory energyUsageCategory;
 
     public Tip(String title, String text, EnergyUsageCategory energyUsageCategory) {
         this.tipTitle = title;

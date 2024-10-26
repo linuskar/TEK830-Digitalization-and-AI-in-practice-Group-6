@@ -4,9 +4,8 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
-import java.sql.Connection; // JDBC stuff.
+import java.sql.Connection; 
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -25,9 +24,12 @@ import org.team6.model.products.FridgeFreezer;
 import org.team6.model.products.Product;
 import org.team6.model.products.ProductCategory;
 
-// Link to information about the database:
-// https://docs.google.com/document/d/1JxDC5xcKDjNiRzDip7-FgzctD0OXAkUr1Vwq7ylGTpA/edit?usp=sharing
+// NOTE: We do not use an actual database in this project, instead we use mock data for the products and energy spenders
+// This is due to deadlines, time constraints for the project
+// But we had plans for it so, there is reason to why foundations for a database is in the code
 
+// Link to information about the not finished database:
+// https://docs.google.com/document/d/1JxDC5xcKDjNiRzDip7-FgzctD0OXAkUr1Vwq7ylGTpA/edit?usp=sharing
 
 // Some template code for database connection, from TDA357 course
 
@@ -61,27 +63,9 @@ public class DatabaseConnection {
         conn = DriverManager.getConnection(db, props);
 
         if (!isSetupAlreadyRun(conn)) {
-            System.out.println("Setting up database...");
+            //System.out.println("Setting up database...");
             runSetupSQL(conn);
         }
-    }
-
-    /**
-     * Registers a product in the database.
-     *
-     * @param productName the name of the product to register
-     * @return a JSON string indicating success or failure
-     */
-    public String registerProduct(String productName){
-      String query = "INSERT INTO Products VALUES(?)";
-      
-      try (PreparedStatement ps = conn.prepareStatement(query)) {
-          ps.setString(1, productName);
-          ps.executeUpdate();
-          return "{\"success\":true}";
-      } catch (SQLException e) {
-          return "{\"success\":false, \"error\":\""+getError(e)+"\"}";
-      }  
     }
 
     /**
@@ -90,24 +74,6 @@ public class DatabaseConnection {
      * @return a string containing all products
      */
     public static List<Product> getProducts() {
-        /* 
-        String query = "SELECT * FROM Products";
-        try (PreparedStatement ps = conn.prepareStatement(query)) {
-            ResultSet rs = ps.executeQuery();
-            StringBuilder sb = new StringBuilder();
-            sb.append("products: ");
-            while (rs.next()) {
-                sb.append("\"").append(rs.getString(1)).append("\",");
-            }
-            if (sb.charAt(sb.length()-1) == ',') {
-                sb.deleteCharAt(sb.length()-1);
-            }
-            return sb.toString();
-        } catch (SQLException e) {
-            return "{\"error\":\""+getError(e)+"\"}";
-        }
-        */
-        // TODO: Put products in database
         List<Product> dataBaseProducts = new ArrayList<>();
 
         Fridge fridge1 = new Fridge("Tynnerås", ProductCategory.FRIDGE, EnergyUsageCategory.REFRIGERATION, 114, 7995,365);
@@ -199,10 +165,10 @@ public class DatabaseConnection {
                 stmt.execute(tablesSql);
                 stmt.execute(insertsSQL);
                 stmt.execute(viewsSQL);
-                System.out.println("SQL from tables, inserst and views executed successfully.");
+                // System.out.println("SQL from tables, inserts and views executed successfully.");
             }
         } catch (Exception e) {
-            System.out.println("Error running SQL from file: " + e.getMessage());
+            System.err.println("Error running SQL from file: " + e.getMessage());
         }
     }
 
@@ -216,25 +182,6 @@ public class DatabaseConnection {
         }
     }
 
-    // TODO: Future methods to interact with database
-    // Get all lamp products
-
-    // Get information about a lamp product
-
-    // Get the hourly total power consumption for a specific household
-
-    // Get the daily total power consumption for a specific household
-
-    // Get the Yearly total power consumption for a specific household
-
-    // Get the monthly total power consumption for a specific household
-
-    // Get the owned products for a specific household
-
-    // Get the status of current products for a specific household
-
-    // Get the utility usage for a specific household
-
     // Method to reset the database
     public void resetDatabase() {
         try {
@@ -244,10 +191,10 @@ public class DatabaseConnection {
             // Execute the SQL statements
             try (Statement stmt = conn.createStatement()) {
                 stmt.execute(resetSQL);
-                System.out.println("SQL reset from file executed successfully.");
+                // System.out.println("SQL reset from file executed successfully.");
             }
         } catch (Exception e) {
-            System.out.println("Error running SQL from file: " + e.getMessage());
+            System.err.println("Error running SQL from file: " + e.getMessage());
         }
     }
 

@@ -1,5 +1,12 @@
 package org.team6.controller;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import org.team6.tutorial.TutorialPageItem;
+import org.team6.tutorial.TutorialPageItemHandler;
+import org.team6.view.ImageUtils;
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -7,12 +14,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import org.team6.tutorial.TutorialPageItem;
-import org.team6.tutorial.TutorialPageItemHandler;
-import org.team6.view.ImageUtils;
-
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class AppTutorialController implements Initializable {
     @FXML
@@ -101,7 +102,5 @@ public class AppTutorialController implements Initializable {
         currentPageNumber = 0;
         updatePageContent(currentPageNumber);
         windowPane.setVisible(false);
-
-
     }
 }

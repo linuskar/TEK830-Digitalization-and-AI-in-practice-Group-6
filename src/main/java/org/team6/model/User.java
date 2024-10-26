@@ -13,7 +13,6 @@ public class User {
     private boolean notificationsOn = true;
     private final Map<Notification, Boolean> notifications = new EnumMap<>(Notification.class);
 
-    // TODO: make notifications send based on these values?
     private int dailyReportTime = 10;
     private double electricityPriceLimit = 60;
     private int startNotificationTime = 8;

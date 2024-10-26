@@ -1,17 +1,17 @@
 package org.team6.soundsystem;
 
-import org.team6.Main;
-import org.team6.model.Notification;
-
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-import org.team6.model.NotificationBackend;
-import org.team6.model.NotificationListener;
-
 import java.net.URL;
 import java.util.EnumMap;
 import java.util.Map;
 import java.util.Objects;
+
+import org.team6.Main;
+import org.team6.model.Notification;
+import org.team6.model.NotificationBackend;
+import org.team6.model.NotificationListener;
+
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 public class SoundHandler implements NotificationListener {
     private final Map<Notification, Media> notificationSoundMap = new EnumMap<>(Notification.class);

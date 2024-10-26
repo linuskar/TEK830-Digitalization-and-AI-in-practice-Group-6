@@ -1,8 +1,8 @@
 package org.team6.model.recommendations;
 
 public abstract class Recommendation {
-    private String title;
-    private String text;
+    private final String title;
+    private final String text;
 
     public Recommendation(String title, String text) {
         this.title = title;

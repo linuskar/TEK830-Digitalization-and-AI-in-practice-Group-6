@@ -1,11 +1,11 @@
 package org.team6.controller;
 
-import javafx.fxml.FXML;
 import org.team6.model.UrlOpener;
 import org.team6.view.PageStarter;
 
-public class SystemSettingsController {
+import javafx.fxml.FXML;
 
+public class SystemSettingsController {
     @FXML
     private void handleHomeButtonOnAction(){
         PageStarter.switchToHomePage();
@@ -30,6 +30,4 @@ public class SystemSettingsController {
     private void handleHelpAndSupportButtonOnAction(){
         UrlOpener.openUrl("https://www.ikea.com/se/en/customer-service/");
     }
-
-
 }

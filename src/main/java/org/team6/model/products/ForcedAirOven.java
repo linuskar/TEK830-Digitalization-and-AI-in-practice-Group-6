@@ -4,8 +4,8 @@ import org.team6.model.EnergyUsageCategory;
 
 public class ForcedAirOven extends Oven {
     // energy consumption per cycle for each cavity (Fan forced convection) in kWh/cycle
-    private double energyConsumptionFanForcedConvection;     
-    private int numberOfCavities; 
+    private final double energyConsumptionFanForcedConvection;     
+    private final int numberOfCavities; 
     
     public ForcedAirOven(String name, ProductCategory productCategory, EnergyUsageCategory energySpendingcategory, int price, double energyConsumptionConventional, double energyConsumptionFanForcedConvection, int numberOfCavities, double volumeOfEachCavity) {
         super(name, productCategory, energySpendingcategory, price, energyConsumptionConventional, volumeOfEachCavity);

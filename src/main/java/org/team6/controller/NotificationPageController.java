@@ -1,17 +1,17 @@
 package org.team6.controller;
 
+import java.io.IOException;
+import java.util.List;
+
+import org.team6.model.Notification;
+import org.team6.model.NotificationHistory;
+import org.team6.view.PageStarter;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
-import org.team6.model.Notification;
-import org.team6.model.NotificationHistory;
-import org.team6.view.PageStarter;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class NotificationPageController {
 

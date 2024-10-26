@@ -1,5 +1,8 @@
 package org.team6.controller;
 
+import java.util.Arrays;
+
+import org.team6.view.PageStarter;
 
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -7,14 +10,9 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
-import org.team6.view.PageStarter;
 import javafx.scene.paint.Color;
 
-import java.util.Arrays;
-
-
 public class PriceChartController {
-
     @FXML
     private CategoryAxis xAxis;
 
@@ -76,6 +74,6 @@ public class PriceChartController {
 
     @FXML
     private void handleBackToEnergyUsagePage(){
-        PageStarter.switchToEnergyPage2();
+        PageStarter.switchToEnergyUsagePane();
     }
 }

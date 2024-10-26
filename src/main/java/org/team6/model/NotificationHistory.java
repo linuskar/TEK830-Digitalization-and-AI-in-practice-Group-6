@@ -1,16 +1,13 @@
 package org.team6.model;
 
-import javafx.fxml.FXML;
-import javafx.scene.layout.AnchorPane;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import javafx.fxml.FXML;
 
 public class NotificationHistory {
 
         private ArrayList<Notification> notificationArray = new ArrayList<>();
-
-
 
         //Adds notification to an arraylist.
         @FXML
@@ -25,4 +22,3 @@ public class NotificationHistory {
             return notificationArray;
         }
     }
-

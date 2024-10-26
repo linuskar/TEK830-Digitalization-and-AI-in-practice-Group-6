@@ -3,7 +3,7 @@ package org.team6.model.recommendations;
 import org.team6.model.products.ProductCategory;
 
 public class ProductRecommendation extends Recommendation {
-    private ProductCategory productCategory;
+    private final ProductCategory productCategory;
 
     public ProductRecommendation(String title, String text, ProductCategory productCategory) {
         super(title, text);  

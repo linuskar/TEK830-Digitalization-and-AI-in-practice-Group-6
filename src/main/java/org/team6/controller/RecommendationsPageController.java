@@ -244,7 +244,7 @@ public class RecommendationsPageController implements RecommendationObserver {
 
     @FXML
     private void handleEnergyInsightsButtonAction() {
-        PageStarter.switchToEnergyPage2();
+        PageStarter.switchToEnergyUsagePane();
     }
 
     private void createProductRecommendationCard(VBox recommendationVBox, ProductRecommendation recommendation) {
