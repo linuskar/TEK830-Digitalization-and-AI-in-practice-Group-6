@@ -48,3 +48,13 @@ Button:hover, ToggleButton:hover {
     -fx-background-color: transparent;
     -fx-border-width: 0;
 }
+
+#energyInsightsButton{
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10;
+}
+
+#energyInsightsButton:hover{
+    -fx-background-color: #8e8f8f;
+    -fx-text-fill: #000000;
+}

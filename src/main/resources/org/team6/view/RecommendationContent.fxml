@@ -6,17 +6,17 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.VBox?>
 
-<FlowPane fx:id="recommendationsFlowPane" orientation="VERTICAL" prefHeight="414.0" prefWidth="325.0" styleClass="background-color" stylesheets="@../styles/recommendation_content.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.RecommendationsContentController">
+<FlowPane fx:id="recommendationsFlowPane" orientation="VERTICAL" prefHeight="620.0" prefWidth="340.0" styleClass="background-color" stylesheets="@../styles/recommendation_content.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.RecommendationsContentController">
    <children>
-      <ScrollPane fx:id="recommendationsScrollPane" fitToWidth="true" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="325.0" prefHeight="400.0" prefWidth="325.0" styleClass="background-color">
+      <ScrollPane fx:id="recommendationsScrollPane" fitToWidth="true" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="340.0" prefHeight="620.0" prefWidth="340.0" styleClass="background-color">
          <content>
-            <AnchorPane fx:id="recommendationsAnchorPane" minHeight="0.0" minWidth="0.0" styleClass="background-color">
+            <AnchorPane fx:id="recommendationsAnchorPane" minHeight="0.0" minWidth="0.0" prefWidth="340.0" styleClass="background-color">
                <children>
-                  <FlowPane fx:id="productRecommendationsFlowPane" alignment="TOP_CENTER" orientation="VERTICAL" styleClass="background-color" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <FlowPane fx:id="productRecommendationsFlowPane" alignment="TOP_CENTER" orientation="VERTICAL" prefWidth="338.0" styleClass="background-color" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <VBox fx:id="productRecommendationsVBox" spacing="10.0" styleClass="background-color">
                            <FlowPane.margin>
-                              <Insets top="10.0" />
+                              <Insets left="10.0" top="10.0" />
                            </FlowPane.margin></VBox>
                      </children>
                   </FlowPane>
@@ -24,7 +24,7 @@
                      <children>
                         <VBox fx:id="tipsRecommendationsVBox" spacing="10.0" styleClass="background-color">
                            <FlowPane.margin>
-                              <Insets top="10.0" />
+                              <Insets left="10.0" top="10.0" />
                            </FlowPane.margin></VBox>
                      </children>
                   </FlowPane>
