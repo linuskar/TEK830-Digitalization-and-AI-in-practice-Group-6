@@ -35,7 +35,7 @@ public class NotificationController implements NotificationListener {
         notificationPane.setVisible(false);
         notificationPane.setDisable(true);
         ImageUtils.makeCornersRounded(imageView, 20);
-        appNameText.setText("IKEA Home App");
+        appNameText.setText("IKEA Home Smart");
     }
 
     private NotificationHistory notificationHistory;
