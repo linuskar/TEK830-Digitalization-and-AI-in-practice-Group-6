@@ -14,12 +14,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
 public class NotificationPageController {
-
     @FXML
     private VBox notificationHistoryVBox;
 
     private NotificationHistory notificationHistory;
-
 
     @FXML
     private ToggleButton toggleButton;
@@ -55,19 +53,12 @@ public class NotificationPageController {
 
             notificationPane.setVisible(true);
         }
-
-
-
     }
 
     public void makeNotificationHistoryComponentsVisible() {
         //if the toggleButton is selected then the vbox is visible
         notificationHistoryVBox.setVisible(toggleButton.isSelected());
     }
-
-
-
-
 
     @FXML
     private void handleEnergyButtonAction(){
@@ -83,5 +74,4 @@ public class NotificationPageController {
     private void handleHomeButton(){
         PageStarter.switchToHomePage();
     }
-
 }

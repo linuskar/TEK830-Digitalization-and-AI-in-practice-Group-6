@@ -60,7 +60,6 @@ public class NotificationController implements NotificationListener {
         scene.addEventHandler(KeyEvent.KEY_PRESSED, this::handleKeyPress);
     }
 
-
     public void setNotificationHistory(NotificationHistory notificationHistory){
         this.notificationHistory = notificationHistory;
     }
@@ -110,7 +109,6 @@ public class NotificationController implements NotificationListener {
                 default -> {}
             }
         }
-
     }
 
     private static void sendNotification(Notification notification) {
@@ -127,5 +125,4 @@ public class NotificationController implements NotificationListener {
             e.printStackTrace();
         }
     }
-
 }
