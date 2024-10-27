@@ -4,7 +4,7 @@ This is our (Team 6) project and GitHub repository for Digitalization and AI in 
 Some features that we decided to implement were an app tutorial, notifications and recommendations based on energy consumption. 
 * An app tutorial to guide introduce and guide users.
 * Concepts of notifications that can pop up and can be viewed later in a history page. 
-* The energy spending categories, which is already present in the IKEA app through the “Energy Insights” feature is the foundation for our concept of recommendation. The recommendations can be products from IKEA or energy saving tips, which depends on your top energy spending categories. 
+* The energy spending categories, which is already present in the IKEA app through the “Energy Insights” feature is the foundation for our concept of recommendations. The recommendations can be products from IKEA or energy saving tips, which depend on your top energy spending categories. 
 
 ## Structure
 This is a Java project that uses JavaFX and the H2 database engine.
