@@ -16,6 +16,8 @@ This is a Java project that uses JavaFX and the H2 database engine. However, not
 Launching the project will open up a window for the app and give a popup that can be closed. Then it will lead you through the app with a tutorial. To simulate notifications you can press the “P”, “O”, “I”, “U”, “Y” keybinds to make them pop up. Note that daily report notifications can only show up in the time which is set in the settings to closer simulated the actual situation. 
 
 ### Assets not made by us
+We have used Figma to represent parts of the UI. Some images from [pexels](https://www.pexels.com/). Lastly, images we copied from IKEA.
+
 #### IKEA Home Smart App
 We copied parts of the IKEA Home Smart App UI and tried to incorporate it into our prototype.
 
