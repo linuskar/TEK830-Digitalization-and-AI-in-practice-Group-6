@@ -16,6 +16,10 @@ This is a Java project that uses JavaFX and the H2 database engine. However note
 Launching the project will open up a window for the app and lead you through the app tutorial. To simulate notifications you can press the “P”, “O”, “I”, “U”, “Y” keybinds to make them pop up. 
 
 ### Assets not made by us
+### IKEA Home Smart App
+We copy parts of the IKEA Home Smart App UI and incorporate it into our prototype.
+
+### Product recommendations
 Product recommendations are based on IKEA products. Therefore links, data and images to products are from IKEA, https://www.ikea.com/se/en/.
 
 #### Images for tip recommendations
@@ -45,4 +49,4 @@ Product recommendations are based on IKEA products. Therefore links, data and im
   * https://www.empirestateplumbing.com/about-us/news-and-events/34156-7-ways-to-make-your-hot-water-heater-more-energy-efficient.html
 * Lighting 
   * https://beachesenergy.com/energy-savings/lighting-tips
-  * https://www.leadingedgeenergy.com.au/blog/save-money-lighting/
+  * https://www.leadingedgeenergy.com.au/blog/save-money-lighting/ 
