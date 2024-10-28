@@ -1,25 +1,25 @@
 # TEK830 - Digitalization And AI in practice - Team 6
 This is our (Team 6) project and GitHub repository for Digitalization and AI in practice, TEK830, a course at Chalmers University. Our project has the theme "How might we use smart home data to reduce utility costs in Europe?". With this theme, we then decided to do a concept of what an update to the IKEA Home Smart app could look like.
 
-Some features that we decided to implement were an app tutorial, notifications and recommendations based on energy consumption. 
-* An app tutorial to guide introduce and guide users.
-* Concepts of notifications that can pop up and can be viewed later in a history page. 
-* The energy spending categories, which is already present in the IKEA app through the “Energy Insights” feature is the foundation for our concept of recommendations. The recommendations can be products from IKEA or energy saving tips, which depend on your top energy spending categories. 
+Features that we decided to implement were:
+* An app tutorial to introduce and guide users.
+* A direct link to help with setting up IKEA Home Smart. 
+* Concepts of notifications that can pop up and can be viewed later in a notification history page.
+* The energy spending categories, which are already present in the IKEA Home Smart app through the “Energy Insights” feature, is the foundation for our concept of recommendations. The recommendations can be products from IKEA or energy saving tips, which depends on your top energy spending categories. 
 
 ## Structure
-This is a Java project that uses JavaFX and the H2 database engine.
 
 ### Tools
-This is a Java project that uses JavaFX and the H2 database engine. However note that we had plans to do a database but did not work with it further due to time constraints and deadlines. Instead we do mock data with java code. We have some tests that uses JUnit. Maven is used as a tool for build automation. Note that there has been use of generative AI to speed up the development process. Which are tools like ChatGPT and GitHub Copilot.
+This is a Java project that uses JavaFX and the H2 database engine. However, note that we had plans to do a database but did not work with it further due to time constraints and deadlines. Instead, we created mock data with java code. We have some tests that use JUnit and TestFX. Maven is used as a tool for build automation. There has been use of generative AI to speed up the development process. Which are tools like ChatGPT and GitHub Copilot. For more information check out the website’s about page. 
 
 ### Running the project
-Launching the project will open up a window for the app and lead you through the app tutorial. To simulate notifications you can press the “P”, “O”, “I”, “U”, “Y” keybinds to make them pop up. 
+Launching the project will open up a window for the app and give a popup that can be closed. Then it will lead you through the app with a tutorial. To simulate notifications you can press the “P”, “O”, “I”, “U”, “Y” keybinds to make them pop up. Note that daily report notifications can only show up in the time which is set in the settings to closer simulated the actual situation. 
 
 ### Assets not made by us
-### IKEA Home Smart App
-We copied parts of the IKEA Home Smart App UI and incorporate it into our prototype.
+#### IKEA Home Smart App
+We copied parts of the IKEA Home Smart App UI and tried to incorporate it into our prototype.
 
-### Product recommendations
+#### Product recommendations
 Product recommendations are based on IKEA products. Therefore links, data and images to products are from IKEA, https://www.ikea.com/se/en/.
 
 #### Images for tip recommendations
@@ -49,4 +49,7 @@ Product recommendations are based on IKEA products. Therefore links, data and im
   * https://www.empirestateplumbing.com/about-us/news-and-events/34156-7-ways-to-make-your-hot-water-heater-more-energy-efficient.html
 * Lighting 
   * https://beachesenergy.com/energy-savings/lighting-tips
-  * https://www.leadingedgeenergy.com.au/blog/save-money-lighting/ 
+  * https://www.leadingedgeenergy.com.au/blog/save-money-lighting/
+#### Fonts
+* Alata Regular, https://fonts.google.com/specimen/Alata
+* BRLNSDB, 	https://laolessons.com/brlnsdb/
