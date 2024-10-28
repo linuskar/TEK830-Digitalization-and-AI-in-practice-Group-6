@@ -17,7 +17,7 @@ Launching the project will open up a window for the app and lead you through the
 
 ### Assets not made by us
 ### IKEA Home Smart App
-We copy parts of the IKEA Home Smart App UI and incorporate it into our prototype.
+We copied parts of the IKEA Home Smart App UI and incorporate it into our prototype.
 
 ### Product recommendations
 Product recommendations are based on IKEA products. Therefore links, data and images to products are from IKEA, https://www.ikea.com/se/en/.
