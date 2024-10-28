@@ -10,7 +10,7 @@ Features that we decided to implement were:
 ## Structure
 
 ### Tools
-This is a Java project that uses JavaFX and the H2 database engine. However, note that we had plans to do a database but did not work with it further due to time constraints and deadlines. Instead, we created mock data with java code. We have some tests that use JUnit and TestFX. Maven is used as a tool for build automation. There has been use of generative AI to speed up the development process. Which are tools like ChatGPT and GitHub Copilot. For more information check out the website’s about page. 
+This is a Java project that uses JavaFX and the H2 database engine. However, note that we had plans to do a database but did not work with it further due to time constraints and deadlines. Instead, we created mock data with java code. We have some tests that use JUnit and TestFX. Maven is used as a tool for build automation. There has been use of generative AI to speed up the development process. Which are tools like ChatGPT and GitHub Copilot. For more information check out the [website’s about page](https://tek830-team6.web.app/index.html). 
 
 ### Running the project
 Launching the project will open up a window for the app and give a popup that can be closed. Then it will lead you through the app with a tutorial. To simulate notifications you can press the “P”, “O”, “I”, “U”, “Y” keybinds to make them pop up. Note that daily report notifications can only show up in the time which is set in the settings to closer simulated the actual situation. 
