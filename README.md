@@ -4,16 +4,18 @@ This is our (Team 6) project and GitHub repository for Digitalization and AI in 
 Features that we decided to implement were:
 * An app tutorial to introduce and guide users.
 * A direct link to help with setting up IKEA Home Smart. 
-* Concepts of notifications that can pop up and can be viewed later in a notification history page.
-* The energy spending categories, which are already present in the IKEA Home Smart app through the “Energy Insights” feature, is the foundation for our concept of recommendations. The recommendations can be products from IKEA or energy saving tips, which depends on your top energy spending categories. 
+* Concepts of notifications that can pop up and can be viewed later in a notification history page. 
+* The energy spending categories, which are already present in the IKEA Home Smart app through the “Energy Insights” feature, is the foundation for our concept of recommendations. The recommendations can be products from IKEA or energy saving tips, which depends on your top energy spending categories.
+
+For more information about the project check out the [website’s about page](https://tek830-team6.web.app/index.html). 
 
 ## Structure
 
 ### Tools
-This is a Java project that uses JavaFX and the H2 database engine. However, note that we had plans to do a database but did not work with it further due to time constraints and deadlines. Instead, we created mock data with java code. We have some tests that use JUnit and TestFX. Maven is used as a tool for build automation. There has been use of generative AI to speed up the development process. Which are tools like ChatGPT and GitHub Copilot. For more information check out the [website’s about page](https://tek830-team6.web.app/index.html). 
+This is a Java project that uses JavaFX and the H2 database engine. However, note that we had plans to do a database but did not work with it further due to time constraints and deadlines. Instead, we created mock data with java code. We have some tests that use JUnit and TestFX. Maven is used as a tool for build automation. There has been use of generative AI to speed up the development process. Which are tools like ChatGPT and GitHub Copilot. 
 
 ### Running the project
-Launching the project will open up a window for the app and give a popup that can be closed. Then it will lead you through the app with a tutorial. To simulate notifications you can press the “P”, “O”, “I”, “U”, “Y” keybinds to make them pop up. Note that daily report notifications can only show up in the time which is set in the settings to closer simulated the actual situation. 
+Launching the project will open up a window for the app and give a popup that can be closed. Then it will lead you through the app with a tutorial. To simulate notifications you can press the “P”, “O”, “I”, “U”, “Y” keybinds to make them pop up. Note that daily report notifications can only show up in the time which is set in the settings to closely simulate the actual situation. 
 
 ### Assets not made by us
 We have used Figma to represent parts of the UI. Some images from [pexels](https://www.pexels.com/). Lastly, images we copied from IKEA.
@@ -22,7 +24,7 @@ We have used Figma to represent parts of the UI. Some images from [pexels](https
 We copied parts of the IKEA Home Smart App UI and tried to incorporate it into our prototype.
 
 #### Product recommendations
-Product recommendations are based on IKEA products. Therefore links, data and images to products are from IKEA, https://www.ikea.com/se/en/.
+Product recommendations are based on IKEA products. Therefore links, data and images to products are from [IKEA](https://www.ikea.com/se/en/).
 
 #### Images for tip recommendations
 * Refrigeration
@@ -53,5 +55,5 @@ Product recommendations are based on IKEA products. Therefore links, data and im
   * https://beachesenergy.com/energy-savings/lighting-tips
   * https://www.leadingedgeenergy.com.au/blog/save-money-lighting/
 #### Fonts
-* Alata Regular, https://fonts.google.com/specimen/Alata
-* BRLNSDB, 	https://laolessons.com/brlnsdb/
+* [Alata Regular](https://fonts.google.com/specimen/Alata)
+* [BRLNSDB](https://laolessons.com/brlnsdb/)
