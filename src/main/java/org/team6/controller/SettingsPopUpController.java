@@ -15,14 +15,13 @@ public class SettingsPopUpController {
     }
 
     @FXML
-    private void handelAllowProductRecommendation() {
+    private void handleAllowRecommendations() {
         RecommendationsBackend.setPersonalRecommendationsOn(true);
-        // NotificationBackend.allowProductRecommendation(true);
         hidePopUp();
     }
 
     @FXML
-    private void handelRejectProductRecommendation() {
+    private void handleRejectRecommendations() {
         RecommendationsBackend.setPersonalRecommendationsOn(false);
         hidePopUp();
     }

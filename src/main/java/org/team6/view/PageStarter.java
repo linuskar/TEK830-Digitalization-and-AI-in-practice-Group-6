@@ -19,7 +19,6 @@ public class PageStarter {
     private static AnchorPane homePane;
     private static AnchorPane settingsPane;
     private static AnchorPane recommendationsPane;
-    private static AnchorPane settingsPopUpPane;
     private static final List<AnchorPane> pages = new ArrayList<>();
 
     private static AnchorPane energyPane;
@@ -77,8 +76,7 @@ public class PageStarter {
             energyPriceChartPane = getEnergyPriceChartPage();
             pages.add(energyPriceChartPane);
 
-            settingsPopUpPane = getSettingsPopUpPage();
-            pages.add(settingsPopUpPane);
+            AnchorPane settingsPopUpPane = getSettingsPopUpPage();
 
             notificationHistoryPane = getNotificationHistoryPage();
             pages.add(notificationHistoryPane);
@@ -88,7 +86,7 @@ public class PageStarter {
             notificationController.setNotificationHistory(notificationHistory);
             notificationController.getNotificationPageController(notificationPageController);
 
-            mainPage.getChildren().addAll(homePane, settingsPane, recommendationsPane,appTutorialPage, settingsPopUpPane, energyPane,systemSettingsPane, energyUsagePane, energyPriceChartPane, notificationHistoryPane, notificationPane);
+            mainPage.getChildren().addAll(homePane, settingsPane, recommendationsPane, appTutorialPage, settingsPopUpPane, energyPane, systemSettingsPane, energyUsagePane, energyPriceChartPane, notificationHistoryPane, notificationPane);
             notificationController.setupKeyHandling(scene);
         } catch (IOException e) {
             e.printStackTrace();
