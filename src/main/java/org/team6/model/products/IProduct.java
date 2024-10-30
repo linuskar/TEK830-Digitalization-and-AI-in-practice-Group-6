@@ -1,5 +1,5 @@
 package org.team6.model.products;
 
-interface IProduct {
-    public String getProductDescription();
+public interface IProduct {
+    String getProductDescription();
 }
