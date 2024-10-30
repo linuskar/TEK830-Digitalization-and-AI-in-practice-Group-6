@@ -6,20 +6,18 @@ import java.util.List;
 import javafx.fxml.FXML;
 
 public class NotificationHistory {
+    private static final int MAX_NOTIFICATION_AMOUNT = 5;
+    private final List<Notification> sentNotifications = new ArrayList<>(MAX_NOTIFICATION_AMOUNT);
 
-        private ArrayList<Notification> notificationArray = new ArrayList<>();
-
-        //Adds notification to an arraylist.
-        @FXML
-        public void addNotification(Notification notification) {
-            // TODO : Change max array size.
-            if (notificationArray.size() == 5) {
-                notificationArray.remove(0);  // Remove the oldest notification
-            }
-            notificationArray.add(notification);  // Add the new notification
+    // Adds notification to a list.
+    @FXML
+    public void addNotification(Notification notification) {
+        if (sentNotifications.size() == MAX_NOTIFICATION_AMOUNT) {
+            sentNotifications.remove(0);  // Remove the oldest notification
         }
-        public List<Notification> getNotificationList(){
-            return notificationArray;
-        }
+        sentNotifications.add(notification);  // Add the new notification
     }
-    
+    public List<Notification> getNotificationList(){
+        return sentNotifications;
+    }
+}
