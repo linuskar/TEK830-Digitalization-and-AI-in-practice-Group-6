@@ -5,13 +5,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="popUpPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="911.0" prefWidth="389.0" stylesheets="@../styles/settings_popup_style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.SettingsPopUpController">
+<AnchorPane fx:id="popUpPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="911.0" prefWidth="389.0" stylesheets="@../styles/settings_popup_style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.SettingsPopUpController">
    <children>
       <AnchorPane fx:id="popUpPane2" layoutX="5.0" layoutY="386.0" prefHeight="390.0" prefWidth="390.0" AnchorPane.bottomAnchor="227.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="227.0">
          <children>
             <Text fill="WHITE" layoutX="44.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-text" text="Data Preference" />
-            <Button fx:id="allowButton" layoutX="226.0" layoutY="287.0" mnemonicParsing="false" onAction="#handelAllowProductRecommendation" prefHeight="60.0" prefWidth="128.0" styleClass="allow-button" text="Allow" AnchorPane.bottomAnchor="45.0" AnchorPane.rightAnchor="35.0" />
-            <Button fx:id="rejectButton" layoutX="36.0" layoutY="287.0" mnemonicParsing="false" onAction="#handelRejectProductRecommendation" prefHeight="60.0" prefWidth="128.0" styleClass="reject-button" text="Reject" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="35.0" />
+            <Button fx:id="allowButton" layoutX="226.0" layoutY="287.0" mnemonicParsing="false" onAction="#handleAllowRecommendations" prefHeight="60.0" prefWidth="128.0" styleClass="allow-button" text="Allow" AnchorPane.bottomAnchor="45.0" AnchorPane.rightAnchor="35.0" />
+            <Button fx:id="rejectButton" layoutX="36.0" layoutY="287.0" mnemonicParsing="false" onAction="#handleRejectRecommendations" prefHeight="60.0" prefWidth="128.0" styleClass="reject-button" text="Reject" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="35.0" />
             <Label layoutX="19.0" layoutY="74.0" prefHeight="197.0" prefWidth="351.0" styleClass="main-text" text="Do you consent to IKEA Home Smart using your user data to give personalised product recomendations" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
          </children>
       </AnchorPane>

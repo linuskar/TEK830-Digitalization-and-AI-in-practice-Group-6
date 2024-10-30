@@ -11,6 +11,9 @@ public class App extends Application {
         RecommendationsBackend.initialize();
         PageStarter.initialize(primaryStage);
         PageStarter.switchToHomePage();
+
+        // Make the window not resizable
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 

@@ -7,6 +7,10 @@ import org.team6.model.User;
 import org.team6.soundsystem.SoundHandler;
 import org.team6.view.App;
 
+// NOTE: We do not use an actual database in this project, instead we use mock data for the products and energy spenders
+// This is due to deadlines, time constraints for the project
+// But we had plans for it so, there is reason to why foundations for a database is in the code
+
 public class Main {
     public static void main(String[] args) throws SQLException {
         try{

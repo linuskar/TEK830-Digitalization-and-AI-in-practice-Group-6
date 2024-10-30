@@ -1,6 +1,5 @@
 package org.team6.model.products;
 
-
 public enum ProductCategory {
     FRIDGE("Fridge"),
     FREEZER("Freezer"),

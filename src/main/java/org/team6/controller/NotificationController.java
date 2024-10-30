@@ -1,5 +1,13 @@
 package org.team6.controller;
 
+import java.io.IOException;
+
+import org.team6.model.Notification;
+import org.team6.model.NotificationBackend;
+import org.team6.model.NotificationHistory;
+import org.team6.model.NotificationListener;
+import org.team6.view.ImageUtils;
+
 import javafx.animation.PauseTransition;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
@@ -9,16 +17,8 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
-import org.team6.model.Notification;
-import org.team6.model.NotificationBackend;
-import org.team6.model.NotificationHistory;
-import org.team6.model.NotificationListener;
-import org.team6.view.ImageUtils;
-
-import java.io.IOException;
 
 public class NotificationController implements NotificationListener {
-
     @FXML
     private Text appNameText;
     @FXML
@@ -59,7 +59,6 @@ public class NotificationController implements NotificationListener {
     public void setupKeyHandling(Scene scene) {
         scene.addEventHandler(KeyEvent.KEY_PRESSED, this::handleKeyPress);
     }
-
 
     public void setNotificationHistory(NotificationHistory notificationHistory){
         this.notificationHistory = notificationHistory;
@@ -110,7 +109,6 @@ public class NotificationController implements NotificationListener {
                 default -> {}
             }
         }
-
     }
 
     private static void sendNotification(Notification notification) {
@@ -127,5 +125,4 @@ public class NotificationController implements NotificationListener {
             e.printStackTrace();
         }
     }
-
 }

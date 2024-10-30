@@ -3,12 +3,10 @@ package org.team6.model.products;
 import org.team6.model.EnergyUsageCategory;
 
 public abstract class Product implements IProduct  {
-    // TODO: get product image based on id from database
-    // not saving image in database due to size
-    private String name;
-    private EnergyUsageCategory energySpendingCategory;
-    private ProductCategory productCategory;
-    private int price; // price in kr
+    private final String name;
+    private final EnergyUsageCategory energySpendingCategory;
+    private final ProductCategory productCategory;
+    private final int price; // price in kr
 
     public Product(String name, ProductCategory productCategory, EnergyUsageCategory energySpendingcategory, int price) {
         this.name = name;

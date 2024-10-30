@@ -1,25 +1,23 @@
 package org.team6.controller;
 
+import java.io.IOException;
+import java.util.List;
+
+import org.team6.model.Notification;
+import org.team6.model.NotificationHistory;
+import org.team6.view.PageStarter;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
-import org.team6.model.Notification;
-import org.team6.model.NotificationHistory;
-import org.team6.view.PageStarter;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class NotificationPageController {
-
     @FXML
     private VBox notificationHistoryVBox;
 
     private NotificationHistory notificationHistory;
-
 
     @FXML
     private ToggleButton toggleButton;
@@ -55,9 +53,6 @@ public class NotificationPageController {
 
             notificationPane.setVisible(true);
         }
-
-
-
     }
 
     public void makeNotificationHistoryComponentsVisible() {
@@ -65,23 +60,18 @@ public class NotificationPageController {
         notificationHistoryVBox.setVisible(toggleButton.isSelected());
     }
 
-
-
-
-
     @FXML
-    private void handleEnergyButtonAction(){
+    private void handleEnergyButtonAction() {
         PageStarter.switchToEnergyPage();
     }
 
     @FXML
-    private void handleSettingsButtonAction(){
-        PageStarter.switchToSettingsPage();
+    private void handleSettingsButtonAction() {
+        PageStarter.switchToSystemSettings();
     }
 
     @FXML
-    private void handleHomeButton(){
+    private void handleHomeButton() {
         PageStarter.switchToHomePage();
     }
-
 }

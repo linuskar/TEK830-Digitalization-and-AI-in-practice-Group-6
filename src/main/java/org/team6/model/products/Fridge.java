@@ -3,8 +3,8 @@ package org.team6.model.products;
 import org.team6.model.EnergyUsageCategory;
 
 public class Fridge extends Product {
-    private double energyConsumption; // Energy consumption of this product in kWh/annum for fridge
-    private int fridgeVolume; // volume of the fridge in liters
+    private final double energyConsumption; // Energy consumption of this product in kWh/annum for fridge
+    private final int fridgeVolume; // volume of the fridge in liters
 
     public Fridge(String name, ProductCategory productCategory, EnergyUsageCategory energySpendingcategory, double energyConsumption, int price, int fridgeVolume) {
         super(name, productCategory, energySpendingcategory, price);

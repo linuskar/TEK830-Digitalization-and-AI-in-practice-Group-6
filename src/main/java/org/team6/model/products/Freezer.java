@@ -3,8 +3,8 @@ package org.team6.model.products;
 import org.team6.model.EnergyUsageCategory;
 
 public class Freezer extends Product{
-    private double energyConsumption; // Energy consumption of this product in kWh/annum for freezer
-    private int freezerVolume; // volume of the freezer in liters
+    private final double energyConsumption; // Energy consumption of this product in kWh/annum for freezer
+    private final int freezerVolume; // volume of the freezer in liters
 
     public Freezer(String name, ProductCategory productCategory, EnergyUsageCategory energySpendingcategory, double energyConsumption, int price, int freezerVolume) {
         super(name, productCategory, energySpendingcategory, price);

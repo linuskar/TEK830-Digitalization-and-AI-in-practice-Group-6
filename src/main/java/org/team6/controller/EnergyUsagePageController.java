@@ -1,31 +1,30 @@
 package org.team6.controller;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-
 import org.team6.view.PageStarter;
+
+import javafx.fxml.FXML;
 
 public class EnergyUsagePageController {
 
     @FXML
-    private void handleHomePageButtonOnAction(){
+    private void handleHomePageButtonOnAction() {
         PageStarter.switchToHomePage();
     }
 
 
     @FXML
-    private void handleEnergyButtonOnAction(){
+    private void handleEnergyButtonOnAction() {
         PageStarter.switchToEnergyPage();
     }
 
     @FXML
-    private void handleSystemSettingsButton(){
+    private void handleSystemSettingsButton() {
     PageStarter.switchToSystemSettings();
     }
 
     @FXML
-    private void handleEnergyPage3Button(){
-    PageStarter.switchToEnergyPage3();
+    private void handleEnergyPage3Button() {
+    PageStarter.switchToEnergyPriceChartPane();
     }
 
     @FXML

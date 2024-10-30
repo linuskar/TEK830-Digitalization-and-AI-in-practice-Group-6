@@ -9,14 +9,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="mainPage" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="844.0" prefWidth="390.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.HomePageController">
+<AnchorPane fx:id="mainPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="844.0" prefWidth="390.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team6.controller.HomePageController">
    <children>
       <Text fx:id="homePageTitle" fill="WHITE" layoutX="14.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome home" wrappingWidth="210.13671875" AnchorPane.leftAnchor="34.0" AnchorPane.topAnchor="60.0">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="30.0" />
          </font>
       </Text>
-      <AnchorPane layoutX="18.0" layoutY="103.0" prefHeight="454.0" prefWidth="359.0" AnchorPane.bottomAnchor="287.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="102.0">
+      <AnchorPane layoutX="18.0" layoutY="103.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="454.0" prefWidth="359.0" AnchorPane.bottomAnchor="287.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="102.0">
          <children>
             <ImageView fx:id="frontPageImage" fitHeight="269.0" fitWidth="357.0" pickOnBounds="true" preserveRatio="false" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <image>
@@ -49,7 +49,7 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="18.0" layoutY="591.0" prefHeight="155.0" prefWidth="356.0" AnchorPane.bottomAnchor="116.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
+      <AnchorPane layoutX="18.0" layoutY="591.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="155.0" prefWidth="356.0" AnchorPane.bottomAnchor="116.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
          <children>
             <Button fx:id="electricityButton" mnemonicParsing="false" prefHeight="70.0" prefWidth="328.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <graphic>
@@ -93,7 +93,7 @@
          </children>
       </AnchorPane>
       <Button fx:id="menuButton1" layoutX="304.0" layoutY="13.0" minWidth="47.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="68.0" />
-      <AnchorPane fx:id="barPane" prefHeight="60.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <AnchorPane fx:id="barPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <Button fx:id="searchButton" minWidth="53.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="53.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="55.0">
                <graphic>
