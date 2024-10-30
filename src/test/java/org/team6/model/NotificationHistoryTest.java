@@ -62,4 +62,19 @@ class NotificationHistoryTest {
         historyUnderTest.addNotification(Notification.HIGH_ELECTRICITY_PRICE);
         assertTrue(historyUnderTest.getNotificationList().contains(Notification.HIGH_ELECTRICITY_PRICE));
     }
+
+    @Test
+    void getNotificationList_GivenNotifications_ShouldReturnInReverseOrder() {
+        for (Notification notification : Notification.values()) {
+            historyUnderTest.addNotification(notification);
+        }
+
+        int lastElementIndex = Notification.values().length - 1;
+        for (int i = 0; i < Notification.values().length; i++) {
+            Notification actualNotification = historyUnderTest.getNotificationList().get(lastElementIndex - i);
+            Notification expectedNotification = Notification.values()[i];
+
+            assertEquals(expectedNotification, actualNotification);
+        }
+    }
 }
