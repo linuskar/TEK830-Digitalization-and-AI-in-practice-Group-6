@@ -61,17 +61,17 @@ public class NotificationPageController {
     }
 
     @FXML
-    private void handleEnergyButtonAction(){
+    private void handleEnergyButtonAction() {
         PageStarter.switchToEnergyPage();
     }
 
     @FXML
-    private void handleSettingsButtonAction(){
-        PageStarter.switchToAdvancedSettingsPage();
+    private void handleSettingsButtonAction() {
+        PageStarter.switchToSystemSettings();
     }
 
     @FXML
-    private void handleHomeButton(){
+    private void handleHomeButton() {
         PageStarter.switchToHomePage();
     }
 }
