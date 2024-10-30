@@ -22,3 +22,4 @@ public class NotificationHistory {
             return notificationArray;
         }
     }
+    
