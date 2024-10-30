@@ -7,7 +7,7 @@ Features that we decided to implement were:
 * Concepts of notifications that can pop up and can be viewed later in a notification history page. 
 * The energy spending categories, which are already present in the IKEA Home Smart app through the “Energy Insights” feature, is the foundation for our concept of recommendations. The recommendations can be products from IKEA or energy saving tips, which depends on your top energy spending categories.
 
-For more information about the project check out the [website’s about page](https://tek830-team6.web.app/index.html). 
+For more information about the project check out the [website’s about page](https://tek830-team6.web.app/pages/about.html). 
 
 ## Structure
 
