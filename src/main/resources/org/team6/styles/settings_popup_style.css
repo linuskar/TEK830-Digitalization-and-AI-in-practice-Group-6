@@ -43,8 +43,6 @@ Button:hover {
     -fx-cursor: hand;
 }
 
-
-
 #popUpPane{
     -fx-background-color: #80808080;
     -fx-pref-width: 390;

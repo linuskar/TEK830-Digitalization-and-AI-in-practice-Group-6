@@ -53,21 +53,14 @@
 }
 
 #informationPane{
--fx-background-color: #2A3338;
--fx-background-radius: 0 0 15px 15px;
+    -fx-background-color: #2A3338;
+    -fx-background-radius: 0 0 15px 15px;
 }
 
 #readMoreButton{
--fx-background-color: transparent;
+    -fx-background-color: transparent;
 }
 /* Apply hand hover effect for all buttons */
 Button:hover {
     -fx-cursor: hand;
 }
-
-
-
-
-
-
-
