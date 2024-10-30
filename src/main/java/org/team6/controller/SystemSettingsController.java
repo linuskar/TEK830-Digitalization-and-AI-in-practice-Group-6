@@ -23,7 +23,7 @@ public class SystemSettingsController {
 
     @FXML
     private void handleAdvancedSettingsButtonOnAction(){
-        PageStarter.switchToSettingsPage();
+        PageStarter.switchToAdvancedSettingsPage();
     }
 
     @FXML

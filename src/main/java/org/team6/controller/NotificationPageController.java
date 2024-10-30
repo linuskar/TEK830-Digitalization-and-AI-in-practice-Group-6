@@ -67,7 +67,7 @@ public class NotificationPageController {
 
     @FXML
     private void handleSettingsButtonAction(){
-        PageStarter.switchToSettingsPage();
+        PageStarter.switchToAdvancedSettingsPage();
     }
 
     @FXML

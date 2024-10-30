@@ -17,7 +17,7 @@ import javafx.stage.Stage;
 
 public class PageStarter {
     private static AnchorPane homePane;
-    private static AnchorPane settingsPane;
+    private static AnchorPane advancedSettingsPane;
     private static AnchorPane recommendationsPane;
     private static final List<AnchorPane> pages = new ArrayList<>();
 
@@ -59,8 +59,8 @@ public class PageStarter {
             recommendationsPane = getRecommendationsPage();
             pages.add(recommendationsPane);
 
-            settingsPane = getSettingsPage();
-            pages.add(settingsPane);
+            advancedSettingsPane = getAdvancedSettingsPage();
+            pages.add(advancedSettingsPane);
 
             appTutorialPage = getAppTutorialPage();
 
@@ -86,7 +86,7 @@ public class PageStarter {
             notificationController.setNotificationHistory(notificationHistory);
             notificationController.getNotificationPageController(notificationPageController);
 
-            mainPage.getChildren().addAll(homePane, settingsPane, recommendationsPane, appTutorialPage, settingsPopUpPane, energyPane, systemSettingsPane, energyUsagePane, energyPriceChartPane, notificationHistoryPane, notificationPane);
+            mainPage.getChildren().addAll(homePane, advancedSettingsPane, recommendationsPane, appTutorialPage, settingsPopUpPane, energyPane, systemSettingsPane, energyUsagePane, energyPriceChartPane, notificationHistoryPane, notificationPane);
             notificationController.setupKeyHandling(scene);
         } catch (IOException e) {
             e.printStackTrace();
@@ -119,10 +119,10 @@ public class PageStarter {
         primaryStage.setScene(scene);
     }
 
-    public static void switchToSettingsPage() {
-        setPageVisible(settingsPane);
+    public static void switchToAdvancedSettingsPage() {
+        setPageVisible(advancedSettingsPane);
 
-        primaryStage.setTitle("Settings");
+        primaryStage.setTitle("Advanced Settings");
         primaryStage.setScene(scene);
     }
 
@@ -178,7 +178,7 @@ public class PageStarter {
         return loader.load();
     }
 
-    private static AnchorPane getSettingsPage() throws IOException {
+    private static AnchorPane getAdvancedSettingsPage() throws IOException {
         FXMLLoader loader = new FXMLLoader(PageStarter.class.getResource("/org/team6/view/advanced_settings_page.fxml"));
         return loader.load();
     }
